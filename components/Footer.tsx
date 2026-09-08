@@ -25,14 +25,14 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Entwicklung</h4>
+            <h4>Kontakt</h4>
             <ul>
-              <li><Link href="/dev/components">Komponentenbibliothek</Link></li>
+              <li><Link href="/produkte/pure-thermo">Projekt besprechen</Link></li>
             </ul>
           </div>
         </div>
         <div className="footer__bottom">
-          © {new Date().getFullYear()} PURE Technology Platform · Phase 4.2 Masterprototyp
+          © {new Date().getFullYear()} PURE Technology Platform
         </div>
       </div>
     </footer>

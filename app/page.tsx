@@ -1,120 +1,154 @@
-import { getContentByPath, extractListItems, extractSubsections } from '@/lib/content';
 import { getAllProducts } from '@/lib/data';
 import { Hero } from '@/components/Hero';
 import { ProductHub } from '@/components/ProductHub';
-import { ReferenceCard } from '@/components/ReferenceCard';
-import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
-import { assetSrc } from '@/lib/assets';
-import type { EvidenceClass } from '@/lib/data';
 
 export default function HomePage() {
-  const content = getContentByPath('pages/home.de.md');
   const products = getAllProducts();
-
-  const trustBar = extractListItems(content.getSection('Vertrauensleiste')?.html);
-  const whyPure = extractSubsections(content.getSection('Technische Herausforderungen')?.html);
-  const applicationAreas = extractListItems(content.getSection('Technologien entstehen aus konkreten Anwendungen')?.html);
-  const evidenceItems = extractListItems(content.getSection('Nachweise statt pauschaler Versprechen')?.html);
-  const referenceItems = extractListItems(content.getSection('Referenzprogramm')?.html);
-  const partnerItems = extractListItems(content.getSection('Marktreife entsteht')?.html);
-  const thermoFocusSection = content.getSection('Technologie im Fokus');
 
   return (
     <>
       <Hero
-        eyebrow="PURE Technology Platform"
-        title="Funktionale Beschichtungstechnologien für anspruchsvolle Anwendungen."
-        subtitle="PURE verbindet spezialisierte Beschichtungstechnologien mit einer gemeinsamen Entwicklungs-, Prüf- und Dokumentationslogik. Für Gebäude, technische Anlagen, Wärme, Brand-, Oberflächen-, Wasser-, Holz- und Marineanwendungen."
-        primaryCta={{ label: 'Technologien entdecken', href: '/produkte/pure-thermo' }}
-        secondaryCta={{ label: 'Technische Nachweise', href: '/nachweise/EVD-PT-THERM-001' }}
-        backgroundImage={{ file: 'Titelbild.png', alt: 'Applikation einer Pure-Beschichtung an einer modernen Gebäudefassade mit Bauteil-Detailansicht' }}
+        eyebrow="FUNCTIONAL MATERIAL TECHNOLOGY"
+        title="Funktionale Beschichtungen, die Oberflächen neue Eigenschaften geben."
+        subtitle="Dünne, applizierbare Materialsysteme für thermische Isolation, elektrische Wärme, Brand- und Oberflächenschutz – entwickelt für Anwendungen, bei denen konventionelle Systeme konstruktiv an ihre Grenzen stoßen."
+        primaryCta={{ label: 'Technologie entdecken', href: '#why-pure' }}
+        secondaryCta={{ label: 'Pure Thermo ansehen', href: '/produkte/pure-thermo' }}
+        backgroundImage={{ file: 'Hero2.png', alt: 'Person appliziert eine funktionale Beschichtung auf eine Gebäudefassade' }}
       />
 
       <section className="trust-bar">
         <div className="container">
           <ul className="trust-bar__list">
-            {trustBar.map((item) => (
-              <li className="trust-bar__item" key={item.label}>{item.label}</li>
-            ))}
+            <li className="trust-bar__item">Dünne Funktionsschichten</li>
+            <li className="trust-bar__item">Technischer Nachweis</li>
+            <li className="trust-bar__item">Bestands- & Detailanwendungen</li>
+            <li className="trust-bar__item">Material- und Systemdenken</li>
           </ul>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="why-pure">
         <div className="container">
           <div className="split-section">
             <div className="split-section__text">
               <span className="section-heading__eyebrow">Warum PURE?</span>
-              <h2>Technische Herausforderungen lassen sich nicht immer mit mehr Material lösen.</h2>
+              <h2>Mehr Funktion. Weniger Eingriff.</h2>
               <p>
-                Gerade bei Bestandsgebäuden, komplexen Geometrien und technischen Oberflächen entscheiden Aufbauhöhe,
-                Verarbeitung, Funktion und Nachweisbarkeit darüber, ob eine Lösung praktisch einsetzbar ist.
+                In Bereichen mit begrenztem Bauraum, komplexen Geometrien und sensiblen Oberflächen entscheidet oft
+                nicht die Masse des Materials, sondern die gezielte Funktionsintegration.
               </p>
             </div>
             <div className="split-section__media">
               <LightboxFigure
                 file="Vierfelde Problemmatrix.png"
-                alt="Vier typische Problemfelder klassischer Wärme- und Dämmlösungen: begrenzte Aufbauhöhe, komplexe Geometrie, Schutzanforderungen, Betrieb im Bestand"
+                alt="Vier Problemfelder klassischer Einsatzgebiete: geringe Aufbauhöhe, komplexe Geometrie, Detailbereiche und Sonderanforderungen"
               />
             </div>
           </div>
-          <div className="card-grid card-grid--3" style={{ marginTop: 'var(--space-5)' }}>
-            {whyPure.map((item) => (
-              <div className="application-card" key={item.heading}>
-                <span className="application-card__name">{item.heading}</span>
-                <p className="application-card__desc">{item.text}</p>
-              </div>
-            ))}
+
+          <div className="principle-grid" style={{ marginTop: 'var(--space-5)' }}>
+            <article className="principle-card">
+              <span className="principle-card__index">01</span>
+              <h3>Geringe Aufbauhöhe</h3>
+              <p>Funktionale Schichten können dort wirksam werden, wo klassische Systeme baulich oder konstruktiv an ihre Grenzen stoßen.</p>
+            </article>
+            <article className="principle-card">
+              <span className="principle-card__index">02</span>
+              <h3>Funktionale Oberflächen</h3>
+              <p>PURE adressiert thermische, brand- und oberflächenbezogene Anforderungen direkt auf der Bauteilschicht.</p>
+            </article>
+            <article className="principle-card">
+              <span className="principle-card__index">03</span>
+              <h3>Integrierbare Technologie</h3>
+              <p>Materialsysteme werden für reale Anwendungsszenarien entwickelt, nicht nur als Laborkoncepter isoliert von der Praxis.</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Wie funktioniert PURE?</span>
-            <h2>Vom physikalischen Prinzip zur dünnen Funktionsschicht.</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wie PURE funktioniert</span>
+            <h2>Die Funktion beginnt im Material.</h2>
             <p>
-              Zwei aufeinander aufbauende Visualisierungen zeigen, warum die nanoporöse Aerogel-Struktur den
-              Wärmetransport innerhalb der Beschichtung verlangsamt.
+              Bei Oberflächen mit geringer Schichtdicke kann die Mikrostruktur entscheidend dafür sein, wie Wärme transportiert wird.
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-            <LightboxFigure
-              file="Aerogel Funktion.png"
-              alt="Funktionsprinzip von Aerogel im PURE Wärmesystem: eingeschränkte Molekülbewegung bremst den Wärmetransfer"
-              caption="Schematische Darstellung des Funktionsprinzips – kein mikroskopisch maßstäblicher Nachweis."
-            />
-            <LightboxFigure
-              file="nanoporäse Struktur.png"
-              alt="Nanoporöse Funktionsstruktur als Grundlage der bauphysikalischen Wirkung von Pure Thermo"
-              caption="Konzeptgrafik zu den bauphysikalischen Wirkfeldern – Aussagen sind system- und nachweisabhängig."
-            />
+
+          <div className="material-story">
+            <div className="material-story__visual">
+              <LightboxFigure
+                file="Aerogel Funktion.png"
+                alt="Konzeptuelle Darstellung der Wärmetransportbremsung durch eine nanoporöse Aerogelstruktur"
+                caption="Makro: Wärmetransport wird durch die Materialstruktur beeinflusst."
+              />
+            </div>
+            <div className="material-story__copy">
+              <p className="lede">
+                Die entscheidende Frage ist nicht nur, welches Material eingesetzt wird, sondern wie die Struktur den Wärmetransport beeinflusst.
+              </p>
+              <p>
+                Eine nanoporöse Architektur kann den effektiven Transport innerhalb sehr dünner Schichten deutlich verändern. Dadurch wird ein funktionales Verhalten möglich, das mit herkömmlichen Systemen an räumlichen oder konstruktiven Grenzen oft nicht erreichbar ist.
+              </p>
+            </div>
+          </div>
+
+          <div className="material-detail">
+            <div className="material-detail__image">
+              <AssetFigure
+                file="Materialstruktur.png"
+                alt="Materialstruktur mit poröser Aerogelarchitektur als Grundlage der thermischen Funktion"
+              />
+            </div>
+            <div className="material-detail__text">
+              <h3>Warum wenige Millimeter relevant sein können</h3>
+              <p>
+                Die Wirkung entsteht nicht durch eine große Schichtdicke, sondern durch die gezielte Kombination aus poröser Struktur, Matrix und funktionaler Anbindung an das Bauteil.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="photo-break">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={assetSrc('Hero2.png')}
-          alt="Applikator trägt eine PURE-Beschichtung per Spritzverfahren auf eine Bestandsfassade auf"
-          className="photo-break__img"
-          loading="lazy"
-        />
-        <div className="photo-break__caption">
-          Vom Labor zur Fassade: PURE-Technologien werden für die reale Anwendung an Bestands- und Detailflächen
-          entwickelt.
+      <section className="section">
+        <div className="container">
+          <div className="thermo-spotlight">
+            <div className="thermo-spotlight__media">
+              <AssetFigure
+                file="Materialstrukturansicht.png"
+                alt="Materialstrukturansicht mit dünner funktionaler Schicht und der Integration in ein bestehendes Bauteil"
+                caption="PURE THERMO – Schichtdicke minimal, Funktion gezielt am Bauteil positioniert."
+              />
+            </div>
+            <div className="thermo-spotlight__content">
+              <span className="section-heading__eyebrow">PURE THERMO</span>
+              <h2>Thermische Funktion dort, wo Bauraum zum entscheidenden Faktor wird.</h2>
+              <p>
+                PURE THERMO ist die derzeit am weitesten entwickelte Produktfamilie der Plattform und zeigt, wie funktionale Materialsysteme an bestehenden Bauteilen und in Detailbereichen wirksam werden können.
+              </p>
+              <ul className="check-list">
+                <li>Geringe Aufbauhöhe</li>
+                <li>Flächige Anwendung</li>
+                <li>Komplexe Geometrien</li>
+                <li>Bestandsdetails</li>
+                <li>Thermisch relevante Detailbereiche</li>
+              </ul>
+              <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
+                <a className="btn btn--primary" href="/produkte/pure-thermo">Pure Thermo im Detail</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="section section--surface" id="produkte">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading section-heading--narrow">
             <span className="section-heading__eyebrow">Portfolio</span>
-            <h2>Eine Plattform. Sieben Produktfamilien.</h2>
+            <h2>Eine Technologieplattform. Mehrere Funktionswelten.</h2>
           </div>
           <ProductHub products={products} />
         </div>
@@ -122,116 +156,154 @@ export default function HomePage() {
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Anwendungsbereiche</span>
-            <h2>Technologien entstehen aus konkreten Anwendungen.</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Anwendung</span>
+            <h2>Vom Material zum Gebäude.</h2>
           </div>
-          <div className="card-grid card-grid--3">
-            {applicationAreas.map((item) => (
-              <div className="application-card" key={item.label}>
-                <span className="application-card__name">{item.label}</span>
-                <p className="application-card__desc">{item.text}</p>
+          <div className="application-journey">
+            <article className="journey-card journey-card--photo">
+              <img src="/assets/Hero2.png" alt="Applikation einer funktionalen Beschichtung an einer Fassade" loading="lazy" />
+              <div className="journey-card__body">
+                <h3>Bestand</h3>
+                <p>Bauteile mit begrenztem Bauraum.</p>
               </div>
-            ))}
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Detailbereiche</h3>
+                <p>Anschlüsse und komplexe Geometrien.</p>
+              </div>
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Technische Anlagen</h3>
+                <p>Funktionale Oberflächen und Sonderanwendungen.</p>
+              </div>
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Architektur</h3>
+                <p>Integration mit geringer konstruktiver Eingriffstiefe.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="section section--surface" id="evidenz">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Evidenzsystem</span>
-            <h2>Nachweise statt pauschaler Versprechen.</h2>
-            <p>
-              Nicht jede technische Aussage besitzt denselben Reifegrad. PURE trennt deshalb externe Prüfungen, interne
-              Validierung, Berechnungen und Entwicklungsannahmen transparent voneinander.
-            </p>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Evidenz</span>
+            <h2>Wir unterscheiden Wissen von Annahmen.</h2>
+            <p>Technische Aussagen werden bei PURE nach ihrer Nachweisqualität gekennzeichnet.</p>
           </div>
-          <div className="card-grid card-grid--3">
-            {evidenceItems.map((item) => {
-              const evidenceClass = item.label.trim().charAt(0) as EvidenceClass;
-              return (
-                <div className="evidence-card" key={item.label}>
-                  <EvidenceBadge evidenceClass={evidenceClass} />
-                  <p style={{ margin: 0, color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{item.text}</p>
-                </div>
-              );
-            })}
+
+          <div className="evidence-grid">
+            <div className="evidence-card evidence-card--a">
+              <span className="evidence-badge evidence-badge--A"><span className="evidence-badge__letter">A</span> <span>Extern geprüft</span></span>
+              <p>Ergebnisse aus dokumentierten Prüfungen mit klar definiertem Rahmen und Prüfgegenstand.</p>
+            </div>
+            <div className="evidence-card evidence-card--b">
+              <span className="evidence-badge evidence-badge--B"><span className="evidence-badge__letter">B</span> <span>Intern dokumentiert</span></span>
+              <p>Nachvollziehbare interne Validierung, Prüfungen und systemische Ableitung.</p>
+            </div>
+            <div className="evidence-card evidence-card--c">
+              <span className="evidence-badge evidence-badge--C"><span className="evidence-badge__letter">C</span> <span>Berechnet / modelliert</span></span>
+              <p>Transparentes Rechenmodell mit nachvollziehbaren Annahmen und Grenzen.</p>
+            </div>
+            <div className="evidence-card evidence-card--d">
+              <span className="evidence-badge evidence-badge--D"><span className="evidence-badge__letter">D</span> <span>Entwicklungsstatus</span></span>
+              <p>Vorläufige Hypothese, Prüfpfad oder definierter Entwicklungsstatus – kein fertiger Leistungsclaim.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Technologie im Fokus</span>
+          <div className="proof-panel">
+            <div className="proof-panel__header">
+              <span className="section-heading__eyebrow">Extern geprüft</span>
+              <h2>λ = 0,0335 W/(m·K)</h2>
+            </div>
+            <div className="proof-panel__meta">
+              <span>Kiwa GmbH / MPA Berlin-Brandenburg</span>
+              <span>DIN EN 12664</span>
+            </div>
+            <p>
+              Prüfgegenstand THERM 4410. Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.
+            </p>
+            <div className="hero__ctas">
+              <a className="btn btn--primary" href="/nachweise/EVD-PT-THERM-001">Prüfgrundlage ansehen</a>
+            </div>
           </div>
-          {thermoFocusSection ? (
-            <div className="prose" dangerouslySetInnerHTML={{ __html: thermoFocusSection.html }} />
-          ) : null}
-          <a className="btn btn--primary" href="/produkte/pure-thermo">Pure Thermo ansehen</a>
         </div>
       </section>
 
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Referenzprogramm</span>
-            <h2>Wirkung systematisch dokumentieren.</h2>
-            <p>
-              Ziel ist eine nachvollziehbare Dokumentation aus Ausgangszustand bzw. Planungsgrundlage, Systemaufbau,
-              Messplan und zeitlich definierter Auswertung.
-            </p>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Pilot- und Referenzprogramm</span>
+            <h2>PURE baut ein strukturiertes Mess- und Referenzprogramm mit ausgewählten Projekt- und Anwendungspartnern auf.</h2>
           </div>
-          <div className="card-grid card-grid--3">
-            {referenceItems.map((item) => (
-              <ReferenceCard key={item.label} name={item.label || item.text} />
-            ))}
+          <div className="reference-grid">
+            <div className="reference-card">
+              <span className="reference-card__name">Gebäude</span>
+            </div>
+            <div className="reference-card">
+              <span className="reference-card__name">Industrie</span>
+            </div>
+            <div className="reference-card">
+              <span className="reference-card__name">Sonderanwendungen</span>
+            </div>
+          </div>
+          <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
+            <a className="btn btn--primary" href="/produkte/pure-thermo">Pilotprojekt vorschlagen</a>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Partnerbereich</span>
-            <h2>Marktreife entsteht im Zusammenspiel von Technologie, Prüfung und Anwendung.</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Partnerschaft</span>
+            <h2>Die Zusammenarbeit beginnt mit der richtigen Frage.</h2>
           </div>
-          <ul style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-3)', listStyle: 'none', padding: 0 }}>
-            {partnerItems.map((item) => (
-              <li className="pill" key={item.label || item.text}>{item.label || item.text}</li>
-            ))}
-          </ul>
-          <div className="split-section" style={{ marginTop: 'var(--space-5)' }}>
-            <div className="split-section__media" style={{ maxWidth: 480 }}>
-              <AssetFigure
-                file="Leuchtturm.png"
-                alt="Leuchtturm Invest als Marktintegrator zwischen Technologieentwicklung, Prüfpartnern und Marktpartnern"
-                caption="Leuchtturm Invest integriert Technologie-, Prüf- und Marktpartner in einer kontrollierten Struktur."
-              />
-            </div>
-            <div className="split-section__text">
-              <p>
-                Markteinführung erfolgt priorisiert nach Regionen: zunächst DACH, danach das übrige Europa und
-                Nordamerika, anschließend weitere internationale Märkte.
-              </p>
-              <AssetFigure
-                file="globales Potential.png"
-                alt="Marktpriorisierung von PURE: regionaler Rollout von DACH über Europa/Nordamerika bis international"
-              />
-            </div>
+
+          <div className="partner-grid">
+            <article className="partner-card">
+              <h3>Architekten &amp; Planer</h3>
+              <p>Systeminformationen und bauphysikalische Einordnung.</p>
+              <a href="/produkte/pure-thermo">Anfragen</a>
+            </article>
+            <article className="partner-card">
+              <h3>Industriepartner</h3>
+              <p>Integration und technische Anwendungen.</p>
+              <a href="/produkte/pure-thermo">Kontakt aufnehmen</a>
+            </article>
+            <article className="partner-card">
+              <h3>Pilotpartner</h3>
+              <p>Anwendung testen und dokumentieren.</p>
+              <a href="/nachweise/EVD-PT-THERM-001">Prüfgrundlage ansehen</a>
+            </article>
+            <article className="partner-card">
+              <h3>Vertriebs- &amp; Skalierungspartner</h3>
+              <p>Marktentwicklung und Kooperation.</p>
+              <a href="/produkte/pure-thermo">Projekt besprechen</a>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="section section--surface">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h2>Technische Nachweise statt Marketingversprechen.</h2>
-          <div className="hero__ctas" style={{ justifyContent: 'center' }}>
-            <a className="btn btn--primary" href="/produkte/pure-thermo">Technologien entdecken</a>
-            <a className="btn btn--secondary" style={{ color: 'var(--color-navy)', borderColor: 'var(--color-navy)' }} href="/nachweise/EVD-PT-THERM-001">
-              Technische Nachweise
-            </a>
+        <div className="container">
+          <div className="final-cta">
+            <p className="final-cta__lead">Wo konventionelle Systeme an konstruktive Grenzen stoßen, beginnt der interessante Teil.</p>
+            <h2>Sprechen Sie mit uns über Ihre Anwendung.</h2>
+            <div className="hero__ctas" style={{ justifyContent: 'center' }}>
+              <a className="btn btn--primary" href="/produkte/pure-thermo">Projekt besprechen</a>
+              <a className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Unterlagen</a>
+            </div>
           </div>
         </div>
       </section>
