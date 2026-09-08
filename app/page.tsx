@@ -1,11 +1,11 @@
 import { getAllProducts } from '@/lib/data';
 import { Hero } from '@/components/Hero';
-import { ProductHub } from '@/components/ProductHub';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 
 export default function HomePage() {
   const products = getAllProducts();
+  const portfolioProducts = products.filter((product) => product.slug !== 'pure-thermo');
 
   return (
     <>
@@ -96,20 +96,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="material-detail">
-            <div className="material-detail__image">
-              <AssetFigure
-                file="Materialstruktur.png"
-                alt="Materialstruktur mit poröser Aerogelarchitektur als Grundlage der thermischen Funktion"
-              />
-            </div>
-            <div className="material-detail__text">
-              <h3>Warum wenige Millimeter relevant sein können</h3>
-              <p>
-                Die Wirkung entsteht nicht durch eine große Schichtdicke, sondern durch die gezielte Kombination aus poröser Struktur, Matrix und funktionaler Anbindung an das Bauteil.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -150,7 +136,12 @@ export default function HomePage() {
             <span className="section-heading__eyebrow">Portfolio</span>
             <h2>Eine Technologieplattform. Mehrere Funktionswelten.</h2>
           </div>
-          <ProductHub products={products} />
+          <div className="product-pipeline" aria-label="Weitere PURE Systemfamilien">
+            {portfolioProducts.map((product) => (
+              <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
+            ))}
+          </div>
+          <p className="product-pipeline__note">Weitere Systemfamilien werden schrittweise dokumentiert und validiert.</p>
         </div>
       </section>
 
@@ -272,22 +263,17 @@ export default function HomePage() {
 
           <div className="partner-grid">
             <article className="partner-card">
-              <h3>Architekten &amp; Planer</h3>
+              <h3>Planung &amp; Architektur</h3>
               <p>Systeminformationen und bauphysikalische Einordnung.</p>
               <a href="/produkte/pure-thermo">Anfragen</a>
             </article>
             <article className="partner-card">
-              <h3>Industriepartner</h3>
-              <p>Integration und technische Anwendungen.</p>
+              <h3>Industrie &amp; Anwendung</h3>
+              <p>Integration, technische Anwendungen und Pilotierung.</p>
               <a href="/produkte/pure-thermo">Kontakt aufnehmen</a>
             </article>
             <article className="partner-card">
-              <h3>Pilotpartner</h3>
-              <p>Anwendung testen und dokumentieren.</p>
-              <a href="/nachweise/EVD-PT-THERM-001">Prüfgrundlage ansehen</a>
-            </article>
-            <article className="partner-card">
-              <h3>Vertriebs- &amp; Skalierungspartner</h3>
+              <h3>Partnerschaft &amp; Skalierung</h3>
               <p>Marktentwicklung und Kooperation.</p>
               <a href="/produkte/pure-thermo">Projekt besprechen</a>
             </article>

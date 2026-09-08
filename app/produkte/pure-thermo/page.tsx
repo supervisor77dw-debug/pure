@@ -82,7 +82,7 @@ export default function PureThermoPage() {
       <section className="section">
         <div className="container">
           <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Wenn Bauraum zur technischen Grenze wird</span>
+            <span className="section-heading__eyebrow">DIE HERAUSFORDERUNG</span>
             <h2>Wenn Bauraum zur technischen Grenze wird.</h2>
           </div>
           <div className="problem-grid">
@@ -100,7 +100,7 @@ export default function PureThermoPage() {
             </div>
             <div className="problem-card">
               <h3>Lokale thermische Hotspots</h3>
-              <p>Manchmal reicht eine globale Dämmmaßnahme nicht aus; lokale Funktionsbereiche sind entscheidend.</p>
+              <p>Bei bestimmten Detailproblemen kann ergänzend zur Gesamtmaßnahme eine gezielte lokale thermische Behandlung sinnvoll sein.</p>
             </div>
             <div className="problem-card">
               <h3>Schwer zugängliche Bereiche</h3>
@@ -176,7 +176,7 @@ export default function PureThermoPage() {
                 Der relevante Effekt entsteht durch die Struktur der Schicht – nicht durch eine große Materialmasse.
               </p>
               <p>
-                Innerhalb der nanoporösen Architektur wird der Wärmetransport innerhalb der Funktionsschicht reduziert. Dadurch kann eine sehr dünne Beschichtung für bestimmte thermische Einsatzbereiche wirksam werden.
+                Innerhalb der nanoporösen Architektur wird der Wärmetransport innerhalb der Funktionsschicht reduziert. Dadurch kann eine sehr dünne Beschichtung für bestimmte thermische Einsatzbereiche wirksam werden. Die konkrete Wirkung ist stets im jeweiligen Bauteil- und Systemkontext zu bewerten.
               </p>
             </div>
           </div>
@@ -292,7 +292,24 @@ export default function PureThermoPage() {
             <span className="section-heading__eyebrow">Wo PURE THERMO sinnvoll ist – und wo nicht</span>
             <h2>Die Grenzen sind Teil der fachlichen Seriosität.</h2>
           </div>
-          {limitsSection ? <div className="prose" dangerouslySetInnerHTML={{ __html: limitsSection.html }} /> : null}
+          {limitsSection ? (
+            <div className="limits-grid">
+              <div className="limits-panel limits-panel--strengths">
+                <h3>Wo PURE THERMO seine Stärke ausspielt</h3>
+                <ul>
+                  <li>begrenzte Aufbauhöhe</li>
+                  <li>Detailbereiche</li>
+                  <li>komplexe Geometrien</li>
+                  <li>lokale thermische Funktionen</li>
+                  <li>Bestandsanschlüsse</li>
+                </ul>
+              </div>
+              <div className="limits-panel limits-panel--caution">
+                <h3>Was daraus nicht pauschal abgeleitet werden kann</h3>
+                <div className="prose" dangerouslySetInnerHTML={{ __html: limitsSection.html }} />
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
