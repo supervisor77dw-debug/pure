@@ -29,6 +29,8 @@ import { ReleaseBadge } from '@/components/ReleaseBadge';
 import { MarketBadge } from '@/components/MarketBadge';
 import { VersionHistory } from '@/components/VersionHistory';
 import { RelatedContent } from '@/components/RelatedContent';
+import { AssetFigure } from '@/components/AssetFigure';
+import { LightboxFigure } from '@/components/LightboxFigure';
 
 export const metadata: Metadata = { title: 'Komponentenbibliothek (Dev) · PURE Technology Platform' };
 
@@ -186,6 +188,20 @@ export default function DevComponentsPage() {
               { date: '08.09.2026', text: 'Nachweis in das PURE-Webdatenmodell aufgenommen.' }
             ]}
           />
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2>AssetFigure / LightboxFigure</h2>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
+            Einheitlicher Rahmen (Radius/Schatten/Hintergrund) für wiederverwendete Präsentationsgrafiken;
+            LightboxFigure ergänzt eine vergrößerbare Ansicht für Grafiken mit viel Kleinschrift.
+          </p>
+          <div className="card-grid" style={{ maxWidth: 640 }}>
+            <AssetFigure file="Systemrouten.png" alt="Beispiel: Übersicht der Pure-Thermo-Systemrouten" />
+            <LightboxFigure file="TCO Logik.png" alt="Beispiel: TCO-Logik von Pure Thermo" caption="Klick/Tap vergrößert die Ansicht." />
+          </div>
         </div>
       </section>
 

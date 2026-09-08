@@ -17,6 +17,9 @@ import { SystemCard } from '@/components/SystemCard';
 import { TechnicalValue } from '@/components/TechnicalValue';
 import { EvidenceCard } from '@/components/EvidenceCard';
 import { DocumentCard } from '@/components/DocumentCard';
+import { AssetFigure } from '@/components/AssetFigure';
+import { LightboxFigure } from '@/components/LightboxFigure';
+import { assetSrc } from '@/lib/assets';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -128,7 +131,53 @@ export default function PureThermoPage() {
             <h2>Materialarchitektur für eine dünne thermische Funktionsschicht.</h2>
             <div className="prose" dangerouslySetInnerHTML={{ __html: materialHtml }} />
           </div>
+          <div className="split-section">
+            <div className="split-section__media">
+              <LightboxFigure
+                file="Materialstruktur.png"
+                alt="Aerogelgestützte Materialarchitektur von Pure Thermo: von der Mikrostruktur über die Beschichtungsmatrix bis zur Anwendung am Bauteil"
+              />
+            </div>
+            <div className="split-section__text">
+              <p style={{ color: 'var(--color-text-muted)' }}>
+                Nanoporöse Aerogel-Partikel bilden die funktionale Grundlage der dünnen Beschichtungsmatrix, die
+                anschließend als Funktions- und Deckschicht auf das Bauteil appliziert wird.
+              </p>
+              <AssetFigure
+                file="Materialstrukturansicht.png"
+                alt="Nahaufnahme der realen Oberflächenstruktur von Pure Thermo"
+                caption="Reale Oberflächenstruktur von Pure Thermo (Nahaufnahme)."
+              />
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className="section section--surface">
+        <div className="container">
+          <div className="section-heading">
+            <h2>Vom Material zum Bauteil.</h2>
+            <p>
+              Nicht nur die Materialtechnologie zählt, sondern der Übergang von der Beschichtung zum realen
+              Bauteil- und Fassadenaufbau.
+            </p>
+          </div>
+          <LightboxFigure
+            file="Folie 4.png"
+            alt="Vergleich klassischer mehrschichtiger Bauteilaufbau gegenüber dünner Pure-Thermo-Beschichtung im Bauteilquerschnitt"
+          />
+        </div>
+      </section>
+
+      <section className="photo-break">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={assetSrc('Hero.png')}
+          alt="Applikation einer Pure-Beschichtung an einer Gebäudefassade im Abendlicht"
+          className="photo-break__img"
+          loading="lazy"
+        />
+        <div className="photo-break__caption">Von der Materialtechnologie zur Anwendung an der realen Fassade.</div>
       </section>
 
       <section className="section section--surface">
@@ -136,10 +185,26 @@ export default function PureThermoPage() {
           <div className="section-heading">
             <h2>Systemrouten</h2>
           </div>
-          <div className="card-grid card-grid--3">
+          <AssetFigure
+            file="Systemrouten.png"
+            alt="Übersicht der Pure-Thermo-Systemrouten: Interior, Exterior, Detail und die Kombination mit Pure Fire"
+          />
+          <div className="card-grid card-grid--3" style={{ marginTop: 'var(--space-4)' }}>
             {systems.map((system) => (
               <SystemCard key={system.id} system={system} href={SYSTEM_HREFS[system.id]} />
             ))}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginTop: 'var(--space-5)' }}>
+            <LightboxFigure
+              file="Pure Thermo und Pure Fire.png"
+              alt="Pure Thermo und Pure Fire als Kombinationsroute: Schichtaufbau-Hypothese und Prüf-Roadmap, Evidenzstatus D"
+              caption="Systemhypothese und Prüf-Roadmap – Evidenzstatus D, keine belastbare Kombinationsklasse vor vollständiger Prüfung."
+            />
+            <LightboxFigure
+              file="Brandverhalten.png"
+              alt="Brandverhalten von Pure Thermo: positive Teilaspekte, aber kritischer SBI-Prüfpfad für die Kombination mit Pure Fire"
+              caption="Einzelresultate vorhanden – belastbare Klassifizierung erfordert den vollständigen SBI-Prüfpfad."
+            />
           </div>
         </div>
       </section>
@@ -197,13 +262,30 @@ export default function PureThermoPage() {
       <section className="section section--surface">
         <div className="container">
           <div className="section-heading">
+            <h2>Wirtschaftlichkeit über den Lebenszyklus.</h2>
+            <p>
+              Anschaffungskosten allein sind kein vollständiges Bild. Installation, Betrieb, Energieverbrauch,
+              Wartung und Lebenszyklus gehören zur Gesamtbewertung.
+            </p>
+          </div>
+          <LightboxFigure
+            file="TCO Logik.png"
+            alt="TCO-Logik von Pure Thermo: Gesamtkostenbetrachtung über Installation, Betrieb, Energie, Wartung und Lebenszyklus"
+            caption="Modellrechnung, Evidenzstatus C – keine allgemeingültige Payback-Angabe."
+          />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading">
             <h2>Referenzprogramm</h2>
             <p>Referenzprogramm im Aufbau.</p>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--surface">
         <div className="container">
           <div className="section-heading">
             <h2>Downloads</h2>

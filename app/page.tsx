@@ -4,6 +4,9 @@ import { Hero } from '@/components/Hero';
 import { ProductHub } from '@/components/ProductHub';
 import { ReferenceCard } from '@/components/ReferenceCard';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
+import { AssetFigure } from '@/components/AssetFigure';
+import { LightboxFigure } from '@/components/LightboxFigure';
+import { assetSrc } from '@/lib/assets';
 import type { EvidenceClass } from '@/lib/data';
 
 export default function HomePage() {
@@ -26,6 +29,7 @@ export default function HomePage() {
         subtitle="PURE verbindet spezialisierte Beschichtungstechnologien mit einer gemeinsamen Entwicklungs-, Prüf- und Dokumentationslogik. Für Gebäude, technische Anlagen, Wärme, Brand-, Oberflächen-, Wasser-, Holz- und Marineanwendungen."
         primaryCta={{ label: 'Technologien entdecken', href: '/produkte/pure-thermo' }}
         secondaryCta={{ label: 'Technische Nachweise', href: '/nachweise/EVD-PT-THERM-001' }}
+        backgroundImage={{ file: 'Titelbild.png', alt: 'Applikation einer Pure-Beschichtung an einer modernen Gebäudefassade mit Bauteil-Detailansicht' }}
       />
 
       <section className="trust-bar">
@@ -40,15 +44,23 @@ export default function HomePage() {
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Warum PURE?</span>
-            <h2>Technische Herausforderungen lassen sich nicht immer mit mehr Material lösen.</h2>
-            <p>
-              Gerade bei Bestandsgebäuden, komplexen Geometrien und technischen Oberflächen entscheiden Aufbauhöhe,
-              Verarbeitung, Funktion und Nachweisbarkeit darüber, ob eine Lösung praktisch einsetzbar ist.
-            </p>
+          <div className="split-section">
+            <div className="split-section__text">
+              <span className="section-heading__eyebrow">Warum PURE?</span>
+              <h2>Technische Herausforderungen lassen sich nicht immer mit mehr Material lösen.</h2>
+              <p>
+                Gerade bei Bestandsgebäuden, komplexen Geometrien und technischen Oberflächen entscheiden Aufbauhöhe,
+                Verarbeitung, Funktion und Nachweisbarkeit darüber, ob eine Lösung praktisch einsetzbar ist.
+              </p>
+            </div>
+            <div className="split-section__media">
+              <LightboxFigure
+                file="Vierfelde Problemmatrix.png"
+                alt="Vier typische Problemfelder klassischer Wärme- und Dämmlösungen: begrenzte Aufbauhöhe, komplexe Geometrie, Schutzanforderungen, Betrieb im Bestand"
+              />
+            </div>
           </div>
-          <div className="card-grid card-grid--3">
+          <div className="card-grid card-grid--3" style={{ marginTop: 'var(--space-5)' }}>
             {whyPure.map((item) => (
               <div className="application-card" key={item.heading}>
                 <span className="application-card__name">{item.heading}</span>
@@ -56,6 +68,45 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--surface">
+        <div className="container">
+          <div className="section-heading">
+            <span className="section-heading__eyebrow">Wie funktioniert PURE?</span>
+            <h2>Vom physikalischen Prinzip zur dünnen Funktionsschicht.</h2>
+            <p>
+              Zwei aufeinander aufbauende Visualisierungen zeigen, warum die nanoporöse Aerogel-Struktur den
+              Wärmetransport innerhalb der Beschichtung verlangsamt.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+            <LightboxFigure
+              file="Aerogel Funktion.png"
+              alt="Funktionsprinzip von Aerogel im PURE Wärmesystem: eingeschränkte Molekülbewegung bremst den Wärmetransfer"
+              caption="Schematische Darstellung des Funktionsprinzips – kein mikroskopisch maßstäblicher Nachweis."
+            />
+            <LightboxFigure
+              file="nanoporäse Struktur.png"
+              alt="Nanoporöse Funktionsstruktur als Grundlage der bauphysikalischen Wirkung von Pure Thermo"
+              caption="Konzeptgrafik zu den bauphysikalischen Wirkfeldern – Aussagen sind system- und nachweisabhängig."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="photo-break">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={assetSrc('Hero2.png')}
+          alt="Applikator trägt eine PURE-Beschichtung per Spritzverfahren auf eine Bestandsfassade auf"
+          className="photo-break__img"
+          loading="lazy"
+        />
+        <div className="photo-break__caption">
+          Vom Labor zur Fassade: PURE-Technologien werden für die reale Anwendung an Bestands- und Detailflächen
+          entwickelt.
         </div>
       </section>
 
@@ -151,6 +202,25 @@ export default function HomePage() {
               <li className="pill" key={item.label || item.text}>{item.label || item.text}</li>
             ))}
           </ul>
+          <div className="split-section" style={{ marginTop: 'var(--space-5)' }}>
+            <div className="split-section__media" style={{ maxWidth: 480 }}>
+              <AssetFigure
+                file="Leuchtturm.png"
+                alt="Leuchtturm Invest als Marktintegrator zwischen Technologieentwicklung, Prüfpartnern und Marktpartnern"
+                caption="Leuchtturm Invest integriert Technologie-, Prüf- und Marktpartner in einer kontrollierten Struktur."
+              />
+            </div>
+            <div className="split-section__text">
+              <p>
+                Markteinführung erfolgt priorisiert nach Regionen: zunächst DACH, danach das übrige Europa und
+                Nordamerika, anschließend weitere internationale Märkte.
+              </p>
+              <AssetFigure
+                file="globales Potential.png"
+                alt="Marktpriorisierung von PURE: regionaler Rollout von DACH über Europa/Nordamerika bis international"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
