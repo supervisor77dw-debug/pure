@@ -7,12 +7,9 @@ import {
   getValueById,
   getEvidenceByProduct,
   getDocumentById,
-  getOrganizationById,
-  getMarketById
+  getOrganizationById
 } from '@/lib/data';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { MaturityBadge } from '@/components/MaturityBadge';
-import { MarketBadge } from '@/components/MarketBadge';
 import { SystemCard } from '@/components/SystemCard';
 import { TechnicalValue } from '@/components/TechnicalValue';
 import { EvidenceCard } from '@/components/EvidenceCard';
@@ -45,11 +42,6 @@ export default function PureThermoPage() {
   if (!product) return null;
 
   const content = getContentByPath('products/pure-thermo.de.md');
-  const positioningSection = content.getSection('Thermische Funktionsbeschichtung');
-  const statusSubsections = extractSubsections(positioningSection?.html);
-  const technicalStatus = statusSubsections.find((s) => s.heading === 'Technischer Status');
-  const marketStatus = statusSubsections.find((s) => s.heading === 'Marktstatus');
-
   const notUniversalSection = content.getSection('Nicht als Universalersatz');
   const notUniversalIntro = beforeFirstHeading(notUniversalSection?.html);
   const applicationFields = extractListItems(notUniversalSection?.html);
@@ -65,7 +57,6 @@ export default function PureThermoPage() {
   const kiwaDoc = getDocumentById('DOC-PT-KIWA-001');
   const kiwaOrg = kiwaDoc?.organization_id ? getOrganizationById(kiwaDoc.organization_id) : undefined;
 
-  const provenSection = content.getSection('Was ist bereits nachgewiesen');
   const limitsSection = content.getSection('Technische Grenzen');
   const faqSection = content.getSection('FAQ');
   const faqItems = extractSubsections(faqSection?.html);
@@ -76,33 +67,44 @@ export default function PureThermoPage() {
 
       <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
-          <p className="hero__eyebrow">Produkt</p>
-          <h1>Pure Thermo</h1>
+          <p className="hero__eyebrow">PURE THERMO</p>
+          <h1>Thermische Funktion bei minimaler Aufbauhöhe.</h1>
           <p className="hero__subtitle">
-            Thermische Funktionsbeschichtung für anspruchsvolle Bestands-, Detail- und Sonderanwendungen.
+            Eine dünn applizierbare Beschichtungstechnologie für thermisch relevante Bauteilbereiche, komplexe Geometrien und Anwendungen mit begrenztem Bauraum.
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.75)' }}>
-            geringe Aufbauhöhe · spritzbare Verarbeitung · bauphysikalisch bewertbar
-          </p>
+          <div className="hero__ctas">
+            <Link className="btn btn--primary" href="#systemaufbau">Systemaufbau ansehen</Link>
+            <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="card-grid" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div>
-              <h3>Technischer Status</h3>
-              {technicalStatus ? <MaturityBadge label={technicalStatus.text} /> : null}
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wenn Bauraum zur technischen Grenze wird</span>
+            <h2>Wenn Bauraum zur technischen Grenze wird.</h2>
+          </div>
+          <div className="problem-grid">
+            <div className="problem-card">
+              <h3>Begrenzte Aufbauhöhe</h3>
+              <p>Konventionelle Systeme stoßen dort an bauliche Grenzen, wo ein zusätzlicher Aufbau nicht realisierbar ist.</p>
             </div>
-            <div>
-              <h3>Marktstatus</h3>
-              {marketStatus ? <MaturityBadge label={marketStatus.text} /> : null}
-              <div style={{ marginTop: 'var(--space-2)' }}>
-                {product.market_priority?.map((id) => {
-                  const market = getMarketById(id);
-                  return market ? <MarketBadge key={id} market={market} /> : null;
-                })}
-              </div>
+            <div className="problem-card">
+              <h3>Komplexe Geometrien</h3>
+              <p>Detailbereiche und Anschlüsse lassen sich nicht immer mit einer herkömmlichen Einbaulösung adressieren.</p>
+            </div>
+            <div className="problem-card">
+              <h3>Bestandsanschlüsse</h3>
+              <p>Nachträgliche Lösungen müssen dort funktionieren, wo vorhandene Elemente, Bauteilgrenzen und Konstruktionen bereits festliegen.</p>
+            </div>
+            <div className="problem-card">
+              <h3>Lokale thermische Hotspots</h3>
+              <p>Manchmal reicht eine globale Dämmmaßnahme nicht aus; lokale Funktionsbereiche sind entscheidend.</p>
+            </div>
+            <div className="problem-card">
+              <h3>Schwer zugängliche Bereiche</h3>
+              <p>Einzelne Flächen oder Detailbereiche können ohne aufwendige Baumaßnahmen nicht mit klassischen Systemen gelöst werden.</p>
             </div>
           </div>
         </div>
@@ -110,11 +112,10 @@ export default function PureThermoPage() {
 
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <h2>Nicht als Universalersatz – sondern dort, wo geringe Aufbauhöhe entscheidend wird.</h2>
-            <div className="prose" dangerouslySetInnerHTML={{ __html: notUniversalIntro }} />
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wo wird es eingesetzt?</span>
+            <h2>Thermische Funktion an den kritischen Stellen.</h2>
           </div>
-          <h3>Typische Anwendungsfelder</h3>
           <div className="card-grid card-grid--3">
             {applicationFields.map((item) => (
               <div className="application-card" key={item.label}>
@@ -125,28 +126,31 @@ export default function PureThermoPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="systemaufbau">
         <div className="container">
-          <div className="section-heading">
-            <h2>Materialarchitektur für eine dünne thermische Funktionsschicht.</h2>
-            <div className="prose" dangerouslySetInnerHTML={{ __html: materialHtml }} />
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Systemaufbau</span>
+            <h2>Vom Bauteil zur funktionalen Schicht.</h2>
           </div>
-          <div className="split-section">
+          <div className="split-section split-section--balanced">
             <div className="split-section__media">
-              <LightboxFigure
-                file="Materialstruktur.png"
-                alt="Aerogelgestützte Materialarchitektur von Pure Thermo: von der Mikrostruktur über die Beschichtungsmatrix bis zur Anwendung am Bauteil"
+              <AssetFigure
+                file="Bauteilquerschnitt.png"
+                alt="Bauteilquerschnitt mit einer dünnen funktionalen Pure-Thermo-Schicht auf dem Substrat"
+                caption="Untergrund → PURE THERMO Funktionsschicht → definierte Systemlage(n)"
               />
             </div>
             <div className="split-section__text">
-              <p style={{ color: 'var(--color-text-muted)' }}>
-                Nanoporöse Aerogel-Partikel bilden die funktionale Grundlage der dünnen Beschichtungsmatrix, die
-                anschließend als Funktions- und Deckschicht auf das Bauteil appliziert wird.
+              <p>
+                Die thermische Wirkung entsteht im Zusammenspiel von Substrat, applizierter Funktionsschicht und dem konkreten Bauteilaufbau.
+              </p>
+              <p>
+                PURE THERMO ist nicht als generische Vollwärmedämmung konzipiert, sondern als gezielte Funktionsschicht für thermisch relevante Bereiche mit begrenztem Raum und komplexen Randbedingungen.
               </p>
               <AssetFigure
-                file="Materialstrukturansicht.png"
-                alt="Nahaufnahme der realen Oberflächenstruktur von Pure Thermo"
-                caption="Reale Oberflächenstruktur von Pure Thermo (Nahaufnahme)."
+                file="pure Thermo Basic.png"
+                alt="PURE THERMO Basic als Schichtsystem in der praktischen Anwendung"
+                caption="Detailhafte Systemdarstellung für den technischen Einblick."
               />
             </div>
           </div>
@@ -155,72 +159,90 @@ export default function PureThermoPage() {
 
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <h2>Vom Material zum Bauteil.</h2>
-            <p>
-              Nicht nur die Materialtechnologie zählt, sondern der Übergang von der Beschichtung zum realen
-              Bauteil- und Fassadenaufbau.
-            </p>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wie funktioniert das Material?</span>
+            <h2>Das Materialprinzip lässt sich in wenigen Schritten erklären.</h2>
           </div>
-          <LightboxFigure
-            file="Folie 4.png"
-            alt="Vergleich klassischer mehrschichtiger Bauteilaufbau gegenüber dünner Pure-Thermo-Beschichtung im Bauteilquerschnitt"
-          />
-        </div>
-      </section>
-
-      <section className="photo-break">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={assetSrc('Hero.png')}
-          alt="Applikation einer Pure-Beschichtung an einer Gebäudefassade im Abendlicht"
-          className="photo-break__img"
-          loading="lazy"
-        />
-        <div className="photo-break__caption">Von der Materialtechnologie zur Anwendung an der realen Fassade.</div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <div className="section-heading">
-            <h2>Systemrouten</h2>
-          </div>
-          <AssetFigure
-            file="Systemrouten.png"
-            alt="Übersicht der Pure-Thermo-Systemrouten: Interior, Exterior, Detail und die Kombination mit Pure Fire"
-          />
-          <div className="card-grid card-grid--3" style={{ marginTop: 'var(--space-4)' }}>
-            {systems.map((system) => (
-              <SystemCard key={system.id} system={system} href={SYSTEM_HREFS[system.id]} />
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginTop: 'var(--space-5)' }}>
-            <LightboxFigure
-              file="Pure Thermo und Pure Fire.png"
-              alt="Pure Thermo und Pure Fire als Kombinationsroute: Schichtaufbau-Hypothese und Prüf-Roadmap, Evidenzstatus D"
-              caption="Systemhypothese und Prüf-Roadmap – Evidenzstatus D, keine belastbare Kombinationsklasse vor vollständiger Prüfung."
-            />
-            <LightboxFigure
-              file="Brandverhalten.png"
-              alt="Brandverhalten von Pure Thermo: positive Teilaspekte, aber kritischer SBI-Prüfpfad für die Kombination mit Pure Fire"
-              caption="Einzelresultate vorhanden – belastbare Klassifizierung erfordert den vollständigen SBI-Prüfpfad."
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="kennwerte">
-        <div className="container">
-          <div className="section-heading">
-            <h2>Technische Kernwerte</h2>
-          </div>
-          {lambdaValue?.product_mapping?.warning_de ? (
-            <div className="warning-panel" role="alert">
-              <span className="warning-panel__label">Produktzuordnungswarnung THERM 4410</span>
-              Für THERM 4410 wurde λ = 0,0335 ± 0,0003 W/(m·K) extern geprüft. Die eindeutige Zuordnung zur aktuellen
-              Pure-Thermo-Rezeptur wird noch dokumentiert.
+          <div className="material-story">
+            <div className="material-story__visual">
+              <LightboxFigure
+                file="Aerogel Funktion.png"
+                alt="Funktionales Prinzip: Aerogel-Struktur beeinflusst den Wärmetransport innerhalb der dünnen Schicht"
+                caption="Makro: Die Materialstruktur beeinflusst den Wärmetransport."
+              />
             </div>
-          ) : null}
+            <div className="material-story__copy">
+              <p className="lede">
+                Der relevante Effekt entsteht durch die Struktur der Schicht – nicht durch eine große Materialmasse.
+              </p>
+              <p>
+                Innerhalb der nanoporösen Architektur wird der Wärmetransport innerhalb der Funktionsschicht reduziert. Dadurch kann eine sehr dünne Beschichtung für bestimmte thermische Einsatzbereiche wirksam werden.
+              </p>
+            </div>
+          </div>
+          <div className="material-detail" style={{ marginTop: 'var(--space-5)' }}>
+            <div className="material-detail__image">
+              <LightboxFigure
+                file="Materialstruktur.png"
+                alt="Detailansicht der nanoporösen Materialstruktur von Pure Thermo"
+                caption="Materialstruktur als Grundlage der thermischen Funktion."
+              />
+            </div>
+            <div className="material-detail__text">
+              <h3>Technisch sauber formuliert</h3>
+              <p>
+                PURE THERMO ist eine Material- und Beschichtungstechnologie für definierte thermische Funktionsbereiche. Die Wirkung wird in einem klaren Systemkontext bewertet – nicht als allgemeine Ersatzlösung für jeden Aufbau.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Anwendungsfelder</span>
+            <h2>Typische Einsatzbereiche und Systemkontexte.</h2>
+          </div>
+          <div className="application-journey">
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Bestand</h3>
+                <p>Bauteile mit begrenztem Bauraum oder vorhandenen Randbedingungen.</p>
+              </div>
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Detailbereiche</h3>
+                <p>Anschlüsse, Laibungen und komplexe Übergänge.</p>
+              </div>
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Komplexe Geometrien</h3>
+                <p>Funktionsbereiche mit unregelmäßiger Oberfläche und systemischer Einbindung.</p>
+              </div>
+            </article>
+            <article className="journey-card">
+              <div className="journey-card__body">
+                <h3>Technische Oberflächen</h3>
+                <p>Thermisch relevante Bereiche mit konkreter Prüf- und Systemlogik.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--surface" id="kennwerte">
+        <div className="container">
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Technische Kernwerte</span>
+            <h2>Die wesentlichen Kennwerte als echte Produktdaten.</h2>
+          </div>
+          <div className="warning-panel" role="alert">
+            <span className="warning-panel__label">Prüfstatus</span>
+            Der externe Prüfbericht bezieht sich auf THERM 4410. Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.
+          </div>
           <div className="technical-value-grid">
             {values.map((value) => (
               <TechnicalValue key={value.id} value={value} />
@@ -229,31 +251,46 @@ export default function PureThermoPage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container">
+          <div className="proof-panel">
+            <div className="proof-panel__header">
+              <span className="section-heading__eyebrow">Extern geprüft</span>
+              <h2>λ = 0,0335 W/(m·K)</h2>
+            </div>
+            <div className="proof-panel__meta">
+              <span>Kiwa GmbH / MPA Berlin-Brandenburg</span>
+              <span>DIN EN 12664</span>
+            </div>
+            <p>
+              Der Nachweis für THERM 4410 wurde unter dokumentierten Prüfbedingungen nach DIN EN 12664 ermittelt. Wesentliche Grenzen liegen in der Zuordnung des Prüfgegenstands zur aktuellen Pure-Thermo-Version und in der Übertragbarkeit auf andere Systemaufbauten.
+            </p>
+            <div className="hero__ctas">
+              <Link className="btn btn--primary" href="/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <h2>Evidenz- und Nachweisstatus</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Systemrouten</span>
+            <h2>PURE THERMO als Basis für definierte Systemweiterentwicklung.</h2>
           </div>
           <div className="card-grid card-grid--3">
-            {evidenceRecords.map((evidence) => (
-              <EvidenceCard
-                key={evidence.id}
-                evidence={evidence}
-                href={`/nachweise/${evidence.id}`}
-                sourceLabel={evidence.organization_id ? getOrganizationById(evidence.organization_id)?.name : undefined}
-              />
+            {systems.map((system) => (
+              <SystemCard key={system.id} system={system} href={SYSTEM_HREFS[system.id]} />
             ))}
           </div>
-          {provenSection ? (
-            <div className="prose" style={{ marginTop: 'var(--space-4)' }} dangerouslySetInnerHTML={{ __html: provenSection.html }} />
-          ) : null}
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <h2>Technische Grenzen</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wo PURE THERMO sinnvoll ist – und wo nicht</span>
+            <h2>Die Grenzen sind Teil der fachlichen Seriosität.</h2>
           </div>
           {limitsSection ? <div className="prose" dangerouslySetInnerHTML={{ __html: limitsSection.html }} /> : null}
         </div>
@@ -261,60 +298,45 @@ export default function PureThermoPage() {
 
       <section className="section section--surface">
         <div className="container">
-          <div className="section-heading">
-            <h2>Wirtschaftlichkeit über den Lebenszyklus.</h2>
-            <p>
-              Anschaffungskosten allein sind kein vollständiges Bild. Installation, Betrieb, Energieverbrauch,
-              Wartung und Lebenszyklus gehören zur Gesamtbewertung.
-            </p>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Wirtschaftlichkeit</span>
+            <h2>Über die reine Materialbetrachtung hinaus.</h2>
           </div>
           <LightboxFigure
             file="TCO Logik.png"
-            alt="TCO-Logik von Pure Thermo: Gesamtkostenbetrachtung über Installation, Betrieb, Energie, Wartung und Lebenszyklus"
-            caption="Modellrechnung, Evidenzstatus C – keine allgemeingültige Payback-Angabe."
+            alt="TCO-Logik von Pure Thermo mit Material-, Montage-, Betriebs- und Lebenszyklusbetrachtung"
+            caption="Wirtschaftlichkeit kann sich aus Material, Montage, Eingriffstiefe und Lebenszyklus zusammensetzen – qualitative Logik, soweit keine belastbare Projektkalkulation vorliegt."
           />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
-            <h2>Referenzprogramm</h2>
-            <p>Referenzprogramm im Aufbau.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <div className="section-heading">
-            <h2>Downloads</h2>
-          </div>
-          <div className="card-grid card-grid--3">
-            {kiwaDoc ? <DocumentCard document={kiwaDoc} organization={kiwaOrg} /> : null}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <div className="section-heading">
-            <h2>FAQ</h2>
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">FAQ</span>
+            <h2>Häufige Fragen zu PURE THERMO.</h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
             {faqItems.map((item) => (
               <details key={item.heading} style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', padding: 'var(--space-3)' }}>
                 <summary style={{ fontWeight: 600, cursor: 'pointer', color: 'var(--color-navy)' }}>{item.heading}</summary>
-                <p style={{ marginTop: 'var(--space-2)' }}>{item.text}</p>
+                <p style={{ marginTop: 'var(--space-2)', color: 'var(--color-text-muted)' }}>{item.text}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--surface">
         <div className="container">
-          <Link href="/nachweise/EVD-PT-THERM-001">Zum Nachweis: Wärmeleitfähigkeit THERM 4410 →</Link>
+          <div className="final-cta">
+            <p className="final-cta__lead">Prüfen wir, ob PURE THERMO für Ihr Bauteil sinnvoll ist.</p>
+            <h2>Projekt besprechen</h2>
+            <div className="hero__ctas" style={{ justifyContent: 'center' }}>
+              <Link className="btn btn--primary" href="/produkte/pure-thermo">Projekt besprechen</Link>
+              <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Unterlagen ansehen</Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
