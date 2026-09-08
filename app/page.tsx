@@ -62,7 +62,7 @@ export default function HomePage() {
             <article className="principle-card">
               <span className="principle-card__index">03</span>
               <h3>Integrierbare Technologie</h3>
-              <p>Materialsysteme werden für reale Anwendungsszenarien entwickelt, nicht nur als Laborkoncepter isoliert von der Praxis.</p>
+              <p>Materialsysteme werden für reale Anwendungsszenarien entwickelt, nicht nur als Laborkonzepte isoliert von der Praxis.</p>
             </article>
           </div>
         </div>
@@ -258,12 +258,12 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
-            <a className="btn btn--primary" href="/produkte/pure-thermo">Pilotprojekt vorschlagen</a>
+            <a className="btn btn--primary" href="#partnerschaft">Pilotprojekt vorschlagen</a>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="partnerschaft">
         <div className="container">
           <div className="section-heading section-heading--narrow">
             <span className="section-heading__eyebrow">Partnerschaft</span>
