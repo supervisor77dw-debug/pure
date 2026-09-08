@@ -1,0 +1,8 @@
+id: APP-BLD-DETAIL-001
+slug: details-anschluesse
+name: {de: "Laibungen, Anschlüsse und Details"}
+category: building_renovation
+description: {de: Geometrisch anspruchsvolle Bereiche und Anschlüsse mit begrenzter Aufbauhöhe.}
+candidate_systems: [SYS-PT-INT-001]
+publication: public_with_limitation
+version: '1.0'

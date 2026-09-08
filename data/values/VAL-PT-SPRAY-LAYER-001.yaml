@@ -1,0 +1,12 @@
+id: VAL-PT-SPRAY-LAYER-001
+product_id: PRD-PT
+property: layer_thickness_per_spray_pass
+label: {de: Schichtdicke je Spritzgang}
+value_display: 'ca. 4–6 mm'
+unit: mm
+evidence_class: B
+status: preliminary
+warning_de: Dies ist ein Entwicklungs-/Verarbeitungswert je Spritzgang und keine freigegebene Gesamtsystemdicke.
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

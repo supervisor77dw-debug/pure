@@ -1,0 +1,30 @@
+id: EVD-PT-THERM-001
+title: {de: Bestimmung der Wärmeleitfähigkeit THERM 4410}
+evidence_class: A
+type: external_test
+related_product_ids: [PRD-PT]
+tested_subject: {designation: THERM 4410, description: Advanced Acrylic Water-Borne Insulation Coating, specimen: Freifilm, formulation_version: unknown}
+standard: {id: STD-EN12664, designation: DIN EN 12664:2001-05}
+organization_id: ORG-KIWA
+report_number: P000517940
+report_date: '2025-06-10'
+test_period: 'Mai–Juni 2025'
+results: [{value_id: VAL-PT-LAMBDA-001}]
+scope:
+  proves_de:
+    - Wärmeleitfähigkeit des geprüften THERM-4410-Freifilms unter den dokumentierten Prüfbedingungen.
+  does_not_automatically_prove_de:
+    - allgemeine Energieeinsparung eines Gebäudes
+    - Brandklasse
+    - KfW-/BEG-/GEG-Förderfähigkeit
+    - Übertragbarkeit auf geänderte Rezepturen
+    - Übertragbarkeit auf beliebige Untergründe
+    - Freigabe kompletter Pure-Thermo-Systemaufbauten
+limitations:
+  - Die Prüfergebnisse beziehen sich auf den genannten Prüfgegenstand.
+  - Produkt-/Rezepturzuordnung zur aktuellen Pure-Thermo-Version ist noch zu dokumentieren.
+document_id: DOC-PT-KIWA-001
+review: {technical: approved_for_tested_subject, regulatory: conditional, communication: approved_with_limitation}
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

@@ -1,0 +1,11 @@
+id: PRD-PWOD
+slug: pure-wood-protect
+name: {de: Pure Wood Protect}
+short_description:
+  de: Funktionale Beschichtung für definierte Holzoberflächen und Schutzanwendungen.
+publication: public
+content_status: placeholder_until_product_review
+version: '0.1'
+updated_at: '2026-09-08'
+rules:
+  - Keine nicht produktspezifisch freigegebenen Leistungsdaten ergänzen.

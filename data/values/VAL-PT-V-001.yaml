@@ -1,0 +1,15 @@
+id: VAL-PT-V-001
+product_id: PRD-PT
+property: water_vapor_diffusion_flux_density
+label: {de: Wasserdampf-Diffusionsstromdichte}
+symbol: V
+value: 25.6
+unit: g/(m²·d)
+classification: {standard: DIN EN 1062-1, class: V2, label_de: mittel}
+evidence_class: A
+evidence_scope: gemessen_an_musterplatten
+source_label: DIN EN ISO 7783-2 Bericht
+product_mapping: {status: final_formulation_and_system_assignment_to_confirm}
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

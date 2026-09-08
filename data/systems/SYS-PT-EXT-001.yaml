@@ -1,0 +1,10 @@
+id: SYS-PT-EXT-001
+slug: pure-thermo-exterior
+name: {de: Pure Thermo Exterior}
+product_id: PRD-PT
+status: {maturity: development_and_test_route, publication: public_with_limitation}
+evidence_class: B
+focus: [wasseraufnahme_schlagregen, uv, frost_tau, haftung, rissverhalten, fassadenbrand]
+public_summary_de: Außenroute für definierte mineralische Bestandsfassaden; vollständiges Außen- und Brandpaket ist noch aufzubauen.
+version: '1.0'
+updated_at: '2026-09-08'

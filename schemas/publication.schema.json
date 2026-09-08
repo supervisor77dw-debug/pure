@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PURE Publication Status",
+  "type": "string",
+  "enum": [
+    "draft",
+    "internal",
+    "partner",
+    "public_with_limitation",
+    "public",
+    "withdrawn"
+  ]
+}

@@ -1,0 +1,8 @@
+id: APP-BLD-INTERIOR-001
+slug: innen-bestand
+name: {de: Innen- und Bestandswände}
+category: building_renovation
+description: {de: Bestandsflächen mit begrenzter Aufbauhöhe und objektspezifischer bauphysikalischer Bewertung.}
+candidate_systems: [SYS-PT-INT-001]
+publication: public_with_limitation
+version: '1.0'

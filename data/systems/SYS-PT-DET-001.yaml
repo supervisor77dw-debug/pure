@@ -1,0 +1,10 @@
+id: SYS-PT-DET-001
+slug: pure-thermo-detail
+name: {de: Pure Thermo Detail}
+product_id: PRD-PT
+status: {maturity: application_focus_system_definition_pending, publication: public_with_limitation}
+evidence_class: B
+focus: [laibungen, anschluesse, waermebruecken_details, komplexe_geometrien, geringe_aufbauhoehe]
+public_summary_de: Anwendungsschwerpunkt für geometrisch anspruchsvolle Details und Bereiche mit begrenzter Aufbauhöhe; Systemdefinition wird aufgebaut.
+version: '0.1'
+updated_at: '2026-09-08'

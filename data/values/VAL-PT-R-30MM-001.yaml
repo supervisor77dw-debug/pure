@@ -1,0 +1,13 @@
+id: VAL-PT-R-30MM-001
+product_id: PRD-PT
+property: thermal_resistance
+label: {de: Wärmedurchlasswiderstand bei 30 mm}
+symbol: R
+value: 0.896
+unit: m²K/W
+evidence_class: C
+calculation: {formula: R = d / λ, lambda_source: VAL-PT-LAMBDA-001, thickness_mm: 30}
+warning_de: Rechenwert auf Basis des extern geprüften THERM-4410-λ; Produktzuordnung muss bestätigt sein.
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

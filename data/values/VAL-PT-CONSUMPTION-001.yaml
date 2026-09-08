@@ -1,0 +1,12 @@
+id: VAL-PT-CONSUMPTION-001
+product_id: PRD-PT
+property: application_consumption
+label: {de: Verbrauch}
+value: 0.6
+unit: kg/(mm·m²)
+evidence_class: B
+status: preliminary
+limitations: [abhängig_von_untergrund_struktur_und_applikation]
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

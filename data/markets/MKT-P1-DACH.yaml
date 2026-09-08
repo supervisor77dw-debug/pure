@@ -1,0 +1,5 @@
+id: MKT-P1-DACH
+priority: 1
+label_de: DACH
+countries: [DE, AT, CH]
+status: strategic_priority

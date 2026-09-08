@@ -1,0 +1,15 @@
+id: SYS-PT-FIRE-001
+slug: pure-thermo-fire
+name: {de: Pure Thermo + Pure Fire}
+product_id: PRD-PT
+related_products: [PRD-PFP]
+status: {maturity: development_hypothesis_test_route, publication: public_with_limitation}
+evidence_class: D
+focus: [brandklassifizierung_des_vollstaendigen_aufbaus]
+required_validation: [finaler_systemaufbau, pruefmuster, EN_ISO_11925_2, EN_13823_SBI, EN_13501_1_klassifizierungsbericht]
+prohibited_claims:
+  - Pure Thermo + Pure Fire erreicht B-s1,d0.
+  - Der Kombinationsaufbau ist brandschutztechnisch allgemein zugelassen.
+public_summary_de: Technisch plausible Kombinationsroute mit zwingendem Prüfbedarf; keine Euroklasse vor Prüfung und Klassifizierung des vollständigen Aufbaus.
+version: '1.0'
+updated_at: '2026-09-08'

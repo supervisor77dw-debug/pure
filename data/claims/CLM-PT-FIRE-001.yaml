@@ -1,0 +1,9 @@
+id: CLM-PT-FIRE-001
+statement_de: Pure Thermo + Pure Fire ist eine technisch plausible Systemroute mit zwingendem Prüfbedarf; eine Euroklasse darf erst nach Prüfung und Klassifizierung des vollständigen Aufbaus kommuniziert werden.
+product_id: PRD-PT
+evidence_class: D
+related_systems: [SYS-PT-FIRE-001]
+status: {technical: approved_as_development_route, communication: approved_as_development_status}
+channels: {website: true_with_limitation, investor: true, sales: false}
+prohibited_variants:
+  - Pure Thermo + Pure Fire erreicht B-s1,d0.

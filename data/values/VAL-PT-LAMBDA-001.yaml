@@ -1,0 +1,19 @@
+id: VAL-PT-LAMBDA-001
+product_id: PRD-PT
+property: thermal_conductivity
+label: {de: Wärmeleitfähigkeit}
+symbol: λ
+value: 0.0335
+uncertainty: 0.0003
+unit: W/(m·K)
+conditions: {mean_temperature_c: 10, sample_thickness_mm: 8.33}
+tested_material: {designation: THERM 4410}
+evidence_class: A
+evidence_ids: [EVD-PT-THERM-001]
+document_ids: [DOC-PT-KIWA-001]
+product_mapping:
+  status: pending_confirmation
+  warning_de: Prüfgegenstand ist THERM 4410. Die eindeutige Zuordnung zur aktuellen Pure-Thermo-Rezeptur muss vor uneingeschränkter Produktkommunikation dokumentiert werden.
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

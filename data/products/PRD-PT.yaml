@@ -1,0 +1,20 @@
+id: PRD-PT
+slug: pure-thermo
+name: {de: Pure Thermo, en: Pure Thermo}
+category: thermal_functional_coating
+short_description:
+  de: Thermische Funktionsbeschichtung für definierte Bestands-, Detail- und Sonderanwendungen.
+owner: {technical: ORG-TII}
+platform: PURE
+publication: public
+maturity:
+  code: external_core_test_plus_system_validation
+  label_de: Externe Kernprüfung vorhanden · Systemvalidierung läuft
+market_priority: [MKT-P1-DACH, MKT-P2-EU-NA, MKT-P3-GLOBAL]
+systems: [SYS-PT-INT-001, SYS-PT-EXT-001, SYS-PT-DET-001, SYS-PT-FIRE-001]
+accent_token: thermo
+version: '1.0'
+updated_at: '2026-09-08'
+notes:
+  - Keine Positionierung als universeller Ersatz klassischer Dämmung.
+  - Technische Aussagen einzeln nach Evidenz A–D führen.

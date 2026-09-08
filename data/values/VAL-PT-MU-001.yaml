@@ -1,0 +1,13 @@
+id: VAL-PT-MU-001
+product_id: PRD-PT
+property: water_vapor_diffusion_resistance_factor
+label: {de: Wasserdampfdiffusionswiderstandszahl}
+symbol: μ
+value_display: 'ca. 95–109; praxisnah etwa 100'
+unit: dimensionless
+evidence_class: C
+derivation: aus_sd_und_schichtdicke_abgeleitet
+warning_de: Nicht als direkt gemessenen μ-Wert ausweisen.
+publication: public_with_limitation
+version: '1.0'
+updated_at: '2026-09-08'

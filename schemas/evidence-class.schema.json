@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PURE Evidence Class",
+  "type": "string",
+  "enum": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ]
+}

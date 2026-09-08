@@ -1,0 +1,24 @@
+id: SYS-PT-INT-001
+slug: pure-thermo-interior
+name: {de: Pure Thermo Interior}
+product_id: PRD-PT
+purpose: {de: "Definierte Entwicklungsroute für thermische Innen-, Bestands- und Detailanwendungen."}
+status: {maturity: system_definition_and_test_program, technical_release: conditional, publication: public_with_limitation}
+evidence_class: B
+intended_applications: [APP-BLD-INTERIOR-001, APP-BLD-CELLAR-001, APP-BLD-DETAIL-001]
+substrates:
+  status: not_finally_released
+  currently_intended: [mineralischer_bestandsuntergrund, beton, mineralischer_putz, mauerwerk]
+layers:
+  - {order: 1, role: substrate, label_de: Mineralischer Bestandsuntergrund, status: objektspezifisch_zu_pruefen}
+  - {order: 2, role: pretreatment, label_de: Vorbehandlung / Grundierung, status: untergrundabhaengig_noch_zu_definieren}
+  - {order: 3, role: functional_layer, label_de: Pure Thermo, product_id: PRD-PT, thickness_mm: null, status: systemdicke_noch_freizugeben}
+  - {order: 4, role: finish, label_de: Optionale Endoberfläche, status: nur_nach_systemfreigabe}
+required_validation: [finale_produktdaten, finaler_systemaufbau, voc_innenraum, haftzug, feuchte_hygrothermik, mindestbrandverhalten, schimmelbewertung_objektbezogen]
+limitations:
+  - Pure Thermo Interior ersetzt keine erforderliche Bauwerksabdichtung.
+  - Bauwerksseitige Feuchteursachen müssen vor Anwendung geklärt werden.
+  - Energetische Wirkung ist objekt- und schichtdickenabhängig zu berechnen.
+  - Keine pauschale Schimmelverhinderungszusage.
+version: '1.0'
+updated_at: '2026-09-08'

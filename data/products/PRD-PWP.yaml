@@ -1,0 +1,11 @@
+id: PRD-PWP
+slug: pure-water-protect
+name: {de: Pure Water Protect}
+short_description:
+  de: Beschichtungstechnologie für wasser- und marinebezogene Anwendungen.
+publication: public
+content_status: placeholder_until_product_review
+version: '0.1'
+updated_at: '2026-09-08'
+rules:
+  - Keine nicht produktspezifisch freigegebenen Leistungsdaten ergänzen.

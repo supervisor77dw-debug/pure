@@ -1,0 +1,8 @@
+id: APP-BLD-CELLAR-001
+slug: keller-kalte-oberflaechen
+name: {de: Keller und kalte Innenoberflächen}
+category: building_renovation
+description: {de: Kalte Innenoberflächen und Detailbereiche; Feuchteursachen sind vor Anwendung separat zu klären.}
+candidate_systems: [SYS-PT-INT-001]
+publication: public_with_limitation
+version: '1.0'

@@ -1,0 +1,5 @@
+id: MKT-P2-EU-NA
+priority: 2
+label_de: Übriges Europa + Nordamerika
+regions: [EU_without_DACH, North_America]
+status: strategic_priority

@@ -1,0 +1,10 @@
+id: CLM-PT-THERM-001
+statement_de: Für THERM 4410 wurde eine Wärmeleitfähigkeit von 0,0335 ± 0,0003 W/(m·K) nach DIN EN 12664:2001-05 extern geprüft.
+product_id: PRD-PT
+evidence_class: A
+value_ids: [VAL-PT-LAMBDA-001]
+evidence_ids: [EVD-PT-THERM-001]
+status: {technical: approved_for_tested_subject, regulatory: conditional, communication: approved_with_limitation}
+channels: {website: true_with_limitation, investor: true_with_limitation, sales: false_until_product_mapping_confirmed}
+restrictions:
+  - THERM 4410 darf nicht ohne bestätigte Produktzuordnung mit der aktuellen Pure-Thermo-Rezeptur gleichgesetzt werden.

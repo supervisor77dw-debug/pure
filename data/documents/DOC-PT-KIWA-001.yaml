@@ -1,0 +1,15 @@
+id: DOC-PT-KIWA-001
+title: {de: Kiwa Prüfbericht – Wärmeleitfähigkeit THERM 4410}
+document_type: test_report
+organization_id: ORG-KIWA
+report_number: P000517940
+date: '2025-06-10'
+language: de
+related_products: [PRD-PT]
+related_evidence: [EVD-PT-THERM-001]
+status: {validity: valid_for_named_test_subject, publication: public_with_limitation}
+file:
+  public_path: null
+  note_de: Original-PDF erst öffentlich bereitstellen, wenn Veröffentlichungsrecht und gewünschte Sichtbarkeit geklärt sind.
+version: '1.0'
+updated_at: '2026-09-08'
