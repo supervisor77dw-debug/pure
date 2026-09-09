@@ -66,6 +66,8 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/products/pure-floor-protect': '/produkte/pure-floor-protect',
     '/produkte/pure-fire-protect': '/products/pure-fire-protect',
     '/products/pure-fire-protect': '/produkte/pure-fire-protect',
+    '/produkte/pure-water-protect': '/products/pure-water-protect',
+    '/products/pure-water-protect': '/produkte/pure-water-protect',
     '/nachweise/EVD-PT-THERM-001': '/evidence/EVD-PT-THERM-001',
     '/evidence/EVD-PT-THERM-001': '/nachweise/EVD-PT-THERM-001',
     '/': '/'

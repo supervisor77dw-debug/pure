@@ -17,6 +17,7 @@ const LINKED_SLUGS: Record<string, string> = {
   'pure-surface-protect': '/pure-surface-protect',
   'pure-floor-protect': '/pure-floor-protect'
   ,'pure-fire-protect': '/pure-fire-protect'
+  ,'pure-water-protect': '/pure-water-protect'
 };
 
 export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
@@ -45,7 +46,7 @@ export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
             <Link href={productsIndexPath(locale)}>{locale === 'en' ? 'All products' : 'Alle Produkte'}</Link>
             {products.map((product) => {
               const href = LINKED_SLUGS[product.slug];
-              const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat').replace('/pure-surface-protect', 'products/pure-surface-protect').replace('/pure-floor-protect', 'products/pure-floor-protect').replace('/pure-fire-protect', 'products/pure-fire-protect') : href.replace(/^\//, '')) : undefined;
+              const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat').replace('/pure-surface-protect', 'products/pure-surface-protect').replace('/pure-floor-protect', 'products/pure-floor-protect').replace('/pure-fire-protect', 'products/pure-fire-protect').replace('/pure-water-protect', 'products/pure-water-protect') : href.replace(/^\//, '')) : undefined;
               return href ? (
                 <Link key={product.id} href={localizedHref || href}>{product.name.de}</Link>
               ) : (

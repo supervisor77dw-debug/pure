@@ -1134,6 +1134,23 @@ table { border-collapse: collapse; width: 100%; }
 .fire-protect-columns h3 { font-size: 1rem; }
 .fire-protect-columns li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
 
+/* ==========================================================================\n+   PURE Water Protect\n+   ========================================================================== */
+.water-protect-hero { background: linear-gradient(120deg, #0b1f3a 0%, #0e6e7c 100%); }
+.water-protect-hero__grid { display:grid; grid-template-columns:1fr; gap:var(--space-5); align-items:center; }
+@media (min-width:900px){.water-protect-hero__grid{grid-template-columns:.9fr 1.1fr;}}
+.water-protect-steps,.water-protect-season{display:grid;grid-template-columns:1fr;gap:var(--space-2);}
+@media (min-width:760px){.water-protect-steps,.water-protect-season{grid-template-columns:repeat(5,minmax(0,1fr));}}
+.water-protect-steps article,.water-protect-season article{padding:var(--space-3);border-top:3px solid var(--color-petrol);background:var(--color-surface);}
+.water-protect-steps span,.water-protect-season span{color:var(--color-petrol);font-weight:700;}.water-protect-steps h3,.water-protect-season h3{font-size:.95rem;margin-top:var(--space-2);}.water-protect-steps p,.water-protect-season p{margin:0;color:var(--color-text-muted);font-size:.88rem;}
+.water-protect-statement{margin:var(--space-5) auto 0;max-width:760px;padding:var(--space-4);border-left:5px solid var(--color-petrol);background:rgba(14,110,124,.07);font-size:1.15rem;font-weight:600;color:var(--color-navy);}
+.water-protect-performance{display:grid;grid-template-columns:1fr;gap:var(--space-3);}.water-protect-performance div{padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);}.water-protect-performance strong,.water-protect-performance span{display:block}.water-protect-performance strong{font-size:1.5rem;color:var(--color-navy)}.water-protect-performance span{margin-top:var(--space-2);color:var(--color-text-muted)}
+@media (min-width:760px){.water-protect-performance{grid-template-columns:repeat(3,1fr)}}
+.water-protect-evidence{display:grid;grid-template-columns:1fr;gap:var(--space-3)}.water-protect-evidence article{padding:var(--space-4);border-left:4px solid var(--color-evidence-b);border-radius:var(--radius-md);background:var(--color-bg);border-top:1px solid var(--color-border);border-right:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}.water-protect-evidence strong,.water-protect-evidence span{display:block}.water-protect-evidence span{color:var(--color-petrol);font-weight:700;margin:var(--space-2) 0}.water-protect-evidence p{color:var(--color-text-muted)}
+@media (min-width:760px){.water-protect-evidence{grid-template-columns:repeat(3,1fr)}}
+.water-protect-application-list{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-2);margin-bottom:var(--space-4)}.water-protect-application-list span{padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:999px;background:var(--color-bg);font-weight:700;color:var(--color-navy)}
+.water-protect-fuel{display:flex;flex-wrap:wrap;gap:var(--space-2);justify-content:center}.water-protect-fuel li{padding:var(--space-2) var(--space-3);background:var(--color-surface);border-radius:var(--radius-sm);color:var(--color-text-muted)}
+.water-protect-qa{display:grid;grid-template-columns:1fr;gap:var(--space-2);padding-left:1.5rem}.water-protect-qa li{padding:var(--space-2);color:var(--color-text-muted)}
+
 /* ==========================================================================
    Product Hub / Product Card
    ========================================================================== */
