@@ -4,8 +4,12 @@ import { Hero } from '@/components/Hero';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { localePath, type Locale } from '@/lib/i18n';
+import { headers } from 'next/headers';
+import { isLocale } from '@/lib/i18n';
 
-export default function HomePage({ locale = 'de' }: { locale?: Locale }) {
+export default function HomePage() {
+  const headerLocale = headers().get('x-pure-locale') || 'de';
+  const locale: Locale = isLocale(headerLocale) ? headerLocale : 'de';
   const products = getAllProducts();
   const portfolioProducts = products.filter((product) => product.slug !== 'pure-thermo');
   const deLink = (path: string) => localePath(locale, path);

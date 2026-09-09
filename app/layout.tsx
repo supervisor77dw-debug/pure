@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { LocaleShell } from '@/components/LocaleShell';
 import { getAllProducts } from '@/lib/data';
 import { headers } from 'next/headers';
 import { isLocale, ui } from '@/lib/i18n';
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={locale}>
       <body>
-        <a className="skip-link" href="#main-content">{ui[locale].skip}</a>
+        <LocaleShell />
         <Header products={products} locale={locale} />
         <main id="main-content">{children}</main>
         <Footer locale={locale} />

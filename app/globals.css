@@ -171,6 +171,8 @@ table { border-collapse: collapse; width: 100%; }
 }
 .header__logo span { color: var(--color-petrol); }
 .language-switcher {
+  display: inline-flex;
+  align-items: center;
   color: var(--color-navy);
   font-size: 0.78rem;
   font-weight: 700;
@@ -178,6 +180,9 @@ table { border-collapse: collapse; width: 100%; }
   white-space: nowrap;
 }
 .language-switcher span { color: var(--color-border); padding: 0 4px; }
+.language-switcher__active { color: var(--color-navy) !important; }
+.language-switcher a { color: var(--color-text-muted); }
+.language-switcher a:hover { color: var(--color-petrol); }
 .language-switcher:hover { color: var(--color-petrol); text-decoration: none; }
 
 .header__nav {

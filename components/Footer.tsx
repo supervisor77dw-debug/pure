@@ -1,8 +1,14 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { localePath, type Locale } from '@/lib/i18n';
 
 export function Footer({ locale = 'de' }: { locale?: Locale }) {
-  const isEnglish = locale === 'en';
+  const pathname = usePathname() || '/';
+  const routeLocale = pathname.split('/')[1];
+  const currentLocale: Locale = routeLocale === 'en' || routeLocale === 'de' ? routeLocale : locale;
+  const isEnglish = currentLocale === 'en';
   return (
     <footer className="footer">
       <div className="container">

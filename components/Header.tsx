@@ -6,17 +6,21 @@ import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
 import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
-import { alternateLocale, localizedCounterpart, localePath, type Locale, ui } from '@/lib/i18n';
+import { isLocale, localizedCounterpart, localePath, pathWithoutLocale, type Locale, ui } from '@/lib/i18n';
 
 export function Header({ products, locale = 'de' }: { products: Product[]; locale?: Locale }) {
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname() || '/';
+  const routeLocale = pathname.split('/')[1];
+  const currentLocale: Locale = isLocale(routeLocale) ? routeLocale : locale;
+  const counterpartHref = localizedCounterpart(currentLocale, pathname);
+  const currentHref = localePath(currentLocale, pathWithoutLocale(pathname));
 
   return (
     <header className="header">
       <div className="container header__bar">
-        <Link href={localePath(locale)} className="header__logo">
+        <Link href={localePath(currentLocale)} className="header__logo">
           PURE<span>.</span> Technology Platform
         </Link>
         <nav className="header__nav" aria-label="Hauptnavigation">
@@ -31,30 +35,32 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
               aria-expanded={megaOpen}
               onClick={() => setMegaOpen((v) => !v)}
             >
-              {ui[locale].products}
+              {ui[currentLocale].products}
             </button>
-            <MegaMenu products={products} open={megaOpen} onClose={() => setMegaOpen(false)} locale={locale} />
+            <MegaMenu products={products} open={megaOpen} onClose={() => setMegaOpen(false)} locale={currentLocale} />
           </div>
-          <Link className="header__nav-button" href={locale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>{ui[locale].systems}</Link>
-          <Link className="header__nav-button" href={locale === 'en' ? localePath('en', 'evidence/EVD-PT-THERM-001') : localePath('de', 'nachweise/EVD-PT-THERM-001')}>{ui[locale].evidence}</Link>
+          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>{ui[currentLocale].systems}</Link>
+          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence/EVD-PT-THERM-001') : localePath('de', 'nachweise/EVD-PT-THERM-001')}>{ui[currentLocale].evidence}</Link>
         </nav>
         <div className="header__search" role="search">
-          <label htmlFor="desktop-search" className="visually-hidden">{ui[locale].search}</label>
-          <input id="desktop-search" type="search" placeholder={ui[locale].search} />
+          <label htmlFor="desktop-search" className="visually-hidden">{ui[currentLocale].search}</label>
+          <input id="desktop-search" type="search" placeholder={ui[currentLocale].search} />
         </div>
-        <Link className="language-switcher" href={localizedCounterpart(locale, pathname)} aria-label={ui[locale].switchLabel}>
-          {locale.toUpperCase()} <span aria-hidden="true">|</span> {alternateLocale(locale).toUpperCase()}
-        </Link>
+        <div className="language-switcher" aria-label={ui[currentLocale].switchLabel}>
+          {currentLocale === 'de' ? <span className="language-switcher__active" aria-current="page">DE</span> : <Link href={counterpartHref}>DE</Link>}
+          <span aria-hidden="true">|</span>
+          {currentLocale === 'en' ? <span className="language-switcher__active" aria-current="page">EN</span> : <Link href={counterpartHref}>EN</Link>}
+        </div>
         <button
           className="header__burger"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           onClick={() => setMobileOpen((v) => !v)}
         >
-          {mobileOpen ? ui[locale].close : ui[locale].menu}
+          {mobileOpen ? ui[currentLocale].close : ui[currentLocale].menu}
         </button>
       </div>
-      <MobileNav products={products} open={mobileOpen} locale={locale} />
+      <MobileNav products={products} open={mobileOpen} locale={currentLocale} />
     </header>
   );
 }
