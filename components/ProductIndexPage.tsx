@@ -1,17 +1,6 @@
 import Link from 'next/link';
 import { getAllProducts } from '@/lib/data';
-import { localePath, type Locale } from '@/lib/i18n';
-
-const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
-  'pure-thermo': { de: 'produkte/pure-thermo', en: 'products/pure-thermo' },
-  'pure-liquid-heat': { de: 'pure-liquid-heat', en: 'products/pure-liquid-heat' },
-  'pure-surface-protect': { de: 'produkte/pure-surface-protect', en: 'products/pure-surface-protect' },
-  'pure-floor-protect': { de: 'produkte/pure-floor-protect', en: 'products/pure-floor-protect' }
-  ,'pure-fire-protect': { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' }
-  ,'pure-water-protect': { de: 'produkte/pure-water-protect', en: 'products/pure-water-protect' }
-  ,'pure-wood-protect': { de: 'produkte/pure-wood-protect', en: 'products/pure-wood-protect' }
-  ,'pure-boat-protect': { de: 'produkte/pure-boat-protect', en: 'products/pure-boat-protect' }
-};
+import { productPath, type Locale } from '@/lib/i18n';
 
 const EN_DESCRIPTIONS: Record<string, string> = {
   'pure-thermo': 'Thermal functional coating for defined existing-building, detail and special applications.',
@@ -37,12 +26,12 @@ export function ProductIndexPage({ locale }: { locale: Locale }) {
         </div>
         <div className="product-index-grid">
           {products.map((product) => {
-            const route = PRODUCT_ROUTES[product.slug]?.[locale];
+            const route = productPath(locale, product.slug);
             return (
               <article className="product-index-card" key={product.id}>
                 <h2>{product.name.de}</h2>
                 <p>{english ? EN_DESCRIPTIONS[product.slug] : product.short_description.de}</p>
-                {route ? <Link className="btn btn--primary" href={localePath(locale, route)}>{english ? 'Explore product' : 'Produkt ansehen'}</Link> : <span className="product-index-card__status">{english ? 'EN_TRANSLATION_PENDING' : 'Seite in Vorbereitung'}</span>}
+                {route ? <Link className="btn btn--primary" href={route}>{english ? 'Explore product' : 'Produkt ansehen'}</Link> : <span className="product-index-card__status">{english ? 'EN_TRANSLATION_PENDING' : 'Seite in Vorbereitung'}</span>}
               </article>
             );
           })}

@@ -86,3 +86,19 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
 export function productsIndexPath(locale: Locale): string {
   return locale === 'de' ? '/de/produkte' : '/en/products';
 }
+
+export const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
+  'pure-thermo': { de: 'produkte/pure-thermo', en: 'products/pure-thermo' },
+  'pure-liquid-heat': { de: 'pure-liquid-heat', en: 'products/pure-liquid-heat' },
+  'pure-floor-protect': { de: 'produkte/pure-floor-protect', en: 'products/pure-floor-protect' },
+  'pure-fire-protect': { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' },
+  'pure-surface-protect': { de: 'produkte/pure-surface-protect', en: 'products/pure-surface-protect' },
+  'pure-water-protect': { de: 'produkte/pure-water-protect', en: 'products/pure-water-protect' },
+  'pure-wood-protect': { de: 'produkte/pure-wood-protect', en: 'products/pure-wood-protect' },
+  'pure-boat-protect': { de: 'produkte/pure-boat-protect', en: 'products/pure-boat-protect' }
+};
+
+export function productPath(locale: Locale, slug: string): string | undefined {
+  const route = PRODUCT_ROUTES[slug]?.[locale];
+  return route ? localePath(locale, route) : undefined;
+}
