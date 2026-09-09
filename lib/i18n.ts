@@ -52,6 +52,8 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
   const counterpart = alternateLocale(locale);
   const path = pathWithoutLocale(pathname);
   const mappings: Record<string, string> = {
+    '/produkte': '/products',
+    '/products': '/produkte',
     '/produkte/pure-thermo': '/products/pure-thermo',
     '/products/pure-thermo': '/produkte/pure-thermo',
     '/systeme/pure-thermo-interior': '/systems/pure-thermo-interior',
@@ -67,4 +69,8 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/': '/'
   };
   return localePath(counterpart, mappings[path] || '/');
+}
+
+export function productsIndexPath(locale: Locale): string {
+  return locale === 'de' ? '/de/produkte' : '/en/products';
 }

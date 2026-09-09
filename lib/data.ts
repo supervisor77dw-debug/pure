@@ -194,6 +194,7 @@ export interface MarketRecord {
 const PUBLIC_PRODUCT_SLUGS = [
   'pure-thermo',
   'pure-liquid-heat',
+  'pure-floor-protect',
   'pure-fire-protect',
   'pure-surface-protect',
   'pure-water-protect',

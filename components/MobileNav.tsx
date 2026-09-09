@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import type { Product } from '@/lib/data';
-import { localePath, type Locale, ui } from '@/lib/i18n';
+import { localePath, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 export interface MobileNavProps {
   products: Product[];
@@ -41,6 +41,7 @@ export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
         </button>
         {expanded === 'produkte' && (
           <div className="mobile-nav__panel" id="mobile-nav-produkte">
+            <Link href={productsIndexPath(locale)}>{locale === 'en' ? 'All products' : 'Alle Produkte'}</Link>
             {products.map((product) => {
               const href = LINKED_SLUGS[product.slug];
               const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat').replace('/pure-surface-protect', 'products/pure-surface-protect').replace('/pure-floor-protect', 'products/pure-floor-protect') : href.replace(/^\//, '')) : undefined;

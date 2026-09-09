@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
 import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
-import { isLocale, localizedCounterpart, localePath, pathWithoutLocale, type Locale, ui } from '@/lib/i18n';
+import { isLocale, localizedCounterpart, localePath, pathWithoutLocale, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 export function Header({ products, locale = 'de' }: { products: Product[]; locale?: Locale }) {
   const [megaOpen, setMegaOpen] = useState(false);
@@ -29,14 +29,14 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
             onMouseEnter={() => setMegaOpen(true)}
             onMouseLeave={() => setMegaOpen(false)}
           >
-            <button
+            <Link
               className="header__nav-button"
+              href={productsIndexPath(currentLocale)}
               aria-haspopup="true"
               aria-expanded={megaOpen}
-              onClick={() => setMegaOpen((v) => !v)}
             >
               {ui[currentLocale].products}
-            </button>
+            </Link>
             <MegaMenu products={products} open={megaOpen} onClose={() => setMegaOpen(false)} locale={currentLocale} />
           </div>
           <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>{ui[currentLocale].systems}</Link>

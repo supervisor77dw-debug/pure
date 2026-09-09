@@ -1,0 +1,13 @@
+id: PRD-PFL
+slug: pure-floor-protect
+name: {de: Pure Floor Protect, en: Pure Floor Protect}
+short_description:
+  de: Leicht mattierte Schutztechnologie für definierte, stark beanspruchte Bodenflächen.
+  en: Lightly matt functional protection technology for defined, high-use floor surfaces.
+publication: public
+content_status: public_with_limitation
+version: '0.1'
+updated_at: '2026-09-09'
+rules:
+  - Keine universelle Rutschhemmung, Lebensdauer oder Bodenkompatibilität behaupten.
+  - Prüfwerte nur mit geprüftem Gegenstand und Systemkontext kommunizieren.
