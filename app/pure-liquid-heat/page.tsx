@@ -3,9 +3,13 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { AssetFigure } from '@/components/AssetFigure';
+import { getLiquidHeatContent, type LiquidHeatLocale } from '@/lib/liquid-heat-content';
+import { headers } from 'next/headers';
+import { isLocale } from '@/lib/i18n';
 
 export const metadata: Metadata = {
-  title: 'Pure Liquid Heat · PURE Technology Platform'
+  title: 'Pure Liquid Heat · PURE Technology Platform',
+  description: 'An electric functional layer for integrated heating systems.'
 };
 
 const applications = [
@@ -70,27 +74,30 @@ function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: str
 }
 
 export default function PureLiquidHeatPage() {
+  const headerLocale = headers().get('x-pure-locale') || 'en';
+  const locale: LiquidHeatLocale = isLocale(headerLocale) ? headerLocale : 'en';
+  const content = getLiquidHeatContent(locale);
   return (
     <>
-      <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Pure Liquid Heat' }]} />
+      <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: content.breadcrumb }]} />
 
       <section className="hero liquid-heat-hero">
         <div className="container liquid-heat-hero__grid">
           <div>
-            <p className="hero__eyebrow">PURE TECHNOLOGY PLATFORM</p>
-            <h1>PURE LIQUID HEAT</h1>
-            <p className="hero__subtitle">An electric functional layer for integrated heating systems.</p>
-            <p className="liquid-heat-hero__copy">Heating becomes a surface function — integrated into defined panels, products and design objects instead of added as a separate heater.</p>
+            <p className="hero__eyebrow">{content.eyebrow}</p>
+            <h1>{content.heroTitle}</h1>
+            <p className="hero__subtitle">{content.heroSubtitle}</p>
+            <p className="liquid-heat-hero__copy">{content.heroCopy}</p>
             <div className="hero__ctas">
-              <Link className="btn btn--primary" href="#applications">Explore applications</Link>
-              <Link className="btn btn--secondary" href="#evidence">Technical evidence</Link>
+              <Link className="btn btn--primary" href="#applications">{content.explore}</Link>
+              <Link className="btn btn--secondary" href="#evidence">{content.evidenceCta}</Link>
             </div>
           </div>
           <AssetFigure
             file="LH_CONCEPT_Pyramid_Hospitality_01.jpg"
             alt="PURE LIQUID HEAT pyramid heating development concept in a hospitality setting"
             status="DEVELOPMENT CONCEPT"
-            caption="Hospitality application direction — development concept."
+            caption={content.conceptCaption}
             priority
           />
         </div>
@@ -99,17 +106,12 @@ export default function PureLiquidHeatPage() {
       <section className="section" id="why-surface-heat">
         <div className="container">
           <SectionHeading
-            eyebrow="THE PROBLEM"
-            title="WHY INTEGRATED SURFACE HEAT?"
-            intro="Conventional heating technology is often added to a space or product as separate hardware. PURE LIQUID HEAT explores another route: integrating the heating function directly into defined surfaces and components."
+            eyebrow={content.whyEyebrow}
+            title={content.whyTitle}
+            intro={content.whyIntro}
           />
           <div className="liquid-heat-four-grid">
-            {[
-              ['LESS VISIBLE HARDWARE', 'Heating functionality can be integrated into panels, furniture and objects instead of added as a separate visible heater.'],
-              ['SURFACE-BASED HEAT', 'Heat is generated across a functional surface rather than only at a point-shaped heating element.'],
-              ['FLEXIBLE INTEGRATION', 'Thin functional layers allow heating concepts to follow product and design geometry more closely.'],
-              ['ZONED CONTROL', 'Defined heating zones can be controlled individually according to the application.']
-            ].map(([title, copy]) => (
+            {content.whyCards.map(([title, copy]) => (
               <article className="liquid-heat-card" key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
@@ -121,9 +123,9 @@ export default function PureLiquidHeatPage() {
 
       <section className="section section--surface" id="how-it-works">
         <div className="container">
-          <SectionHeading eyebrow="THE PRINCIPLE" title="HOW DOES PURE LIQUID HEAT WORK?" />
-          <div className="liquid-heat-flow" aria-label="Electrical energy to controlled thermal output">
-            {['ELECTRICAL ENERGY', 'CONDUCTIVE FUNCTIONAL COATING', 'ELECTRICAL RESISTANCE HEATING', 'SURFACE HEAT', 'CONTROLLED THERMAL OUTPUT'].map((step, index) => (
+          <SectionHeading eyebrow={content.principleEyebrow} title={content.principleTitle} />
+          <div className="liquid-heat-flow" aria-label={content.flowAria}>
+            {content.flow.map((step, index) => (
               <div className="liquid-heat-flow__step" key={step}>
                 <span className="liquid-heat-flow__number">0{index + 1}</span>
                 <strong>{step}</strong>
@@ -133,13 +135,11 @@ export default function PureLiquidHeatPage() {
           </div>
           <div className="liquid-heat-copy-grid">
             <div>
-              <p>PURE LIQUID HEAT uses a conductive functional coating. Electrical current flows through the defined conductive layer and electrical resistance converts the supplied energy into heat.</p>
-              <p>Copper conductors, coating resistance, geometry and system control determine the thermal behaviour of the finished heating module.</p>
-              <p>The result is a thin, electrically activated heating surface that can be integrated into defined products and components.</p>
+              {content.mechanism.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
             <aside className="engineering-note">
-              <strong>ENGINEERING NOTE</strong>
-              <p>PURE LIQUID HEAT does not create additional energy. Like other electric resistance heating technologies, electrical energy is converted into heat. Its development potential lies in how that heat can be distributed, integrated and controlled within an application.</p>
+              <strong>{content.engineering}</strong>
+              <p>{content.engineeringCopy}</p>
             </aside>
           </div>
         </div>
@@ -147,12 +147,9 @@ export default function PureLiquidHeatPage() {
 
       <section className="section" id="system-architecture">
         <div className="container">
-          <SectionHeading eyebrow="SYSTEM ARCHITECTURE" title="FROM COATING TO HEATING SYSTEM" intro="The functional coating is only one part of the complete system." />
+          <SectionHeading eyebrow={content.architectureEyebrow} title={content.architectureTitle} intro={content.architectureIntro} />
           <div className="system-flow">
-            <article><span>01</span><h3>SUBSTRATE</h3><p>GFB / GFK / Vermiculite</p></article>
-            <article><span>02</span><h3>LIQUID HEAT FUNCTIONAL COATING</h3><p>Direct application to the defined substrate. No primer layer.</p></article>
-            <article><span>03</span><h3>CONTACTING + CONTROL + SAFETY</h3><p>Electrical contacting, temperature sensing, thermal protection and system control.</p></article>
-            <article><span>04</span><h3>OPTIONAL PROTECTIVE LAYER</h3><p>Only where required by moisture, outdoor exposure, cleaning or mechanical load.</p></article>
+            {content.architecture.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}
           </div>
         </div>
       </section>
@@ -160,72 +157,67 @@ export default function PureLiquidHeatPage() {
       <section className="section section--surface" id="internal-development">
         <div className="container">
           <SectionHeading
-            eyebrow="PHYSICAL DEVELOPMENT"
-            title="FROM FUNCTIONAL LAYER TO PHYSICAL MODULE"
-            intro="Internal development images show early Liquid Heat modules, panel formats and design integrations. They document physical development work but do not represent released series products or independent certification."
+            eyebrow={content.physicalEyebrow}
+            title={content.physicalTitle}
+            intro={content.physicalIntro}
           />
-          <p className="liquid-heat-gallery-label">INTERNAL DEVELOPMENT / PROTOTYPE IMAGES</p>
+          <p className="liquid-heat-gallery-label">{content.galleryLabel}</p>
           <div className="liquid-heat-gallery">
-            <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt="Internal PURE LIQUID HEAT freestanding prototype panel" status="INTERNAL PROTOTYPE" caption="Freestanding panel format." />
-            <AssetFigure file="LH_REAL_Freestanding_Panel_Side_01.jpg" alt="Side view of an internal PURE LIQUID HEAT freestanding prototype panel" status="INTERNAL PROTOTYPE" caption="Side view of the physical module." />
-            <AssetFigure file="LH_REAL_LED_Design_Panel_01.jpg" alt="Internal PURE LIQUID HEAT LED and perforated design panel" status="INTERNAL PROTOTYPE" caption="Design integration study." />
+            <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt={locale === 'de' ? 'Internes freistehendes PURE-LIQUID-HEAT-Prototypenpanel' : 'Internal PURE LIQUID HEAT freestanding prototype panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
+            <AssetFigure file="LH_REAL_Freestanding_Panel_Side_01.jpg" alt={locale === 'de' ? 'Seitenansicht eines internen PURE-LIQUID-HEAT-Prototypenpanels' : 'Side view of an internal PURE LIQUID HEAT freestanding prototype panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[1]} />
+            <AssetFigure file="LH_REAL_LED_Design_Panel_01.jpg" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Designpanel mit LED- und Perforationsfläche' : 'Internal PURE LIQUID HEAT LED and perforated design panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[2]} />
           </div>
         </div>
       </section>
 
       <section className="section section--surface" id="difference">
         <div className="container">
-          <SectionHeading eyebrow="THE DESIGN LOGIC" title="HEAT AS A FUNCTION OF THE SURFACE" />
+          <SectionHeading eyebrow={content.designEyebrow} title={content.designTitle} />
           <div className="liquid-heat-four-grid">
-            {[
-              ['LOW THERMAL MASS', 'The thin functional heating layer can react quickly compared with systems that first have to heat large masses.'],
-              ['DESIGN INTEGRATION', 'Heating functionality can disappear into panels, furniture and technical products.'],
-              ['FLAT HEAT DISTRIBUTION', 'The active layer enables surface-based heat generation across a defined module.'],
-              ['CONTROLLABLE ZONES', 'Temperature sensors, control electronics and separate zones can adapt heat delivery to the application.']
-            ].map(([title, copy]) => (
+            {content.designCards.map(([title, copy]) => (
               <article className="liquid-heat-card liquid-heat-card--accent" key={title}><h3>{title}</h3><p>{copy}</p></article>
             ))}
           </div>
-          <p className="liquid-heat-principle">The value is not a new law of physics. It is a different way of designing where and how electrical heat is delivered.</p>
+          <p className="liquid-heat-principle">{content.designPrinciple}</p>
         </div>
       </section>
 
       <section className="section" id="applications">
         <div className="container">
-          <SectionHeading eyebrow="APPLICATION WORLDS" title="WHERE CAN SURFACE HEAT BECOME USEFUL?" />
+          <SectionHeading eyebrow={content.applicationsEyebrow} title={content.applicationsTitle} />
           <div className="application-worlds">
-            {applications.map((application) => (
+            {content.applications.map((application) => (
               <article className="application-world" key={application.title}>
                 <h3>{application.title}</h3>
                 <p>{application.copy}</p>
                 <ul>{application.examples.map((example) => <li key={example}>{example}</li>)}</ul>
                 {application.note ? <p className="application-world__note">{application.note}</p> : null}
-                {application.title === 'OUTDOOR & HOSPITALITY' ? <span className="concept-label">CONCEPTS / DEVELOPMENT</span> : null}
+                {application.title === content.applications[0].title ? <span className="concept-label">{content.conceptWorld}</span> : null}
               </article>
             ))}
           </div>
           <div className="liquid-heat-feature">
-            <span className="concept-label">DEVELOPMENT CONCEPT</span>
-            <h3>HEATED SEATING</h3>
-            <p>Instead of heating an entire outdoor area, heating functionality can be integrated close to the user — for hospitality, public spaces and premium winter environments.</p>
-            <AssetFigure file="LH_CONCEPT_Heated_Bench_2Seat_System_01.jpg" alt="PURE LIQUID HEAT heated seating development concept" status="DEVELOPMENT CONCEPT" caption="Heated seating system concept. Embedded specifications are not released product data." />
+            <span className="concept-label">{content.concept}</span>
+            <h3>{content.heatedSeating}</h3>
+            <p>{content.heatedSeatingCopy}</p>
+            <AssetFigure file="LH_CONCEPT_Heated_Bench_2Seat_System_01.jpg" alt={locale === 'de' ? 'Entwicklungskonzept für beheizte PURE-LIQUID-HEAT-Sitzmöbel' : 'PURE LIQUID HEAT heated seating development concept'} status="DEVELOPMENT CONCEPT" caption={content.heatedSeatingCaption} />
           </div>
           <div className="liquid-heat-prism">
             <div>
-              <span className="concept-label">DEVELOPMENT CONCEPT</span>
-              <h3>PUREHEAT PRISM</h3>
-              <p>A current development concept explores how PURE LIQUID HEAT can be integrated into the base of hospitality and terrace tables, moving the heat source close to the user while preserving a clean furniture design.</p>
-              <p className="liquid-heat-prism__status">Concept design — geometry, output, surface temperature, safety and certification remain subject to engineering and testing.</p>
+              <span className="concept-label">{content.concept}</span>
+              <h3>{content.prism}</h3>
+              <p>{content.prismCopy}</p>
+              <p className="liquid-heat-prism__status">{content.prismStatus}</p>
             </div>
-            <AssetFigure file="LH_CONCEPT_PureHeat_Prism_01.jpg" alt="PUREHEAT Prism table-integrated heating development concept" status="DEVELOPMENT CONCEPT" />
+            <AssetFigure file="LH_CONCEPT_PureHeat_Prism_01.jpg" alt={locale === 'de' ? 'PUREHEAT-PRISM-Entwicklungskonzept für tischintegrierte Heizung' : 'PUREHEAT Prism table-integrated heating development concept'} status="DEVELOPMENT CONCEPT" />
           </div>
-          <div className="liquid-heat-variants" aria-label="PUREHEAT development concept variants">
+          <div className="liquid-heat-variants" aria-label={content.variantsAria}>
             {[
-              ['LH_CONCEPT_PureHeat_Facet_01.jpg', 'PUREHEAT FACET'],
-              ['LH_CONCEPT_PureHeat_Petal_01.jpg', 'PUREHEAT PETAL']
+              ['LH_CONCEPT_PureHeat_Facet_01.jpg', content.facet],
+              ['LH_CONCEPT_PureHeat_Petal_01.jpg', content.petal]
             ].map(([file, title]) => (
               <div key={file}>
-                <AssetFigure file={file} alt={`${title} PURE LIQUID HEAT development concept`} status="DEVELOPMENT CONCEPT" />
+                <AssetFigure file={file} alt={`${title} PURE LIQUID HEAT ${content.concept.toLowerCase()}`} status="DEVELOPMENT CONCEPT" />
                 <h3>{title}</h3>
               </div>
             ))}
@@ -235,17 +227,17 @@ export default function PureLiquidHeatPage() {
 
       <section className="section section--surface" id="evidence">
         <div className="container">
-          <SectionHeading eyebrow="EVIDENCE" title="WHAT DO WE KNOW TODAY?" />
+          <SectionHeading eyebrow={content.evidenceEyebrow} title={content.evidenceTitle} />
           <article className="liquid-heat-evidence">
             <div className="liquid-heat-evidence__header">
               <EvidenceBadge evidenceClass="B" />
-              <span>INTERNAL FIELD REFERENCE</span>
+              <span>{content.fieldReference}</span>
             </div>
-            <h3>GFB panel · Portugal · winter-season operation</h3>
-            <p>An internally documented GFB panel was used continuously as a heating element during a winter season in Portugal. According to the available internal observations, the approximately 90 °C surface temperature and electrical power draw remained stable during the observed operating period.</p>
+            <h3>{content.fieldTitle}</h3>
+            <p>{content.fieldCopy}</p>
             <div className="liquid-heat-evidence__meaning">
-              <div><strong>WHAT THIS MEANS</strong><p>The observation provides useful practical evidence of stable operation in this specific configuration.</p></div>
-              <div><strong>WHAT IT DOES NOT MEAN</strong><p>It is not yet an independent long-term certification or a transferable lifetime guarantee for every PURE LIQUID HEAT system.</p></div>
+              <div><strong>{content.means}</strong><p>{content.meansCopy}</p></div>
+              <div><strong>{content.notMeans}</strong><p>{content.notMeansCopy}</p></div>
             </div>
           </article>
         </div>
@@ -253,41 +245,37 @@ export default function PureLiquidHeatPage() {
 
       <section className="section" id="validation">
         <div className="container">
-          <SectionHeading eyebrow="EVIDENCE PHILOSOPHY" title="VALIDATION IN PROGRESS" intro="Defined engineering questions are part of developing a reliable heating system." />
-          <div className="validation-list">{validationItems.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div>
+          <SectionHeading eyebrow={content.validationEyebrow} title={content.validationTitle} intro={content.validationIntro} />
+          <div className="validation-list">{content.validation.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div>
         </div>
       </section>
 
       <section className="section section--surface" id="boundaries">
         <div className="container">
-          <SectionHeading eyebrow="TRANSPARENT SCOPE" title="CAPABILITIES — AND CLEAR BOUNDARIES" />
+          <SectionHeading eyebrow={content.boundariesEyebrow} title={content.boundariesTitle} />
           <div className="capability-grid">
-            <article><h3>WHAT THE TECHNOLOGY ENABLES</h3><ul>{capabilities.map((item) => <li key={item}>{item}</li>)}</ul></article>
-            <article><h3>WHAT WE DO NOT CLAIM</h3><ul>{boundaries.map((item) => <li key={item}>{item}</li>)}</ul></article>
+            <article><h3>{content.enables}</h3><ul>{content.capabilities.map((item) => <li key={item}>{item}</li>)}</ul></article>
+            <article><h3>{content.claims}</h3><ul>{content.boundaries.map((item) => <li key={item}>{item}</li>)}</ul></article>
           </div>
         </div>
       </section>
 
       <section className="section" id="complete-system">
         <div className="container">
-          <SectionHeading eyebrow="SAFETY & MARKET ACCESS" title="THE COMPLETE SYSTEM MATTERS" />
-          <div className="safety-chain">{['SUBSTRATE', 'HEATING LAYER', 'CONTACTS', 'CONTROL', 'PROTECTION', 'APPLICATION'].map((item, index) => <span key={item}><strong>{item}</strong>{index < 5 ? <b aria-hidden="true">→</b> : null}</span>)}</div>
-          <p className="section-copy-narrow">Electrical and regulatory assessment applies to the complete end system, not to the coating in isolation.</p>
-          <p className="section-copy-narrow">Depending on the final product and market, electrical safety, EMC, temperature limitation, environmental protection, fire behaviour and other requirements may need to be evaluated.</p>
+          <SectionHeading eyebrow={content.safetyEyebrow} title={content.safetyTitle} />
+          <div className="safety-chain">{content.chain.map((item, index) => <span key={item}><strong>{item}</strong>{index < 5 ? <b aria-hidden="true">→</b> : null}</span>)}</div>
+          <p className="section-copy-narrow">{content.safetyCopy1}</p>
+          <p className="section-copy-narrow">{content.safetyCopy2}</p>
         </div>
       </section>
 
       <section className="section section--surface" id="work-with-pure">
         <div className="container">
-          <SectionHeading eyebrow="WORK WITH PURE" title="DEVELOP THE NEXT HEATING APPLICATION WITH PURE" />
+          <SectionHeading eyebrow={content.workEyebrow} title={content.workTitle} />
           <div className="liquid-heat-four-grid liquid-heat-four-grid--three">
-            {[
-              ['PILOT PROJECT', 'Develop and measure a defined Liquid Heat demonstrator under controlled operating conditions.'],
-              ['OEM INTEGRATION', 'Integrate the functional heating layer into a product or component with a defined engineering and QA specification.'],
-              ['TESTING & VALIDATION', 'Work with PURE on electrical, thermal, environmental and long-term validation of a defined system.']
-            ].map(([title, copy]) => <article className="liquid-heat-card" key={title}><h3>{title}</h3><p>{copy}</p></article>)}
+            {content.work.map(([title, copy]) => <article className="liquid-heat-card" key={title}><h3>{title}</h3><p>{copy}</p></article>)}
           </div>
-          <div className="hero__ctas"><Link className="btn btn--primary" href="#work-with-pure">START A LIQUID HEAT PROJECT</Link><Link className="btn btn--secondary btn--dark" href="#evidence">VIEW TECHNICAL EVIDENCE</Link></div>
+          <div className="hero__ctas"><Link className="btn btn--primary" href="#work-with-pure">{content.start}</Link><Link className="btn btn--secondary btn--dark" href="#evidence">{content.viewEvidence}</Link></div>
         </div>
       </section>
     </>
