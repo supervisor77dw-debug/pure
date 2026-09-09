@@ -614,6 +614,8 @@ table { border-collapse: collapse; width: 100%; }
   font-weight: 700;
   color: var(--color-navy);
 }
+.product-pipeline__item[href] { transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.product-pipeline__item[href]:hover { border-color: var(--color-petrol); box-shadow: 0 6px 18px rgba(11,31,58,0.08); text-decoration: none; }
 .product-pipeline__note {
   margin-top: var(--space-3);
   color: var(--color-text-muted);
@@ -829,6 +831,121 @@ table { border-collapse: collapse; width: 100%; }
 .final-cta h2 {
   margin: 0 0 var(--space-4);
 }
+
+/* ==========================================================================\n+   PURE Liquid Heat\n+   ========================================================================== */
+
+.liquid-heat-hero { background: linear-gradient(120deg, #0b1f3a 0%, #142e52 62%, #173d54 100%); }
+.liquid-heat-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+@media (min-width: 900px) { .liquid-heat-hero__grid { grid-template-columns: 1fr 0.9fr; } }
+.liquid-heat-hero__copy { max-width: 700px; color: rgba(255,255,255,0.82); font-size: 1.05rem; }
+.liquid-heat-visual {
+  min-height: 320px;
+  padding: var(--space-4);
+  border: 1px solid rgba(143,214,224,0.35);
+  border-radius: var(--radius-md);
+  background: rgba(4,18,36,0.48);
+  box-shadow: inset 0 0 60px rgba(14,110,124,0.12);
+}
+.liquid-heat-visual__surface {
+  position: relative;
+  min-height: 250px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(145deg, #183c5b 0%, #0e6e7c 48%, #d46e2e 100%);
+}
+.liquid-heat-visual__surface::before,
+.liquid-heat-visual__surface::after {
+  content: '';
+  position: absolute;
+  inset: 12% 8%;
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 50%;
+  transform: rotate(-12deg) scaleY(0.34);
+}
+.liquid-heat-visual__surface::after { inset: 28% 18%; opacity: 0.7; }
+.liquid-heat-visual__line { position: absolute; left: 8%; right: 8%; height: 1px; background: rgba(255,255,255,0.72); transform: rotate(-12deg); }
+.liquid-heat-visual__line--one { top: 34%; }
+.liquid-heat-visual__line--two { top: 50%; }
+.liquid-heat-visual__line--three { top: 66%; }
+.liquid-heat-visual__glow { position: absolute; width: 120px; height: 120px; right: 14%; top: 28%; border-radius: 50%; background: rgba(255,174,95,0.48); filter: blur(28px); }
+.liquid-heat-visual__legend { display: flex; justify-content: space-between; gap: var(--space-2); padding-top: var(--space-3); color: rgba(255,255,255,0.72); font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 700; }
+
+.liquid-heat-four-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 700px) { .liquid-heat-four-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1050px) { .liquid-heat-four-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.liquid-heat-four-grid--three { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .liquid-heat-four-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.liquid-heat-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-bg); min-height: 180px; }
+.liquid-heat-card--accent { border-top: 4px solid var(--color-petrol); }
+.liquid-heat-card h3 { font-size: 1rem; margin-bottom: var(--space-2); }
+.liquid-heat-card p { color: var(--color-text-muted); margin: 0; }
+
+.liquid-heat-flow { display: grid; grid-template-columns: 1fr; gap: var(--space-2); margin-bottom: var(--space-5); }
+@media (min-width: 900px) { .liquid-heat-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); } }
+.liquid-heat-flow__step { position: relative; min-height: 130px; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); display: flex; flex-direction: column; justify-content: space-between; }
+.liquid-heat-flow__number { color: var(--color-petrol); font-weight: 700; font-size: 0.8rem; }
+.liquid-heat-flow__step strong { color: var(--color-navy); font-size: 0.82rem; line-height: 1.25; }
+.liquid-heat-flow__arrow { position: absolute; right: var(--space-3); bottom: var(--space-2); color: var(--color-thermo); font-size: 1.2rem; }
+@media (min-width: 900px) { .liquid-heat-flow__arrow { right: calc(var(--space-3) * -1); bottom: 45%; transform: rotate(-90deg); } }
+.liquid-heat-copy-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+@media (min-width: 800px) { .liquid-heat-copy-grid { grid-template-columns: 1.2fr 0.8fr; } }
+.liquid-heat-copy-grid > div { max-width: 720px; }
+.engineering-note { border-left: 4px solid var(--color-thermo); padding: var(--space-3) var(--space-4); background: rgba(201,89,26,0.06); }
+.engineering-note strong { color: var(--color-thermo-dark); font-size: 0.78rem; letter-spacing: 0.06em; }
+.engineering-note p { margin: var(--space-2) 0 0; color: var(--color-text-muted); }
+
+.system-flow { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 760px) { .system-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .system-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.system-flow article { border: 1px solid var(--color-border); border-top: 4px solid var(--color-petrol); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-bg); }
+.system-flow article > span { color: var(--color-petrol); font-weight: 700; font-size: 0.8rem; }
+.system-flow h3 { margin: var(--space-3) 0 var(--space-2); font-size: 1rem; }
+.system-flow p { margin: 0; color: var(--color-text-muted); }
+
+.liquid-heat-principle { max-width: 720px; margin: var(--space-5) auto 0; text-align: center; color: var(--color-text-muted); font-style: italic; }
+.application-worlds { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 760px) { .application-worlds { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.application-world { position: relative; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-bg); }
+.application-world h3 { font-size: 1.05rem; }
+.application-world p { color: var(--color-text-muted); }
+.application-world ul { color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.application-world__note { border-top: 1px solid var(--color-border); padding-top: var(--space-2); font-size: 0.9rem; }
+.concept-label { display: inline-block; color: var(--color-thermo-dark); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em; }
+.liquid-heat-feature { margin-top: var(--space-4); padding: clamp(var(--space-4), 5vw, var(--space-6)); border-radius: var(--radius-md); background: linear-gradient(120deg, var(--color-navy), #183f58); color: #fff; }
+.liquid-heat-feature h3 { color: #fff; margin-top: var(--space-2); }
+.liquid-heat-feature p { max-width: 720px; color: rgba(255,255,255,0.8); margin: 0; }
+
+.liquid-heat-evidence { border: 1px solid var(--color-border); border-left: 5px solid var(--color-evidence-b); border-radius: var(--radius-md); padding: clamp(var(--space-4), 4vw, var(--space-5)); background: var(--color-bg); }
+.liquid-heat-evidence__header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); color: var(--color-navy); font-weight: 700; letter-spacing: 0.04em; }
+.liquid-heat-evidence h3 { margin-top: var(--space-4); }
+.liquid-heat-evidence__meaning { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+@media (min-width: 760px) { .liquid-heat-evidence__meaning { grid-template-columns: 1fr 1fr; } }
+.liquid-heat-evidence__meaning strong { color: var(--color-petrol-dark); font-size: 0.78rem; letter-spacing: 0.06em; }
+.liquid-heat-evidence__meaning p { margin: var(--space-2) 0 0; color: var(--color-text-muted); }
+
+.validation-list { display: grid; grid-template-columns: 1fr; gap: var(--space-2); }
+.validation-list article { border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0; display: grid; grid-template-columns: 1fr; gap: var(--space-2); }
+@media (min-width: 760px) { .validation-list article { grid-template-columns: 0.35fr 0.65fr; gap: var(--space-4); } }
+.validation-list h3 { font-size: 1rem; margin: 0; }
+.validation-list p { color: var(--color-text-muted); margin: 0; }
+.capability-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 760px) { .capability-grid { grid-template-columns: 1fr 1fr; } }
+.capability-grid article { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-bg); }
+.capability-grid article:last-child { border-top: 4px solid var(--color-evidence-d); }
+.capability-grid h3 { font-size: 1rem; }
+.capability-grid li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
+.safety-chain { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-2); margin: var(--space-4) 0; }
+.safety-chain span { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-navy); background: var(--color-surface); font-size: 0.82rem; }
+.safety-chain b { color: var(--color-petrol); }
+.section-copy-narrow { max-width: 760px; margin-left: auto; margin-right: auto; color: var(--color-text-muted); }
+.btn--dark { color: var(--color-navy); border-color: var(--color-border); }
+.btn--dark:hover { background: var(--color-surface); }
 
 /* ==========================================================================
    Product Hub / Product Card

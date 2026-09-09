@@ -8,7 +8,8 @@ export interface MegaMenuProps {
 }
 
 const LINKED_SLUGS: Record<string, string> = {
-  'pure-thermo': '/produkte/pure-thermo'
+  'pure-thermo': '/produkte/pure-thermo',
+  'pure-liquid-heat': '/pure-liquid-heat'
 };
 
 // Product family dropdown. Only families with a released page are clickable;

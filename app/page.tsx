@@ -1,4 +1,5 @@
 import { getAllProducts } from '@/lib/data';
+import Link from 'next/link';
 import { Hero } from '@/components/Hero';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
@@ -138,7 +139,11 @@ export default function HomePage() {
           </div>
           <div className="product-pipeline" aria-label="Weitere PURE Systemfamilien">
             {portfolioProducts.map((product) => (
-              <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
+              product.slug === 'pure-liquid-heat' ? (
+                <Link className="product-pipeline__item" href="/pure-liquid-heat" key={product.id}>{product.name.de}</Link>
+              ) : (
+                <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
+              )
             ))}
           </div>
           <p className="product-pipeline__note">Weitere Systemfamilien werden schrittweise dokumentiert und validiert.</p>
