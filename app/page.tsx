@@ -104,9 +104,9 @@ export default function HomePage() {
           <div className="thermo-spotlight">
             <div className="thermo-spotlight__media">
               <AssetFigure
-                file="Materialstrukturansicht.png"
-                alt="Materialstrukturansicht mit dünner funktionaler Schicht und der Integration in ein bestehendes Bauteil"
-                caption="PURE THERMO – Schichtdicke minimal, Funktion gezielt am Bauteil positioniert."
+                file="Bauteilquerschnitt.png"
+                alt="Bauteilquerschnitt mit einer dünnen PURE-THERMO-Funktionsschicht auf dem Untergrund"
+                caption="PURE THERMO – die Funktionsschicht liegt gezielt im Bauteilaufbau."
               />
             </div>
             <div className="thermo-spotlight__content">

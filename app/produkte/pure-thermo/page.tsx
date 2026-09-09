@@ -13,6 +13,7 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { SystemCard } from '@/components/SystemCard';
 import { TechnicalValue } from '@/components/TechnicalValue';
 import { EvidenceCard } from '@/components/EvidenceCard';
+import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { DocumentCard } from '@/components/DocumentCard';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
@@ -36,6 +37,12 @@ const CORE_VALUE_IDS = [
 const SYSTEM_HREFS: Record<string, string> = {
   'SYS-PT-INT-001': '/systeme/pure-thermo-interior'
 };
+
+const EVIDENCE_GROUPS = [
+  { evidenceClass: 'A' as const, title: 'A – EXTERN GEPRÜFT' },
+  { evidenceClass: 'B' as const, title: 'B – INTERN DOKUMENTIERT' },
+  { evidenceClass: 'C' as const, title: 'C – BERECHNET / MODELLIERT' }
+];
 
 export default function PureThermoPage() {
   const product = getProductBySlug('pure-thermo');
@@ -243,10 +250,24 @@ export default function PureThermoPage() {
             <span className="warning-panel__label">Prüfstatus</span>
             Der externe Prüfbericht bezieht sich auf THERM 4410. Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.
           </div>
-          <div className="technical-value-grid">
-            {values.map((value) => (
-              <TechnicalValue key={value.id} value={value} />
-            ))}
+          <div className="technical-value-groups">
+            {EVIDENCE_GROUPS.map((group) => {
+              const groupValues = values.filter((value) => value.evidence_class === group.evidenceClass);
+              if (!groupValues.length) return null;
+              return (
+                <section className="technical-value-group" key={group.evidenceClass} aria-labelledby={`values-${group.evidenceClass}`}>
+                  <div className="technical-value-group__heading">
+                    <h3 id={`values-${group.evidenceClass}`}>{group.title}</h3>
+                    <EvidenceBadge evidenceClass={group.evidenceClass} />
+                  </div>
+                  <div className="technical-value-grid">
+                    {groupValues.map((value) => (
+                      <TechnicalValue key={value.id} value={value} />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -278,10 +299,17 @@ export default function PureThermoPage() {
             <span className="section-heading__eyebrow">Systemrouten</span>
             <h2>PURE THERMO als Basis für definierte Systemweiterentwicklung.</h2>
           </div>
-          <div className="card-grid card-grid--3">
-            {systems.map((system) => (
-              <SystemCard key={system.id} system={system} href={SYSTEM_HREFS[system.id]} />
-            ))}
+          <div className="system-routes">
+            <div className="system-routes__root">
+              <span className="section-heading__eyebrow">Basistechnologie</span>
+              <h3>PURE THERMO</h3>
+              <p>Gemeinsame thermische Funktionsbasis für definierte System- und Anwendungsrouten.</p>
+            </div>
+            <div className="system-routes__children">
+              {systems.map((system) => (
+                <SystemCard key={system.id} system={system} href={SYSTEM_HREFS[system.id]} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
