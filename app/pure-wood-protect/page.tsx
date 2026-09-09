@@ -183,7 +183,7 @@ export default function PureWoodProtectPage() {
       </section>
       <section className="section section--surface">
         <div className="container">
-          <H eyebrow="REGULATORY" title={t.regTitle} />
+            <H eyebrow="REGULATORY" title={t.regTitle} />
           <div className="fire-protect-regulatory">
             {t.reg.map(([title, copy]) => (
               <article key={title}>
@@ -196,7 +196,7 @@ export default function PureWoodProtectPage() {
       </section>
       <section className="section">
         <div className="container">
-          <H eyebrow="LIFECYCLE VALUE" title={t.lifecycleTitle} />
+            <H eyebrow="LIFECYCLE VALUE" title={t.lifecycleTitle} />
           <div className="surface-protect-lifecycle">
             {t.lifecycle.map((x) => (
               <span key={x}>{x}</span>
