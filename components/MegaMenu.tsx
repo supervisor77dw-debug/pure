@@ -12,7 +12,8 @@ export interface MegaMenuProps {
 const LINKED_SLUGS: Record<string, string> = {
   'pure-thermo': '/produkte/pure-thermo',
   'pure-liquid-heat': '/pure-liquid-heat',
-  'pure-surface-protect': '/pure-surface-protect'
+  'pure-surface-protect': '/pure-surface-protect',
+  'pure-floor-protect': '/pure-floor-protect'
 };
 
 // Product family dropdown. Only families with a released page are clickable;
@@ -23,7 +24,7 @@ export function MegaMenu({ products, open, locale = 'de' }: MegaMenuProps) {
     <div className="mega-menu" role="menu" aria-label="Produktfamilien">
       {products.map((product) => {
         const href = LINKED_SLUGS[product.slug];
-        const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat').replace('/pure-surface-protect', 'products/pure-surface-protect') : href.replace(/^\//, '')) : undefined;
+        const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat').replace('/pure-surface-protect', 'products/pure-surface-protect').replace('/pure-floor-protect', 'products/pure-floor-protect') : href.replace(/^\//, '')) : undefined;
         return href ? (
           <Link key={product.id} className="mega-menu__item" role="menuitem" href={localizedHref || href}>
             <span className="mega-menu__item-name">{product.name.de}</span>
