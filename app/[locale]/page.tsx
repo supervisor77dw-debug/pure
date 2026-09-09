@@ -27,7 +27,7 @@ export default function LocaleHomePage({ params }: { params: { locale: string } 
 }
 
 function GermanHome() {
-  return <GermanHomePage locale="de" />;
+  return <GermanHomePage />;
 }
 
 function EnglishHome() {
