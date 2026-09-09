@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
+import { AssetFigure } from '@/components/AssetFigure';
 
 export const metadata: Metadata = {
   title: 'Pure Liquid Heat · PURE Technology Platform'
@@ -58,23 +59,6 @@ const boundaries = [
   'no universal replacement for every building heating system'
 ];
 
-function HeatSurfaceVisual() {
-  return (
-    <div className="liquid-heat-visual" aria-label="Schematic representation of a controlled electric heating surface">
-      <div className="liquid-heat-visual__surface">
-        <span className="liquid-heat-visual__line liquid-heat-visual__line--one" />
-        <span className="liquid-heat-visual__line liquid-heat-visual__line--two" />
-        <span className="liquid-heat-visual__line liquid-heat-visual__line--three" />
-        <span className="liquid-heat-visual__glow" />
-      </div>
-      <div className="liquid-heat-visual__legend">
-        <span>DEFINED SURFACE</span>
-        <span>CONTROLLED HEAT</span>
-      </div>
-    </div>
-  );
-}
-
 function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
     <div className="section-heading section-heading--narrow">
@@ -102,7 +86,13 @@ export default function PureLiquidHeatPage() {
               <Link className="btn btn--secondary" href="#evidence">Technical evidence</Link>
             </div>
           </div>
-          <HeatSurfaceVisual />
+          <AssetFigure
+            file="LH_CONCEPT_Pyramid_Hospitality_01.jpg"
+            alt="PURE LIQUID HEAT pyramid heating development concept in a hospitality setting"
+            status="DEVELOPMENT CONCEPT"
+            caption="Hospitality application direction — development concept."
+            priority
+          />
         </div>
       </section>
 
@@ -167,6 +157,22 @@ export default function PureLiquidHeatPage() {
         </div>
       </section>
 
+      <section className="section section--surface" id="internal-development">
+        <div className="container">
+          <SectionHeading
+            eyebrow="PHYSICAL DEVELOPMENT"
+            title="FROM FUNCTIONAL LAYER TO PHYSICAL MODULE"
+            intro="Internal development images show early Liquid Heat modules, panel formats and design integrations. They document physical development work but do not represent released series products or independent certification."
+          />
+          <p className="liquid-heat-gallery-label">INTERNAL DEVELOPMENT / PROTOTYPE IMAGES</p>
+          <div className="liquid-heat-gallery">
+            <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt="Internal PURE LIQUID HEAT freestanding prototype panel" status="INTERNAL PROTOTYPE" caption="Freestanding panel format." />
+            <AssetFigure file="LH_REAL_Freestanding_Panel_Side_01.jpg" alt="Side view of an internal PURE LIQUID HEAT freestanding prototype panel" status="INTERNAL PROTOTYPE" caption="Side view of the physical module." />
+            <AssetFigure file="LH_REAL_LED_Design_Panel_01.jpg" alt="Internal PURE LIQUID HEAT LED and perforated design panel" status="INTERNAL PROTOTYPE" caption="Design integration study." />
+          </div>
+        </div>
+      </section>
+
       <section className="section section--surface" id="difference">
         <div className="container">
           <SectionHeading eyebrow="THE DESIGN LOGIC" title="HEAT AS A FUNCTION OF THE SURFACE" />
@@ -202,6 +208,27 @@ export default function PureLiquidHeatPage() {
             <span className="concept-label">DEVELOPMENT CONCEPT</span>
             <h3>HEATED SEATING</h3>
             <p>Instead of heating an entire outdoor area, heating functionality can be integrated close to the user — for hospitality, public spaces and premium winter environments.</p>
+            <AssetFigure file="LH_CONCEPT_Heated_Bench_2Seat_System_01.jpg" alt="PURE LIQUID HEAT heated seating development concept" status="DEVELOPMENT CONCEPT" caption="Heated seating system concept. Embedded specifications are not released product data." />
+          </div>
+          <div className="liquid-heat-prism">
+            <div>
+              <span className="concept-label">DEVELOPMENT CONCEPT</span>
+              <h3>PUREHEAT PRISM</h3>
+              <p>A current development concept explores how PURE LIQUID HEAT can be integrated into the base of hospitality and terrace tables, moving the heat source close to the user while preserving a clean furniture design.</p>
+              <p className="liquid-heat-prism__status">Concept design — geometry, output, surface temperature, safety and certification remain subject to engineering and testing.</p>
+            </div>
+            <AssetFigure file="LH_CONCEPT_PureHeat_Prism_01.jpg" alt="PUREHEAT Prism table-integrated heating development concept" status="DEVELOPMENT CONCEPT" />
+          </div>
+          <div className="liquid-heat-variants" aria-label="PUREHEAT development concept variants">
+            {[
+              ['LH_CONCEPT_PureHeat_Facet_01.jpg', 'PUREHEAT FACET'],
+              ['LH_CONCEPT_PureHeat_Petal_01.jpg', 'PUREHEAT PETAL']
+            ].map(([file, title]) => (
+              <div key={file}>
+                <AssetFigure file={file} alt={`${title} PURE LIQUID HEAT development concept`} status="DEVELOPMENT CONCEPT" />
+                <h3>{title}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
