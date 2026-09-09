@@ -145,8 +145,8 @@ export default function HomePage() {
           </div>
           <div className="product-pipeline" aria-label="Weitere PURE Systemfamilien">
             {portfolioProducts.map((product) => (
-              product.slug === 'pure-liquid-heat' ? (
-                <Link className="product-pipeline__item" href={deLink('pure-liquid-heat')} key={product.id}>{product.name.de}</Link>
+              product.slug === 'pure-liquid-heat' || product.slug === 'pure-surface-protect' ? (
+                <Link className="product-pipeline__item" href={deLink(product.slug === 'pure-liquid-heat' ? 'pure-liquid-heat' : 'produkte/pure-surface-protect')} key={product.id}>{product.name.de}</Link>
               ) : (
                 <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
               )
