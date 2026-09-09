@@ -23,7 +23,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
         <Link href={localePath(currentLocale)} className="header__logo">
           PURE<span>.</span> Technology Platform
         </Link>
-        <nav className="header__nav" aria-label="Hauptnavigation">
+        <nav className="header__nav" aria-label={ui[currentLocale].navigation}>
           <div
             className="header__nav-item"
             onMouseEnter={() => setMegaOpen(true)}

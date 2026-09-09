@@ -32,7 +32,7 @@ export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
     <div className="mobile-nav" id="mobile-nav">
       <div className="mobile-nav__search">
         <label htmlFor="mobile-search" className="visually-hidden">Suche</label>
-        <input id="mobile-search" type="search" placeholder="Suche (Produkte, Systeme, Nachweise)" />
+        <input id="mobile-search" type="search" placeholder={ui[locale].searchPlaceholder} />
       </div>
       <div className="mobile-nav__group">
         <button
