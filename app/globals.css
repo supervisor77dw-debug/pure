@@ -170,6 +170,15 @@ table { border-collapse: collapse; width: 100%; }
   letter-spacing: 0.02em;
 }
 .header__logo span { color: var(--color-petrol); }
+.language-switcher {
+  color: var(--color-navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.language-switcher span { color: var(--color-border); padding: 0 4px; }
+.language-switcher:hover { color: var(--color-petrol); text-decoration: none; }
 
 .header__nav {
   display: none;

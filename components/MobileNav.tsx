@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import type { Product } from '@/lib/data';
+import { localePath, type Locale, ui } from '@/lib/i18n';
 
 export interface MobileNavProps {
   products: Product[];
   open: boolean;
+  locale?: Locale;
 }
 
 const LINKED_SLUGS: Record<string, string> = {
@@ -14,7 +16,7 @@ const LINKED_SLUGS: Record<string, string> = {
   'pure-liquid-heat': '/pure-liquid-heat'
 };
 
-export function MobileNav({ products, open }: MobileNavProps) {
+export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
   const [expanded, setExpanded] = useState<string | null>('produkte');
   if (!open) return null;
 
@@ -33,17 +35,18 @@ export function MobileNav({ products, open }: MobileNavProps) {
           aria-controls="mobile-nav-produkte"
           onClick={() => toggle('produkte')}
         >
-          Produkte
+          {ui[locale].products}
         </button>
         {expanded === 'produkte' && (
           <div className="mobile-nav__panel" id="mobile-nav-produkte">
             {products.map((product) => {
               const href = LINKED_SLUGS[product.slug];
+              const localizedHref = href ? localePath(locale, locale === 'en' ? href.replace('/produkte/', 'products/').replace('/pure-liquid-heat', 'products/pure-liquid-heat') : href.replace(/^\//, '')) : undefined;
               return href ? (
-                <Link key={product.id} href={href}>{product.name.de}</Link>
+                <Link key={product.id} href={localizedHref || href}>{product.name.de}</Link>
               ) : (
                 <span key={product.id} style={{ color: 'var(--color-text-muted)' }}>
-                  {product.name.de} · Seite in Vorbereitung
+                  {product.name.de} · {ui[locale].pendingTitle}
                 </span>
               );
             })}
@@ -57,11 +60,11 @@ export function MobileNav({ products, open }: MobileNavProps) {
           aria-controls="mobile-nav-systeme"
           onClick={() => toggle('systeme')}
         >
-          Systeme
+          {ui[locale].systems}
         </button>
         {expanded === 'systeme' && (
           <div className="mobile-nav__panel" id="mobile-nav-systeme">
-            <Link href="/systeme/pure-thermo-interior">Pure Thermo Interior</Link>
+            <Link href={locale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>Pure Thermo Interior</Link>
           </div>
         )}
       </div>
@@ -72,11 +75,11 @@ export function MobileNav({ products, open }: MobileNavProps) {
           aria-controls="mobile-nav-nachweise"
           onClick={() => toggle('nachweise')}
         >
-          Nachweise
+          {ui[locale].evidence}
         </button>
         {expanded === 'nachweise' && (
           <div className="mobile-nav__panel" id="mobile-nav-nachweise">
-            <Link href="/nachweise/EVD-PT-THERM-001">Wärmeleitfähigkeit THERM 4410</Link>
+            <Link href={locale === 'en' ? localePath('en', 'evidence/EVD-PT-THERM-001') : localePath('de', 'nachweise/EVD-PT-THERM-001')}>{locale === 'en' ? 'Thermal conductivity THERM 4410' : 'Wärmeleitfähigkeit THERM 4410'}</Link>
           </div>
         )}
       </div>

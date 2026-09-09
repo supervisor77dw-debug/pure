@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { Hero } from '@/components/Hero';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
+import { localePath, type Locale } from '@/lib/i18n';
 
-export default function HomePage() {
+export default function HomePage({ locale = 'de' }: { locale?: Locale }) {
   const products = getAllProducts();
   const portfolioProducts = products.filter((product) => product.slug !== 'pure-thermo');
+  const deLink = (path: string) => localePath(locale, path);
 
   return (
     <>
@@ -124,7 +126,7 @@ export default function HomePage() {
                 <li>Thermisch relevante Detailbereiche</li>
               </ul>
               <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
-                <a className="btn btn--primary" href="/produkte/pure-thermo">Pure Thermo im Detail</a>
+                <a className="btn btn--primary" href={deLink('produkte/pure-thermo')}>Pure Thermo im Detail</a>
               </div>
             </div>
           </div>
@@ -140,7 +142,7 @@ export default function HomePage() {
           <div className="product-pipeline" aria-label="Weitere PURE Systemfamilien">
             {portfolioProducts.map((product) => (
               product.slug === 'pure-liquid-heat' ? (
-                <Link className="product-pipeline__item" href="/pure-liquid-heat" key={product.id}>{product.name.de}</Link>
+                <Link className="product-pipeline__item" href={deLink('pure-liquid-heat')} key={product.id}>{product.name.de}</Link>
               ) : (
                 <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
               )
@@ -230,7 +232,7 @@ export default function HomePage() {
               Prüfgegenstand THERM 4410. Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.
             </p>
             <div className="hero__ctas">
-              <a className="btn btn--primary" href="/nachweise/EVD-PT-THERM-001">Prüfgrundlage ansehen</a>
+              <a className="btn btn--primary" href={deLink('nachweise/EVD-PT-THERM-001')}>Prüfgrundlage ansehen</a>
             </div>
           </div>
         </div>
@@ -270,17 +272,17 @@ export default function HomePage() {
             <article className="partner-card">
               <h3>Planung &amp; Architektur</h3>
               <p>Systeminformationen und bauphysikalische Einordnung.</p>
-              <a href="/produkte/pure-thermo">Anfragen</a>
+              <a href={deLink('produkte/pure-thermo')}>Anfragen</a>
             </article>
             <article className="partner-card">
               <h3>Industrie &amp; Anwendung</h3>
               <p>Integration, technische Anwendungen und Pilotierung.</p>
-              <a href="/produkte/pure-thermo">Kontakt aufnehmen</a>
+              <a href={deLink('produkte/pure-thermo')}>Kontakt aufnehmen</a>
             </article>
             <article className="partner-card">
               <h3>Partnerschaft &amp; Skalierung</h3>
               <p>Marktentwicklung und Kooperation.</p>
-              <a href="/produkte/pure-thermo">Projekt besprechen</a>
+              <a href={deLink('produkte/pure-thermo')}>Projekt besprechen</a>
             </article>
           </div>
         </div>
@@ -292,8 +294,8 @@ export default function HomePage() {
             <p className="final-cta__lead">Wo konventionelle Systeme an konstruktive Grenzen stoßen, beginnt der interessante Teil.</p>
             <h2>Sprechen Sie mit uns über Ihre Anwendung.</h2>
             <div className="hero__ctas" style={{ justifyContent: 'center' }}>
-              <a className="btn btn--primary" href="/produkte/pure-thermo">Projekt besprechen</a>
-              <a className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Unterlagen</a>
+              <a className="btn btn--primary" href={deLink('produkte/pure-thermo')}>Projekt besprechen</a>
+              <a className="btn btn--secondary" href={deLink('nachweise/EVD-PT-THERM-001')}>Technische Unterlagen</a>
             </div>
           </div>
         </div>
