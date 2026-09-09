@@ -1,5 +1,384 @@
-export type WaterProtectLocale = 'de' | 'en';
-type Pair = [string,string];
-const en={name:'PURE WATER PROTECT',heroTitle:'Cleaner hulls. Less aggressive chemistry. More manageable maintenance.',heroSubtitle:'Ultra-thin easy-to-clean surface technology for marine applications — developed to reduce adhesion and cleaning effort on defined underwater surfaces without relying on a conventional biocidal approach.',heroCta:'Explore the technology',pilot:'Evaluate a marine application',heroCaption:'Illustrative marine communication visual — not a documented real-world reference.',challengeEyebrow:'THE CHALLENGE',challengeTitle:'Underwater, the surface influences maintenance, fouling and operation.',challengeCopy:'Conventional underwater care can involve repeated cleaning, material removal and chemical use. PURE WATER PROTECT follows another system logic: a smooth, maintainable functional surface.',challenge:['FOULING & ADHESION','SALTWATER & MARINE EXPOSURE','CLEANING & SURFACE WEAR','OPERATION & DOWNTIME'],techEyebrow:'EASY-TO-CLEAN TECHNOLOGY',techTitle:'Not biocidal action. Surface function.',steps:[['SUBSTRATE','Defined existing marine substrate.'],['PREPARATION','Assess cleaning, condition, old coating and roughness.'],['PURE WATER PROTECT','Thin functional surface layer.'],['EASY-TO-CLEAN EFFECT','Adhesion is intended to be reduced and cleaning facilitated.']] as Pair[],statement:'The technology is not designed to chemically attack fouling. It changes the conditions at the surface.',performanceEyebrow:'DOCUMENTED PERFORMANCE BASIS',performance:[['70–90 m²/L','Documented surface / water-area logic.'],['>200 BOATS','Practical basis according to available project documents.'],['BIOCIDE-FREE','Documented / positioned product logic.']],evidenceEyebrow:'EVIDENCE',evidenceTitle:'Practice is a starting point. A season creates the project record.',evidence:[['BIOCIDE-FREE POSITIONING','B','Existing documentation basis; declaration requires further support.'],['70–90 m²/L','B','Documented product / application basis; measure object consumption additionally.'],['>200 BOATS','B','Practice figure from documents; build a structured reference list.'],['FOULING REDUCTION','B / D','Practice / plausible application experience; seasonal comparison required.'],['FRICTION / FUEL EFFECT','D','Technically plausible smoothing logic; measurement programme required.']],seasonEyebrow:'REAL-WORLD VALIDATION',seasonTitle:'The decisive test is a season in the water.',season:[['HULL CONDITION','Material, old coating, roughness and fouling level.'],['TEST ZONE','Defined starboard / port or hull zones.'],['APPLICATION','Layer, consumption, drying and water-entry timing.'],['MONITORING','Fouling, photographs, cleaning effort and cleaning agent; optionally speed / consumption.'],['SEASON REPORT','Result for owner, yard, marina and project file.']] as Pair[],seasonStatement:'A documented seasonal comparison is more informative than a single marketing image.',applicationsTitle:'Marine surfaces need a zone logic.',applications:['SPORTS BOATS','YACHTS','CHARTER FLEETS','MARINAS / SERVICE','DEFINED UNDERWATER SURFACES'],environmentEyebrow:'MARINE RESPONSIBILITY',environmentTitle:'Less chemistry is a goal. Not an unsupported environmental promise.',environment:['biocide-free positioning','low material use','potentially gentler cleaning','longer maintenance intervals as a development / practice goal','documentable application'],open:['eluate','abrasion','microplastics','aquatic organisms','finished complete system'],fuelTitle:'A smoother surface can be hydrodynamically relevant.',fuelCopy:'This is a technically plausible development and measurement hypothesis, not a universal fuel-saving claim.',fuelNeed:['defined boat type','speed','load','weather','fouling','consumption','comparison period'],qaEyebrow:'APPLICATION & QA',qaTitle:'Marine performance starts with documented application.',qa:['Assess hull condition','Define test zone','Prepare substrate','Document consumption','Document drying','Document water-entry timing','Season monitoring','Care protocol','Final report'],regEyebrow:'REGULATORY / MARKET ACCESS',regTitle:'Underwater applications need clear environmental and harbour logic.',reg:[['ANTIFOULING BOUNDARY','Separate easy-to-clean / biocide-free positioning clearly from active-substance systems.'],['HARBOUR / YARD','Observe local rules for cleaning, abrasion and wastewater.'],['ECOTOXICOLOGY','Structure eluate, abrasion, microplastic and aquatic-organism evidence.'],['CLAIMS','No general antifouling claim without comparison and long-term data.']],limitsTitle:'What is documented — and what is not generally derived.',strengths:['biocide-free positioning','70–90 m²/L according to documents','practice basis >200 boats according to documents','marine easy-to-clean logic','definable test zones','season monitoring'],limits:['fouling-free performance','universal antifouling replacement','guaranteed fuel saving','fixed lifetime for every application','universal substrate release','environmental harmlessness','no impact on aquatic organisms','universal harbour approval'],economyTitle:'Economics develop across the care cycle.',economy:['cleaning intervals','cleaning time','material consumption','service periods','surface care','potential hydrodynamic effect','seasonal usability'],finalTitle:'How does PURE WATER PROTECT behave on your hull over a season?',finalCopy:'We define substrate, test zone, application and monitoring together to create a robust project basis.',project:'Discuss a marine pilot',zone:'Define a test zone'} as const;
-const de={...en,heroTitle:'Sauberere Rümpfe. Weniger aggressive Chemie. Besser planbare Pflege.',heroSubtitle:'Ultradünne Easy-to-clean-Oberflächentechnologie für Marineanwendungen – entwickelt, um Anhaftung und Reinigungsaufwand auf definierten Unterwasserflächen zu reduzieren, ohne auf eine klassische Biozidlogik zu setzen.',heroCta:'Technologie verstehen',pilot:'Marine-Anwendung prüfen',heroCaption:'Illustratives Marine-Kommunikationsvisual – keine dokumentierte reale Referenz.',challengeEyebrow:'DIE HERAUSFORDERUNG',challengeTitle:'Unter Wasser entscheidet die Oberfläche über Pflege, Bewuchs und Betrieb.',challengeCopy:'Klassische Unterwasserpflege kann mit wiederholter Reinigung, Materialabtrag und chemischem Einsatz verbunden sein. PURE WATER PROTECT verfolgt deshalb eine andere Systemlogik: eine möglichst glatte, pflegefähige Funktionsoberfläche.',challenge:['BEWUCHS & ANHAFTUNG','SALZWASSER & MARINE EXPOSITION','REINIGUNG & OBERFLÄCHENVERSCHLEISS','BETRIEB & STILLSTAND'],techEyebrow:'EASY-TO-CLEAN TECHNOLOGY',techTitle:'Nicht Biozidwirkung. Sondern Oberflächenfunktion.',steps:[['UNTERGRUND','Bestehender definierter Marine-Untergrund.'],['VORBEREITUNG','Reinigung, Zustand, Altbeschichtung und Rauheit prüfen.'],['PURE WATER PROTECT','Dünne funktionale Oberflächenschicht.'],['EASY-TO-CLEAN-EFFEKT','Anhaftung soll reduziert bzw. Reinigung erleichtert werden.']] as Pair[],statement:'Die Technologie soll Bewuchs nicht chemisch bekämpfen. Sie verändert die Bedingungen an der Oberfläche.',performanceEyebrow:'DOKUMENTIERTE PERFORMANCE-BASIS',performance:[['70–90 m²/L','Dokumentierte Surface-/Water-Flächenlogik.'],['>200 BOOTE','Praxisbasis laut vorhandenen Projektunterlagen.'],['BIOZIDFREI','Dokumentierte / positionierte Produktlogik.']],evidenceEyebrow:'EVIDENZ',evidenceTitle:'Praxis ist ein Anfang. Eine Saison schafft die Projektakte.',evidence:[['BIOZIDFREIE POSITIONIERUNG','B','Vorhandene Dokumentationsbasis; Deklaration weiter absichern.'],['70–90 m²/L','B','Dokumentierte Produkt-/Anwendungsbasis; Objektverbrauch zusätzlich messen.'],['>200 BOOTE','B','Praxisangabe aus Unterlagen; strukturierte Referenzliste aufbauen.'],['BEWUCHS-REDUKTION','B / D','Praxis/plausible Anwendungserfahrung; Saisonvergleich erforderlich.'],['REIBUNGS-/FUEL-EFFEKT','D','Technisch plausible Glättelogik; Messprogramm erforderlich.']],seasonEyebrow:'REAL-WORLD VALIDATION',seasonTitle:'Der entscheidende Test ist eine Saison im Wasser.',season:[['RUMPFZUSTAND','Material, Altbeschichtung, Rauheit und Bewuchsgrad.'],['MUSTERZONE','Definierte Steuerbord-/Backbord- oder Rumpfzonen.'],['APPLIKATION','Schicht, Verbrauch, Trocknung und Wasserzeitpunkt.'],['MONITORING','Bewuchs, Fotos, Reinigungsaufwand und Reinigungskraft; ggf. Geschwindigkeit / Verbrauch.'],['SAISONREPORT','Ergebnis für Eigner, Werft, Marina und Projektakte.']] as Pair[],seasonStatement:'Ein dokumentierter Saisonvergleich ist aussagekräftiger als ein einzelnes Marketingbild.',applicationsTitle:'Marineflächen brauchen eine Zonenlogik.',applications:['SPORTBOOTE','YACHTEN','CHARTERFLOTTEN','MARINAS / SERVICE','DEFINIERTE UNTERWASSERFLÄCHEN'],environmentEyebrow:'MARINE RESPONSIBILITY',environmentTitle:'Weniger Chemie ist ein Ziel. Kein unbelegtes Umweltversprechen.',environment:['biozidfreie Positionierung','geringer Materialeinsatz','potenziell schonendere Reinigung','längere Pflegeintervalle als Entwicklungs-/Praxisziel','dokumentierbare Anwendung'],open:['Eluat','Abrieb','Mikroplastik','Wasserorganismen','fertiges Gesamtsystem'],fuelTitle:'Eine glattere Oberfläche kann hydrodynamisch relevant sein.',fuelCopy:'Dies ist eine technisch plausible Entwicklungs- und Messhypothese, keine universelle Kraftstoffersparnis.',fuelNeed:['definierter Bootstyp','Geschwindigkeit','Beladung','Wetter','Bewuchs','Verbrauch','Vergleichszeitraum'],qaEyebrow:'APPLICATION & QA',qaTitle:'Marineleistung beginnt mit dokumentierter Applikation.',qa:['Rumpfzustand prüfen','Musterzone definieren','Untergrund vorbereiten','Verbrauch dokumentieren','Trocknung dokumentieren','Wasserzeitpunkt dokumentieren','Saisonmonitoring','Pflegeprotokoll','Abschlussbericht'],regEyebrow:'REGULATORY / MARKET ACCESS',regTitle:'Unterwasseranwendungen brauchen klare Umwelt- und Hafenlogik.',reg:[['ANTIFOULING-ABGRENZUNG','Easy-to-clean-/biozidfreie Positionierung sauber von Wirkstoffsystemen trennen.'],['HAFEN / WERFT','Lokale Regeln für Reinigung, Abrieb und Abwasser beachten.'],['ÖKOTOXIKOLOGIE','Eluat-, Abrieb-, Mikroplastik- und Wasserorganismen-Nachweise strukturieren.'],['CLAIMS','Keine pauschalen Antifouling-Wirkversprechen ohne Vergleichs- und Langzeitdaten.']],limitsTitle:'Was dokumentiert ist – und was nicht pauschal folgt.',strengths:['biozidfreie Positionierung','70–90 m²/L laut Unterlagen','Praxisbasis >200 Boote laut Unterlagen','Marine-Easy-to-clean-Logik','definierbare Musterzonen','Saisonmonitoring'],limits:['bewuchsfrei','universeller Antifouling-Ersatz','garantierte Kraftstoffeinsparung','feste Lebensdauer für jede Anwendung','universelle Untergrundfreigabe','ökologische Unbedenklichkeit','keine Auswirkungen auf Wasserorganismen','universelle Hafenfreigabe'],economyTitle:'Wirtschaftlichkeit entsteht über den gesamten Pflegezyklus.',economy:['Reinigungsintervalle','Reinigungszeit','Materialverbrauch','Standzeiten','Oberflächenpflege','potenzieller hydrodynamischer Effekt','saisonale Nutzbarkeit'],finalTitle:'Wie verhält sich PURE WATER PROTECT auf Ihrem Rumpf über eine Saison?',finalCopy:'Wir definieren Untergrund, Musterzone, Applikation und Monitoring gemeinsam und schaffen daraus eine belastbare Projektbasis.',project:'Marine-Pilot besprechen',zone:'Musterzone definieren'} as unknown as typeof en;
-export function getWaterProtectContent(locale: WaterProtectLocale) { return locale === 'de' ? de : en; }
+export type WaterProtectLocale = "de" | "en";
+type Pair = [string, string];
+const en = {
+  name: "PURE WATER PROTECT",
+  heroTitle:
+    "Cleaner hulls. Less aggressive chemistry. More manageable maintenance.",
+  heroSubtitle:
+    "Ultra-thin easy-to-clean surface technology for marine applications — developed to reduce adhesion and cleaning effort on defined underwater surfaces without relying on a conventional biocidal approach.",
+  heroCta: "Explore the technology",
+  pilot: "Evaluate a marine application",
+  heroCaption:
+    "Illustrative marine communication visual — not a documented real-world reference.",
+  challengeEyebrow: "THE CHALLENGE",
+  challengeTitle:
+    "Underwater, the surface influences maintenance, fouling and operation.",
+  challengeCopy:
+    "Conventional underwater care can involve repeated cleaning, material removal and chemical use. PURE WATER PROTECT follows another system logic: a smooth, maintainable functional surface.",
+  challenge: [
+    "FOULING & ADHESION",
+    "SALTWATER & MARINE EXPOSURE",
+    "CLEANING & SURFACE WEAR",
+    "OPERATION & DOWNTIME",
+  ],
+  techEyebrow: "EASY-TO-CLEAN TECHNOLOGY",
+  techTitle: "Not biocidal action. Surface function.",
+  steps: [
+    ["SUBSTRATE", "Defined existing marine substrate."],
+    ["PREPARATION", "Assess cleaning, condition, old coating and roughness."],
+    ["PURE WATER PROTECT", "Thin functional surface layer."],
+    [
+      "EASY-TO-CLEAN EFFECT",
+      "Adhesion is intended to be reduced and cleaning facilitated.",
+    ],
+  ] as Pair[],
+  statement:
+    "The technology is not designed to chemically attack fouling. It changes the conditions at the surface.",
+  performanceEyebrow: "DOCUMENTED PERFORMANCE BASIS",
+  performance: [
+    ["70–90 m²/L", "Documented surface / water-area logic."],
+    [">200 BOATS", "Practical basis according to available project documents."],
+    ["BIOCIDE-FREE", "Documented / positioned product logic."],
+  ],
+  evidenceEyebrow: "EVIDENCE",
+  evidenceTitle:
+    "Practice is a starting point. A season creates the project record.",
+  evidence: [
+    [
+      "BIOCIDE-FREE POSITIONING",
+      "B",
+      "Existing documentation basis; declaration requires further support.",
+    ],
+    [
+      "70–90 m²/L",
+      "B",
+      "Documented product / application basis; measure object consumption additionally.",
+    ],
+    [
+      ">200 BOATS",
+      "B",
+      "Practice figure from documents; build a structured reference list.",
+    ],
+    [
+      "FOULING REDUCTION",
+      "B / D",
+      "Practice / plausible application experience; seasonal comparison required.",
+    ],
+    [
+      "FRICTION / FUEL EFFECT",
+      "D",
+      "Technically plausible smoothing logic; measurement programme required.",
+    ],
+  ],
+  seasonEyebrow: "REAL-WORLD VALIDATION",
+  seasonTitle: "The decisive test is a season in the water.",
+  season: [
+    ["HULL CONDITION", "Material, old coating, roughness and fouling level."],
+    ["TEST ZONE", "Defined starboard / port or hull zones."],
+    ["APPLICATION", "Layer, consumption, drying and water-entry timing."],
+    [
+      "MONITORING",
+      "Fouling, photographs, cleaning effort and cleaning agent; optionally speed / consumption.",
+    ],
+    ["SEASON REPORT", "Result for owner, yard, marina and project file."],
+  ] as Pair[],
+  seasonStatement:
+    "A documented seasonal comparison is more informative than a single marketing image.",
+  applicationsTitle: "Marine surfaces need a zone logic.",
+  applications: [
+    "SPORTS BOATS",
+    "YACHTS",
+    "CHARTER FLEETS",
+    "MARINAS / SERVICE",
+    "DEFINED UNDERWATER SURFACES",
+  ],
+  environmentEyebrow: "MARINE RESPONSIBILITY",
+  environmentTitle:
+    "Less chemistry is a goal. Not an unsupported environmental promise.",
+  environment: [
+    "biocide-free positioning",
+    "low material use",
+    "potentially gentler cleaning",
+    "longer maintenance intervals as a development / practice goal",
+    "documentable application",
+  ],
+  open: [
+    "eluate",
+    "abrasion",
+    "microplastics",
+    "aquatic organisms",
+    "finished complete system",
+  ],
+  fuelTitle: "A smoother surface can be hydrodynamically relevant.",
+  fuelCopy:
+    "This is a technically plausible development and measurement hypothesis, not a universal fuel-saving claim.",
+  fuelNeed: [
+    "defined boat type",
+    "speed",
+    "load",
+    "weather",
+    "fouling",
+    "consumption",
+    "comparison period",
+  ],
+  qaEyebrow: "APPLICATION & QA",
+  qaTitle: "Marine performance starts with documented application.",
+  qa: [
+    "Assess hull condition",
+    "Define test zone",
+    "Prepare substrate",
+    "Document consumption",
+    "Document drying",
+    "Document water-entry timing",
+    "Season monitoring",
+    "Care protocol",
+    "Final report",
+  ],
+  regEyebrow: "REGULATORY / MARKET ACCESS",
+  regTitle:
+    "Underwater applications need clear environmental and harbour logic.",
+  reg: [
+    [
+      "ANTIFOULING BOUNDARY",
+      "Separate easy-to-clean / biocide-free positioning clearly from active-substance systems.",
+    ],
+    [
+      "HARBOUR / YARD",
+      "Observe local rules for cleaning, abrasion and wastewater.",
+    ],
+    [
+      "ECOTOXICOLOGY",
+      "Structure eluate, abrasion, microplastic and aquatic-organism evidence.",
+    ],
+    [
+      "CLAIMS",
+      "No general antifouling claim without comparison and long-term data.",
+    ],
+  ],
+  limitsTitle: "What is documented — and what is not generally derived.",
+  strengths: [
+    "biocide-free positioning",
+    "70–90 m²/L according to documents",
+    "practice basis >200 boats according to documents",
+    "marine easy-to-clean logic",
+    "definable test zones",
+    "season monitoring",
+  ],
+  limits: [
+    "fouling-free performance",
+    "universal antifouling replacement",
+    "guaranteed fuel saving",
+    "fixed lifetime for every application",
+    "universal substrate release",
+    "environmental harmlessness",
+    "no impact on aquatic organisms",
+    "universal harbour approval",
+  ],
+  economyTitle: "Economics develop across the care cycle.",
+  economy: [
+    "cleaning intervals",
+    "cleaning time",
+    "material consumption",
+    "service periods",
+    "surface care",
+    "potential hydrodynamic effect",
+    "seasonal usability",
+  ],
+  finalTitle: "How does PURE WATER PROTECT behave on your hull over a season?",
+  finalCopy:
+    "We define substrate, test zone, application and monitoring together to create a robust project basis.",
+  project: "Discuss a marine pilot",
+  zone: "Define a test zone",
+} as const;
+const de = {
+  ...en,
+  heroTitle:
+    "Sauberere Rümpfe. Weniger aggressive Chemie. Besser planbare Pflege.",
+  heroSubtitle:
+    "Ultradünne Easy-to-clean-Oberflächentechnologie für Marineanwendungen – entwickelt, um Anhaftung und Reinigungsaufwand auf definierten Unterwasserflächen zu reduzieren, ohne auf eine klassische Biozidlogik zu setzen.",
+  heroCta: "Technologie verstehen",
+  pilot: "Marine-Anwendung prüfen",
+  heroCaption:
+    "Illustratives Marine-Kommunikationsvisual – keine dokumentierte reale Referenz.",
+  challengeEyebrow: "DIE HERAUSFORDERUNG",
+  challengeTitle:
+    "Unter Wasser entscheidet die Oberfläche über Pflege, Bewuchs und Betrieb.",
+  challengeCopy:
+    "Klassische Unterwasserpflege kann mit wiederholter Reinigung, Materialabtrag und chemischem Einsatz verbunden sein. PURE WATER PROTECT verfolgt deshalb eine andere Systemlogik: eine möglichst glatte, pflegefähige Funktionsoberfläche.",
+  challenge: [
+    "BEWUCHS & ANHAFTUNG",
+    "SALZWASSER & MARINE EXPOSITION",
+    "REINIGUNG & OBERFLÄCHENVERSCHLEISS",
+    "BETRIEB & STILLSTAND",
+  ],
+  techEyebrow: "EASY-TO-CLEAN TECHNOLOGY",
+  techTitle: "Nicht Biozidwirkung. Sondern Oberflächenfunktion.",
+  steps: [
+    ["UNTERGRUND", "Bestehender definierter Marine-Untergrund."],
+    ["VORBEREITUNG", "Reinigung, Zustand, Altbeschichtung und Rauheit prüfen."],
+    ["PURE WATER PROTECT", "Dünne funktionale Oberflächenschicht."],
+    [
+      "EASY-TO-CLEAN-EFFEKT",
+      "Anhaftung soll reduziert bzw. Reinigung erleichtert werden.",
+    ],
+  ] as Pair[],
+  statement:
+    "Die Technologie soll Bewuchs nicht chemisch bekämpfen. Sie verändert die Bedingungen an der Oberfläche.",
+  performanceEyebrow: "DOKUMENTIERTE PERFORMANCE-BASIS",
+  performance: [
+    ["70–90 m²/L", "Dokumentierte Surface-/Water-Flächenlogik."],
+    [">200 BOOTE", "Praxisbasis laut vorhandenen Projektunterlagen."],
+    ["BIOZIDFREI", "Dokumentierte / positionierte Produktlogik."],
+  ],
+  evidenceEyebrow: "EVIDENZ",
+  evidenceTitle: "Praxis ist ein Anfang. Eine Saison schafft die Projektakte.",
+  evidence: [
+    [
+      "BIOZIDFREIE POSITIONIERUNG",
+      "B",
+      "Vorhandene Dokumentationsbasis; Deklaration weiter absichern.",
+    ],
+    [
+      "70–90 m²/L",
+      "B",
+      "Dokumentierte Produkt-/Anwendungsbasis; Objektverbrauch zusätzlich messen.",
+    ],
+    [
+      ">200 BOOTE",
+      "B",
+      "Praxisangabe aus Unterlagen; strukturierte Referenzliste aufbauen.",
+    ],
+    [
+      "BEWUCHS-REDUKTION",
+      "B / D",
+      "Praxis/plausible Anwendungserfahrung; Saisonvergleich erforderlich.",
+    ],
+    [
+      "REIBUNGS-/FUEL-EFFEKT",
+      "D",
+      "Technisch plausible Glättelogik; Messprogramm erforderlich.",
+    ],
+  ],
+  seasonEyebrow: "REAL-WORLD VALIDATION",
+  seasonTitle: "Der entscheidende Test ist eine Saison im Wasser.",
+  season: [
+    ["RUMPFZUSTAND", "Material, Altbeschichtung, Rauheit und Bewuchsgrad."],
+    ["MUSTERZONE", "Definierte Steuerbord-/Backbord- oder Rumpfzonen."],
+    ["APPLIKATION", "Schicht, Verbrauch, Trocknung und Wasserzeitpunkt."],
+    [
+      "MONITORING",
+      "Bewuchs, Fotos, Reinigungsaufwand und Reinigungskraft; ggf. Geschwindigkeit / Verbrauch.",
+    ],
+    ["SAISONREPORT", "Ergebnis für Eigner, Werft, Marina und Projektakte."],
+  ] as Pair[],
+  seasonStatement:
+    "Ein dokumentierter Saisonvergleich ist aussagekräftiger als ein einzelnes Marketingbild.",
+  applicationsTitle: "Marineflächen brauchen eine Zonenlogik.",
+  applications: [
+    "SPORTBOOTE",
+    "YACHTEN",
+    "CHARTERFLOTTEN",
+    "MARINAS / SERVICE",
+    "DEFINIERTE UNTERWASSERFLÄCHEN",
+  ],
+  environmentEyebrow: "MARINE RESPONSIBILITY",
+  environmentTitle:
+    "Weniger Chemie ist ein Ziel. Kein unbelegtes Umweltversprechen.",
+  environment: [
+    "biozidfreie Positionierung",
+    "geringer Materialeinsatz",
+    "potenziell schonendere Reinigung",
+    "längere Pflegeintervalle als Entwicklungs-/Praxisziel",
+    "dokumentierbare Anwendung",
+  ],
+  open: [
+    "Eluat",
+    "Abrieb",
+    "Mikroplastik",
+    "Wasserorganismen",
+    "fertiges Gesamtsystem",
+  ],
+  fuelTitle: "Eine glattere Oberfläche kann hydrodynamisch relevant sein.",
+  fuelCopy:
+    "Dies ist eine technisch plausible Entwicklungs- und Messhypothese, keine universelle Kraftstoffersparnis.",
+  fuelNeed: [
+    "definierter Bootstyp",
+    "Geschwindigkeit",
+    "Beladung",
+    "Wetter",
+    "Bewuchs",
+    "Verbrauch",
+    "Vergleichszeitraum",
+  ],
+  qaEyebrow: "APPLICATION & QA",
+  qaTitle: "Marineleistung beginnt mit dokumentierter Applikation.",
+  qa: [
+    "Rumpfzustand prüfen",
+    "Musterzone definieren",
+    "Untergrund vorbereiten",
+    "Verbrauch dokumentieren",
+    "Trocknung dokumentieren",
+    "Wasserzeitpunkt dokumentieren",
+    "Saisonmonitoring",
+    "Pflegeprotokoll",
+    "Abschlussbericht",
+  ],
+  regEyebrow: "REGULATORY / MARKET ACCESS",
+  regTitle: "Unterwasseranwendungen brauchen klare Umwelt- und Hafenlogik.",
+  reg: [
+    [
+      "ANTIFOULING-ABGRENZUNG",
+      "Easy-to-clean-/biozidfreie Positionierung sauber von Wirkstoffsystemen trennen.",
+    ],
+    [
+      "HAFEN / WERFT",
+      "Lokale Regeln für Reinigung, Abrieb und Abwasser beachten.",
+    ],
+    [
+      "ÖKOTOXIKOLOGIE",
+      "Eluat-, Abrieb-, Mikroplastik- und Wasserorganismen-Nachweise strukturieren.",
+    ],
+    [
+      "CLAIMS",
+      "Keine pauschalen Antifouling-Wirkversprechen ohne Vergleichs- und Langzeitdaten.",
+    ],
+  ],
+  limitsTitle: "Was dokumentiert ist – und was nicht pauschal folgt.",
+  strengths: [
+    "biozidfreie Positionierung",
+    "70–90 m²/L laut Unterlagen",
+    "Praxisbasis >200 Boote laut Unterlagen",
+    "Marine-Easy-to-clean-Logik",
+    "definierbare Musterzonen",
+    "Saisonmonitoring",
+  ],
+  limits: [
+    "bewuchsfrei",
+    "universeller Antifouling-Ersatz",
+    "garantierte Kraftstoffeinsparung",
+    "feste Lebensdauer für jede Anwendung",
+    "universelle Untergrundfreigabe",
+    "ökologische Unbedenklichkeit",
+    "keine Auswirkungen auf Wasserorganismen",
+    "universelle Hafenfreigabe",
+  ],
+  economyTitle: "Wirtschaftlichkeit entsteht über den gesamten Pflegezyklus.",
+  economy: [
+    "Reinigungsintervalle",
+    "Reinigungszeit",
+    "Materialverbrauch",
+    "Standzeiten",
+    "Oberflächenpflege",
+    "potenzieller hydrodynamischer Effekt",
+    "saisonale Nutzbarkeit",
+  ],
+  finalTitle:
+    "Wie verhält sich PURE WATER PROTECT auf Ihrem Rumpf über eine Saison?",
+  finalCopy:
+    "Wir definieren Untergrund, Musterzone, Applikation und Monitoring gemeinsam und schaffen daraus eine belastbare Projektbasis.",
+  project: "Marine-Pilot besprechen",
+  zone: "Musterzone definieren",
+} as unknown as typeof en;
+export function getWaterProtectContent(locale: WaterProtectLocale) {
+  return locale === "de" ? de : en;
+}
