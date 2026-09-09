@@ -9,6 +9,7 @@ const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
   'pure-floor-protect': { de: 'produkte/pure-floor-protect', en: 'products/pure-floor-protect' }
   ,'pure-fire-protect': { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' }
   ,'pure-water-protect': { de: 'produkte/pure-water-protect', en: 'products/pure-water-protect' }
+  ,'pure-wood-protect': { de: 'produkte/pure-wood-protect', en: 'products/pure-wood-protect' }
 };
 
 const EN_DESCRIPTIONS: Record<string, string> = {

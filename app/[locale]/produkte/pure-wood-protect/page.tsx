@@ -1,0 +1,1 @@
+import type{Metadata}from'next';import{notFound}from'next/navigation';import PureWoodProtectPage from'@/app/pure-wood-protect/page';export const metadata:Metadata={title:'PURE Wood Protect | Transparenter Holzoberflächenschutz | PURE'};export default function GermanWoodProtectPage({params}:{params:{locale:string}}){if(params.locale!=='de')notFound();return <PureWoodProtectPage/>}
