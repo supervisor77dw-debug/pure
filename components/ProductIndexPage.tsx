@@ -7,6 +7,7 @@ const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
   'pure-liquid-heat': { de: 'pure-liquid-heat', en: 'products/pure-liquid-heat' },
   'pure-surface-protect': { de: 'produkte/pure-surface-protect', en: 'products/pure-surface-protect' },
   'pure-floor-protect': { de: 'produkte/pure-floor-protect', en: 'products/pure-floor-protect' }
+  ,'pure-fire-protect': { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' }
 };
 
 const EN_DESCRIPTIONS: Record<string, string> = {
