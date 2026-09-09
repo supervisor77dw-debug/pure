@@ -10,6 +10,7 @@ const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
   ,'pure-fire-protect': { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' }
   ,'pure-water-protect': { de: 'produkte/pure-water-protect', en: 'products/pure-water-protect' }
   ,'pure-wood-protect': { de: 'produkte/pure-wood-protect', en: 'products/pure-wood-protect' }
+  ,'pure-boat-protect': { de: 'produkte/pure-boat-protect', en: 'products/pure-boat-protect' }
 };
 
 const EN_DESCRIPTIONS: Record<string, string> = {
