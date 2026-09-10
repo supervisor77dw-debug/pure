@@ -1,7 +1,7 @@
-import { getAllProducts } from '@/lib/data';
 import Link from 'next/link';
 import { Hero } from '@/components/Hero';
 import { LightboxFigure } from '@/components/LightboxFigure';
+import { EvidenceLegendPreview, FinalDecisionCta, HomeApplicationOverview, HomeCalculatorTeaser, KiwaEvidencePanel, PartnershipPanel, PilotProcess, ProductPortfolioMatrix } from '@/components/HomeExperienceSections';
 import { localePath, type Locale } from '@/lib/i18n';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
@@ -9,8 +9,6 @@ import { isLocale } from '@/lib/i18n';
 export default function HomePage() {
   const headerLocale = headers().get('x-pure-locale') || 'de';
   const locale: Locale = isLocale(headerLocale) ? headerLocale : 'de';
-  const products = getAllProducts();
-  const portfolioProducts = products.filter((product) => product.slug !== 'pure-thermo');
   const deLink = (path: string) => localePath(locale, path);
 
   return (
@@ -60,6 +58,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <HomeCalculatorTeaser locale="de" />
+
       <section className="section" id="why-pure">
         <div className="container">
           <div className="split-section">
@@ -75,6 +75,7 @@ export default function HomePage() {
               <LightboxFigure
                 file="Vierfelde Problemmatrix.png"
                 alt="Vier Problemfelder klassischer Einsatzgebiete: geringe Aufbauhöhe, komplexe Geometrie, Detailbereiche und Sonderanforderungen"
+                caption="Orientierende Problemmatrix: PURE adressiert Einsatzfelder, in denen klassische Systeme konstruktiv an Grenzen stoßen."
               />
             </div>
           </div>
@@ -130,6 +131,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <HomeApplicationOverview locale="de" />
+
       <section className="section">
         <div className="container">
           <div className="thermo-spotlight">
@@ -163,173 +166,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section--surface" id="produkte">
-        <div className="container">
-          <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Portfolio</span>
-            <h2>Eine Technologieplattform. Mehrere Funktionswelten.</h2>
-          </div>
-          <div className="product-pipeline" aria-label="Weitere PURE Systemfamilien">
-            {portfolioProducts.map((product) => (
-              product.slug === 'pure-liquid-heat' || product.slug === 'pure-surface-protect' ? (
-                <Link className="product-pipeline__item" href={deLink(product.slug === 'pure-liquid-heat' ? 'pure-liquid-heat' : 'produkte/pure-surface-protect')} key={product.id}>{product.name.de}</Link>
-              ) : (
-                <div className="product-pipeline__item" key={product.id}>{product.name.de}</div>
-              )
-            ))}
-          </div>
-          <p className="product-pipeline__note">Weitere Systemfamilien werden schrittweise dokumentiert und validiert.</p>
-        </div>
-      </section>
+      <ProductPortfolioMatrix locale="de" />
 
-      <section className="section">
-        <div className="container">
-          <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Anwendung</span>
-            <h2>Vom Material zum Gebäude.</h2>
-          </div>
-          <div className="application-journey">
-            <article className="journey-card journey-card--photo">
-              <img src="/assets/Hero2.png" alt="Applikation einer funktionalen Beschichtung an einer Fassade" loading="lazy" />
-              <div className="journey-card__body">
-                <h3>Bestand</h3>
-                <p>Bauteile mit begrenztem Bauraum.</p>
-              </div>
-            </article>
-            <article className="journey-card">
-              <div className="journey-card__body">
-                <h3>Detailbereiche</h3>
-                <p>Anschlüsse und komplexe Geometrien.</p>
-              </div>
-            </article>
-            <article className="journey-card">
-              <div className="journey-card__body">
-                <h3>Technische Anlagen</h3>
-                <p>Funktionale Oberflächen und Sonderanwendungen.</p>
-              </div>
-            </article>
-            <article className="journey-card">
-              <div className="journey-card__body">
-                <h3>Architektur</h3>
-                <p>Integration mit geringer konstruktiver Eingriffstiefe.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+      <EvidenceLegendPreview locale="de" />
+      <KiwaEvidencePanel locale="de" />
 
-      <section className="section section--surface" id="evidenz">
-        <div className="container">
-          <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Evidenz</span>
-            <h2>Wir unterscheiden Wissen von Annahmen.</h2>
-            <p>Technische Aussagen werden bei PURE nach ihrer Nachweisqualität gekennzeichnet.</p>
-          </div>
-
-          <div className="evidence-grid">
-            <div className="evidence-card evidence-card--a">
-              <span className="evidence-badge evidence-badge--A"><span className="evidence-badge__letter">A</span> <span>Extern geprüft</span></span>
-              <p>Ergebnisse aus dokumentierten Prüfungen mit klar definiertem Rahmen und Prüfgegenstand.</p>
-            </div>
-            <div className="evidence-card evidence-card--b">
-              <span className="evidence-badge evidence-badge--B"><span className="evidence-badge__letter">B</span> <span>Intern dokumentiert</span></span>
-              <p>Nachvollziehbare interne Validierung, Prüfungen und systemische Ableitung.</p>
-            </div>
-            <div className="evidence-card evidence-card--c">
-              <span className="evidence-badge evidence-badge--C"><span className="evidence-badge__letter">C</span> <span>Berechnet / modelliert</span></span>
-              <p>Transparentes Rechenmodell mit nachvollziehbaren Annahmen und Grenzen.</p>
-            </div>
-            <div className="evidence-card evidence-card--d">
-              <span className="evidence-badge evidence-badge--D"><span className="evidence-badge__letter">D</span> <span>Entwicklungsstatus</span></span>
-              <p>Vorläufige Hypothese, Prüfpfad oder definierter Entwicklungsstatus – kein fertiger Leistungsclaim.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="proof-panel">
-            <div className="proof-panel__header">
-              <span className="section-heading__eyebrow">Extern geprüft</span>
-              <h2>λ = 0,0335 W/(m·K)</h2>
-            </div>
-            <div className="proof-panel__meta">
-              <span>Kiwa GmbH / MPA Berlin-Brandenburg</span>
-              <span>DIN EN 12664</span>
-            </div>
-            <p>
-              Prüfgegenstand THERM 4410. Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.
-            </p>
-            <div className="hero__ctas">
-              <a className="btn btn--primary" href={deLink('nachweise/EVD-PT-THERM-001')}>Prüfgrundlage ansehen</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Pilot- und Referenzprogramm</span>
-            <h2>PURE baut ein strukturiertes Mess- und Referenzprogramm mit ausgewählten Projekt- und Anwendungspartnern auf.</h2>
-          </div>
-          <div className="reference-grid">
-            <div className="reference-card">
-              <span className="reference-card__name">Gebäude</span>
-            </div>
-            <div className="reference-card">
-              <span className="reference-card__name">Industrie</span>
-            </div>
-            <div className="reference-card">
-              <span className="reference-card__name">Sonderanwendungen</span>
-            </div>
-          </div>
-          <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
-            <a className="btn btn--primary" href="#partnerschaft">Pilotprojekt vorschlagen</a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="partnerschaft">
-        <div className="container">
-          <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Partnerschaft</span>
-            <h2>Die Zusammenarbeit beginnt mit der richtigen Frage.</h2>
-          </div>
-
-          <div className="partner-grid">
-            <article className="partner-card">
-              <h3>Planung &amp; Architektur</h3>
-              <p>Systeminformationen und bauphysikalische Einordnung.</p>
-              <a href={deLink('produkte/pure-thermo')}>Anfragen</a>
-            </article>
-            <article className="partner-card">
-              <h3>Industrie &amp; Anwendung</h3>
-              <p>Integration, technische Anwendungen und Pilotierung.</p>
-              <a href={deLink('produkte/pure-thermo')}>Kontakt aufnehmen</a>
-            </article>
-            <article className="partner-card">
-              <h3>Partnerschaft &amp; Skalierung</h3>
-              <p>Marktentwicklung und Kooperation.</p>
-              <a href={deLink('produkte/pure-thermo')}>Projekt besprechen</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <div className="final-cta">
-            <p className="final-cta__lead">Wo konventionelle Systeme an konstruktive Grenzen stoßen, beginnt der interessante Teil.</p>
-            <h2>Sprechen Sie mit uns über Ihre Anwendung.</h2>
-            <div className="hero__ctas" style={{ justifyContent: 'center' }}>
-              <a className="btn btn--primary" href={deLink('produkte/pure-thermo')}>Projekt besprechen</a>
-              <a className="btn btn--secondary" href={deLink('nachweise/EVD-PT-THERM-001')}>Technische Unterlagen</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PilotProcess locale="de" />
+      <PartnershipPanel locale="de" />
+      <FinalDecisionCta locale="de" />
     </>
   );
 }

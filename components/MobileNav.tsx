@@ -23,6 +23,9 @@ export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
         <label htmlFor="mobile-search" className="visually-hidden">Suche</label>
         <input id="mobile-search" type="search" placeholder={ui[locale].searchPlaceholder} />
       </div>
+      <div className="mobile-nav__cta">
+        <Link className="btn btn--primary" href={locale === 'en' ? localePath('en', 'products/pure-thermo#u-wert-rechner') : localePath('de', 'produkte/pure-thermo#u-wert-rechner')}>{locale === 'en' ? 'Calculate component' : 'Bauteil berechnen'}</Link>
+      </div>
       <div className="mobile-nav__group">
         <button
           className="mobile-nav__group-button"

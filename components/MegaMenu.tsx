@@ -2,6 +2,17 @@ import Link from 'next/link';
 import type { Product } from '@/lib/data';
 import { productPath, type Locale, ui } from '@/lib/i18n';
 
+const productDescriptions: Record<string, { de: string; en: string }> = {
+  'pure-thermo': { de: 'Thermische Funktionsschicht', en: 'Thermal functional layer' },
+  'pure-liquid-heat': { de: 'Elektrische Wärme', en: 'Electrical heat' },
+  'pure-floor-protect': { de: 'Bodenoberflächen', en: 'Floor surfaces' },
+  'pure-fire-protect': { de: 'Brandschutz', en: 'Fire protection' },
+  'pure-surface-protect': { de: 'Oberflächenschutz', en: 'Surface protection' },
+  'pure-water-protect': { de: 'Unterwasser / Marine', en: 'Underwater / marine' },
+  'pure-wood-protect': { de: 'Holzoberflächen', en: 'Wood surfaces' },
+  'pure-boat-protect': { de: 'Yacht- und Bootsoberflächen', en: 'Yacht and boat surfaces' }
+};
+
 export interface MegaMenuProps {
   products: Product[];
   open: boolean;
@@ -20,7 +31,7 @@ export function MegaMenu({ products, open, locale = 'de' }: MegaMenuProps) {
         return href ? (
           <Link key={product.id} className="mega-menu__item" role="menuitem" href={href}>
             <span className="mega-menu__item-name">{product.name.de}</span>
-            <span className="mega-menu__item-status">{locale === 'en' ? 'Explore technology' : 'Technologie ansehen'}</span>
+            <span className="mega-menu__item-status">{productDescriptions[product.slug]?.[locale] ?? (locale === 'en' ? 'Explore technology' : 'Technologie ansehen')}</span>
           </Link>
         ) : (
           <span key={product.id} className="mega-menu__item" data-disabled="true" role="menuitem" aria-disabled="true">

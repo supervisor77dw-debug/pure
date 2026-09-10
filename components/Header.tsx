@@ -86,6 +86,9 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
           <label htmlFor="desktop-search" className="visually-hidden">{ui[currentLocale].search}</label>
           <input id="desktop-search" type="search" placeholder={ui[currentLocale].search} />
         </div>
+        <Link className="header__utility-cta" href={currentLocale === 'en' ? localePath('en', 'products/pure-thermo#u-wert-rechner') : localePath('de', 'produkte/pure-thermo#u-wert-rechner')}>
+          {currentLocale === 'en' ? 'Calculate component' : 'Bauteil berechnen'}
+        </Link>
         <div className="language-switcher" aria-label={ui[currentLocale].switchLabel}>
           {currentLocale === 'de' ? <span className="language-switcher__active" aria-current="page">DE</span> : <Link href={counterpartHref}>DE</Link>}
           <span aria-hidden="true">|</span>

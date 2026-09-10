@@ -104,7 +104,7 @@ export default function PureThermoInteriorPage() {
           <div className="section-heading">
             <h2>Einsatzbereich</h2>
           </div>
-          <div className="card-grid" style={{ gridTemplateColumns: '1fr 1fr' }}>
+          <div className="card-grid">
             <div>
               <h3>Vorgesehene Anwendungen</h3>
               <div className="card-grid card-grid--3">
