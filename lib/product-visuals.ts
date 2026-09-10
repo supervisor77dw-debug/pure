@@ -13,6 +13,14 @@ export const productVisuals = {
     industry: {
       de: 'Hochglanz-Edelstahl für effiziente Industrieanlagen.png',
       en: 'Industrielle Edelstahloberflächen mit Schutztechnologie.png'
+    },
+    architecture: {
+      de: 'Zeitlose Oberflächen für moderne Architektur.png',
+      en: 'Moderne Architektur am Flussufer.png'
+    },
+    heritage: {
+      de: 'Architektur bewahren, Zukunft gestalten.png',
+      en: 'Hochwertiger Schutz für historische Fassaden.png'
     }
   },
   floorProtect: {
