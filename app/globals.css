@@ -219,8 +219,12 @@ table { border-collapse: collapse; width: 100%; }
   width: 100%;
   font-size: 0.9rem;
 }
-.header__search-button { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); color: var(--color-navy); cursor: pointer; font-size: 1.1rem; }
+.header__search-compact { display: none; position: relative; }
+.header__search-button { width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); color: var(--color-navy); cursor: pointer; font-size: 1.1rem; }
 .header__search-button:hover, .header__search-button:focus-visible { border-color: var(--color-petrol); color: var(--color-petrol); outline: none; }
+.header__search-panel { position: absolute; right: 0; top: calc(100% + var(--space-2)); z-index: 220; width: min(320px, calc(100vw - 32px)); padding: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); box-shadow: 0 12px 32px rgba(11,31,58,0.14); }
+.header__search-panel input { width: 100%; min-height: 40px; padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font: inherit; }
+.header__search-panel input:focus-visible { outline: 2px solid rgba(14,110,124,0.28); border-color: var(--color-petrol); }
 
 .header__utility-cta { display: none; }
 
@@ -239,7 +243,7 @@ table { border-collapse: collapse; width: 100%; }
 
 @media (min-width: 960px) {
   .header__nav { display: flex; }
-  .header__search-button { display: inline-flex; }
+  .header__search-compact, .header__search-button { display: inline-flex; }
   .header__burger { display: none; }
 }
 
@@ -990,7 +994,7 @@ table { border-collapse: collapse; width: 100%; }
 .liquid-heat-flow { display: grid; grid-template-columns: 1fr; gap: var(--space-2); margin-bottom: var(--space-5); }
 @media (min-width: 900px) { .liquid-heat-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); } }
 .liquid-heat-flow__step { position: relative; min-height: 150px; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: linear-gradient(180deg, var(--color-bg), rgba(14,110,124,0.05)); display: flex; flex-direction: column; justify-content: space-between; }
-.liquid-heat-flow__step::before { content: ""; width: 36px; height: 36px; border-radius: var(--radius-sm); background: linear-gradient(135deg, rgba(14,110,124,0.16), rgba(201,89,26,0.12)); border: 1px solid rgba(14,110,124,0.2); }
+.liquid-heat-flow__icon { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-sm); background: linear-gradient(135deg, rgba(14,110,124,0.16), rgba(201,89,26,0.12)); border: 1px solid rgba(14,110,124,0.2); color: var(--color-petrol); font-size: 1rem; font-weight: 800; }
 .liquid-heat-flow__number { color: var(--color-petrol); font-weight: 700; font-size: 0.8rem; }
 .liquid-heat-flow__step strong { color: var(--color-navy); font-size: 0.82rem; line-height: 1.25; }
 .liquid-heat-flow__arrow { position: absolute; right: var(--space-3); bottom: var(--space-2); color: var(--color-thermo); font-size: 1.2rem; }

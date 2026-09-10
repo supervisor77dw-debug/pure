@@ -44,6 +44,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
   const [megaOpen, setMegaOpen] = useState(false);
   const [systemsOpen, setSystemsOpen] = useState(false);
   const [evidenceOpen, setEvidenceOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname() || '/';
   const routeLocale = pathname.split('/')[1];
@@ -82,7 +83,10 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
             {evidenceOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].evidence}>{evidenceItems[currentLocale].map(([name, description, href]) => <Link key={name} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
           </div>
         </nav>
-        <button className="header__search-button" type="button" aria-label={ui[currentLocale].search} title={ui[currentLocale].search}>⌕</button>
+        <div className={`header__search-compact${searchOpen ? ' is-open' : ''}`} role="search">
+          <button className="header__search-button" type="button" aria-label={ui[currentLocale].search} title={ui[currentLocale].search} aria-expanded={searchOpen} aria-controls="desktop-search-panel" onClick={() => setSearchOpen((value) => !value)}>⌕</button>
+          {searchOpen ? <div className="header__search-panel" id="desktop-search-panel"><label htmlFor="desktop-search" className="visually-hidden">{ui[currentLocale].search}</label><input id="desktop-search" type="search" placeholder={ui[currentLocale].searchPlaceholder} autoFocus /></div> : null}
+        </div>
         <Link className="header__utility-cta" href={currentLocale === 'en' ? localePath('en', 'products/pure-thermo#u-wert-rechner') : localePath('de', 'produkte/pure-thermo#u-wert-rechner')}>
           {currentLocale === 'en' ? 'Calculate component' : 'Bauteil berechnen'}
         </Link>

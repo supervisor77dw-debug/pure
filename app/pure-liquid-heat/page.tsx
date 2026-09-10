@@ -127,6 +127,7 @@ export default function PureLiquidHeatPage() {
           <div className="liquid-heat-flow" aria-label={content.flowAria}>
             {content.flow.map((step, index) => (
               <div className="liquid-heat-flow__step" key={step}>
+                <span className="liquid-heat-flow__icon" aria-hidden="true">{['⚡', '▧', 'Ω', '≈', '⌁'][index]}</span>
                 <span className="liquid-heat-flow__number">0{index + 1}</span>
                 <strong>{step}</strong>
                 {index < 4 ? <span className="liquid-heat-flow__arrow" aria-hidden="true">↓</span> : null}
