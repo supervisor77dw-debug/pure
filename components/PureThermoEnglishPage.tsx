@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AssetFigure } from './AssetFigure';
 import { PureThermoUValueCalculator } from './PureThermoUValueCalculator';
 
 export function PureThermoEnglishPage() {
@@ -10,6 +11,16 @@ export function PureThermoEnglishPage() {
           <h1>Thermal function at minimal build-up height.</h1>
           <p className="hero__subtitle">A thin, applicable coating technology for thermally relevant component areas, complex geometries and applications with limited installation space.</p>
           <div className="hero__ctas"><Link className="btn btn--primary" href="#u-wert-rechner">Explore the calculation model</Link><Link className="btn btn--secondary" href="/en/evidence/EVD-PT-THERM-001">Technical evidence</Link></div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <AssetFigure
+            file="Moderne Gebäudeisolierung im Querschnitt_eng.png"
+            alt="PURE THERMO application overview for facade, roof, balcony, ceiling, floor, base areas and interior spaces"
+            caption="Application overview: PURE THERMO for thermally relevant building areas with project-specific system assessment."
+            priority
+          />
         </div>
       </section>
       <PureThermoUValueCalculator locale="en" />
