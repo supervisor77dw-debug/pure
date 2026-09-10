@@ -21,6 +21,7 @@ import { assetSrc } from '@/lib/assets';
 import { TechnicalVisual } from '@/components/TechnicalVisual';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
+import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalculator';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -293,6 +294,7 @@ export default function PureThermoPage() {
               );
             })}
           </div>
+          <PureThermoUValueCalculator locale={locale} />
         </div>
       </section>
 

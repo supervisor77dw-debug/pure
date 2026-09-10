@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { LocalePending } from '@/components/LocalePending';
+import { PureThermoEnglishPage } from '@/components/PureThermoEnglishPage';
 
 export const metadata: Metadata = {
   title: 'Pure Thermo · PURE Technology Platform',
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 
 export default function EnglishPureThermoPage({ params }: { params: { locale: string } }) {
   if (params.locale !== 'en') notFound();
-  return <LocalePending title="Pure Thermo" />;
+  return <PureThermoEnglishPage />;
 }
