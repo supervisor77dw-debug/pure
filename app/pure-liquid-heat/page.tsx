@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { AssetFigure } from '@/components/AssetFigure';
+import { LightboxFigure } from '@/components/LightboxFigure';
 import { getLiquidHeatContent, type LiquidHeatLocale } from '@/lib/liquid-heat-content';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
+import { productVisuals, visualFor } from '@/lib/product-visuals';
 
 export const metadata: Metadata = {
   title: 'Pure Liquid Heat · PURE Technology Platform',
@@ -188,7 +190,7 @@ export default function PureLiquidHeatPage() {
           <SectionHeading eyebrow={content.applicationsEyebrow} title={content.applicationsTitle} />
           <div className="liquid-heat-application-features">
             <article className="liquid-heat-application-feature">
-              <AssetFigure file="LH_CONCEPT_Pyramid_Hospitality_01.jpg" alt={locale === 'de' ? 'PURE LIQUID HEAT Hospitality-Entwicklungskonzept' : 'PURE LIQUID HEAT hospitality development concept'} status="DEVELOPMENT CONCEPT" caption={content.conceptCaption} />
+              <LightboxFigure file={visualFor(productVisuals.liquidHeat.outdoorHospitality, locale)} alt={locale === 'de' ? 'PURE LIQUID HEAT Anwendungskonzept für Außenbereich und Hospitality' : 'PURE LIQUID HEAT application concept for outdoor and hospitality'} caption={locale === 'de' ? 'Illustratives Anwendungskonzept. Outdoor-Eignung, Schutzaufbau und elektrische Auslegung werden für den jeweiligen Systemaufbau definiert.' : 'Illustrative application concept. Outdoor suitability, protective build-up and electrical configuration are defined for the specific system.'} zoomLabel={locale === 'de' ? 'Vergrößern' : 'Enlarge'} closeLabel={locale === 'de' ? 'Schließen' : 'Close'} />
               <ApplicationWorld application={content.applications[0]} label={content.conceptWorld} />
             </article>
             <article className="liquid-heat-application-feature">

@@ -28,6 +28,12 @@ export const productVisuals = {
       de: 'Sauberer Boden für starke Räume.png',
       en: 'Hochglanzboden im modernen Schulflur.png'
     }
+  },
+  liquidHeat: {
+    outdoorHospitality: {
+      de: 'Wärme für außen – ganzjährig.png',
+      en: 'Ganzjähriger Komfort auf der Terrasse.png'
+    }
   }
 } as const;
 
