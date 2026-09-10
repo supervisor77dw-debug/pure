@@ -18,6 +18,9 @@ import { DocumentCard } from '@/components/DocumentCard';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { assetSrc } from '@/lib/assets';
+import { TechnicalVisual } from '@/components/TechnicalVisual';
+import { headers } from 'next/headers';
+import { isLocale } from '@/lib/i18n';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -35,7 +38,10 @@ const CORE_VALUE_IDS = [
 ];
 
 const SYSTEM_HREFS: Record<string, string> = {
-  'SYS-PT-INT-001': '/systeme/pure-thermo-interior'
+  'SYS-PT-INT-001': '/systeme/pure-thermo-interior',
+  'SYS-PT-EXT-001': '/systeme/pure-thermo-exterior',
+  'SYS-PT-DET-001': '/systeme/pure-thermo-detail',
+  'SYS-PT-FIRE-001': '/systeme/pure-thermo-fire'
 };
 
 const EVIDENCE_GROUPS = [
@@ -45,6 +51,7 @@ const EVIDENCE_GROUPS = [
 ];
 
 export default function PureThermoPage() {
+  const locale = isLocale(headers().get('x-pure-locale') || '') ? (headers().get('x-pure-locale') as 'de' | 'en') : 'de';
   const product = getProductBySlug('pure-thermo');
   if (!product) return null;
 
@@ -237,6 +244,23 @@ export default function PureThermoPage() {
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--surface">
+        <div className="container">
+          <div className="section-heading section-heading--narrow">
+            <span className="section-heading__eyebrow">Anwendungsübersicht</span>
+            <h2>Mehr als nur Dämmung.</h2>
+          </div>
+          <TechnicalVisual
+            locale={locale}
+            visual="overview"
+            altDe="Illustrative Übersicht möglicher PURE-THERMO-Anwendungssituationen in einem Gebäudeschnitt."
+            altEn="Illustrative overview of potential PURE THERMO application scenarios in a building section."
+            captionDe="Illustrative Übersicht möglicher Anwendungssituationen. Die technische Eignung und der konkrete Systemaufbau sind anwendungs- und objektspezifisch zu prüfen."
+            captionEn="Illustrative overview of potential application scenarios. Technical suitability and the specific system build-up must be assessed for each application and project."
+          />
         </div>
       </section>
 

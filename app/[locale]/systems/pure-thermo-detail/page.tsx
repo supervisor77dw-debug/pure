@@ -1,0 +1,1 @@
+import { notFound } from 'next/navigation'; import { ThermoSystemRoutePage } from '@/components/ThermoSystemRoutePage'; export default function Detail({params}:{params:{locale:string}}){if(params.locale!=='en')notFound();return <ThermoSystemRoutePage locale="en" route="detail"/>}

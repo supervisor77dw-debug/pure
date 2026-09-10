@@ -39,7 +39,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
             </Link>
             <MegaMenu products={products} open={megaOpen} onClose={() => setMegaOpen(false)} locale={currentLocale} />
           </div>
-          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>{ui[currentLocale].systems}</Link>
+          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems') : localePath('de', 'systeme')}>{ui[currentLocale].systems}</Link>
           <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence/EVD-PT-THERM-001') : localePath('de', 'nachweise/EVD-PT-THERM-001')}>{ui[currentLocale].evidence}</Link>
         </nav>
         <div className="header__search" role="search">

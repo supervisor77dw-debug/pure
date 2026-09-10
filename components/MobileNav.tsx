@@ -59,6 +59,7 @@ export function MobileNav({ products, open, locale = 'de' }: MobileNavProps) {
         </button>
         {expanded === 'systeme' && (
           <div className="mobile-nav__panel" id="mobile-nav-systeme">
+            <Link href={locale === 'en' ? localePath('en', 'systems') : localePath('de', 'systeme')}>{locale === 'en' ? 'System routes' : 'Systemrouten'}</Link>
             <Link href={locale === 'en' ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>Pure Thermo Interior</Link>
           </div>
         )}

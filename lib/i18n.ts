@@ -62,6 +62,8 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/products/pure-thermo': '/produkte/pure-thermo',
     '/systeme/pure-thermo-interior': '/systems/pure-thermo-interior',
     '/systems/pure-thermo-interior': '/systeme/pure-thermo-interior',
+    '/systeme': '/systems',
+    '/systems': '/systeme',
     '/pure-liquid-heat': '/products/pure-liquid-heat',
     '/products/pure-liquid-heat': '/pure-liquid-heat',
     '/produkte/pure-surface-protect': '/products/pure-surface-protect',
