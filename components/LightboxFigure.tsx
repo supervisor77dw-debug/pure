@@ -27,6 +27,10 @@ export function LightboxFigure({ file, alt, caption, priority = false, zoomLabel
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false);
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        closeRef.current?.focus();
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);

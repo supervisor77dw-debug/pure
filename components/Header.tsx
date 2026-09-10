@@ -82,10 +82,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
             {evidenceOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].evidence}>{evidenceItems[currentLocale].map(([name, description, href]) => <Link key={name} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
           </div>
         </nav>
-        <div className="header__search" role="search">
-          <label htmlFor="desktop-search" className="visually-hidden">{ui[currentLocale].search}</label>
-          <input id="desktop-search" type="search" placeholder={ui[currentLocale].search} />
-        </div>
+        <button className="header__search-button" type="button" aria-label={ui[currentLocale].search} title={ui[currentLocale].search}>⌕</button>
         <Link className="header__utility-cta" href={currentLocale === 'en' ? localePath('en', 'products/pure-thermo#u-wert-rechner') : localePath('de', 'produkte/pure-thermo#u-wert-rechner')}>
           {currentLocale === 'en' ? 'Calculate component' : 'Bauteil berechnen'}
         </Link>

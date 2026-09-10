@@ -7,6 +7,7 @@ import {
 } from "@/lib/wood-protect-content";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { AssetFigure } from "@/components/AssetFigure";
+import { LightboxFigure } from "@/components/LightboxFigure";
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
@@ -90,10 +91,12 @@ export default function PureWoodProtectPage() {
             title={t.challengeTitle}
             intro={t.challengeCopy}
           />
-          <div className="surface-protect-four-grid">
-            {t.challenge.map((x) => (
-              <article className="surface-protect-card" key={x}>
-                <h3>{x}</h3>
+          <div className="wood-protect-card-grid wood-protect-card-grid--four">
+            {t.challenge.map((title, index) => (
+              <article className="wood-protect-card" key={title}>
+                <span aria-hidden="true">0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{woodChallengeCopy[locale][index]}</p>
               </article>
             ))}
           </div>
@@ -118,15 +121,16 @@ export default function PureWoodProtectPage() {
       <section className="section" id="applications">
         <div className="container">
           <H eyebrow="APPLICATIONS" title={t.applicationsTitle} />
-          <div className="wood-protect-applications">
+          <div className="wood-protect-card-grid">
             {t.applications.map(([title, copy]) => (
-              <article className="surface-protect-card" key={title}>
+              <article className="wood-protect-card" key={title}>
+                <span aria-hidden="true">{title.slice(0, 2)}</span>
                 <h3>{title}</h3>
                 <p>{copy}</p>
               </article>
             ))}
           </div>
-          <AssetFigure
+          <LightboxFigure
             file="02_wood_asset_page19.jpeg"
             alt={asset(
               "Illustratives Holzoberflächen-Kommunikationsvisual",
@@ -136,6 +140,8 @@ export default function PureWoodProtectPage() {
               "Illustratives Kommunikationsvisual – keine reale Referenz.",
               "Illustrative communication visual — not a real reference.",
             )}
+            zoomLabel={locale === "de" ? "Vergrößern" : "Enlarge"}
+            closeLabel={locale === "de" ? "Schließen" : "Close"}
           />
         </div>
       </section>
@@ -244,3 +250,18 @@ export default function PureWoodProtectPage() {
     </>
   );
 }
+
+const woodChallengeCopy = {
+  de: [
+    "UV, Regen und Temperaturwechsel verändern Farbe und Oberfläche.",
+    "Feuchteaufnahme hängt stark von Holzart, Aufbau und Exposition ab.",
+    "Schmutz und biologische Beläge beeinflussen Pflege und Erscheinungsbild.",
+    "Pflegeintervalle und Nachbehandlung müssen objektspezifisch geplant werden."
+  ],
+  en: [
+    "UV, rain and temperature changes alter colour and surface appearance.",
+    "Moisture uptake depends strongly on wood species, build-up and exposure.",
+    "Dirt and biological deposits influence maintenance and appearance.",
+    "Care intervals and recoating need project-specific planning."
+  ]
+} as const;

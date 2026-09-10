@@ -185,16 +185,22 @@ export default function PureLiquidHeatPage() {
       <section className="section" id="applications">
         <div className="container">
           <SectionHeading eyebrow={content.applicationsEyebrow} title={content.applicationsTitle} />
-          <div className="application-worlds">
-            {content.applications.map((application) => (
-              <article className="application-world" key={application.title}>
-                <h3>{application.title}</h3>
-                <p>{application.copy}</p>
-                <ul>{application.examples.map((example) => <li key={example}>{example}</li>)}</ul>
-                {application.note ? <p className="application-world__note">{application.note}</p> : null}
-                {application.title === content.applications[0].title ? <span className="concept-label">{content.conceptWorld}</span> : null}
-              </article>
-            ))}
+          <div className="liquid-heat-application-features">
+            <article className="liquid-heat-application-feature">
+              <AssetFigure file="LH_CONCEPT_Pyramid_Hospitality_01.jpg" alt={locale === 'de' ? 'PURE LIQUID HEAT Hospitality-Entwicklungskonzept' : 'PURE LIQUID HEAT hospitality development concept'} status="DEVELOPMENT CONCEPT" caption={content.conceptCaption} />
+              <ApplicationWorld application={content.applications[0]} label={content.conceptWorld} />
+            </article>
+            <article className="liquid-heat-application-feature">
+              <AssetFigure file="LH_REAL_LED_Design_Panel_01.jpg" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Designpanel als Interior- und Designstudie' : 'Internal PURE LIQUID HEAT design panel as interior and design study'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[2]} />
+              <ApplicationWorld application={content.applications[1]} />
+            </article>
+            <article className="liquid-heat-application-feature">
+              <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Prototypenpanel für Modulintegration' : 'Internal PURE LIQUID HEAT prototype panel for module integration'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
+              <ApplicationWorld application={content.applications[2]} />
+            </article>
+          </div>
+          <div className="application-worlds application-worlds--compact">
+            <ApplicationWorld application={content.applications[3]} />
           </div>
           <div className="liquid-heat-feature">
             <span className="concept-label">{content.concept}</span>
@@ -279,5 +285,17 @@ export default function PureLiquidHeatPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function ApplicationWorld({ application, label }: { application: { title: string; copy: string; examples: readonly string[]; note?: string }; label?: string }) {
+  return (
+    <div className="application-world application-world--plain">
+      <h3>{application.title}</h3>
+      <p>{application.copy}</p>
+      <ul>{application.examples.map((example) => <li key={example}>{example}</li>)}</ul>
+      {application.note ? <p className="application-world__note">{application.note}</p> : null}
+      {label ? <span className="concept-label">{label}</span> : null}
+    </div>
   );
 }
