@@ -8,8 +8,42 @@ import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
 import { isLocale, localizedCounterpart, localePath, pathWithoutLocale, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
+const systemItems = {
+  de: [
+    ['Pure Thermo Interior', 'Innenräume & Bestandswände', 'systeme/pure-thermo-interior'],
+    ['Pure Thermo Exterior', 'Fassaden & Außenbereiche', 'systeme/pure-thermo-exterior'],
+    ['Pure Thermo Detail', 'Wärmebrücken & Anschlüsse', 'systeme/pure-thermo-detail'],
+    ['Pure Thermo + Pure Fire', 'Thermische + brandschutztechnische Systemroute', 'systeme/pure-thermo-fire']
+  ],
+  en: [
+    ['Pure Thermo Interior', 'Interior spaces & existing walls', 'systems/pure-thermo-interior'],
+    ['Pure Thermo Exterior', 'Facades & exterior areas', 'systems/pure-thermo-exterior'],
+    ['Pure Thermo Detail', 'Thermal bridges & junctions', 'systems/pure-thermo-detail'],
+    ['Pure Thermo + Pure Fire', 'Thermal + fire-protection system route', 'systems/pure-thermo-fire']
+  ]
+} as const;
+
+const evidenceItems = {
+  de: [
+    ['Wärmeleitfähigkeit', 'Extern geprüfter THERM 4410 Prüfwert', 'nachweise/EVD-PT-THERM-001'],
+    ['Wasserdampfdiffusion', 'V, sd und abgeleiteter μ-Wert', 'nachweise'],
+    ['Brandverhalten', 'Einzelprüfung und Kombinationsroute getrennt', 'nachweise'],
+    ['Berechnungen & Modelle', 'U-Wert-Modellrechnung mit Grenzen', 'produkte/pure-thermo#u-wert-rechner'],
+    ['Prüf- und Entwicklungsstatus', 'A-D-System im Überblick', 'nachweise']
+  ],
+  en: [
+    ['Thermal conductivity', 'Externally tested THERM 4410 value', 'evidence/EVD-PT-THERM-001'],
+    ['Water vapour diffusion', 'V, sd and derived μ value', 'evidence'],
+    ['Fire behaviour', 'Individual tests and combination route separated', 'evidence'],
+    ['Calculations & models', 'U-value model calculation with limits', 'products/pure-thermo#u-wert-rechner'],
+    ['Testing & development status', 'A-D system overview', 'evidence']
+  ]
+} as const;
+
 export function Header({ products, locale = 'de' }: { products: Product[]; locale?: Locale }) {
   const [megaOpen, setMegaOpen] = useState(false);
+  const [systemsOpen, setSystemsOpen] = useState(false);
+  const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname() || '/';
   const routeLocale = pathname.split('/')[1];
@@ -39,8 +73,14 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
             </Link>
             <MegaMenu products={products} open={megaOpen} onClose={() => setMegaOpen(false)} locale={currentLocale} />
           </div>
-          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems') : localePath('de', 'systeme')}>{ui[currentLocale].systems}</Link>
-          <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence/EVD-PT-THERM-001') : localePath('de', 'nachweise/EVD-PT-THERM-001')}>{ui[currentLocale].evidence}</Link>
+          <div className="header__nav-item" onMouseEnter={() => setSystemsOpen(true)} onMouseLeave={() => setSystemsOpen(false)}>
+            <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems') : localePath('de', 'systeme')} aria-haspopup="true" aria-expanded={systemsOpen}>{ui[currentLocale].systems}</Link>
+            {systemsOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].systems}>{systemItems[currentLocale].map(([name, description, href]) => <Link key={href} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
+          </div>
+          <div className="header__nav-item" onMouseEnter={() => setEvidenceOpen(true)} onMouseLeave={() => setEvidenceOpen(false)}>
+            <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence') : localePath('de', 'nachweise')} aria-haspopup="true" aria-expanded={evidenceOpen}>{ui[currentLocale].evidence}</Link>
+            {evidenceOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].evidence}>{evidenceItems[currentLocale].map(([name, description, href]) => <Link key={name} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
+          </div>
         </nav>
         <div className="header__search" role="search">
           <label htmlFor="desktop-search" className="visually-hidden">{ui[currentLocale].search}</label>

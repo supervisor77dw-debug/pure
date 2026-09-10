@@ -19,6 +19,7 @@ import { LayerDiagram } from '@/components/LayerDiagram';
 import { SubstrateMatrix } from '@/components/SubstrateMatrix';
 import { EvidenceCard } from '@/components/EvidenceCard';
 import { DocumentCard } from '@/components/DocumentCard';
+import { TechnicalVisual } from '@/components/TechnicalVisual';
 
 export const metadata: Metadata = { title: 'Pure Thermo Interior · PURE Technology Platform' };
 
@@ -81,6 +82,22 @@ export default function PureThermoInteriorPage() {
         Diese Seite beschreibt eine Systemdefinition und ein laufendes Prüfprogramm — keine abgeschlossene
         bauaufsichtliche Zulassung.
       </div>
+
+      <section className="section">
+        <div className="container">
+          <div className="split-section">
+            <div className="split-section__text">
+              <span className="section-heading__eyebrow">Problem & Route</span>
+              <h2>Innenflächen brauchen thermische Wirkung ohne massiven Aufbau.</h2>
+              <p>Pure Thermo Interior adressiert Innenwände, Keller, kalte Oberflächen, Laibungen und Details, bei denen klassische Dämmsysteme baulich oder konstruktiv begrenzt sind.</p>
+              <p>Die Route beschreibt keinen pauschalen Schimmelschutz und keine allgemeine energetische Sanierung, sondern einen definierten Systemaufbau aus Untergrund, Primer, PURE THERMO und optionalem Finish.</p>
+            </div>
+            <div className="split-section__media">
+              <TechnicalVisual locale="de" visual="overview" altDe="PURE THERMO Interior Anwendungssituationen im Gebäudeschnitt" altEn="PURE THERMO Interior application scenarios in a building section" captionDe="Illustrative Innenroute. Eignung, Feuchteverhalten und Systemaufbau sind objektspezifisch zu bewerten." captionEn="Illustrative interior route. Suitability, moisture behaviour and system build-up require project-specific assessment." zoomable />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
@@ -199,6 +216,19 @@ export default function PureThermoInteriorPage() {
           </div>
           <div className="card-grid card-grid--3">
             {kiwaDoc ? <DocumentCard document={kiwaDoc} organization={kiwaOrg} /> : null}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="final-cta">
+            <p className="final-cta__lead">Passt PURE THERMO zu Ihrem Projekt?</p>
+            <h2>Technische Projektbewertung anfragen</h2>
+            <div className="hero__ctas" style={{ justifyContent: 'center' }}>
+              <Link className="btn btn--primary" href="/produkte/pure-thermo">Projekt prüfen lassen</Link>
+              <Link className="btn btn--secondary btn--dark" href="/produkte/pure-thermo#u-wert-rechner">U-Wert berechnen</Link>
+            </div>
           </div>
         </div>
       </section>

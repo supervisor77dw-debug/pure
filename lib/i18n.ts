@@ -62,6 +62,12 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/products/pure-thermo': '/produkte/pure-thermo',
     '/systeme/pure-thermo-interior': '/systems/pure-thermo-interior',
     '/systems/pure-thermo-interior': '/systeme/pure-thermo-interior',
+    '/systeme/pure-thermo-exterior': '/systems/pure-thermo-exterior',
+    '/systems/pure-thermo-exterior': '/systeme/pure-thermo-exterior',
+    '/systeme/pure-thermo-detail': '/systems/pure-thermo-detail',
+    '/systems/pure-thermo-detail': '/systeme/pure-thermo-detail',
+    '/systeme/pure-thermo-fire': '/systems/pure-thermo-fire',
+    '/systems/pure-thermo-fire': '/systeme/pure-thermo-fire',
     '/systeme': '/systems',
     '/systems': '/systeme',
     '/pure-liquid-heat': '/products/pure-liquid-heat',
@@ -80,6 +86,8 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/products/pure-boat-protect': '/produkte/pure-boat-protect',
     '/nachweise/EVD-PT-THERM-001': '/evidence/EVD-PT-THERM-001',
     '/evidence/EVD-PT-THERM-001': '/nachweise/EVD-PT-THERM-001',
+    '/nachweise': '/evidence',
+    '/evidence': '/nachweise',
     '/': '/'
   };
   return localePath(counterpart, mappings[path] || '/');

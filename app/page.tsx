@@ -1,7 +1,6 @@
 import { getAllProducts } from '@/lib/data';
 import Link from 'next/link';
 import { Hero } from '@/components/Hero';
-import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { localePath, type Locale } from '@/lib/i18n';
 import { headers } from 'next/headers';
@@ -33,6 +32,31 @@ export default function HomePage() {
             <li className="trust-bar__item">Bestands- & Detailanwendungen</li>
             <li className="trust-bar__item">Material- und Systemdenken</li>
           </ul>
+        </div>
+      </section>
+
+      <section className="section section--compact">
+        <div className="container">
+          <div className="intent-panel">
+            <div className="intent-panel__lead">
+              <span className="section-heading__eyebrow">Projektstart</span>
+              <h2>Was möchten Sie prüfen?</h2>
+              <p>Wählen Sie den Einstieg, der zu Ihrem Bauteil, Detail oder Nachweisbedarf passt.</p>
+              <div className="hero__ctas">
+                <Link className="btn btn--primary" href={deLink('produkte/pure-thermo#u-wert-rechner')}>Bauteil berechnen</Link>
+              </div>
+            </div>
+            <div className="intent-grid" aria-label="Thematische Einstiege">
+              {[
+                ['Thermische Verbesserung eines Bauteils', deLink('produkte/pure-thermo#u-wert-rechner')],
+                ['Wärmebrücke / Detail', deLink('systeme/pure-thermo-detail')],
+                ['Innenanwendung', deLink('systeme/pure-thermo-interior')],
+                ['Fassade', deLink('systeme/pure-thermo-exterior')],
+                ['Thermo + Brandschutz', deLink('systeme/pure-thermo-fire')],
+                ['Technische Nachweise', deLink('nachweise/EVD-PT-THERM-001')]
+              ].map(([label, href]) => <Link className="intent-card" href={href} key={label}>{label}</Link>)}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -110,7 +134,7 @@ export default function HomePage() {
         <div className="container">
           <div className="thermo-spotlight">
             <div className="thermo-spotlight__media">
-              <AssetFigure
+              <LightboxFigure
                 file="Bauteilquerschnitt.png"
                 alt="Bauteilquerschnitt mit einer dünnen PURE-THERMO-Funktionsschicht auf dem Untergrund"
                 caption="PURE THERMO – die Funktionsschicht liegt gezielt im Bauteilaufbau."
@@ -119,6 +143,7 @@ export default function HomePage() {
             <div className="thermo-spotlight__content">
               <span className="section-heading__eyebrow">PURE THERMO</span>
               <h2>Thermische Funktion dort, wo Bauraum zum entscheidenden Faktor wird.</h2>
+              <p className="lede">Was könnte PURE THERMO bei Ihrem Bauteil bewirken?</p>
               <p>
                 PURE THERMO ist die derzeit am weitesten entwickelte Produktfamilie der Plattform und zeigt, wie funktionale Materialsysteme an bestehenden Bauteilen und in Detailbereichen wirksam werden können.
               </p>
@@ -131,6 +156,7 @@ export default function HomePage() {
               </ul>
               <div className="hero__ctas" style={{ marginTop: 'var(--space-4)' }}>
                 <a className="btn btn--primary" href={deLink('produkte/pure-thermo')}>Pure Thermo im Detail</a>
+                <a className="btn btn--secondary" href={deLink('produkte/pure-thermo#u-wert-rechner')}>U-Wert berechnen</a>
               </div>
             </div>
           </div>

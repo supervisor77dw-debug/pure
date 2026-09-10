@@ -15,7 +15,6 @@ import { TechnicalValue } from '@/components/TechnicalValue';
 import { EvidenceCard } from '@/components/EvidenceCard';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { DocumentCard } from '@/components/DocumentCard';
-import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { assetSrc } from '@/lib/assets';
 import { TechnicalVisual } from '@/components/TechnicalVisual';
@@ -149,7 +148,7 @@ export default function PureThermoPage() {
           </div>
           <div className="split-section split-section--balanced">
             <div className="split-section__media">
-              <AssetFigure
+              <LightboxFigure
                 file="Bauteilquerschnitt.png"
                 alt="Bauteilquerschnitt mit einer dünnen funktionalen Pure-Thermo-Schicht auf dem Substrat"
                 caption="Untergrund → PURE THERMO Funktionsschicht → definierte Systemlage(n)"
@@ -162,7 +161,7 @@ export default function PureThermoPage() {
               <p>
                 PURE THERMO ist nicht als generische Vollwärmedämmung konzipiert, sondern als gezielte Funktionsschicht für thermisch relevante Bereiche mit begrenztem Raum und komplexen Randbedingungen.
               </p>
-              <AssetFigure
+              <LightboxFigure
                 file="pure Thermo Basic.png"
                 alt="PURE THERMO Basic als Schichtsystem in der praktischen Anwendung"
                 caption="Detailhafte Systemdarstellung für den technischen Einblick."
@@ -261,6 +260,7 @@ export default function PureThermoPage() {
             altEn="Illustrative overview of potential PURE THERMO application scenarios in a building section."
             captionDe="Illustrative Übersicht möglicher Anwendungssituationen. Die technische Eignung und der konkrete Systemaufbau sind anwendungs- und objektspezifisch zu prüfen."
             captionEn="Illustrative overview of potential application scenarios. Technical suitability and the specific system build-up must be assessed for each application and project."
+            zoomable
           />
         </div>
       </section>

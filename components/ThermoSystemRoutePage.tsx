@@ -1,15 +1,147 @@
+import Link from 'next/link';
 import type { Locale } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n';
 import { TechnicalVisual } from './TechnicalVisual';
 import { Breadcrumb } from './Breadcrumb';
 import { EvidenceBadge } from './EvidenceBadge';
 
-const routes = {
-  detail: { de: ['PURE THERMO DETAIL','Funktion dort, wo Details entscheiden.','Fensterlaibungen, Stürze, Deckenanschlüsse, Ecken und komplexe Geometrien.'], en: ['PURE THERMO DETAIL','Function where details matter.','Window reveals, lintels, ceiling connections, corners and complex geometries.'] },
-  exterior: { de: ['PURE THERMO EXTERIOR','Dauerhafter Schutz für die Fassade.','Definierter System- und Prüfpfad für Außenuntergründe; UV, Schlagregen, Frost-Tau und Haftung sind objektspezifisch zu validieren.'], en: ['PURE THERMO EXTERIOR','Long-lasting protection for façades.','Defined system and validation route for exterior substrates; UV, driving rain, freeze-thaw and adhesion require object-specific validation.'] },
-  fire: { de: ['PURE THERMO + PURE FIRE','Mehr Schutz. Mehr Möglichkeiten.','Entwicklungs- und Validierungsroute für einen kombinierten Systemaufbau.'], en: ['PURE THERMO + PURE FIRE','More Protection. More Possibilities.','Development and validation route for a combined system build-up.'] }
+const routeContent = {
+  detail: {
+    evidence: 'C',
+    visual: 'detail',
+    secondaryVisual: 'thermalBridge',
+    de: {
+      name: 'PURE THERMO DETAIL',
+      title: 'Wenn wenige Millimeter entscheiden.',
+      subtitle: 'Systemroute für Laibungen, Stürze, Anschlüsse und geometrisch anspruchsvolle Wärmebrücken.',
+      problem: 'Gerade Details scheitern selten an der Grundfläche, sondern an wenigen Millimetern Aufbauhöhe, komplizierten Übergängen oder bereits festgelegten Anschlüssen.',
+      route: 'PURE THERMO DETAIL bündelt Anwendungen, bei denen eine dünne thermische Funktionsschicht lokal in einen bestehenden oder geplanten Detailaufbau integriert wird.',
+      build: ['Untergrund', 'Primer', 'PURE THERMO', 'optionaler Finish'],
+      applications: ['Fensterlaibung', 'Sturz', 'Deckenanschluss', 'Ecke', 'Nische', 'Boden-/Wandanschluss', 'geometrisch komplexe Bereiche'],
+      technical: ['λ / R über dokumentierte Produktwerte und Modellrechnung bewerten', 'sd / Feuchte im Detailaufbau objektspezifisch prüfen', 'Haftzug und Untergrundvorbereitung festlegen', 'Schimmel-/Tauwasserbewertung für Randbedingungen durchführen'],
+      open: ['keine pauschale Lösung für jedes Wärmebrückendetail', 'objektspezifische hygrothermische Bewertung erforderlich', 'Systemdicke und Finish müssen zum Detail passen'],
+      cta: 'Ihr Detail berechnen',
+      projectCta: 'Technische Projektbewertung anfragen',
+      caption: 'Illustrative Detailroute. Tatsächliche Temperaturen und Bauteilwerte hängen vom Aufbau und den Randbedingungen ab.'
+    },
+    en: {
+      name: 'PURE THERMO DETAIL',
+      title: 'When a few millimetres matter.',
+      subtitle: 'System route for reveals, lintels, junctions and geometrically demanding thermal bridges.',
+      problem: 'Detail areas often fail because of a few millimetres of build-up height, complex transitions or fixed existing junctions.',
+      route: 'PURE THERMO DETAIL groups applications where a thin thermal functional layer is locally integrated into an existing or planned detail build-up.',
+      build: ['Substrate', 'Primer', 'PURE THERMO', 'optional finish'],
+      applications: ['Window reveal', 'Lintel', 'Ceiling junction', 'Corner', 'Niche', 'Floor-wall junction', 'geometrically complex areas'],
+      technical: ['Assess lambda / R using documented product values and model calculation', 'Check sd / moisture in the detail build-up for each project', 'Define adhesion and substrate preparation', 'Run mould / condensation assessment for boundary conditions'],
+      open: ['no universal solution for every thermal-bridge detail', 'project-specific hygrothermal assessment required', 'system thickness and finish must fit the detail'],
+      cta: 'Calculate your detail',
+      projectCta: 'Request technical project assessment',
+      caption: 'Illustrative detail route. Actual temperatures and component values depend on build-up and boundary conditions.'
+    }
+  },
+  exterior: {
+    evidence: 'D',
+    visual: 'exterior',
+    de: {
+      name: 'PURE THERMO EXTERIOR',
+      title: 'Definierte Außenroute für Fassaden und Bestand.',
+      subtitle: 'Entwicklungsroute für mineralische Außenuntergründe und witterungsbeanspruchte Bauteile mit begrenzten konstruktiven Eingriffen.',
+      problem: 'Außenbauteile benötigen nicht nur thermische Funktion, sondern auch Schutz gegen Witterung, Wasseraufnahme, UV, Frost-Tau-Wechsel und Alterung.',
+      route: 'PURE THERMO EXTERIOR beschreibt einen Systempfad, in dem die thermische Funktionsschicht durch Schutz-/Decklage und Finish in einen Außenaufbau eingebunden wird.',
+      build: ['Untergrund', 'Primer', 'PURE THERMO', 'Schutz-/Decklage', 'Finish'],
+      applications: ['Fassaden', 'mineralische Untergründe', 'Bestandsflächen', 'Bauteile mit begrenztem Eingriff', 'lokale Außen-Details'],
+      technical: ['Schlagregen prüfen', 'UV- und Alterungsbeständigkeit prüfen', 'Frost-Tau-Wechsel validieren', 'Wasseraufnahme bewerten', 'Haftung und Untergrundfestigkeit nachweisen'],
+      open: ['keine geprüfte Universalbeständigkeit behaupten', 'Decklage und Finish müssen als System validiert werden', 'Exposition und Untergrund sind projektspezifisch zu bewerten'],
+      cta: 'Projekt prüfen lassen',
+      projectCta: 'Technische Projektbewertung anfragen',
+      caption: 'Illustrative Außenroute. Witterungsbeständigkeit und Systemfreigabe hängen vom geprüften Gesamtaufbau ab.'
+    },
+    en: {
+      name: 'PURE THERMO EXTERIOR',
+      title: 'Defined exterior route for facades and existing buildings.',
+      subtitle: 'Development route for mineral exterior substrates and weather-exposed components with limited constructive intervention.',
+      problem: 'Exterior components require not only thermal function but also protection against weathering, water uptake, UV, freeze-thaw cycling and ageing.',
+      route: 'PURE THERMO EXTERIOR describes a system path where the thermal functional layer is embedded in an exterior build-up with a protective layer and finish.',
+      build: ['Substrate', 'Primer', 'PURE THERMO', 'protective / cover layer', 'finish'],
+      applications: ['Facades', 'mineral substrates', 'existing surfaces', 'components with limited intervention', 'local exterior details'],
+      technical: ['Test driving rain resistance', 'Test UV and ageing resistance', 'Validate freeze-thaw behaviour', 'Assess water uptake', 'Verify adhesion and substrate strength'],
+      open: ['no claim of tested universal durability', 'cover layer and finish must be validated as a system', 'exposure and substrate require project-specific assessment'],
+      cta: 'Request project check',
+      projectCta: 'Request technical project assessment',
+      caption: 'Illustrative exterior route. Weather resistance and system release depend on the tested complete build-up.'
+    }
+  },
+  fire: {
+    evidence: 'D',
+    visual: 'platform',
+    secondaryVisual: 'testPath',
+    de: {
+      name: 'PURE THERMO + PURE FIRE',
+      title: 'Thermische Funktion und Brandschutz nur als geprüfter Systemaufbau.',
+      subtitle: 'Entwicklungsroute für einen kombinierten thermischen und brandschutztechnischen Systemaufbau.',
+      problem: 'Brandverhalten entsteht nicht aus der Addition einzelner Materialaussagen. Entscheidend ist der konkret geprüfte Aufbau.',
+      route: 'Diese Route definiert einen möglichen Kombinationsaufbau und den geplanten Prüfpfad. Sie behauptet keine Kombinationsklasse.',
+      build: ['Untergrund', 'Primer', 'PURE THERMO', 'PURE FIRE', 'Finish'],
+      applications: ['Systemdefinition', 'Bauteile mit thermischer und brandschutztechnischer Zielsetzung', 'Prüfmuster', 'Klassifizierbare Gesamtaufbauten'],
+      technical: ['Systemdefinition erstellen', 'EN ISO 11925-2 prüfen', 'EN 13823 / SBI prüfen', 'EN 13501-1 Klassifizierung nur nach Gesamtprüfung ableiten'],
+      open: ['D - Entwicklungsstatus', 'keine Kombinationsklasse kommunizieren', 'Einzelprüfungen nicht zu einer Systemklasse zusammenziehen', 'kritische Ergebnisse vollständig dokumentieren'],
+      cta: 'Prüfpfad ansehen',
+      projectCta: 'Technische Projektbewertung anfragen',
+      caption: 'Illustrative Kombinationsroute. Eine Brandklasse gilt nur für den konkret geprüften und klassifizierten Aufbau.'
+    },
+    en: {
+      name: 'PURE THERMO + PURE FIRE',
+      title: 'Thermal function and fire protection only as a tested system build-up.',
+      subtitle: 'Development route for a combined thermal and fire-protection system build-up.',
+      problem: 'Fire behaviour is not created by adding isolated material statements. The specifically tested build-up is decisive.',
+      route: 'This route defines a possible combined build-up and planned test path. It does not claim a combination classification.',
+      build: ['Substrate', 'Primer', 'PURE THERMO', 'PURE FIRE', 'finish'],
+      applications: ['System definition', 'components with thermal and fire-protection targets', 'test specimens', 'classifiable complete build-ups'],
+      technical: ['Define system configuration', 'Test EN ISO 11925-2', 'Test EN 13823 / SBI', 'Derive EN 13501-1 classification only after complete-system testing'],
+      open: ['D - development status', 'do not communicate a combination class', 'do not merge individual tests into a system class', 'document critical results completely'],
+      cta: 'View test path',
+      projectCta: 'Request technical project assessment',
+      caption: 'Illustrative combination route. A fire classification applies only to the specifically tested and classified build-up.'
+    }
+  }
 } as const;
 
-export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route: keyof typeof routes }) {
-  const copy = routes[route][locale];
-  return <><Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: locale === 'de' ? '/de' : '/en' }, { label: locale === 'de' ? 'Systemrouten' : 'System Routes' }, { label: copy[0] }]} /><section className="hero"><div className="container"><p className="hero__eyebrow">{locale === 'de' ? 'SYSTEMROUTE' : 'SYSTEM ROUTE'}</p><h1>{copy[1]}</h1><p className="hero__subtitle">{copy[2]}</p><div style={{ marginTop: 'var(--space-3)' }}><EvidenceBadge evidenceClass={route === 'fire' ? 'D' : 'B'} /></div></div></section><section className="section"><div className="container"><TechnicalVisual locale={locale} visual={route === 'detail' ? 'detail' : route === 'exterior' ? 'exterior' : 'platform'} altDe={copy[0]} altEn={copy[0]} captionDe="Illustrative Systemvisualisierung. Eignung und Systemaufbau sind objektspezifisch zu prüfen." captionEn="Illustrative system visualisation. Suitability and system build-up require object-specific assessment." /><div className="fire-protect-rule">{locale === 'de' ? 'Eine Brandklasse ist kein Materialetikett. Sie beschreibt einen konkret geprüften Aufbau.' : 'A fire classification is not a material label. It applies to a specifically tested system configuration.'}</div></div></section>{route === 'detail' ? <section className="section section--surface"><div className="container"><TechnicalVisual locale={locale} visual="thermalBridge" altDe="Illustrative bauphysikalische Darstellung von Wärmebrücken und Oberflächentemperatur." altEn="Illustrative building-physics visualisation of thermal bridges and surface temperature." captionDe="Illustrative bauphysikalische Darstellung. Tatsächliche Temperaturen hängen von Aufbau und Randbedingungen ab." captionEn="Illustrative building-physics visualisation. Actual temperatures depend on build-up and boundary conditions." /></div></section> : null}{route === 'fire' ? <section className="section section--surface"><div className="container"><TechnicalVisual locale={locale} visual="testPath" altDe="Prüfpfad für den kombinierten PURE THERMO + PURE FIRE Systemaufbau." altEn="Test path for the combined PURE THERMO + PURE FIRE system build-up." captionDe="Separate Prüfungen ergeben noch keine Kombinationsklasse." captionEn="Separate tests do not constitute a combined classification." /></div></section> : null}</>;
+type RouteKey = keyof typeof routeContent;
+type VisualKey = keyof typeof import('@/lib/thermo-system-visuals').thermoSystemVisuals;
+
+export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route: RouteKey }) {
+  const config = routeContent[route];
+  const copy = config[locale];
+  const calculatorHref = localePath(locale, locale === 'de' ? 'produkte/pure-thermo#u-wert-rechner' : 'products/pure-thermo#u-wert-rechner');
+  const evidenceHref = localePath(locale, locale === 'de' ? 'nachweise/EVD-PT-THERM-001' : 'evidence/EVD-PT-THERM-001');
+
+  return (
+    <>
+      <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: localePath(locale) }, { label: locale === 'de' ? 'Systemrouten' : 'System Routes' }, { label: copy.name }]} />
+      <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
+        <div className="container">
+          <p className="hero__eyebrow">{locale === 'de' ? 'SYSTEMROUTE' : 'SYSTEM ROUTE'}</p>
+          <h1>{copy.title}</h1>
+          <p className="hero__subtitle">{copy.subtitle}</p>
+          <div className="hero__ctas">
+            <Link className="btn btn--primary" href={route === 'detail' ? calculatorHref : '#projektbewertung'}>{copy.cta}</Link>
+            <Link className="btn btn--secondary" href={evidenceHref}>{locale === 'de' ? 'Technische Nachweise ansehen' : 'View technical evidence'}</Link>
+          </div>
+          <div style={{ marginTop: 'var(--space-3)' }}><EvidenceBadge evidenceClass={config.evidence as 'A' | 'B' | 'C' | 'D'} /></div>
+        </div>
+      </section>
+
+      <section className="section"><div className="container"><div className="split-section"><div className="split-section__text"><span className="section-heading__eyebrow">{locale === 'de' ? 'Problem' : 'Problem'}</span><h2>{locale === 'de' ? 'Warum diese Route eigenständig bewertet wird.' : 'Why this route needs its own assessment.'}</h2><p>{copy.problem}</p><p>{copy.route}</p></div><div className="split-section__media"><TechnicalVisual locale={locale} visual={config.visual as VisualKey} altDe={copy.name} altEn={copy.name} captionDe={copy.caption} captionEn={copy.caption} zoomable /></div></div></div></section>
+
+      <section className="section section--surface"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Systemaufbau' : 'System build-up'}</span><h2>{locale === 'de' ? 'Vom Untergrund zum definierten Aufbau.' : 'From substrate to defined build-up.'}</h2></div><div className="route-step-grid">{copy.build.map((step, index) => <div className="route-step" key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></div>)}</div></div></section>
+
+      <section className="section"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Anwendungen' : 'Applications'}</span><h2>{locale === 'de' ? 'Typische Einsatzfelder.' : 'Typical application fields.'}</h2></div><div className="application-journey">{copy.applications.map((item) => <article className="journey-card" key={item}><div className="journey-card__body"><h3>{item}</h3></div></article>)}</div></div></section>
+
+      <section className="section section--surface"><div className="container"><div className="split-section"><div className="split-section__text"><span className="section-heading__eyebrow">{locale === 'de' ? 'Technische Bewertung' : 'Technical assessment'}</span><h2>{locale === 'de' ? 'Die Leistung entsteht im geprüften Systemkontext.' : 'Performance is created in the assessed system context.'}</h2><ul className="check-list">{copy.technical.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="warning-panel" role="note"><span className="warning-panel__label">{locale === 'de' ? 'Offene Prüfungen / Grenzen' : 'Open tests / limits'}</span><ul>{copy.open.map((item) => <li key={item}>{item}</li>)}</ul></div></div></div></section>
+
+      {'secondaryVisual' in config ? <section className="section"><div className="container"><TechnicalVisual locale={locale} visual={config.secondaryVisual as VisualKey} altDe={copy.name} altEn={copy.name} captionDe={copy.caption} captionEn={copy.caption} zoomable /></div></section> : null}
+
+      <section className="section section--surface" id="projektbewertung"><div className="container"><div className="final-cta"><p className="final-cta__lead">{locale === 'de' ? 'Passt PURE THERMO zu Ihrem Projekt?' : 'Is PURE THERMO suitable for your project?'}</p><h2>{copy.projectCta}</h2><div className="hero__ctas" style={{ justifyContent: 'center' }}><Link className="btn btn--primary" href={localePath(locale, locale === 'de' ? 'produkte/pure-thermo' : 'products/pure-thermo')}>{copy.projectCta}</Link>{route === 'detail' ? <Link className="btn btn--secondary btn--dark" href={calculatorHref}>{copy.cta}</Link> : null}</div></div></div></section>
+    </>
+  );
 }

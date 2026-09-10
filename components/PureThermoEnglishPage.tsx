@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AssetFigure } from './AssetFigure';
+import { LightboxFigure } from './LightboxFigure';
 import { PureThermoUValueCalculator } from './PureThermoUValueCalculator';
 
 export function PureThermoEnglishPage() {
@@ -15,10 +15,12 @@ export function PureThermoEnglishPage() {
       </section>
       <section className="section">
         <div className="container">
-          <AssetFigure
+          <LightboxFigure
             file="Moderne Gebäudeisolierung im Querschnitt_eng.png"
             alt="PURE THERMO application overview for facade, roof, balcony, ceiling, floor, base areas and interior spaces"
             caption="Application overview: PURE THERMO for thermally relevant building areas with project-specific system assessment."
+            zoomLabel="Enlarge"
+            closeLabel="Close"
             priority
           />
         </div>
