@@ -2318,9 +2318,9 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 @media (prefers-reduced-motion: reduce) { .pure-thermo-hero .product-hero-ambient__effect { display: none; } }
 
 @media (min-width: 900px) {
-  .pure-thermo-hero .product-hero-ambient__content { left: clamp(420px, 40vw, 820px); }
+  .pure-thermo-hero .product-hero-ambient__content { left: clamp(420px, 40vw, 1200px); }
   .liquid-heat-hero__grid { grid-template-columns: 1fr; }
-  .liquid-heat-hero .product-hero-ambient__content { left: clamp(420px, 40vw, 820px); }
+  .liquid-heat-hero .product-hero-ambient__content { left: clamp(420px, 40vw, 1200px); }
   .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); position: relative; left: 0; margin-left: 0; }
 }
 
