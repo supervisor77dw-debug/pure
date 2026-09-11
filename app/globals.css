@@ -1052,6 +1052,8 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 /* ==========================================================================\n+   PURE Liquid Heat\n+   ========================================================================== */
 
 .liquid-heat-hero { background: linear-gradient(120deg, #0b1f3a 0%, #142e52 62%, #173d54 100%); }
+.liquid-heat-hero .asset-figure { border-color: rgba(216,239,241,0.18); background: rgba(11,31,58,0.46); box-shadow: 0 18px 44px rgba(5,16,31,0.24); backdrop-filter: blur(8px); }
+.liquid-heat-hero .asset-figure__status { font-size: .68rem; letter-spacing: .08em; opacity: .82; }
 .liquid-heat-hero__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1386,9 +1388,16 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .fire-protect-columns li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
 
 /* ==========================================================================\n+   PURE Water Protect\n+   ========================================================================== */
-.water-protect-hero { background: linear-gradient(120deg, #0b1f3a 0%, #0e6e7c 100%); }
+.water-protect-hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(118deg, #071827 0%, #0b2639 58%, #123f4b 100%); }
+.water-protect-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(135deg, transparent 30%, rgba(143,214,224,0.08) 52%, transparent 72%), linear-gradient(180deg, rgba(4,13,24,0.2), rgba(4,13,24,0.48)); }
+.water-protect-hero::after { content: ''; position: absolute; left: 46%; right: -8%; bottom: -18%; height: 62%; z-index: 0; pointer-events: none; border: 1px solid rgba(143,214,224,0.2); border-radius: 50% 50% 0 0; background: linear-gradient(150deg, rgba(143,214,224,0.12), rgba(14,110,124,0.04) 58%, transparent); transform: perspective(700px) rotateX(58deg) rotateZ(-8deg); box-shadow: inset 0 1px 0 rgba(216,239,241,0.16), 0 -24px 70px rgba(14,110,124,0.12); }
 .water-protect-hero__grid { display:grid; grid-template-columns:1fr; gap:var(--space-5); align-items:center; }
 @media (min-width:900px){.water-protect-hero__grid{grid-template-columns:.9fr 1.1fr;}}
+.water-protect-hero .container { position: relative; z-index: 2; }
+.water-protect-hero .hero__eyebrow { color: #a9e1e7; }
+.water-protect-hero .asset-figure--motion-media { z-index: 1; opacity: .18; }
+.water-protect-hero .asset-figure--motion-media .asset-figure__motion-media { opacity: 1; mix-blend-mode: screen; }
+.water-protect-hero .asset-figure--motion-media .asset-figure__img { display: none; }
 .water-protect-steps,.water-protect-season{display:grid;grid-template-columns:1fr;gap:var(--space-2);}
 @media (min-width:760px){.water-protect-steps,.water-protect-season{grid-template-columns:repeat(5,minmax(0,1fr));}}
 .water-protect-steps article,.water-protect-season article{padding:var(--space-3);border-top:3px solid var(--color-petrol);background:var(--color-surface);}
@@ -2309,12 +2318,14 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   transform: translateX(-55%);
   animation: product-boat-reflection 17s var(--ease-premium) infinite;
 }
-.water-protect-hero > .container,
+.water-protect-hero > .container { position: static; z-index: auto; }
+.water-protect-hero__grid > div:first-child { position: relative; z-index: 2; }
 .boat-protect-hero > .container { position: relative; z-index: 1; }
 .water-protect-hero:has(.asset-figure--motion-media)::after { opacity: 0; animation: none; }
 .water-protect-hero .asset-figure--motion-media { position: absolute; inset: 0; z-index: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .water-protect-hero .asset-figure--motion-media .asset-figure__caption,
 .water-protect-hero .asset-figure--motion-media .asset-figure__status { display: none; }
+@media (max-width: 768px) { .water-protect-hero::after { left: 18%; right: -20%; bottom: -10%; height: 40%; opacity: .72; } .water-protect-hero .asset-figure--motion-media { opacity: .1; } }
 
 @keyframes product-thermo-layer { 0%, 100% { transform: rotate(-7deg) scaleX(0.72); opacity: 0.45; } 50% { transform: rotate(-7deg) scaleX(1); opacity: 0.9; } }
 @keyframes product-thermo-light { 0%, 100% { transform: translateX(-30%); opacity: 0.3; } 50% { transform: translateX(30%); opacity: 0.7; } }
