@@ -55,7 +55,6 @@ export function LightboxFigure({ file, alt, caption, priority = false, zoomLabel
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={src} alt={alt} loading={priority ? 'eager' : 'lazy'} className="asset-figure__img" />
-          <span className="asset-figure__zoom-hint">{zoomLabel}</span>
         </button>
         {caption ? <figcaption className="asset-figure__caption">{caption}</figcaption> : null}
       </figure>
