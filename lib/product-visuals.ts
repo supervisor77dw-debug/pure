@@ -41,7 +41,11 @@ export const productVisuals = {
     outdoorHospitality: {
       de: 'Wärme für außen – ganzjährig.png',
       en: 'Ganzjähriger Komfort auf der Terrasse.png'
-    }
+    },
+    pyramidDemonstrator: 'liquid_heat_pyramid_demonstrator.jpg'
+  },
+  fireProtect: {
+    mechanism: 'fire_protect_mechanism.jpg'
   }
 } as const;
 

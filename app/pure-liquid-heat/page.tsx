@@ -96,10 +96,10 @@ export default function PureLiquidHeatPage() {
             </div>
           </div>
           <AssetFigure
-            file="LH_CONCEPT_Pyramid_Hospitality_01.jpg"
+            file={productVisuals.liquidHeat.pyramidDemonstrator}
             alt="PURE LIQUID HEAT pyramid heating development concept in a hospitality setting"
             status="DEVELOPMENT CONCEPT"
-            caption={content.conceptCaption}
+            caption={locale === 'de' ? 'Outdoor-Hospitality-Demonstrator. Ca. 30 V / ca. 1.100 W gehören zum beschriebenen Prototyp; IP44 ist ein Entwicklungsziel, keine Zertifizierung.' : 'Outdoor hospitality demonstrator. Approx. 30 V / approx. 1.1 kW belong to the described prototype; IP44 is a development target, not certification.'}
             priority
           />
         </div>
