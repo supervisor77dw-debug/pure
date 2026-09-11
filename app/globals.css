@@ -323,6 +323,42 @@ table { border-collapse: collapse; width: 100%; }
   font-size: 1rem;
 }
 
+@media (max-width: 959px) {
+  .header__bar { min-height: 68px; padding-top: max(var(--space-2), env(safe-area-inset-top)); padding-bottom: var(--space-2); gap: var(--space-2); }
+  .header__logo { font-size: 1.05rem; white-space: nowrap; }
+  .language-switcher { margin-left: auto; }
+  .header__search-compact, .header__utility-cta { display: none; }
+  .header__burger { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; padding: 0; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); color: var(--color-navy); }
+  .header__burger > span { display: grid; gap: 4px; }
+  .header__burger i { display: block; width: 20px; height: 2px; background: currentColor; transition: transform 180ms ease, opacity 180ms ease; }
+  .header__burger[aria-expanded="true"] i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .header__burger[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+  .header__burger[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .mobile-nav__backdrop { position: fixed; inset: 0; z-index: 300; border: 0; background: rgba(11,31,58,0.48); cursor: pointer; }
+  .mobile-nav { position: fixed; top: 0; right: 0; z-index: 310; display: flex; flex-direction: column; width: min(88vw, 390px); height: 100dvh; min-height: 100vh; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); border: 0; background: var(--color-navy); color: #fff; box-shadow: -18px 0 44px rgba(11,31,58,0.22); }
+  .mobile-nav__topbar { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; min-height: 68px; padding: 0 var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .mobile-nav__topbar .header__logo { color: #fff; }
+  .mobile-nav__topbar .header__logo span { color: var(--color-thermo); }
+  .mobile-nav__topbar-actions { display: flex; align-items: center; gap: var(--space-3); }
+  .mobile-nav__topbar-actions a { color: rgba(255,255,255,0.82); font-size: .85rem; font-weight: 800; }
+  .mobile-nav__close { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.32); border-radius: var(--radius-sm); background: transparent; color: #fff; font-size: 1.8rem; line-height: 1; cursor: pointer; }
+  .mobile-nav__scroll { min-height: 0; flex: 1 1 auto; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: var(--space-4) var(--space-4) calc(var(--space-5) + env(safe-area-inset-bottom)); }
+  .mobile-nav__cta { padding: 0; margin-bottom: var(--space-4); }
+  .mobile-nav__cta a { display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid rgba(255,255,255,0.24); border-radius: var(--radius-sm); background: var(--color-petrol); color: #fff; font-weight: 800; text-decoration: none; }
+  .mobile-nav__primary { display: grid; gap: 2px; margin-bottom: var(--space-3); }
+  .mobile-nav__primary a, .mobile-nav__panel a { display: flex; align-items: center; min-height: 48px; padding: 0 var(--space-2); color: #fff; font-size: 1rem; text-decoration: none; }
+  .mobile-nav__primary a:hover, .mobile-nav__panel a:hover { background: rgba(255,255,255,0.08); }
+  .mobile-nav__group { border-top: 1px solid rgba(255,255,255,0.16); border-bottom: 0; }
+  .mobile-nav__group-button { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 var(--space-2); color: #fff; font-size: 1.08rem; }
+  .mobile-nav__group-button span { color: rgba(255,255,255,0.65); font-size: 1.25rem; }
+  .mobile-nav__panel { padding: 0 0 var(--space-2) var(--space-3); gap: 0; }
+  .mobile-nav__panel a { color: rgba(255,255,255,0.82); font-size: .96rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__burger i { transition: none; }
+}
+
 .section--compact { padding: var(--space-5) 0; }
 .intent-panel { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: start; padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
 @media (min-width: 900px) { .intent-panel { grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr); } }

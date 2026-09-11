@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
 import { MegaMenu } from './MegaMenu';
@@ -46,11 +46,30 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
   const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const burgerRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname() || '/';
   const routeLocale = pathname.split('/')[1];
   const currentLocale: Locale = isLocale(routeLocale) ? routeLocale : locale;
   const counterpartHref = localizedCounterpart(currentLocale, pathname);
   const currentHref = localePath(currentLocale, pathWithoutLocale(pathname));
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      burgerRef.current?.focus();
+      return;
+    }
+    const scrollY = window.scrollY;
+    const previous = { position: document.body.style.position, top: document.body.style.top, width: document.body.style.width };
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    return () => {
+      document.body.style.position = previous.position;
+      document.body.style.top = previous.top;
+      document.body.style.width = previous.width;
+      window.scrollTo(0, scrollY);
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="header">
@@ -96,15 +115,18 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
           {currentLocale === 'en' ? <span className="language-switcher__active" aria-current="page">EN</span> : <Link href={counterpartHref}>EN</Link>}
         </div>
         <button
+          ref={burgerRef}
           className="header__burger"
+          type="button"
+          aria-label={mobileOpen ? (currentLocale === 'en' ? 'Close menu' : 'Menü schließen') : (currentLocale === 'en' ? 'Open menu' : 'Menü öffnen')}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           onClick={() => setMobileOpen((v) => !v)}
         >
-          {mobileOpen ? ui[currentLocale].close : ui[currentLocale].menu}
+          <span aria-hidden="true"><i /><i /><i /></span>
         </button>
       </div>
-      <MobileNav products={products} open={mobileOpen} locale={currentLocale} />
+      <MobileNav products={products} open={mobileOpen} locale={currentLocale} onClose={() => setMobileOpen(false)} />
     </header>
   );
 }
