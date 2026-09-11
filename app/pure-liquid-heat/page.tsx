@@ -84,7 +84,7 @@ export default function PureLiquidHeatPage() {
     <>
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: content.breadcrumb }]} />
 
-      <ProductHeroAmbient variant="liquidHeat" motionEnabled className="liquid-heat-hero">
+      <ProductHeroAmbient variant="liquidHeat" motionEnabled className="liquid-heat-hero" poster="Glühende Schichtheizplatte im Querschnitt.png" posterAlt="Schematischer Querschnitt einer beschichteten funktionalen Heizfläche mit gegenüberliegenden Kontaktierungsbereichen">
         <div className="container liquid-heat-hero__grid">
           <div>
             <p className="hero__eyebrow">{content.eyebrow}</p>
@@ -136,6 +136,11 @@ export default function PureLiquidHeatPage() {
                 {index < 4 ? <span className="liquid-heat-flow__arrow" aria-hidden="true">↓</span> : null}
               </div>
             ))}
+          </div>
+          <div className="liquid-heat-schematic" aria-label={locale === 'de' ? 'Schematische Darstellung: Kontaktierung, homogene Funktionsschicht, Kontaktierung' : 'Schematic representation: contact, homogeneous functional layer, contact'}>
+            <span>{locale === 'de' ? 'KONTAKT A' : 'CONTACT A'}</span>
+            <div className="liquid-heat-schematic__bar"><strong>{locale === 'de' ? 'HOMOGENE AKTIVE FUNKTIONSSCHICHT' : 'HOMOGENEOUS ACTIVE FUNCTIONAL LAYER'}</strong></div>
+            <span>{locale === 'de' ? 'KONTAKT B' : 'CONTACT B'}</span>
           </div>
           <div className="liquid-heat-copy-grid">
             <div>
