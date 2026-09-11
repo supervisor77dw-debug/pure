@@ -1,1 +1,53 @@
-import type{Metadata}from'next';import{notFound}from'next/navigation';import PureBoatProtectPage from'@/app/pure-boat-protect/page';export const metadata:Metadata={title:'PURE Boat Protect | Premium Oberflächenschutz für Yachten | PURE'};export default function GermanBoatProtectPage({params}:{params:{locale:string}}){if(params.locale!=='de')notFound();return <PureBoatProtectPage/>}
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getBoatProtectContent } from '@/lib/boat-protect-content';
+import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'PURE Boat Protect | Premium Oberflächenschutz für Yachten | PURE',
+  description: 'Dünne flexible Oberflächenschutztechnologie für hochwertige Yachtoberflächen und zonenspezifische Validierung.'
+};
+
+function Heading({ eyebrow, title, intro }: { eyebrow?: string; title: string; intro?: string }) {
+  return <div className="section-heading section-heading--narrow">{eyebrow ? <span className="section-heading__eyebrow">{eyebrow}</span> : null}<h2>{title}</h2>{intro ? <p>{intro}</p> : null}</div>;
+}
+
+const zoneMaterials = ['TEAK · DECK', 'KUNSTSTOFF', 'LEDER', 'METALL', 'BETRIEB', 'PREMIUMOBERFLÄCHEN'];
+
+export default function GermanBoatProtectPage({ params }: { params: { locale: string } }) {
+  if (params.locale !== 'de') notFound();
+  const t = getBoatProtectContent('de');
+
+  return <>
+    <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: t.name }]} />
+
+    <section className={`hero ${styles.hero}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className={styles.heroImage} src="/assets/Luxusyacht%20im%20goldenen%20Abendlicht.png" alt="Sichtbare hochwertige Yachtoberflächen mit Teakdeck, Lack und Metall im warmen Abendlicht" />
+      <div className={styles.heroShade} aria-hidden="true" />
+      <div className={styles.heroReflection} aria-hidden="true" />
+      <div className="container"><div className={styles.heroContent}><p className="hero__eyebrow">{t.name}</p><h1>{t.heroTitle}</h1><p className="hero__subtitle">{t.heroSubtitle}</p><div className={styles.heroFacts}><div className={styles.heroFact}><strong>bis zu 90 m²/L</strong><span>B · laut Marine-Unterlagen</span></div><div className={styles.heroFact}><strong>bis zu 3 Jahre</strong><span>B · laut Marine-Unterlagen</span><small>abhängig von Nutzung und Exposition</small></div></div><div className="hero__ctas"><a className="btn btn--primary" href="#technology">{t.heroCta}</a><a className="btn btn--secondary" href="#test-area">{t.zoneCta}</a></div></div></div>
+    </section>
+
+    <section className="section"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item) => <article className="surface-protect-card" key={item}><h3>{item}</h3></article>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
+
+    <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.engineeringRail}><div className={styles.engineeringFlow}>{t.steps.map(([title, copy], index) => <article className={styles.engineeringStep} key={title}><span className={styles.stepIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div><div className={styles.engineeringRule}>{t.rule}</div></div></section>
+
+    <section className="section" id="zones"><div className="container"><Heading eyebrow="YACHT ZONES" title={t.zonesTitle} /><div className={styles.zoneWorld}>{t.zones.map(([title, copy], index) => <article className={styles.zone} key={title}><span className={styles.zoneMaterial}>{zoneMaterials[index]}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+
+    <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.compatEyebrow} title={t.compatTitle} /><div className={styles.compatGrid}>{t.compat.map(([title, copy]) => <article className={styles.compatibility} key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div><p className={styles.compatibilityNote}>{t.sika}</p></div></section>
+
+    <section className="section"><div className="container"><Heading eyebrow={t.performanceEyebrow} title="Dokumentierte Performance-Basis" /><div className={styles.evidenceGrid}>{t.performance.map(([title, copy]) => <article className={styles.evidenceCard} data-status={title === 'UV / Salzschutz' ? 'D' : 'B'} key={title}><strong>{title}</strong><span>{copy.split(' · ')[0]}</span><p>{copy.split(' · ').slice(1).join(' · ')}</p></article>)}</div></div></section>
+
+    <section className="section section--surface"><div className="container"><Heading eyebrow={t.qaEyebrow} title={t.qaTitle} /><ol className="boat-protect-qa">{t.qa.map((item) => <li key={item}>{item}</li>)}</ol><p className="surface-protect-statement">{t.qaStatement}</p></div></section>
+
+    <section className="section"><div className="container"><Heading title={t.marineTitle} /><div className={styles.marineConcept}>{t.marineRoutes.map(([title, copy], index) => <article className={styles.marineRoute} data-route={index === 0 ? 'boat' : index === 1 ? 'water' : 'thermo'} key={title}><div><span className={styles.routeLevel}>{index === 0 ? 'OBERHALB DER WASSERLINIE' : index === 1 ? 'UNTERWASSERFLÄCHEN' : 'TECHNISCHE ROUTE'}</span><strong>{title}</strong></div><p>{copy}</p></article>)}</div></div></section>
+
+    <section className="section section--surface"><div className="container"><Heading title={t.lifecycleTitle} /><div className="surface-protect-lifecycle">{t.lifecycle.map((item) => <span key={item}>{item}</span>)}</div><div className="fire-protect-warning"><h3>{t.charterTitle}</h3><p>{t.charterCopy}</p></div></div></section>
+
+    <section className="section"><div className="container"><Heading title={t.limitsTitle} /><div className="fire-protect-columns"><article><h3>DOKUMENTIERTE / PLAUSIBLE BASIS</h3><ul>{t.strengths.map((item) => <li key={item}>{item}</li>)}</ul></article><article><h3>NICHT PAUSCHAL ABLEITBAR</h3><ul>{t.limits.map((item) => <li key={item}>{item}</li>)}</ul></article></div></div></section>
+
+    <section className="section section--surface"><div className="container"><div className="final-cta"><h2>{t.finalTitle}</h2><p>{t.finalCopy}</p><a className="btn btn--primary" href="#test-area">{t.project}</a></div></div></section>
+  </>;
+}

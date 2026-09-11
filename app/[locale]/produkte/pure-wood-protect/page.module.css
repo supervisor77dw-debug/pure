@@ -1,0 +1,275 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 55vh;
+  height: 58vh;
+  overflow: hidden;
+  isolation: isolate;
+  align-items: center;
+  color: #fff;
+}
+
+.heroImage,
+.heroShade,
+.heroReflection {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.heroShade {
+  z-index: -2;
+  background: linear-gradient(90deg, rgba(24, 17, 12, 0.88) 0%, rgba(24, 17, 12, 0.64) 40%, rgba(24, 17, 12, 0.08) 74%), linear-gradient(0deg, rgba(24, 17, 12, 0.34), transparent 52%);
+}
+
+.heroReflection {
+  z-index: -1;
+  left: -35%;
+  width: 42%;
+  opacity: 0;
+  background: linear-gradient(102deg, transparent 14%, rgba(255, 230, 188, 0.16) 48%, transparent 82%);
+  transform: skewX(-9deg);
+  animation: warmReflection 19s ease-in-out infinite;
+}
+
+.heroContent {
+  width: min(590px, 100%);
+}
+
+.heroContent h1 {
+  color: #fff;
+}
+
+.engineeringPanel {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, rgba(31, 21, 14, 0.34), rgba(31, 21, 14, 0.08)), url('/assets/Nasse%20Holzterrasse%20im%20Abendlicht.png') center 58% / cover;
+  box-shadow: var(--shadow-elevated);
+}
+
+.layerFlow {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.layerStep {
+  min-height: 175px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-top: 3px solid rgba(230, 190, 137, 0.9);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 30px rgba(31, 21, 14, 0.18), inset 0 1px rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.layerIndex,
+.validationIndex {
+  display: block;
+  margin-bottom: 18px;
+  color: #76502f;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.layerStep h3,
+.applicationCard h3,
+.validationStep h3,
+.testCard h3 {
+  font-size: 1rem;
+}
+
+.layerStep p,
+.applicationCard p,
+.validationStep p,
+.testCard p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.materialRule {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border-left: 5px solid #8a633f;
+  background: rgba(138, 99, 63, 0.08);
+  color: var(--color-navy);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.applicationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.applicationCard {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-top: 4px solid #7b684f;
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.applicationCard[data-context='innen'] {
+  border-top-color: #647257;
+}
+
+.applicationCard[data-context='maritim'] {
+  border-top-color: var(--color-petrol);
+}
+
+.applicationContext {
+  display: block;
+  margin-bottom: 16px;
+  color: #76502f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.applicationCard[data-context='innen'] .applicationContext {
+  color: #526346;
+}
+
+.applicationCard[data-context='maritim'] .applicationContext {
+  color: var(--color-petrol);
+}
+
+.species {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.species span,
+.weatherList li {
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.testCard {
+  padding: 20px;
+  border-top: 3px solid #8a633f;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.weatherList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.validationFlow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.validationStep {
+  position: relative;
+  padding: 22px 18px;
+  border-top: 3px solid #8a633f;
+  background: var(--color-surface);
+}
+
+.validationStep:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  z-index: 2;
+  width: 24px;
+  color: #76502f;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+@keyframes warmReflection {
+  0%, 18% { transform: translateX(0) skewX(-9deg); opacity: 0; }
+  42%, 66% { opacity: 0.62; }
+  82%, 100% { transform: translateX(330%) skewX(-9deg); opacity: 0; }
+}
+
+@media (max-width: 899px) {
+  .hero {
+    min-height: 620px;
+    height: auto;
+    align-items: flex-end;
+  }
+
+  .heroImage {
+    object-position: 48% center;
+  }
+
+  .heroShade {
+    background: linear-gradient(0deg, rgba(24, 17, 12, 0.94) 0%, rgba(24, 17, 12, 0.56) 70%, rgba(24, 17, 12, 0.1) 100%);
+  }
+
+  .engineeringPanel {
+    min-height: 0;
+    padding: 220px 16px 16px;
+  }
+
+  .layerFlow {
+    position: relative;
+    inset: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .layerStep {
+    min-height: 0;
+  }
+
+  .applicationGrid,
+  .testGrid,
+  .validationFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .validationStep:not(:last-child)::after {
+    content: '↓';
+    top: auto;
+    right: 50%;
+    bottom: -20px;
+    transform: translateX(50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroReflection {
+    animation: none;
+  }
+}
