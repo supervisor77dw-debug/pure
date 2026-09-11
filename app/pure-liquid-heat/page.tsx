@@ -8,6 +8,7 @@ import { getLiquidHeatContent, type LiquidHeatLocale } from '@/lib/liquid-heat-c
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
 import { productVisuals, visualFor } from '@/lib/product-visuals';
+import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
 
 export const metadata: Metadata = {
   title: 'Pure Liquid Heat · PURE Technology Platform',
@@ -83,7 +84,7 @@ export default function PureLiquidHeatPage() {
     <>
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: content.breadcrumb }]} />
 
-      <section className="hero liquid-heat-hero">
+      <ProductHeroAmbient variant="liquidHeat" motionEnabled className="liquid-heat-hero">
         <div className="container liquid-heat-hero__grid">
           <div>
             <p className="hero__eyebrow">{content.eyebrow}</p>
@@ -103,7 +104,7 @@ export default function PureLiquidHeatPage() {
             priority
           />
         </div>
-      </section>
+      </ProductHeroAmbient>
 
       <section className="section" id="why-surface-heat">
         <div className="container">

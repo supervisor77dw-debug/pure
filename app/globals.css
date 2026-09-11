@@ -2103,6 +2103,187 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   font-size: 1.05rem;
 }
 
+/* Product motion architecture: opt-in only, with a usable static fallback. */
+.product-hero-ambient {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100%;
+  background: var(--color-navy);
+}
+.product-hero-ambient__poster,
+.product-hero-ambient__video,
+.product-hero-ambient__gradient,
+.product-hero-ambient__svg,
+.product-hero-ambient__material {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.product-hero-ambient__poster,
+.product-hero-ambient__video {
+  object-fit: cover;
+}
+.product-hero-ambient__poster { z-index: -4; }
+.product-hero-ambient__video { z-index: -3; }
+.product-hero-ambient__gradient {
+  z-index: -2;
+  background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.35));
+}
+.product-hero-ambient__svg { z-index: -1; opacity: 0.32; }
+.product-hero-ambient__svg img { width: 100%; height: 100%; object-fit: cover; }
+.product-hero-ambient__material {
+  z-index: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(216,239,241,0.08) 48%, transparent 58%);
+  opacity: 0.7;
+}
+.product-hero-ambient__effect,
+.product-hero-ambient__effect-line,
+.product-hero-ambient__effect-glow,
+.product-hero-ambient__effect-barrier {
+  position: absolute;
+  pointer-events: none;
+}
+.product-hero-ambient__effect { inset: 0; z-index: -1; overflow: hidden; opacity: 0; }
+.product-hero-ambient.is-motion-enabled .product-hero-ambient__effect { opacity: 1; }
+.product-hero-ambient__effect-line,
+.product-hero-ambient__effect-glow,
+.product-hero-ambient__effect-barrier { display: block; }
+
+/* One restrained ambient effect per product world. All are CSS-only and schematic. */
+.product-hero-ambient--thermo .product-hero-ambient__effect-line {
+  left: 12%; top: 55%; width: 76%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(143,214,224,0.46), rgba(201,89,26,0.28), transparent);
+  transform: rotate(-7deg) scaleX(0.72);
+  animation: product-thermo-layer 16s var(--ease-premium) infinite;
+}
+.product-hero-ambient--thermo .product-hero-ambient__effect-glow {
+  inset: 18% 12%;
+  background: linear-gradient(110deg, transparent 20%, rgba(143,214,224,0.08), rgba(201,89,26,0.08), transparent 80%);
+  transform: translateX(-30%);
+  animation: product-thermo-light 16s var(--ease-premium) infinite;
+}
+
+.product-hero-ambient--liquidHeat .product-hero-ambient__effect-line {
+  left: 12%; top: 58%; width: 76%; height: 2px;
+  background: linear-gradient(90deg, transparent 0 12%, rgba(201,89,26,0.85) 30%, rgba(255,190,112,0.75) 50%, transparent 78%);
+  box-shadow: 0 0 18px rgba(201,89,26,0.3);
+  transform: translateX(-34%);
+  animation: product-liquid-path 10s var(--ease-premium) infinite;
+}
+.product-hero-ambient--liquidHeat .product-hero-ambient__effect-glow {
+  left: 28%; right: 28%; top: 24%; bottom: 18%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,89,26,0.2), transparent 68%);
+  transform: scale(0.72);
+  animation: product-liquid-warmth 10s var(--ease-premium) infinite;
+}
+
+.product-hero-ambient--fire .product-hero-ambient__effect-glow {
+  left: 18%; right: 18%; bottom: 8%; height: 60%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,89,26,0.25), transparent 68%);
+  transform-origin: 50% 100%;
+  animation: product-fire-heat 14s ease-in-out infinite;
+}
+.product-hero-ambient--fire .product-hero-ambient__effect-barrier {
+  left: 18%; top: 12%; bottom: 12%; width: 1px;
+  background: linear-gradient(transparent, rgba(216,239,241,0.48), transparent);
+  box-shadow: 42vw 0 rgba(216,239,241,0.12);
+  animation: product-fire-barrier 14s ease-in-out infinite;
+}
+
+.product-hero-ambient--surface .product-hero-ambient__effect-line,
+.product-hero-ambient--floor .product-hero-ambient__effect-line {
+  top: -15%; left: -15%; width: 18%; height: 130%;
+  background: linear-gradient(90deg, transparent, rgba(216,239,241,0.34), transparent);
+  transform: rotate(18deg) translateX(-520%);
+  animation: product-reflection-sweep 12s var(--ease-premium) infinite;
+}
+.product-hero-ambient--floor .product-hero-ambient__effect-line { opacity: 0.55; animation-duration: 15s; }
+
+.product-hero-ambient--water .product-hero-ambient__effect-glow {
+  inset: -20%;
+  background: repeating-radial-gradient(ellipse at 20% 30%, transparent 0 12%, rgba(143,214,224,0.07) 13%, transparent 20% 34%);
+  transform: translate3d(-3%, 2%, 0) scale(1.05);
+  animation: product-water-caustics 18s ease-in-out infinite alternate;
+}
+
+.product-hero-ambient--wood .product-hero-ambient__effect-glow {
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(231,190,137,0.16) 48%, transparent 64%);
+  transform: translateX(-60%);
+  animation: product-wood-light 19s var(--ease-premium) infinite;
+}
+
+.product-hero-ambient--boat .product-hero-ambient__effect-glow {
+  inset: 0;
+  background: linear-gradient(160deg, transparent 38%, rgba(143,214,224,0.14) 50%, transparent 62%);
+  transform: translateX(-55%);
+  animation: product-boat-reflection 17s var(--ease-premium) infinite;
+}
+
+/* Existing compact route markup uses the same ambient effect contract by class. */
+.water-protect-hero,
+.boat-protect-hero { position: relative; isolation: isolate; overflow: hidden; }
+.water-protect-hero::after,
+.boat-protect-hero::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.52;
+}
+.water-protect-hero::after {
+  background: repeating-radial-gradient(ellipse at 20% 30%, transparent 0 12%, rgba(143,214,224,0.07) 13%, transparent 20% 34%);
+  animation: product-water-caustics 18s ease-in-out infinite alternate;
+}
+.boat-protect-hero::after {
+  background: linear-gradient(160deg, transparent 38%, rgba(143,214,224,0.14) 50%, transparent 62%);
+  transform: translateX(-55%);
+  animation: product-boat-reflection 17s var(--ease-premium) infinite;
+}
+.water-protect-hero > .container,
+.boat-protect-hero > .container { position: relative; z-index: 1; }
+
+@keyframes product-thermo-layer { 0%, 100% { transform: rotate(-7deg) scaleX(0.72); opacity: 0.45; } 50% { transform: rotate(-7deg) scaleX(1); opacity: 0.9; } }
+@keyframes product-thermo-light { 0%, 100% { transform: translateX(-30%); opacity: 0.3; } 50% { transform: translateX(30%); opacity: 0.7; } }
+@keyframes product-liquid-path { 0%, 18% { transform: translateX(-34%); opacity: 0; } 35%, 68% { transform: translateX(34%); opacity: 0.9; } 86%, 100% { transform: translateX(65%); opacity: 0; } }
+@keyframes product-liquid-warmth { 0%, 25% { transform: scale(0.72); opacity: 0; } 68%, 100% { transform: scale(1.1); opacity: 0.72; } }
+@keyframes product-fire-heat { 0%, 100% { transform: scaleY(0.82); opacity: 0.42; } 50% { transform: scaleY(1.05); opacity: 0.72; } }
+@keyframes product-fire-barrier { 0%, 100% { opacity: 0.42; } 50% { opacity: 0.75; } }
+@keyframes product-reflection-sweep { 0%, 22% { transform: rotate(18deg) translateX(-520%); opacity: 0; } 42%, 62% { transform: rotate(18deg) translateX(520%); opacity: 0.72; } 82%, 100% { transform: rotate(18deg) translateX(520%); opacity: 0; } }
+@keyframes product-water-caustics { from { transform: translate3d(-3%, 2%, 0) scale(1.05); opacity: 0.42; } to { transform: translate3d(4%, -3%, 0) scale(1.12); opacity: 0.72; } }
+@keyframes product-wood-light { 0%, 25% { transform: translateX(-60%); opacity: 0; } 54%, 72% { transform: translateX(60%); opacity: 0.72; } 100% { transform: translateX(60%); opacity: 0; } }
+@keyframes product-boat-reflection { 0%, 24% { transform: translateX(-55%); opacity: 0; } 52%, 72% { transform: translateX(55%); opacity: 0.72; } 100% { transform: translateX(55%); opacity: 0; } }
+.product-hero-ambient__content { position: relative; z-index: 1; }
+.product-hero-ambient--thermo .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.3)); }
+.product-hero-ambient--liquidHeat .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(201,89,26,0.24)); }
+.product-hero-ambient--fire .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(140,47,29,0.25)); }
+.product-hero-ambient--water .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(14,110,124,0.35)); }
+.product-hero-ambient--boat .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(36,76,92,0.34)); }
+
+@media (max-width: 700px) {
+  .product-hero-ambient__video { display: none; }
+  .product-hero-ambient__svg { opacity: 0.2; }
+  .product-hero-ambient__material { opacity: 0.45; }
+  .product-hero-ambient--water .product-hero-ambient__effect-glow { opacity: 0.5; }
+  .product-hero-ambient--liquidHeat .product-hero-ambient__effect-glow { animation: none; opacity: 0.5; }
+  .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line { animation-duration: 12s; }
+  .water-protect-hero::after,
+  .boat-protect-hero::after { animation: none; opacity: 0.28; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-hero-ambient__video,
+  .product-hero-ambient__svg,
+  .product-hero-ambient__material { display: none; }
+  .water-protect-hero::after,
+  .boat-protect-hero::after { animation: none; opacity: 0; }
+}
+
 @keyframes hero-material-shift {
   from { transform: translateX(-20%); opacity: 0.5; }
   to { transform: translateX(20%); opacity: 0.9; }

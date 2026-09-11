@@ -8,6 +8,7 @@ import {
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { AssetFigure } from "@/components/AssetFigure";
 import { LightboxFigure } from "@/components/LightboxFigure";
+import { ProductHeroAmbient } from "@/components/ProductHeroAmbient";
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
@@ -43,7 +44,7 @@ export default function PureWoodProtectPage() {
           { label: t.name },
         ]}
       />
-      <section className="hero wood-protect-hero">
+      <ProductHeroAmbient variant="wood" motionEnabled className="wood-protect-hero">
         <div className="container wood-protect-hero__grid">
           <div>
             <p className="hero__eyebrow">{t.name}</p>
@@ -69,7 +70,7 @@ export default function PureWoodProtectPage() {
             priority
           />
         </div>
-      </section>
+      </ProductHeroAmbient>
       <section className="section section--surface">
         <div className="container">
           <H

@@ -21,6 +21,7 @@ import { TechnicalVisual } from '@/components/TechnicalVisual';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
 import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalculator';
+import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -79,7 +80,7 @@ export default function PureThermoPage() {
     <>
       <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Produkte' }, { label: 'Pure Thermo' }]} />
 
-      <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
+      <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
           <p className="hero__eyebrow">PURE THERMO</p>
           <h1>Thermische Funktion bei minimaler Aufbauhöhe.</h1>
@@ -91,7 +92,7 @@ export default function PureThermoPage() {
             <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
           </div>
         </div>
-      </section>
+      </ProductHeroAmbient>
 
       <section className="section">
         <div className="container">
