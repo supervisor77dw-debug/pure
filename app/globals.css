@@ -1662,9 +1662,31 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .pure-thermo-calculator__disclaimer strong { color: var(--color-navy); }
 .pure-thermo-calculator__disclaimer p { margin: var(--space-2) 0 0; }
 
+.system-layer-stack { margin: var(--space-5) 0 0; }
+.system-layer-stack__surface { display: grid; gap: 3px; max-width: 760px; margin: 0 auto; padding: var(--space-4); border: 1px solid rgba(14,110,124,0.22); border-radius: var(--radius-panel); background: linear-gradient(145deg, rgba(11,31,58,0.96), rgba(20,46,82,0.9)); box-shadow: var(--shadow-soft); }
+.system-layer-stack__layer { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); align-items: center; min-height: 48px; padding: 0 var(--space-3); border: 1px solid rgba(216,239,241,0.18); color: #fff; background: rgba(255,255,255,0.08); }
+.system-layer-stack__layer:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: rgba(91,112,126,0.48); }
+.system-layer-stack__layer:last-child { border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: rgba(14,110,124,0.36); }
+.system-layer-stack__layer span { color: rgba(216,239,241,0.65); font-size: .76rem; font-variant-numeric: tabular-nums; }
+.system-layer-stack__layer strong { font-size: .95rem; font-weight: 650; }
+.system-layer-stack figcaption { margin-top: var(--space-2); color: var(--color-text-muted); font-size: .82rem; text-align: center; }
+.system-route-hero { background: linear-gradient(115deg, #0b1f3a 0%, #193c51 68%, #28545b 100%); }
+.system-route-hero::before { opacity: .45; animation-duration: 20s; }
+.evidence-hub-hero { background: linear-gradient(135deg, #f4f6f8, #fff); border-bottom: 1px solid var(--color-border); }
+.evidence-hub-hero .section-heading__eyebrow { color: var(--color-petrol-dark); }
+.evidence-hub-hero .section-heading { margin-bottom: var(--space-4); }
+
+.pure-thermo-calculator { background: linear-gradient(145deg, rgba(11,31,58,0.04), rgba(14,110,124,0.06)); }
+.pure-thermo-calculator__result-grid > div { box-shadow: none; }
+.pure-thermo-calculator__result-grid > div:nth-child(4) { border-color: rgba(14,110,124,0.34); background: rgba(14,110,124,0.06); }
+.pure-thermo-calculator__result-grid strong { font-variant-numeric: tabular-nums; }
+
 @media (max-width: 639px) {
   .technical-value-group__heading { align-items: flex-start; flex-direction: column; }
   .technical-value-group__heading .evidence-badge { max-width: 100%; }
+  .pure-thermo-calculator__chart-wrap { overflow: hidden; }
+  .pure-thermo-calculator__chart { min-width: 0; width: 100%; }
+  .pure-thermo-calculator__result-grid > div:nth-child(4) { order: -1; }
 }
 
 .technical-table {
@@ -2133,7 +2155,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.35));
 }
 .product-hero-ambient__svg { z-index: -1; opacity: 0.32; }
-.product-hero-ambient__svg img { width: 100%; height: 100%; object-fit: cover; }
+.product-hero-ambient__svg-asset { display: block; width: 100%; height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; }
 .product-hero-ambient__material {
   z-index: 0;
   background: linear-gradient(115deg, transparent 35%, rgba(216,239,241,0.08) 48%, transparent 58%);
@@ -2352,6 +2374,10 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   background-image: repeating-linear-gradient(115deg, transparent 0, transparent 24px, rgba(11,31,58,0.025) 25px, transparent 26px);
 }
 .section--surface > .container { position: relative; }
+.not-found-page { min-height: 60vh; display: grid; place-items: center; background: linear-gradient(135deg, #f4f6f8, #fff); }
+.not-found-page__inner { width: 100%; max-width: 760px; padding-top: var(--space-7); padding-bottom: var(--space-7); }
+.not-found-page h1 { font-size: clamp(4rem, 12vw, 8rem); margin: var(--space-2) 0; }
+.not-found-page p { color: var(--color-text-muted); font-size: 1.1rem; }
 
 @media (max-width: 700px) {
   .hero::before { animation: none; opacity: 0.55; }

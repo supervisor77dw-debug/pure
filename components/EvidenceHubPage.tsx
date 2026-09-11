@@ -13,7 +13,7 @@ export function EvidenceHubPage({ locale }: { locale: Locale }) {
   return (
     <>
       <Breadcrumb items={[{ label: de ? 'Start' : 'Home', href: localePath(locale) }, { label: de ? 'Prüfungen & Evidenz' : 'Testing & Evidence' }]} />
-      <section className="section" style={{ paddingBottom: 'var(--space-4)' }}>
+      <section className="section evidence-hub-hero" style={{ paddingBottom: 'var(--space-4)' }}>
         <div className="container">
           <div className="section-heading section-heading--narrow">
             <span className="section-heading__eyebrow">{de ? 'NACHWEISE' : 'EVIDENCE'}</span>

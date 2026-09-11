@@ -5,6 +5,7 @@ import { projectRequestPath } from '@/lib/i18n';
 import { TechnicalVisual } from './TechnicalVisual';
 import { Breadcrumb } from './Breadcrumb';
 import { EvidenceBadge } from './EvidenceBadge';
+import { SystemLayerStack } from './SystemLayerStack';
 
 const routeContent = {
   detail: {
@@ -125,7 +126,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
   return (
     <>
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: localePath(locale) }, { label: locale === 'de' ? 'Systemrouten' : 'System Routes' }, { label: copy.name }]} />
-      <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
+      <section className="hero system-route-hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
           <p className="hero__eyebrow">{locale === 'de' ? 'SYSTEMROUTE' : 'SYSTEM ROUTE'}</p>
           <h1>{copy.title}</h1>
@@ -140,7 +141,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
 
       <section className="section"><div className="container"><div className="split-section"><div className="split-section__text"><span className="section-heading__eyebrow">{locale === 'de' ? 'Problem' : 'Problem'}</span><h2>{locale === 'de' ? 'Warum diese Route eigenständig bewertet wird.' : 'Why this route needs its own assessment.'}</h2><p>{copy.problem}</p><p>{copy.route}</p></div><div className="split-section__media"><TechnicalVisual locale={locale} visual={config.visual as VisualKey} altDe={copy.name} altEn={copy.name} captionDe={copy.caption} captionEn={copy.caption} zoomable /></div></div></div></section>
 
-      <section className="section section--surface"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Systemaufbau' : 'System build-up'}</span><h2>{locale === 'de' ? 'Vom Untergrund zum definierten Aufbau.' : 'From substrate to defined build-up.'}</h2></div><div className="route-step-grid">{copy.build.map((step, index) => <div className="route-step" key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></div>)}</div></div></section>
+      <section className="section section--surface"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Systemaufbau' : 'System build-up'}</span><h2>{locale === 'de' ? 'Vom Untergrund zum definierten Aufbau.' : 'From substrate to defined build-up.'}</h2></div><SystemLayerStack layers={copy.build} locale={locale} label={copy.name} /></div></section>
 
       <section className="section"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Anwendungen' : 'Applications'}</span><h2>{locale === 'de' ? 'Typische Einsatzfelder.' : 'Typical application fields.'}</h2></div><div className="route-application-grid">{copy.applications.map((item, index) => <article className="route-application-card" key={item}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3><p>{copy.applicationCopy[index]}</p></article>)}</div></div></section>
 

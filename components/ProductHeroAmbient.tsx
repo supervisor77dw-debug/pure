@@ -46,7 +46,7 @@ export function ProductHeroAmbient({
       <div className="product-hero-ambient__gradient" aria-hidden="true" />
       {hasSvg ? (
         <div className="product-hero-ambient__svg" aria-hidden="true">
-          {svgLayer || <img src={mediaPath(assets?.svgLayer)} alt="" />}
+          {svgLayer || <span className="product-hero-ambient__svg-asset" style={{ backgroundImage: `url(${mediaPath(assets?.svgLayer)})` }} />}
         </div>
       ) : null}
       {hasVideo ? (

@@ -69,6 +69,7 @@ export function PureThermoUValueCalculator({ locale }: { locale: Locale }) {
         thickness: 'PURE THERMO layer thickness',
         basis: 'Calculation basis λ = 0.035 W/(m·K)',
         resultR: 'Additional thermal resistance R PURE THERMO',
+        resultRExisting: 'Existing thermal resistance R',
         resultExisting: 'Existing U-value',
         resultNew: 'Calculated new U-value',
         resultReduction: 'Calculated U-value reduction of the treated building component',
@@ -86,6 +87,7 @@ export function PureThermoUValueCalculator({ locale }: { locale: Locale }) {
         thickness: 'PURE-THERMO-Schichtdicke',
         basis: 'Berechnungsgrundlage λ = 0,035 W/(m·K)',
         resultR: 'Zusätzlicher Wärmedurchlasswiderstand R PURE THERMO',
+        resultRExisting: 'Bestehender Wärmedurchlasswiderstand R',
         resultExisting: 'Ausgangs-U-Wert',
         resultNew: 'Neuer rechnerischer U-Wert',
         resultReduction: 'Rechnerische U-Wert-Reduktion der behandelten Bauteilfläche',
@@ -133,6 +135,7 @@ export function PureThermoUValueCalculator({ locale }: { locale: Locale }) {
           <div className="pure-thermo-calculator__results">
             <div className="pure-thermo-calculator__result-grid">
               <div><span>{labels.resultR}</span><strong>{formatNumber(rPure, locale)} <small>m²K/W</small></strong></div>
+              <div><span>{labels.resultRExisting}</span><strong>{formatNumber(rExisting, locale)} <small>m²K/W</small></strong></div>
               <div><span>{labels.resultExisting}</span><strong>{formatNumber(existingU, locale)} <small>W/(m²K)</small></strong></div>
               <div><span>{labels.resultNew}</span><strong>{formatNumber(newU, locale)} <small>W/(m²K)</small></strong></div>
               <div><span>{labels.resultReduction}</span><strong>{formatNumber(reduction, locale, 1)} <small>%</small></strong></div>
