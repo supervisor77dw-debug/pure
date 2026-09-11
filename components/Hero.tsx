@@ -19,11 +19,11 @@ export function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, metaI
         <img src={assetSrc(backgroundImage.file)} alt={backgroundImage.alt} className="hero--photo__bg" />
       ) : null}
       <div className="container">
-        {eyebrow ? <p className="hero__eyebrow">{eyebrow}</p> : null}
-        <h1>{title}</h1>
-        {subtitle ? <p className="hero__subtitle">{subtitle}</p> : null}
+        {eyebrow ? <p className="hero__eyebrow hero__reveal hero__reveal--1">{eyebrow}</p> : null}
+        <h1 className="hero__reveal hero__reveal--2">{title}</h1>
+        {subtitle ? <p className="hero__subtitle hero__reveal hero__reveal--3">{subtitle}</p> : null}
         {(primaryCta || secondaryCta) && (
-          <div className="hero__ctas">
+          <div className="hero__ctas hero__reveal hero__reveal--4">
             {primaryCta ? (
               <Link className="btn btn--primary" href={primaryCta.href}>
                 {primaryCta.label}

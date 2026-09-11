@@ -46,6 +46,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
   const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname() || '/';
   const routeLocale = pathname.split('/')[1];
@@ -71,8 +72,15 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > 12);
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrollState);
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="container header__bar">
         <Link href={localePath(currentLocale)} className="header__logo">
           PURE<span>.</span> Technology Platform
