@@ -8,6 +8,7 @@ export interface ProductHeroAmbientProps {
   posterAlt?: string;
   assets?: ProductMotionAssetSet;
   motionEnabled?: boolean;
+  videoEnabled?: boolean;
   className?: string;
   style?: CSSProperties;
   children: ReactNode;
@@ -25,6 +26,7 @@ export function ProductHeroAmbient({
   posterAlt = '',
   assets = productMotionAssets[variant] ?? { variant },
   motionEnabled = false,
+  videoEnabled = true,
   className = '',
   style,
   children,
@@ -33,9 +35,9 @@ export function ProductHeroAmbient({
 }: ProductHeroAmbientProps) {
   const webm = mediaPath(assets?.desktopWebm);
   const mp4 = mediaPath(assets?.desktopMp4);
-  const desktopPoster = mediaPath(assets?.poster) || mediaPath(poster);
+  const desktopPoster = mediaPath(poster) || mediaPath(assets?.poster);
   const mobilePoster = mediaPath(assets?.mobilePoster) || mediaPath(poster);
-  const hasVideo = motionEnabled && Boolean(webm || mp4);
+  const hasVideo = motionEnabled && videoEnabled && Boolean(webm || mp4);
   const hasSvg = motionEnabled && Boolean(assets?.svgLayer || svgLayer);
 
   return (

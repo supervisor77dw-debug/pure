@@ -84,7 +84,7 @@ export default function PureLiquidHeatPage() {
     <>
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: content.breadcrumb }]} />
 
-      <ProductHeroAmbient variant="liquidHeat" motionEnabled className="liquid-heat-hero" poster="Glühende Schichtheizplatte im Querschnitt.png" posterAlt="Schematischer Querschnitt einer beschichteten funktionalen Heizfläche mit gegenüberliegenden Kontaktierungsbereichen">
+      <ProductHeroAmbient variant="liquidHeat" motionEnabled videoEnabled={false} className="liquid-heat-hero" poster="Glühende Schichtheizplatte im Querschnitt.png" posterAlt="Schematischer Querschnitt einer beschichteten funktionalen Heizfläche mit gegenüberliegenden Kontaktierungsbereichen">
         <div className="container liquid-heat-hero__grid">
           <div>
             <p className="hero__eyebrow">{content.eyebrow}</p>
