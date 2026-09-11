@@ -80,7 +80,7 @@ export default function PureThermoPage() {
     <>
       <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Produkte' }, { label: 'Pure Thermo' }]} />
 
-      <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
+      <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" poster="transluzente Beschichtung auf rauem Beton.png" posterAlt="Transluzente funktionale Beschichtung auf einer rauen mineralischen Materialoberfläche" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
           <p className="hero__eyebrow">PURE THERMO</p>
           <h1>Thermische Funktion bei minimaler Aufbauhöhe.</h1>
