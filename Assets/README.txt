@@ -24,3 +24,8 @@ IMPORTANT
 - Do not present any illustrative visual as a real customer project or certified test.
 - B-s1,d0 and SBI values apply only to the documented tested system/setup and must not be generalized.
 - Do not use the TII logo extracted from the deck as a substitute for the website's existing brand asset.
+
+PURE WATER / LIQUID HEAT MOTION MEDIA
+Custom-generated visual asset for the PURE Technology Platform.
+No third-party stock media, logos or audio incorporated.
+Approved authored motion files: pure-water-ambient-v1.* and pure-liquid-heat-ambient-v1.*.

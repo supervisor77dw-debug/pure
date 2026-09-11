@@ -1978,6 +1978,13 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   height: auto;
   border-radius: var(--radius-sm);
 }
+.asset-figure--motion-media { position: relative; }
+.asset-figure--motion-media .asset-figure__motion-media { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.asset-figure--motion-media .asset-figure__img { position: relative; z-index: 1; opacity: 0; }
+.asset-figure--motion-media .asset-figure__caption,
+.asset-figure--motion-media .asset-figure__status { position: relative; z-index: 2; }
+@media (max-width: 768px) { .asset-figure--motion-media .asset-figure__motion-media { display: none; } .asset-figure--motion-media .asset-figure__img { opacity: 1; content: url('/assets/pure-water-ambient-v1-mobile.webp'); } }
+@media (prefers-reduced-motion: reduce) { .asset-figure--motion-media .asset-figure__motion-media { display: none; } .asset-figure--motion-media .asset-figure__img { opacity: 1; content: url('/assets/pure-water-ambient-v1-poster.webp'); } }
 .asset-figure__status {
   position: absolute;
   top: var(--space-2);
@@ -2180,6 +2187,8 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .product-hero-ambient__video {
   object-fit: cover;
 }
+.product-hero-ambient__poster { display: block; }
+.product-hero-ambient__poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .product-hero-ambient__poster { z-index: -4; }
 .product-hero-ambient__video { z-index: -3; }
 .product-hero-ambient__gradient {
@@ -2202,6 +2211,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .product-hero-ambient__effect { inset: 0; z-index: -1; overflow: hidden; opacity: 0; }
 .product-hero-ambient.is-motion-enabled .product-hero-ambient__effect { opacity: 1; }
+.product-hero-ambient.is-motion-enabled.has-video .product-hero-ambient__effect { opacity: 0; }
 .product-hero-ambient__effect-line,
 .product-hero-ambient__effect-glow,
 .product-hero-ambient__effect-barrier { display: block; }
@@ -2301,6 +2311,10 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .water-protect-hero > .container,
 .boat-protect-hero > .container { position: relative; z-index: 1; }
+.water-protect-hero:has(.asset-figure--motion-media)::after { opacity: 0; animation: none; }
+.water-protect-hero .asset-figure--motion-media { position: absolute; inset: 0; z-index: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.water-protect-hero .asset-figure--motion-media .asset-figure__caption,
+.water-protect-hero .asset-figure--motion-media .asset-figure__status { display: none; }
 
 @keyframes product-thermo-layer { 0%, 100% { transform: rotate(-7deg) scaleX(0.72); opacity: 0.45; } 50% { transform: rotate(-7deg) scaleX(1); opacity: 0.9; } }
 @keyframes product-thermo-light { 0%, 100% { transform: translateX(-30%); opacity: 0.3; } 50% { transform: translateX(30%); opacity: 0.7; } }
@@ -2328,6 +2342,11 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line { animation-duration: 12s; }
   .water-protect-hero::after,
   .boat-protect-hero::after { animation: none; opacity: 0.28; }
+}
+
+@media (min-width: 769px) {
+  .product-hero-ambient--water.is-motion-enabled.has-video .product-hero-ambient__effect,
+  .product-hero-ambient--liquidHeat.is-motion-enabled.has-video .product-hero-ambient__effect { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

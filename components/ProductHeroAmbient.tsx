@@ -33,15 +33,19 @@ export function ProductHeroAmbient({
 }: ProductHeroAmbientProps) {
   const webm = mediaPath(assets?.desktopWebm);
   const mp4 = mediaPath(assets?.desktopMp4);
+  const desktopPoster = mediaPath(assets?.poster) || mediaPath(poster);
   const mobilePoster = mediaPath(assets?.mobilePoster) || mediaPath(poster);
   const hasVideo = motionEnabled && Boolean(webm || mp4);
   const hasSvg = motionEnabled && Boolean(assets?.svgLayer || svgLayer);
 
   return (
-    <section style={style} className={`hero product-hero-ambient product-hero-ambient--${variant}${motionEnabled ? ' is-motion-enabled' : ''} ${className}`.trim()}>
-      {mobilePoster ? (
+    <section style={style} className={`hero product-hero-ambient product-hero-ambient--${variant}${motionEnabled ? ' is-motion-enabled' : ''}${hasVideo ? ' has-video' : ''} ${className}`.trim()}>
+      {desktopPoster || mobilePoster ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="product-hero-ambient__poster" src={mobilePoster} alt={posterAlt} aria-hidden={posterAlt ? undefined : true} />
+        <picture className="product-hero-ambient__poster">
+          {mobilePoster ? <source media="(max-width: 768px)" srcSet={mobilePoster} /> : null}
+          <img src={desktopPoster || mobilePoster} alt={posterAlt} aria-hidden={posterAlt ? undefined : true} />
+        </picture>
       ) : null}
       <div className="product-hero-ambient__gradient" aria-hidden="true" />
       {hasSvg ? (
@@ -50,9 +54,9 @@ export function ProductHeroAmbient({
         </div>
       ) : null}
       {hasVideo ? (
-        <video className="product-hero-ambient__video" autoPlay muted loop playsInline poster={mobilePoster} preload="metadata" aria-hidden="true">
-          {webm ? <source src={webm} type="video/webm" /> : null}
-          {mp4 ? <source src={mp4} type="video/mp4" /> : null}
+        <video className="product-hero-ambient__video" autoPlay muted loop playsInline poster={desktopPoster} preload="metadata" aria-hidden="true">
+          {webm ? <source media="(min-width: 769px)" src={webm} type="video/webm" /> : null}
+          {mp4 ? <source media="(min-width: 769px)" src={mp4} type="video/mp4" /> : null}
         </video>
       ) : null}
       <div className="product-hero-ambient__effect" aria-hidden="true">
