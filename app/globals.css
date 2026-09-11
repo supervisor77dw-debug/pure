@@ -2317,6 +2317,19 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 @media (prefers-reduced-motion: reduce) { .pure-thermo-hero .product-hero-ambient__effect { display: none; } }
 
+@media (min-width: 900px) {
+  .pure-thermo-hero > .container { padding-left: var(--space-4); }
+  .pure-thermo-hero > .container > div { width: min(560px, 100%); margin-left: clamp(220px, 16vw, 360px); }
+  .liquid-heat-hero__grid { grid-template-columns: 1fr; }
+  .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); margin-left: clamp(180px, 14vw, 320px); }
+}
+
+@media (max-width: 899px) {
+  .pure-thermo-hero > .container > div,
+  .liquid-heat-hero__grid > div:first-child { width: 100%; margin-left: 0; }
+  .liquid-heat-hero__grid { grid-template-columns: 1fr; }
+}
+
 .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line {
   left: 12%; top: 58%; width: 76%; height: 2px;
   background: linear-gradient(90deg, transparent 0 12%, rgba(201,89,26,0.85) 30%, rgba(255,190,112,0.75) 50%, transparent 78%);
