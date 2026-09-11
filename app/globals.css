@@ -1321,6 +1321,11 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 
 /* ==========================================================================\n+   PURE Floor Protect\n+   ========================================================================== */
 .floor-protect-hero { background: linear-gradient(120deg, #0b1f3a 0%, #244455 100%); }
+.floor-protect-hero { height: 60vh; min-height: 0; display: flex; align-items: center; }
+.floor-protect-hero .product-hero-ambient__poster img { object-position: 62% center; }
+.floor-protect-hero::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(90deg, rgba(5,13,20,0.9), rgba(5,13,20,0.54) 38%, rgba(5,13,20,0.16) 75%, rgba(5,13,20,0.38)), linear-gradient(0deg, rgba(5,13,20,0.7), transparent 34%); }
+.floor-protect-hero .product-hero-ambient__effect-line { opacity: .24; animation-duration: 15s; }
+.floor-protect-hero .product-hero-ambient__content { left: clamp(420px, 40vw, 1200px); }
 .floor-protect-hero__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-5); align-items: center; }
 @media (min-width: 900px) { .floor-protect-hero__grid { grid-template-columns: 0.9fr 1.1fr; } }
 .floor-protect-relation { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); max-width: 420px; margin: 0 auto; text-align: center; }
@@ -1367,6 +1372,9 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .floor-protect-evidence { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
 @media (min-width: 760px) { .floor-protect-evidence { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .floor-protect-evidence article { border: 1px solid var(--color-border); border-left: 4px solid var(--color-evidence-b); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-bg); }
+.floor-protect-evidence article { display: flex; flex-direction: column; gap: var(--space-2); }
+.floor-protect-evidence article small { order: 4; }
+.floor-protect-evidence article em { order: 5; color: var(--color-text-muted); font-size: .78rem; font-style: normal; }
 .floor-protect-evidence article > span { display: block; color: var(--color-petrol); font-weight: 700; letter-spacing: 0.05em; }
 .floor-protect-evidence article > strong { display: block; margin: var(--space-2) 0; color: var(--color-navy); }
 .floor-protect-evidence article p { color: var(--color-text-muted); }
