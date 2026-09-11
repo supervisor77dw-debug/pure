@@ -88,6 +88,12 @@ export function localizedCounterpart(locale: Locale, pathname: string): string {
     '/evidence/EVD-PT-THERM-001': '/nachweise/EVD-PT-THERM-001',
     '/nachweise': '/evidence',
     '/evidence': '/nachweise',
+    '/projekt-anfrage': '/project-request',
+    '/project-request': '/projekt-anfrage',
+    '/impressum': '/imprint',
+    '/imprint': '/impressum',
+    '/datenschutz': '/privacy',
+    '/privacy': '/datenschutz',
     '/': '/'
   };
   return localePath(counterpart, mappings[path] || '/');
@@ -111,4 +117,8 @@ export const PRODUCT_ROUTES: Record<string, { de: string; en: string }> = {
 export function productPath(locale: Locale, slug: string): string | undefined {
   const route = PRODUCT_ROUTES[slug]?.[locale];
   return route ? localePath(locale, route) : undefined;
+}
+
+export function projectRequestPath(locale: Locale): string {
+  return localePath(locale, locale === 'de' ? 'projekt-anfrage' : 'project-request');
 }

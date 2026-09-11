@@ -226,7 +226,7 @@ export default function PureThermoInteriorPage() {
             <p className="final-cta__lead">Passt PURE THERMO zu Ihrem Projekt?</p>
             <h2>Technische Projektbewertung anfragen</h2>
             <div className="hero__ctas" style={{ justifyContent: 'center' }}>
-              <Link className="btn btn--primary" href="/produkte/pure-thermo">Projekt prüfen lassen</Link>
+              <Link className="btn btn--primary" href="/de/projekt-anfrage">Projekt prüfen lassen</Link>
               <Link className="btn btn--secondary btn--dark" href="/produkte/pure-thermo#u-wert-rechner">U-Wert berechnen</Link>
             </div>
           </div>

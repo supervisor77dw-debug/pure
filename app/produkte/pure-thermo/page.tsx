@@ -404,7 +404,7 @@ export default function PureThermoPage() {
             <p className="final-cta__lead">Prüfen wir, ob PURE THERMO für Ihr Bauteil sinnvoll ist.</p>
             <h2>Projekt besprechen</h2>
             <div className="hero__ctas" style={{ justifyContent: 'center' }}>
-              <Link className="btn btn--primary" href="/produkte/pure-thermo">Projekt besprechen</Link>
+              <Link className="btn btn--primary" href="/de/projekt-anfrage">Projekt besprechen</Link>
               <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Unterlagen ansehen</Link>
             </div>
           </div>

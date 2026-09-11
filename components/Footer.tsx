@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { localePath, type Locale } from '@/lib/i18n';
+import { localePath, projectRequestPath, type Locale } from '@/lib/i18n';
 
 export function Footer({ locale = 'de' }: { locale?: Locale }) {
   const pathname = usePathname() || '/';
@@ -47,7 +47,14 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
           <div>
             <h4>{isEnglish ? 'Contact' : 'Kontakt'}</h4>
             <ul>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-thermo') : localePath('de', 'produkte/pure-thermo')}>{isEnglish ? 'Discuss a project' : 'Projekt besprechen'}</Link></li>
+              <li><Link href={projectRequestPath(currentLocale)}>{isEnglish ? 'Discuss a project' : 'Projekt besprechen'}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4>{isEnglish ? 'Legal' : 'Rechtliches'}</h4>
+            <ul>
+              <li><Link href={localePath(currentLocale, isEnglish ? 'imprint' : 'impressum')}>{isEnglish ? 'Imprint' : 'Impressum'}</Link></li>
+              <li><Link href={localePath(currentLocale, isEnglish ? 'privacy' : 'datenschutz')}>{isEnglish ? 'Privacy' : 'Datenschutz'}</Link></li>
             </ul>
           </div>
         </div>

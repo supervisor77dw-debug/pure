@@ -8,9 +8,11 @@ import { headers } from 'next/headers';
 import { isLocale, ui } from '@/lib/i18n';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://pure-virid.vercel.app'),
   title: 'PURE Technology Platform',
   description:
-    'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.'
+    'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.',
+  robots: { index: true, follow: true }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Locale } from '@/lib/i18n';
 import { localePath } from '@/lib/i18n';
+import { projectRequestPath } from '@/lib/i18n';
 import { TechnicalVisual } from './TechnicalVisual';
 import { Breadcrumb } from './Breadcrumb';
 import { EvidenceBadge } from './EvidenceBadge';
@@ -147,7 +148,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
 
       {'secondaryVisual' in config ? <section className="section"><div className="container"><TechnicalVisual locale={locale} visual={config.secondaryVisual as VisualKey} altDe={copy.name} altEn={copy.name} captionDe={copy.caption} captionEn={copy.caption} zoomable /></div></section> : null}
 
-      <section className="section section--surface" id="projektbewertung"><div className="container"><div className="final-cta"><p className="final-cta__lead">{locale === 'de' ? 'Passt PURE THERMO zu Ihrem Projekt?' : 'Is PURE THERMO suitable for your project?'}</p><h2>{copy.projectCta}</h2><div className="hero__ctas" style={{ justifyContent: 'center' }}><Link className="btn btn--primary" href={localePath(locale, locale === 'de' ? 'produkte/pure-thermo' : 'products/pure-thermo')}>{copy.projectCta}</Link>{route === 'detail' ? <Link className="btn btn--secondary btn--dark" href={calculatorHref}>{copy.cta}</Link> : null}</div></div></div></section>
+      <section className="section section--surface" id="projektbewertung"><div className="container"><div className="final-cta"><p className="final-cta__lead">{locale === 'de' ? 'Passt PURE THERMO zu Ihrem Projekt?' : 'Is PURE THERMO suitable for your project?'}</p><h2>{copy.projectCta}</h2><div className="hero__ctas" style={{ justifyContent: 'center' }}><Link className="btn btn--primary" href={projectRequestPath(locale)}>{copy.projectCta}</Link>{route === 'detail' ? <Link className="btn btn--secondary btn--dark" href={calculatorHref}>{copy.cta}</Link> : null}</div></div></div></section>
     </>
   );
 }

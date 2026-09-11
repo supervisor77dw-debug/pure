@@ -15,7 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { de: '/de/systeme/pure-thermo-detail', en: '/en/systems/pure-thermo-detail' },
     { de: '/de/systeme/pure-thermo-fire', en: '/en/systems/pure-thermo-fire' },
     { de: '/de/systeme/pure-thermo-interior', en: '/en/systems/pure-thermo-interior' },
-    { de: '/de/nachweise/EVD-PT-THERM-001', en: '/en/evidence/EVD-PT-THERM-001' }
+    { de: '/de/nachweise/EVD-PT-THERM-001', en: '/en/evidence/EVD-PT-THERM-001' },
+    { de: '/de/projekt-anfrage', en: '/en/project-request' },
+    { de: '/de/impressum', en: '/en/imprint' },
+    { de: '/de/datenschutz', en: '/en/privacy' }
   ];
   return routes.flatMap((route) => [
     { url: `${baseUrl}${route.de}`, alternates: { languages: { de: `${baseUrl}${route.de}`, en: `${baseUrl}${route.en}` } } },
