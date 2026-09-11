@@ -23,7 +23,7 @@ export function ProductHeroAmbient({
   variant,
   poster,
   posterAlt = '',
-  assets = productMotionAssets[variant],
+  assets = productMotionAssets[variant] ?? { variant },
   motionEnabled = false,
   className = '',
   style,

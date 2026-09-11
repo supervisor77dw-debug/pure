@@ -9,13 +9,7 @@ export interface ProductMotionAssetSet {
 }
 
 // Asset paths stay empty until approved Sprint 2 motion assets are supplied.
-export const productMotionAssets: Record<ProductMotionVariant, ProductMotionAssetSet> = {
-  thermo: { variant: 'thermo' },
+export const productMotionAssets: Partial<Record<ProductMotionVariant, ProductMotionAssetSet>> = {
   liquidHeat: { variant: 'liquidHeat' },
-  fire: { variant: 'fire' },
-  surface: { variant: 'surface' },
-  water: { variant: 'water' },
-  floor: { variant: 'floor' },
-  wood: { variant: 'wood' },
-  boat: { variant: 'boat' }
+  water: { variant: 'water' }
 };
