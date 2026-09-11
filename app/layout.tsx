@@ -6,13 +6,14 @@ import { LocaleShell } from '@/components/LocaleShell';
 import { getAllProducts } from '@/lib/data';
 import { headers } from 'next/headers';
 import { isLocale, ui } from '@/lib/i18n';
+import { surfaceReferenceFlags } from '@/lib/surface-reference-flags';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://pure-virid.vercel.app'),
   title: 'PURE Technology Platform',
   description:
     'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.',
-  robots: { index: true, follow: true }
+  robots: process.env.VERCEL_ENV === 'preview' ? { index: false, follow: false } : { index: true, follow: true }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const locale = isLocale(headerLocale) ? headerLocale : 'de';
   return (
     <html lang={locale}>
-      <body>
+      <body className={`${surfaceReferenceFlags.showLanuvReference ? 'show-lanuv-reference ' : ''}${surfaceReferenceFlags.showUaeReference ? 'show-uae-reference' : ''}`.trim()}>
         <LocaleShell />
         <Header products={products} locale={locale} />
         <main id="main-content">{children}</main>

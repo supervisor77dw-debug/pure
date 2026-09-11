@@ -7,6 +7,7 @@ import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { productVisuals, visualFor } from '@/lib/product-visuals';
+import { surfaceReferenceFlags } from '@/lib/surface-reference-flags';
 
 export const metadata: Metadata = {
   title: 'PURE Surface Protect | Transparent Surface Protection | PURE',
@@ -48,6 +49,7 @@ export default function PureSurfaceProtectPage() {
       <p>{copy}</p>
     </article>
   ));
+  const { showLanuvReference, showUaeReference } = surfaceReferenceFlags;
 
   return <>
     <Breadcrumb items={[{ label: 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: t.name }]} />
