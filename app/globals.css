@@ -2318,15 +2318,15 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 @media (prefers-reduced-motion: reduce) { .pure-thermo-hero .product-hero-ambient__effect { display: none; } }
 
 @media (min-width: 900px) {
-  .pure-thermo-hero > .container { padding-left: var(--space-4); }
-  .pure-thermo-hero > .container > div { width: min(560px, 100%); margin-left: clamp(220px, 16vw, 360px); }
+  .pure-thermo-hero .product-hero-ambient__content > .container { padding-left: var(--space-4); }
+  .pure-thermo-hero .product-hero-ambient__content > .container > div { width: min(560px, 100%); position: relative; left: clamp(420px, 30vw, 500px); }
   .liquid-heat-hero__grid { grid-template-columns: 1fr; }
-  .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); margin-left: clamp(180px, 14vw, 320px); }
+  .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); position: relative; left: clamp(380px, 30vw, 460px); margin-left: 0; }
 }
 
 @media (max-width: 899px) {
-  .pure-thermo-hero > .container > div,
-  .liquid-heat-hero__grid > div:first-child { width: 100%; margin-left: 0; }
+  .pure-thermo-hero .product-hero-ambient__content > .container > div,
+  .liquid-heat-hero__grid > div:first-child { width: 100%; margin-left: 0; left: auto; }
   .liquid-heat-hero__grid { grid-template-columns: 1fr; }
 }
 
