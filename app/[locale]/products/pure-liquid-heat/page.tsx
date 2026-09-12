@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import PureLiquidHeatPage from '@/app/pure-liquid-heat/page';
 
 export const metadata: Metadata = {
-  title: 'Pure Liquid Heat · PURE Technology Platform',
+  title: 'PURE LIQUID HEAT | Electrical Surface Heating | PURE',
   description: 'An electric functional layer for integrated heating systems.'
 };
 

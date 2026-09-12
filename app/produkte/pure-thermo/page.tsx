@@ -40,10 +40,10 @@ const CORE_VALUE_IDS = [
 ];
 
 const SYSTEM_HREFS: Record<string, string> = {
-  'SYS-PT-INT-001': '/systeme/pure-thermo-interior',
-  'SYS-PT-EXT-001': '/systeme/pure-thermo-exterior',
-  'SYS-PT-DET-001': '/systeme/pure-thermo-detail',
-  'SYS-PT-FIRE-001': '/systeme/pure-thermo-fire'
+  'SYS-PT-INT-001': '/de/systeme/pure-thermo-interior',
+  'SYS-PT-EXT-001': '/de/systeme/pure-thermo-exterior',
+  'SYS-PT-DET-001': '/de/systeme/pure-thermo-detail',
+  'SYS-PT-FIRE-001': '/de/systeme/pure-thermo-fire'
 };
 
 const EVIDENCE_GROUPS = [
@@ -85,9 +85,9 @@ export default function PureThermoPage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Produkte' }, { label: 'Pure Thermo' }]} />
+      <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Produkte' }, { label: 'PURE THERMO' }]} />
 
-      <ThermoParityHero eyebrow="PURE THERMO" title="Thermische Funktion bei minimaler Aufbauhöhe." subtitle="Eine dünn applizierbare Beschichtungstechnologie für thermisch relevante Bauteilbereiche, komplexe Geometrien und Anwendungen mit begrenztem Bauraum." primary={{ label: 'Systemaufbau ansehen', href: '#systemaufbau' }} secondary={{ label: 'Technische Nachweise', href: '/nachweise/EVD-PT-THERM-001' }} />
+      <ThermoParityHero eyebrow="PURE THERMO" title="Thermische Funktion bei minimaler Aufbauhöhe." subtitle="Eine dünn applizierbare Beschichtungstechnologie für thermisch relevante Bauteilbereiche, komplexe Geometrien und Anwendungen mit begrenztem Bauraum." primary={{ label: 'Systemaufbau ansehen', href: '#systemaufbau' }} secondary={{ label: 'Technische Nachweise', href: '/de/nachweise/EVD-PT-THERM-001' }} />
 
       <section className="section">
         <div className="container">
@@ -309,7 +309,8 @@ export default function PureThermoPage() {
               Der Nachweis für THERM 4410 wurde unter dokumentierten Prüfbedingungen nach DIN EN 12664 ermittelt. Wesentliche Grenzen liegen in der Zuordnung des Prüfgegenstands zur aktuellen Pure-Thermo-Version und in der Übertragbarkeit auf andere Systemaufbauten.
             </p>
             <div className="hero__ctas">
-              <Link className="btn btn--primary" href="/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
+              <Link className="btn btn--primary" href="/de/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
+                          <Link className="btn btn--primary" href="/de/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
             </div>
           </div>
         </div>
@@ -401,7 +402,8 @@ export default function PureThermoPage() {
             <h2>Projekt besprechen</h2>
             <div className="hero__ctas" style={{ justifyContent: 'center' }}>
               <Link className="btn btn--primary" href="/de/projekt-anfrage">Projekt besprechen</Link>
-              <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Unterlagen ansehen</Link>
+              <Link className="btn btn--secondary" href="/de/nachweise/EVD-PT-THERM-001">Technische Unterlagen ansehen</Link>
+                          <Link className="btn btn--secondary" href="/de/nachweise/EVD-PT-THERM-001">Technische Unterlagen ansehen</Link>
             </div>
           </div>
         </div>

@@ -94,6 +94,7 @@ export function ProductPortfolioMatrix({ locale }: { locale: Locale }) {
         <div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{de ? 'Portfolio' : 'Portfolio'}</span><h2>{de ? 'Eine Technologieplattform. Acht Funktionswelten.' : 'One technology platform. Eight functional worlds.'}</h2></div>
         <div className="portfolio-matrix">
           {products.map((product) => <Link className="portfolio-card" href={productPath(locale, product.slug) ?? localePath(locale)} key={product.slug}><AssetFigure file={product.asset[locale]} alt={product.name} objectPosition={product.position} variant="plain" /><span>{product.category[locale]}</span><h3>{product.name}</h3><p>{product.copy[locale]}</p></Link>)}
+                  {products.map((product) => <Link className="portfolio-card" href={productPath(locale, product.slug) ?? localePath(locale)} key={product.slug}><AssetFigure file={product.asset[locale]} alt={product.name} objectPosition={product.position} cover sizes="(max-width: 759px) calc(100vw - 64px), (max-width: 1099px) 50vw, 25vw" variant="plain" /><span>{product.category[locale]}</span><h3>{product.name}</h3><p>{product.copy[locale]}</p></Link>)}
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { isLocale, ui } from '@/lib/i18n';
+import { EvidenceHashFocus } from './EvidenceHashFocus';
 
 export function LocaleShell() {
   const pathname = usePathname() || '/';
@@ -13,5 +14,5 @@ export function LocaleShell() {
     document.documentElement.lang = locale;
   }, [locale]);
 
-  return <a className="skip-link" href="#main-content">{ui[locale].skip}</a>;
+  return <><EvidenceHashFocus /><a className="skip-link" href="#main-content">{ui[locale].skip}</a></>;
 }

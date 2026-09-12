@@ -4,7 +4,6 @@ import { Breadcrumb } from './Breadcrumb';
 import { localePath, type Locale } from '@/lib/i18n';
 import { projectRequestPath } from '@/lib/i18n';
 import { EVIDENCE_COPY } from '@/lib/evidence-copy';
-import { EvidenceHashFocus } from './EvidenceHashFocus';
 
 export function EvidenceHubPage({ locale }: { locale: Locale }) {
   const de = locale === 'de';
@@ -14,7 +13,6 @@ export function EvidenceHubPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <EvidenceHashFocus />
       <Breadcrumb items={[{ label: de ? 'Start' : 'Home', href: localePath(locale) }, { label: de ? 'Prüfungen & Evidenz' : 'Testing & Evidence' }]} />
       <section id={de ? 'pruef-und-entwicklungsstatus' : 'testing-and-development-status'} className="section evidence-hub-hero evidence-anchor" style={{ paddingBottom: 'var(--space-4)' }}>
         <div className="container">

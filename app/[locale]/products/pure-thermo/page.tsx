@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { PureThermoEnglishFullPage } from '@/components/PureThermoEnglishFullPage';
 
 export const metadata: Metadata = {
-  title: 'Pure Thermo · PURE Technology Platform',
+  title: 'PURE THERMO | Thermal Functional Coating | PURE',
   description: 'Thin thermal functional coating technology for defined components, details and system applications.'
 };
 

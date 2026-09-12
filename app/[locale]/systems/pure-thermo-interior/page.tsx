@@ -9,7 +9,7 @@ import { SystemLayerStack } from '@/components/SystemLayerStack';
 import { TechnicalVisual } from '@/components/TechnicalVisual';
 import { SurfaceCard } from '@/components/SurfaceCard';
 
-export const metadata: Metadata = { title: 'Pure Thermo Interior · PURE Technology Platform', description: 'Defined development route for thermal interior, existing-building and detail applications.' };
+export const metadata: Metadata = { title: 'PURE THERMO INTERIOR | Interior System Route | PURE', description: 'Defined development route for thermal interior, existing-building and detail applications.' };
 
 const STATUS_LABELS: Record<string, string> = { system_definition_and_test_program: 'System definition / test programme', conditional: 'conditional', public_with_limitation: 'public with limitation' };
 const APPLICATIONS = ['Interior and existing-building walls', 'Cellars and cold interior surfaces', 'Reveals, connections and details'];

@@ -18,14 +18,15 @@ export interface MegaMenuProps {
   open: boolean;
   onClose: () => void;
   locale?: Locale;
+  id?: string;
 }
 
 // Product family dropdown. Only families with a released page are clickable;
 // Pure Protect T730 is excluded by construction since it never enters getAllProducts().
-export function MegaMenu({ products, open, locale = 'de' }: MegaMenuProps) {
+export function MegaMenu({ products, open, locale = 'de', id }: MegaMenuProps) {
   if (!open) return null;
   return (
-    <div className="mega-menu" role="menu" aria-label="Produktfamilien">
+    <div className="mega-menu" id={id} role="menu" aria-label={locale === 'de' ? 'Produktfamilien' : 'Product families'}>
       {products.map((product) => {
         const href = productPath(locale, product.slug);
         return href ? (

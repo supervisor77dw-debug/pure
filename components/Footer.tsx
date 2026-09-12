@@ -22,23 +22,23 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
           <div>
             <h4>{isEnglish ? 'Products' : 'Produkte'}</h4>
             <ul>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-thermo') : localePath('de', 'produkte/pure-thermo')}>Pure Thermo</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-liquid-heat') : localePath('de', 'pure-liquid-heat')}>Pure Liquid Heat</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-floor-protect') : localePath('de', 'produkte/pure-floor-protect')}>Pure Floor Protect</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-fire-protect') : localePath('de', 'produkte/pure-fire-protect')}>Pure Fire Protect</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-surface-protect') : localePath('de', 'produkte/pure-surface-protect')}>Pure Surface Protect</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-water-protect') : localePath('de', 'produkte/pure-water-protect')}>Pure Water Protect</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-wood-protect') : localePath('de', 'produkte/pure-wood-protect')}>Pure Wood Protect</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'products/pure-boat-protect') : localePath('de', 'produkte/pure-boat-protect')}>Pure Boat Protect</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-thermo') : localePath('de', 'produkte/pure-thermo')}>PURE THERMO</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-liquid-heat') : localePath('de', 'pure-liquid-heat')}>PURE LIQUID HEAT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-floor-protect') : localePath('de', 'produkte/pure-floor-protect')}>PURE FLOOR PROTECT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-fire-protect') : localePath('de', 'produkte/pure-fire-protect')}>PURE FIRE PROTECT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-surface-protect') : localePath('de', 'produkte/pure-surface-protect')}>PURE SURFACE PROTECT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-water-protect') : localePath('de', 'produkte/pure-water-protect')}>PURE WATER PROTECT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-wood-protect') : localePath('de', 'produkte/pure-wood-protect')}>PURE WOOD PROTECT</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-boat-protect') : localePath('de', 'produkte/pure-boat-protect')}>PURE BOAT PROTECT</Link></li>
             </ul>
           </div>
           <div>
             <h4>{isEnglish ? 'Systems' : 'Systeme'}</h4>
             <ul>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>Pure Thermo Interior</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-exterior') : localePath('de', 'systeme/pure-thermo-exterior')}>Pure Thermo Exterior</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-detail') : localePath('de', 'systeme/pure-thermo-detail')}>Pure Thermo Detail</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-fire') : localePath('de', 'systeme/pure-thermo-fire')}>Pure Thermo + Pure Fire</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>PURE THERMO INTERIOR</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-exterior') : localePath('de', 'systeme/pure-thermo-exterior')}>PURE THERMO EXTERIOR</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-detail') : localePath('de', 'systeme/pure-thermo-detail')}>PURE THERMO DETAIL</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-fire') : localePath('de', 'systeme/pure-thermo-fire')}>PURE THERMO + PURE FIRE</Link></li>
             </ul>
           </div>
           <div>

@@ -9,11 +9,15 @@ import GermanHomePage from '@/app/page';
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const english = params.locale === 'en';
+  const title = english ? 'PURE Technology Platform | Functional Material Technologies' : 'PURE Technology Platform | Funktionale Materialtechnologien';
+  const description = english ? 'Functional material technologies with a shared development, testing and documentation logic.' : 'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.';
+  const image = '/assets/transluzente_materialschichten_im_teal_licht.png';
   return {
-    title: 'PURE Technology Platform',
-    description: english ? 'Functional material technologies with a shared development, testing and documentation logic.' : 'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.',
+    title,
+    description,
     alternates: { canonical: english ? '/en' : '/de', languages: { de: '/de', en: '/en', 'x-default': '/de' } },
-    openGraph: { title: 'PURE Technology Platform', description: english ? 'Functional material technologies with a shared development, testing and documentation logic.' : 'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.', locale: english ? 'en_GB' : 'de_DE' }
+    openGraph: { title, description, locale: english ? 'en_GB' : 'de_DE', type: 'website', images: [{ url: image }] },
+    twitter: { card: 'summary_large_image', title, description, images: [image] }
   };
 }
 

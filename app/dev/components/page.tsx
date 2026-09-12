@@ -32,7 +32,7 @@ import { RelatedContent } from '@/components/RelatedContent';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 
-export const metadata: Metadata = { title: 'Komponentenbibliothek (Dev) · PURE Technology Platform' };
+export const metadata: Metadata = { title: 'Komponentenbibliothek (Dev) · PURE Technology Platform', robots: { index: false, follow: false } };
 
 export default function DevComponentsPage() {
   const products = getAllProducts();

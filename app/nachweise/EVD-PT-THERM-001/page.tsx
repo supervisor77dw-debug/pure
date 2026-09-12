@@ -44,7 +44,7 @@ export default function EvidencePage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Nachweise' }, { label: 'THERM 4410 Wärmeleitfähigkeit' }]} />
+      <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Nachweise' }, { label: 'THERM 4410 Wärmeleitfähigkeit' }]} />
 
       <section className="section" style={{ paddingBottom: 'var(--space-4)' }}>
         <div className="container">
@@ -144,7 +144,7 @@ export default function EvidencePage() {
             items={relatedSystems.map((s) => ({
               title: s.name.de ?? s.id,
               description: s.public_summary_de,
-              href: s.id === 'SYS-PT-INT-001' ? '/systeme/pure-thermo-interior' : '/produkte/pure-thermo'
+              href: s.id === 'SYS-PT-INT-001' ? '/de/systeme/pure-thermo-interior' : '/de/produkte/pure-thermo'
             }))}
           />
         </div>

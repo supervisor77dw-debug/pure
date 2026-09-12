@@ -15,7 +15,7 @@ const challengeAssets = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'PURE Water Protect | Marine Easy-to-Clean Surface Technology | PURE',
+  title: 'PURE WATER PROTECT | Marine Easy-to-Clean-Technologie | PURE',
   description: 'Ultradünne Easy-to-clean-Oberflächentechnologie für definierte Marineanwendungen.'
 };
 

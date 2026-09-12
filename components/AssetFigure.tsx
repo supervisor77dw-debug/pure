@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { assetSrc } from '@/lib/assets';
 
 export interface AssetFigureProps {
@@ -6,23 +7,23 @@ export interface AssetFigureProps {
   caption?: string;
   priority?: boolean;
   objectPosition?: string;
+  cover?: boolean;
+  sizes?: string;
   variant?: 'default' | 'plain';
   status?: 'INTERNAL PROTOTYPE' | 'DEVELOPMENT CONCEPT' | 'BRANDING CONCEPT';
 }
 
 // Consistent frame (radius/shadow/background) for all presentation-deck graphics reused on the site.
 // Aspect ratio is never forced — width:100%/height:auto keeps the original proportions intact.
-export function AssetFigure({ file, alt, caption, priority = false, objectPosition, variant = 'default', status }: AssetFigureProps) {
+export function AssetFigure({ file, alt, caption, priority = false, objectPosition, cover = false, sizes, variant = 'default', status }: AssetFigureProps) {
   return (
-    <figure className={`asset-figure${variant === 'plain' ? ' asset-figure--plain' : ''}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={assetSrc(file)}
-        alt={alt}
-        loading={priority ? 'eager' : 'lazy'}
-        className="asset-figure__img"
-        style={objectPosition ? { objectPosition } : undefined}
-      />
+    <figure className={`asset-figure${variant === 'plain' ? ' asset-figure--plain' : ''}${cover ? ' asset-figure--cover' : ''}`}>
+      {cover ? (
+        <Image src={assetSrc(file)} alt={alt} fill priority={priority} sizes={sizes} className="asset-figure__img" style={objectPosition ? { objectPosition } : undefined} />
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={assetSrc(file)} alt={alt} loading={priority ? 'eager' : 'lazy'} className="asset-figure__img" style={objectPosition ? { objectPosition } : undefined} />
+      )}
       {status ? <span className="asset-figure__status">{status}</span> : null}
       {caption ? <figcaption className="asset-figure__caption">{caption}</figcaption> : null}
     </figure>

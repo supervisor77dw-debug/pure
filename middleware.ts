@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
   const locale = isLocale(segment) ? segment : ['/pure-liquid-heat', '/pure-surface-protect', '/pure-floor-protect'].includes(pathname) ? 'en' : 'de';
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-pure-locale', locale);
+  requestHeaders.set('x-pure-pathname', pathname);
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 

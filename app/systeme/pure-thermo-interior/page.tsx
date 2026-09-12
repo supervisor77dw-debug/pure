@@ -59,7 +59,7 @@ export default function PureThermoInteriorPage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Systeme' }, { label: 'Pure Thermo Interior' }]} />
+      <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Systeme' }, { label: 'PURE THERMO INTERIOR' }]} />
 
       <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
@@ -153,7 +153,7 @@ export default function PureThermoInteriorPage() {
               Für das produktseitige Kennwertfundament (u. a. Wärmeleitfähigkeit) liegt eine externe Kernprüfung vor —
               die Zuordnung zur aktuellen Pure-Thermo-Rezeptur wird noch dokumentiert.
             </p>
-            <Link href="/produkte/pure-thermo#kennwerte">Technische Kernwerte von Pure Thermo ansehen →</Link>
+            <Link href="/de/produkte/pure-thermo#kennwerte">Technische Kernwerte von PURE THERMO ansehen →</Link>
           </div>
         </div>
       </section>
@@ -203,7 +203,7 @@ export default function PureThermoInteriorPage() {
             {thermEvidence ? (
               <EvidenceCard
                 evidence={thermEvidence}
-                href={`/nachweise/${thermEvidence.id}`}
+                href={`/de/nachweise/${thermEvidence.id}`}
                 sourceLabel={thermEvidence.organization_id ? getOrganizationById(thermEvidence.organization_id)?.name : undefined}
               />
             ) : null}
@@ -229,7 +229,7 @@ export default function PureThermoInteriorPage() {
             <h2>Technische Projektbewertung anfragen</h2>
             <div className="hero__ctas" style={{ justifyContent: 'center' }}>
               <Link className="btn btn--primary" href="/de/projekt-anfrage">Projekt prüfen lassen</Link>
-              <Link className="btn btn--secondary btn--dark" href="/produkte/pure-thermo#u-wert-rechner">U-Wert berechnen</Link>
+              <Link className="btn btn--secondary btn--dark" href="/de/produkte/pure-thermo#u-wert-rechner">U-Wert berechnen</Link>
             </div>
           </div>
         </div>
