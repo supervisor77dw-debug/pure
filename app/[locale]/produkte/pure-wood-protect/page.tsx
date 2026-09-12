@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { AssetFigure } from '@/components/AssetFigure';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { LightboxFigure } from '@/components/LightboxFigure';
+import { PhotoParityHero } from '@/components/ProductParityHero';
 import { getWoodProtectContent } from '@/lib/wood-protect-content';
 import styles from './page.module.css';
 
@@ -38,13 +39,7 @@ export default function GermanWoodProtectPage({ params }: { params: { locale: st
   return <>
     <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: t.name }]} />
 
-    <section className={`hero ${styles.hero}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className={styles.heroImage} src="/assets/Nasse%20Holzterrasse%20im%20Abendlicht.png" alt="Hochwertige natürliche Holzterrasse mit sichtbarer Maserung und Wassertropfen im warmen Abendlicht" />
-      <div className={styles.heroShade} aria-hidden="true" />
-      <div className={styles.heroReflection} aria-hidden="true" />
-      <div className="container"><div className={styles.heroContent}><p className="hero__eyebrow">{t.name}</p><h1>{t.heroTitle}</h1><p className="hero__subtitle">{t.heroSubtitle}</p><div className="hero__ctas"><a className="btn btn--primary" href="#technology">{t.heroCta}</a><a className="btn btn--secondary" href="#test-area">{t.testCta}</a></div></div></div>
-    </section>
+    <PhotoParityHero variant="wood" eyebrow={t.name} title={t.heroTitle} subtitle={t.heroSubtitle} primary={{ label: t.heroCta, href: '#technology' }} secondary={{ label: t.testCta, href: '#test-area' }} />
 
     <section className="section section--surface"><div className="container"><Heading eyebrow={t.relationEyebrow} title={t.relationTitle} intro={t.relationCopy} /><div className="floor-protect-relation"><strong>PURE SURFACE PROTECT</strong><span>↓</span><strong>PURE WOOD PROTECT</strong></div></div></section>
 

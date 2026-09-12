@@ -21,7 +21,7 @@ import { TechnicalVisual } from '@/components/TechnicalVisual';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
 import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalculator';
-import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
+import { ThermoParityHero } from '@/components/ProductParityHero';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -80,19 +80,7 @@ export default function PureThermoPage() {
     <>
       <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Produkte' }, { label: 'Pure Thermo' }]} />
 
-      <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" poster="transluzente Beschichtung auf rauem Beton.png" posterAlt="Transluzente funktionale Beschichtung auf einer rauen mineralischen Materialoberfläche" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
-        <div className="container">
-          <p className="hero__eyebrow">PURE THERMO</p>
-          <h1>Thermische Funktion bei minimaler Aufbauhöhe.</h1>
-          <p className="hero__subtitle">
-            Eine dünn applizierbare Beschichtungstechnologie für thermisch relevante Bauteilbereiche, komplexe Geometrien und Anwendungen mit begrenztem Bauraum.
-          </p>
-          <div className="hero__ctas">
-            <Link className="btn btn--primary" href="#systemaufbau">Systemaufbau ansehen</Link>
-            <Link className="btn btn--secondary" href="/nachweise/EVD-PT-THERM-001">Technische Nachweise</Link>
-          </div>
-        </div>
-      </ProductHeroAmbient>
+      <ThermoParityHero eyebrow="PURE THERMO" title="Thermische Funktion bei minimaler Aufbauhöhe." subtitle="Eine dünn applizierbare Beschichtungstechnologie für thermisch relevante Bauteilbereiche, komplexe Geometrien und Anwendungen mit begrenztem Bauraum." primary={{ label: 'Systemaufbau ansehen', href: '#systemaufbau' }} secondary={{ label: 'Technische Nachweise', href: '/nachweise/EVD-PT-THERM-001' }} />
 
       <section className="section">
         <div className="container">

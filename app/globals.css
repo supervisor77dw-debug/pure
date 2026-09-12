@@ -64,6 +64,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.evidence-anchor {
+  scroll-margin-top: 96px;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -2360,6 +2364,11 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   .liquid-heat-hero .product-hero-ambient__content { width: 100%; margin-left: 0; left: auto; }
   .liquid-heat-hero__grid > div:first-child { width: 100%; margin-left: 0; left: auto; }
   .liquid-heat-hero__grid { grid-template-columns: 1fr; }
+  .pure-thermo-hero { min-height: 620px; }
+  .liquid-heat-hero { min-height: 600px; }
+  .floor-protect-hero { min-height: 840px; }
+  .fire-protect-hero { min-height: 740px; }
+  .surface-protect-hero { min-height: 920px; }
 }
 
 .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line {

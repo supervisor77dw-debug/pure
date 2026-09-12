@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import { PhotoParityHero } from '@/components/ProductParityHero';
 import { getBoatProtectContent } from '@/lib/boat-protect-content';
 import styles from './page.module.css';
 
@@ -22,13 +23,7 @@ export default function GermanBoatProtectPage({ params }: { params: { locale: st
   return <>
     <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: t.name }]} />
 
-    <section className={`hero ${styles.hero}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className={styles.heroImage} src="/assets/Luxusyacht%20im%20goldenen%20Abendlicht.png" alt="Sichtbare hochwertige Yachtoberflächen mit Teakdeck, Lack und Metall im warmen Abendlicht" />
-      <div className={styles.heroShade} aria-hidden="true" />
-      <div className={styles.heroReflection} aria-hidden="true" />
-      <div className="container"><div className={styles.heroContent}><p className="hero__eyebrow">{t.name}</p><h1>{t.heroTitle}</h1><p className="hero__subtitle">{t.heroSubtitle}</p><div className={styles.heroFacts}><div className={styles.heroFact}><strong>bis zu 90 m²/L</strong><span>B · laut Marine-Unterlagen</span></div><div className={styles.heroFact}><strong>bis zu 3 Jahre</strong><span>B · laut Marine-Unterlagen</span><small>abhängig von Nutzung und Exposition</small></div></div><div className="hero__ctas"><a className="btn btn--primary" href="#technology">{t.heroCta}</a><a className="btn btn--secondary" href="#test-area">{t.zoneCta}</a></div></div></div>
-    </section>
+    <PhotoParityHero variant="boat" eyebrow={t.name} title={t.heroTitle} subtitle={t.heroSubtitle} primary={{ label: t.heroCta, href: '#technology' }} secondary={{ label: t.zoneCta, href: '#test-area' }} facts={[{ value: 'bis zu 90 m²/L', label: 'B · laut Marine-Unterlagen' }, { value: 'bis zu 3 Jahre', label: 'B · laut Marine-Unterlagen', note: 'abhängig von Nutzung und Exposition' }]} />
 
     <section className="section"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item) => <article className="surface-protect-card" key={item}><h3>{item}</h3></article>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
 

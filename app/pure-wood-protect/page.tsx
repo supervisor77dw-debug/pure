@@ -6,9 +6,8 @@ import {
   type WoodProtectLocale,
 } from "@/lib/wood-protect-content";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { AssetFigure } from "@/components/AssetFigure";
 import { LightboxFigure } from "@/components/LightboxFigure";
-import { ProductHeroAmbient } from "@/components/ProductHeroAmbient";
+import { PhotoParityHero } from "@/components/ProductParityHero";
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
@@ -44,33 +43,14 @@ export default function PureWoodProtectPage() {
           { label: t.name },
         ]}
       />
-      <ProductHeroAmbient variant="wood" motionEnabled className="wood-protect-hero">
-        <div className="container wood-protect-hero__grid">
-          <div>
-            <p className="hero__eyebrow">{t.name}</p>
-            <h1>{t.heroTitle}</h1>
-            <p className="hero__subtitle">{t.heroSubtitle}</p>
-            <div className="hero__ctas">
-              <a className="btn btn--primary" href="#technology">
-                {t.heroCta}
-              </a>
-              <a className="btn btn--secondary" href="#test-area">
-                {t.testCta}
-              </a>
-            </div>
-          </div>
-          <AssetFigure
-            file="01_wood_asset_page01.jpeg"
-            alt={asset(
-              "Illustratives PURE WOOD PROTECT Split-Visual für sichtbares Holz",
-              "Illustrative PURE WOOD PROTECT split visual for visible timber",
-            )}
-            status="DEVELOPMENT CONCEPT"
-            caption={t.heroCaption}
-            priority
-          />
-        </div>
-      </ProductHeroAmbient>
+      <PhotoParityHero
+        variant="wood"
+        eyebrow={t.name}
+        title={t.heroTitle}
+        subtitle={t.heroSubtitle}
+        primary={{ label: t.heroCta, href: "#technology" }}
+        secondary={{ label: t.testCta, href: "#test-area" }}
+      />
       <section className="section section--surface">
         <div className="container">
           <H
