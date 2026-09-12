@@ -54,8 +54,8 @@ const EVIDENCE_GROUPS = [
 
 const applicationSurfaces = ['detail', 'mineral', 'existing', 'contour', 'mineral', 'layer'] as const;
 const journeySurfaces = ['existing', 'detail', 'contour', 'layer'] as const;
-const applicationAssets = ['Detaillierter Fensteranschluss mit Dämmfassade.png', undefined, 'Modernes Passivhaus im Abendlicht.png', undefined, undefined, 'Modernes Passivhaus im Abendlicht.png'] as const;
-const journeyAssets = ['Modernes Passivhaus im Abendlicht.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png', undefined, 'Modernes Passivhaus im Abendlicht.png'] as const;
+const applicationAssets = ['Detaillierter Fensteranschluss mit Dämmfassade.png', 'Heller, aufgeräumter Kellerraum.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Heller, aufgeräumter Kellerraum.png', 'Modernes Passivhaus im Abendlicht.png'] as const;
+const journeyAssets = ['Modernes Passivhaus im Abendlicht.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Modernes Passivhaus im Abendlicht.png'] as const;
 
 export default function PureThermoPage() {
   const locale = isLocale(headers().get('x-pure-locale') || '') ? (headers().get('x-pure-locale') as 'de' | 'en') : 'de';

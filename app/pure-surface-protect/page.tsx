@@ -9,6 +9,7 @@ import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { productVisuals, visualFor } from '@/lib/product-visuals';
 import { surfaceReferenceFlags } from '@/lib/surface-reference-flags';
 import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
+import { SurfaceCard } from '@/components/SurfaceCard';
 
 export const metadata: Metadata = {
   title: 'PURE Surface Protect | Transparent Surface Protection | PURE',
@@ -36,6 +37,13 @@ const challengeCopy = {
   en: ['UV, moisture and temperature changes affect surfaces over time.', 'Dirt and deposits influence appearance and cleaning effort.', 'Abrasion and chemicals can stress treated and untreated surfaces.', 'Maintenance, refurbishment and downtime shape the economic context.']
 } as const;
 
+const challengeAssets = [
+  'Moderne Fassade im Abendlicht.png',
+  'Verwitterte Steinfassade im Sonnenlicht.png',
+  'Industrieller Boden mit Reinigungsschaum.png',
+  'Restaurierung historischer Fassadenornamente.png'
+] as const;
+
 export default function PureSurfaceProtectPage() {
   const headerLocale = headers().get('x-pure-locale') || 'en';
   const locale: SurfaceProtectLocale = isLocale(headerLocale) ? headerLocale : 'en';
@@ -58,7 +66,7 @@ export default function PureSurfaceProtectPage() {
       <div className="container surface-protect-hero__grid"><div><p className="hero__eyebrow">{t.name}</p><h1>{t.heroTitle}</h1><p className="hero__subtitle">{t.heroSubtitle}</p><div className="surface-protect-facts">{t.heroFacts.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}</div><div className="hero__ctas"><a className="btn btn--primary" href="#technology">{t.heroCta}</a><a className="btn btn--secondary" href="#evidence">{t.referencesCta}</a></div></div></div>
     </ProductHeroAmbient>
 
-    <section className="section" id="challenge"><div className="container"><SectionHeading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challengeCards.map(([title], index) => <article className="surface-protect-card surface-protect-card--icon" key={title}><span aria-hidden="true">0{index + 1}</span><h3>{title}</h3><p>{challengeCopy[locale][index]}</p></article>)}</div><p className="surface-protect-statement">{t.challengeStatement}</p></div></section>
+    <section className="section" id="challenge"><div className="container"><SectionHeading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challengeCards.map(([title], index) => <SurfaceCard className="surface-protect-card surface-protect-card--icon" surface="surface-context" backgroundAsset={challengeAssets[index]} key={title}><span aria-hidden="true">0{index + 1}</span><h3>{title}</h3><p>{challengeCopy[locale][index]}</p></SurfaceCard>)}</div><p className="surface-protect-statement">{t.challengeStatement}</p></div></section>
 
     <section className="section section--surface" id="technology"><div className="container"><SectionHeading eyebrow={t.techEyebrow} title={t.techTitle} /><div className="surface-protect-tech-grid"><div><LightboxFigure file={visualFor(productVisuals.surfaceProtect.technology, locale)} alt={asset('Illustratives Technologieprinzip für reine Oberflächen: Substrat, dünne Hybridmatrix und Oberflächenbarriere', 'Illustrative technology principle for clean surfaces: substrate, thin hybrid matrix and surface barrier')} caption={asset('Technologieprinzip / illustrative Kommunikationsgrafik – keine maßstäbliche technische Zeichnung.', 'Technology principle / illustrative communication visual — not a scaled technical drawing.')} zoomLabel={locale === 'de' ? 'Vergrößern' : 'Enlarge'} closeLabel={locale === 'de' ? 'Schließen' : 'Close'} /></div><div className="surface-protect-steps">{t.steps.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></div></section>
 
