@@ -109,19 +109,6 @@
   background-color: #fff;
 }
 
-.zone[data-material='teak'],
-.compatibility[data-material='teak'] { background-image: repeating-linear-gradient(88deg, rgba(117, 92, 55, 0.055) 0 1px, transparent 1px 12px); }
-.zone[data-material='polymer'],
-.compatibility[data-material='polymer'] { background-image: radial-gradient(circle, rgba(91, 112, 126, 0.075) 0 1px, transparent 1.5px); background-size: 12px 12px; }
-.zone[data-material='leather'],
-.compatibility[data-material='leather'] { background-image: repeating-linear-gradient(35deg, transparent 0 10px, rgba(83, 66, 48, 0.035) 11px, transparent 12px), repeating-linear-gradient(145deg, transparent 0 13px, rgba(83, 66, 48, 0.03) 14px, transparent 15px); }
-.zone[data-material='metal'],
-.compatibility[data-material='metal'] { background-image: repeating-linear-gradient(0deg, rgba(91, 112, 126, 0.045) 0 1px, transparent 1px 5px); }
-.zone[data-material='joint'],
-.compatibility[data-material='joint'] { background-image: linear-gradient(90deg, transparent 0 72%, rgba(11, 31, 58, 0.08) 72% 76%, transparent 76%); }
-.zone[data-material='finish'],
-.compatibility[data-material='finish'] { background-image: linear-gradient(140deg, transparent 38%, rgba(255, 255, 255, 0.92) 50%, rgba(14, 110, 124, 0.045) 54%, transparent 66%); }
-
 .compatibilityNote {
   margin-top: 24px;
   padding: 20px 24px;

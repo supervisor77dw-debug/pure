@@ -22,6 +22,7 @@ import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
 import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalculator';
 import { ThermoParityHero } from '@/components/ProductParityHero';
+import { SurfaceCard } from '@/components/SurfaceCard';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -50,6 +51,9 @@ const EVIDENCE_GROUPS = [
   { evidenceClass: 'B' as const, title: 'B – INTERN DOKUMENTIERT' },
   { evidenceClass: 'C' as const, title: 'C – BERECHNET / MODELLIERT' }
 ];
+
+const applicationSurfaces = ['detail', 'mineral', 'existing', 'contour', 'mineral', 'layer'] as const;
+const journeySurfaces = ['existing', 'detail', 'contour', 'layer'] as const;
 
 export default function PureThermoPage() {
   const locale = isLocale(headers().get('x-pure-locale') || '') ? (headers().get('x-pure-locale') as 'de' | 'en') : 'de';
@@ -120,10 +124,10 @@ export default function PureThermoPage() {
             <h2>Thermische Funktion an den kritischen Stellen.</h2>
           </div>
           <div className="card-grid card-grid--3 thermo-material-grid">
-            {applicationFields.map((item) => (
-              <div className="application-card" key={item.label}>
+            {applicationFields.map((item, index) => (
+              <SurfaceCard className="application-card" surface={applicationSurfaces[index]} key={item.label}>
                 <span className="application-card__name">{item.label}</span>
-              </div>
+              </SurfaceCard>
             ))}
           </div>
         </div>
@@ -208,30 +212,30 @@ export default function PureThermoPage() {
             <h2>Typische Einsatzbereiche und Systemkontexte.</h2>
           </div>
           <div className="application-journey thermo-material-grid">
-            <article className="journey-card">
+            <SurfaceCard className="journey-card" surface={journeySurfaces[0]}>
               <div className="journey-card__body">
                 <h3>Bestand</h3>
                 <p>Bauteile mit begrenztem Bauraum oder vorhandenen Randbedingungen.</p>
               </div>
-            </article>
-            <article className="journey-card">
+            </SurfaceCard>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[1]}>
               <div className="journey-card__body">
                 <h3>Detailbereiche</h3>
                 <p>Anschlüsse, Laibungen und komplexe Übergänge.</p>
               </div>
-            </article>
-            <article className="journey-card">
+            </SurfaceCard>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[2]}>
               <div className="journey-card__body">
                 <h3>Komplexe Geometrien</h3>
                 <p>Funktionsbereiche mit unregelmäßiger Oberfläche und systemischer Einbindung.</p>
               </div>
-            </article>
-            <article className="journey-card">
+            </SurfaceCard>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[3]}>
               <div className="journey-card__body">
                 <h3>Technische Oberflächen</h3>
                 <p>Thermisch relevante Bereiche mit konkreter Prüf- und Systemlogik.</p>
               </div>
-            </article>
+            </SurfaceCard>
           </div>
         </div>
       </section>

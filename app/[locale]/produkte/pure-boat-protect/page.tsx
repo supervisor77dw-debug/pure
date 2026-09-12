@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { PhotoParityHero } from '@/components/ProductParityHero';
+import { SurfaceCard } from '@/components/SurfaceCard';
 import { getBoatProtectContent } from '@/lib/boat-protect-content';
 import styles from './page.module.css';
 
@@ -15,7 +16,9 @@ function Heading({ eyebrow, title, intro }: { eyebrow?: string; title: string; i
 }
 
 const zoneMaterials = ['TEAK · DECK', 'KUNSTSTOFF', 'LEDER', 'METALL', 'BETRIEB', 'PREMIUMOBERFLÄCHEN'];
-const cardMaterials = ['teak', 'polymer', 'leather', 'metal', 'joint', 'finish'] as const;
+const exposureSurfaces = ['salt', 'uv', 'abrasion', 'organic'] as const;
+const zoneSurfaces = ['teak', 'polymer', 'leather', 'metal', 'traffic', 'finish'] as const;
+const compatibilitySurfaces = ['teak', 'joint', 'polymer', 'leather', 'metal', 'finish'] as const;
 
 export default function GermanBoatProtectPage({ params }: { params: { locale: string } }) {
   if (params.locale !== 'de') notFound();
@@ -26,13 +29,13 @@ export default function GermanBoatProtectPage({ params }: { params: { locale: st
 
     <PhotoParityHero variant="boat" eyebrow={t.name} title={t.heroTitle} subtitle={t.heroSubtitle} primary={{ label: t.heroCta, href: '#technology' }} secondary={{ label: t.zoneCta, href: '#test-area' }} facts={[{ value: 'bis zu 90 m²/L', label: 'B · laut Marine-Unterlagen' }, { value: 'bis zu 3 Jahre', label: 'B · laut Marine-Unterlagen', note: 'abhängig von Nutzung und Exposition' }]} />
 
-    <section className="section"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item) => <article className="surface-protect-card" key={item}><h3>{item}</h3></article>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
+    <section className="section"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item, index) => <SurfaceCard className="surface-protect-card" surface={exposureSurfaces[index]} key={item}><h3>{item}</h3></SurfaceCard>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
 
     <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.engineeringRail}><div className={styles.engineeringFlow}>{t.steps.map(([title, copy], index) => <article className={styles.engineeringStep} key={title}><span className={styles.stepIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div><div className={styles.engineeringRule}>{t.rule}</div></div></section>
 
-    <section className="section" id="zones"><div className="container"><Heading eyebrow="YACHT ZONES" title={t.zonesTitle} /><div className={styles.zoneWorld}>{t.zones.map(([title, copy], index) => <article className={styles.zone} data-material={cardMaterials[index]} key={title}><span className={styles.zoneMaterial}>{zoneMaterials[index]}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+    <section className="section" id="zones"><div className="container"><Heading eyebrow="YACHT ZONES" title={t.zonesTitle} /><div className={styles.zoneWorld}>{t.zones.map(([title, copy], index) => <SurfaceCard className={styles.zone} surface={zoneSurfaces[index]} key={title}><span className={styles.zoneMaterial}>{zoneMaterials[index]}</span><h3>{title}</h3><p>{copy}</p></SurfaceCard>)}</div></div></section>
 
-    <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.compatEyebrow} title={t.compatTitle} /><div className={styles.compatGrid}>{t.compat.map(([title, copy], index) => <article className={styles.compatibility} data-material={cardMaterials[index]} key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div><p className={styles.compatibilityNote}>{t.sika}</p></div></section>
+    <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.compatEyebrow} title={t.compatTitle} /><div className={styles.compatGrid}>{t.compat.map(([title, copy], index) => <SurfaceCard className={styles.compatibility} surface={compatibilitySurfaces[index]} key={title}><h3>{title}</h3><p>{copy}</p></SurfaceCard>)}</div><p className={styles.compatibilityNote}>{t.sika}</p></div></section>
 
     <section className="section"><div className="container"><Heading eyebrow={t.performanceEyebrow} title="Dokumentierte Performance-Basis" /><div className={styles.evidenceGrid}>{t.performance.map(([title, copy]) => <article className={styles.evidenceCard} data-status={title === 'UV / Salzschutz' ? 'D' : 'B'} key={title}><strong>{title}</strong><span>{copy.split(' · ')[0]}</span><p>{copy.split(' · ').slice(1).join(' · ')}</p></article>)}</div></div></section>
 

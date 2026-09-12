@@ -7,8 +7,11 @@ import {
 } from "@/lib/boat-protect-content";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { PhotoParityHero } from "@/components/ProductParityHero";
+import { SurfaceCard } from "@/components/SurfaceCard";
 
-const boatCardMaterials = ["teak", "polymer", "leather", "metal", "joint", "finish"] as const;
+const boatExposureSurfaces = ["salt", "uv", "abrasion", "organic"] as const;
+const boatZoneSurfaces = ["teak", "polymer", "leather", "metal", "traffic", "finish"] as const;
+const boatCompatibilitySurfaces = ["teak", "joint", "polymer", "leather", "metal", "finish"] as const;
 
 export const metadata: Metadata = {
   title: "PURE Boat Protect | Premium Yacht Surface Protection | PURE",
@@ -74,10 +77,10 @@ export default function PureBoatProtectPage() {
             intro={t.challengeCopy}
           />
           <div className="surface-protect-four-grid">
-            {t.challenge.map((x) => (
-              <article className="surface-protect-card" key={x}>
+            {t.challenge.map((x, index) => (
+              <SurfaceCard className="surface-protect-card" surface={boatExposureSurfaces[index]} key={x}>
                 <h3>{x}</h3>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
           <p className="surface-protect-statement">{t.statement}</p>
@@ -103,10 +106,10 @@ export default function PureBoatProtectPage() {
           <H eyebrow="YACHT ZONES" title={t.zonesTitle} />
           <div className="boat-protect-zones">
             {t.zones.map(([title, copy], index) => (
-              <article data-material={boatCardMaterials[index]} key={title}>
+              <SurfaceCard surface={boatZoneSurfaces[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
         </div>
@@ -116,10 +119,10 @@ export default function PureBoatProtectPage() {
           <H eyebrow={t.compatEyebrow} title={t.compatTitle} />
           <div className="boat-protect-compat">
             {t.compat.map(([title, copy], index) => (
-              <article data-material={boatCardMaterials[index]} key={title}>
+              <SurfaceCard surface={boatCompatibilitySurfaces[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
           <p className="surface-protect-note">{t.sika}</p>
