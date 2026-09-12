@@ -30,7 +30,14 @@ const challengeAssets = [
   'Verwitterte Holzdielen mit Moos.png',
   'Holzpflege im goldenen Abendlicht.png'
 ] as const;
-const applicationAsset = 'Modernes Holzhaus am Bergsee.png';
+const applicationAssets = [
+  'Verwitterte Holzfassade im Abendlicht.png',
+  'Regennasse Terrasse mit Weitblick.png',
+  'Holzpflege im goldenen Abendlicht.png',
+  undefined,
+  'Abgenutztes Yachtdeck im Sonnenlicht.png',
+  'Modernes Holzhaus am Bergsee.png'
+] as const;
 
 const applicationContexts = [
   ['aussen', 'AUSSENEXPOSITION'],
@@ -56,7 +63,7 @@ export default function GermanWoodProtectPage({ params }: { params: { locale: st
 
     <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.engineeringPanel}><div className={styles.layerFlow}>{t.steps.map(([title, copy], index) => <article className={styles.layerStep} key={title}><span className={styles.layerIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div><div className={styles.materialRule}>{t.rule}</div></div></section>
 
-    <section className="section" id="applications"><div className="container"><Heading eyebrow="APPLICATIONS" title={t.applicationsTitle} /><div className={styles.applicationGrid}>{t.applications.map(([title, copy], index) => <SurfaceCard className={styles.applicationCard} surface="wood-application" backgroundAsset={applicationAsset} key={title}><span className={styles.applicationContext}>{applicationContexts[index][1]}</span><h3>{title}</h3><p>{copy}</p></SurfaceCard>)}</div><LightboxFigure file="02_wood_asset_page19.jpeg" alt="Illustratives Holzoberflächen-Kommunikationsvisual" caption="Illustratives Kommunikationsvisual – keine reale Referenz." zoomLabel="Bild öffnen" closeLabel="Schließen" /></div></section>
+    <section className="section" id="applications"><div className="container"><Heading eyebrow="APPLICATIONS" title={t.applicationsTitle} /><div className={styles.applicationGrid}>{t.applications.map(([title, copy], index) => <SurfaceCard className={styles.applicationCard} surface="wood-application" backgroundAsset={applicationAssets[index]} key={title}><span className={styles.applicationContext}>{applicationContexts[index][1]}</span><h3>{title}</h3><p>{copy}</p></SurfaceCard>)}</div><LightboxFigure file="02_wood_asset_page19.jpeg" alt="Illustratives Holzoberflächen-Kommunikationsvisual" caption="Illustratives Kommunikationsvisual – keine reale Referenz." zoomLabel="Bild öffnen" closeLabel="Schließen" /></div></section>
 
     <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.evidenceEyebrow} title={t.evidenceTitle} intro={t.speciesNote} /><div className={styles.species}>{t.species.map((item) => <span key={item}>{item}</span>)}</div><div className={styles.testGrid}>{t.test.map(([title, copy], index) => <article className={styles.testCard} key={title}><span className={styles.layerIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 

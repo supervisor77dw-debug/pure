@@ -16,7 +16,14 @@ const woodChallengeAssets = [
   "Verwitterte Holzdielen mit Moos.png",
   "Holzpflege im goldenen Abendlicht.png",
 ] as const;
-const woodApplicationAsset = "Modernes Holzhaus am Bergsee.png";
+const woodApplicationAssets = [
+  "Verwitterte Holzfassade im Abendlicht.png",
+  "Regennasse Terrasse mit Weitblick.png",
+  "Holzpflege im goldenen Abendlicht.png",
+  undefined,
+  "Abgenutztes Yachtdeck im Sonnenlicht.png",
+  "Modernes Holzhaus am Bergsee.png",
+] as const;
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
@@ -112,8 +119,8 @@ export default function PureWoodProtectPage() {
         <div className="container">
           <H eyebrow="APPLICATIONS" title={t.applicationsTitle} />
           <div className="wood-protect-card-grid">
-            {t.applications.map(([title, copy]) => (
-              <SurfaceCard className="wood-protect-card" surface="wood-application" backgroundAsset={woodApplicationAsset} key={title}>
+            {t.applications.map(([title, copy], index) => (
+              <SurfaceCard className="wood-protect-card" surface="wood-application" backgroundAsset={woodApplicationAssets[index]} key={title}>
                 <span aria-hidden="true">{title.slice(0, 2)}</span>
                 <h3>{title}</h3>
                 <p>{copy}</p>

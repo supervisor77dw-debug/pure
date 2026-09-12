@@ -14,8 +14,8 @@ const applicationAssets = [
   'Brennendes Reetdach im Abendlicht.png',
   'Brennendes Rathaus im Feuerwehreinsatz.png',
   'Industriebrand mit kämpfenden Feuerwehrleuten.png',
-  undefined,
-  undefined
+  'BESS-Brand mit Feuerwehr im Einsatz.png',
+  'Dramatischer Waldbrandeinsatz bei Sonnenuntergang.png'
 ] as const;
 
 export const metadata: Metadata = { title: 'PURE Fire Protect | Functional Fire Protection | PURE', description: 'Functional fire protection for defined systems, visible materials and controlled evidence.' };
