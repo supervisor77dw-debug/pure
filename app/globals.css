@@ -1057,7 +1057,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 
 .liquid-heat-hero { background: linear-gradient(120deg, #0b1f3a 0%, #142e52 62%, #173d54 100%); }
 .liquid-heat-hero { height: 60vh; min-height: 0; display: flex; align-items: center; }
-.liquid-heat-hero .product-hero-ambient__video { display: none; }
 .liquid-heat-hero::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(90deg, rgba(5,13,20,0.9) 0%, rgba(5,13,20,0.7) 34%, rgba(5,13,20,0.18) 70%, rgba(5,13,20,0.45) 100%), linear-gradient(0deg, rgba(5,13,20,0.7), transparent 36%); }
 .liquid-heat-hero .product-hero-ambient__poster { z-index: -4; opacity: .95; }
 .liquid-heat-hero .product-hero-ambient__poster img { object-position: 62% center; }
@@ -1065,14 +1064,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .liquid-heat-hero .product-hero-ambient__effect-line { opacity: .18; }
 .liquid-heat-hero .product-hero-ambient__effect-glow { opacity: .34; animation-name: product-liquid-warmth; }
 .liquid-heat-hero .product-hero-ambient__content { position: relative; z-index: 2; }
-.liquid-heat-hero .liquid-heat-hero__grid > .asset-figure { max-width: 320px; justify-self: end; opacity: .42; }
-.liquid-heat-hero .liquid-heat-hero__grid > .asset-figure .asset-figure__img { display: none; }
-.liquid-heat-hero .liquid-heat-hero__grid > .asset-figure .asset-figure__caption { display: none; }
-.liquid-heat-hero .asset-figure { border-color: rgba(216,239,241,0.18); background: rgba(11,31,58,0.46); box-shadow: 0 18px 44px rgba(5,16,31,0.24); backdrop-filter: blur(8px); }
-.liquid-heat-hero .asset-figure__status { font-size: .68rem; letter-spacing: .08em; opacity: .82; }
 .liquid-heat-hero > .container { position: relative; z-index: 2; }
-.liquid-heat-hero .liquid-heat-hero__grid > .asset-figure { opacity: .72; background: rgba(11,31,58,0.28); }
-.liquid-heat-hero .liquid-heat-hero__grid > .asset-figure { display: none; }
 .liquid-heat-hero__grid { grid-template-columns: 1fr; }
 .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); margin-left: clamp(220px, 25vw, 400px); }
 .liquid-heat-hero__grid {
@@ -1472,9 +1464,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 @media (min-width:900px){.water-protect-hero__grid{grid-template-columns:.9fr 1.1fr;}}
 .water-protect-hero .container { position: relative; z-index: 2; }
 .water-protect-hero .hero__eyebrow { color: #a9e1e7; }
-.water-protect-hero .asset-figure--motion-media { z-index: 1; opacity: .18; }
-.water-protect-hero .asset-figure--motion-media .asset-figure__motion-media { opacity: 1; mix-blend-mode: screen; }
-.water-protect-hero .asset-figure--motion-media .asset-figure__img { display: none; }
 .water-protect-steps,.water-protect-season{display:grid;grid-template-columns:1fr;gap:var(--space-2);}
 @media (min-width:760px){.water-protect-steps,.water-protect-season{grid-template-columns:repeat(5,minmax(0,1fr));}}
 .water-protect-steps article,.water-protect-season article{padding:var(--space-3);border-top:3px solid var(--color-petrol);background:var(--color-surface);}
@@ -2064,13 +2053,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   height: auto;
   border-radius: var(--radius-sm);
 }
-.asset-figure--motion-media { position: relative; }
-.asset-figure--motion-media .asset-figure__motion-media { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.asset-figure--motion-media .asset-figure__img { position: relative; z-index: 1; opacity: 0; }
-.asset-figure--motion-media .asset-figure__caption,
-.asset-figure--motion-media .asset-figure__status { position: relative; z-index: 2; }
-@media (max-width: 768px) { .asset-figure--motion-media .asset-figure__motion-media { display: none; } .asset-figure--motion-media .asset-figure__img { opacity: 1; content: url('/assets/pure-water-ambient-v1-mobile.webp'); } }
-@media (prefers-reduced-motion: reduce) { .asset-figure--motion-media .asset-figure__motion-media { display: none; } .asset-figure--motion-media .asset-figure__img { opacity: 1; content: url('/assets/pure-water-ambient-v1-poster.webp'); } }
 .asset-figure__status {
   position: absolute;
   top: var(--space-2);
@@ -2233,7 +2215,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   font-size: 1.05rem;
 }
 
-/* Product motion architecture: opt-in only, with a usable static fallback. */
+/* Product hero architecture: one prioritized image with optional CSS-only ambience. */
 .product-hero-ambient {
   position: relative;
   isolation: isolate;
@@ -2242,34 +2224,19 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   background: var(--color-navy);
 }
 .product-hero-ambient__poster,
-.product-hero-ambient__video,
-.product-hero-ambient__gradient,
-.product-hero-ambient__svg,
-.product-hero-ambient__material {
+.product-hero-ambient__gradient {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
-.product-hero-ambient__poster,
-.product-hero-ambient__video {
-  object-fit: cover;
-}
 .product-hero-ambient__poster { display: block; }
 .product-hero-ambient__poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .product-hero-ambient__poster { z-index: -4; }
-.product-hero-ambient__video { z-index: -3; }
 .product-hero-ambient__gradient {
   z-index: -2;
   background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.35));
-}
-.product-hero-ambient__svg { z-index: -1; opacity: 0.32; }
-.product-hero-ambient__svg-asset { display: block; width: 100%; height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; }
-.product-hero-ambient__material {
-  z-index: 0;
-  background: linear-gradient(115deg, transparent 35%, rgba(216,239,241,0.08) 48%, transparent 58%);
-  opacity: 0.7;
 }
 .product-hero-ambient__effect,
 .product-hero-ambient__effect-line,
@@ -2280,7 +2247,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .product-hero-ambient__effect { inset: 0; z-index: -1; overflow: hidden; opacity: 0; }
 .product-hero-ambient.is-motion-enabled .product-hero-ambient__effect { opacity: 1; }
-.product-hero-ambient.is-motion-enabled.has-video .product-hero-ambient__effect { opacity: 0; }
 .product-hero-ambient__effect-line,
 .product-hero-ambient__effect-glow,
 .product-hero-ambient__effect-barrier { display: block; }
@@ -2306,7 +2272,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .product-hero-ambient--thermo::before { left: 52%; right: 7%; bottom: 14%; height: 34%; border: 1px solid rgba(216,239,241,0.22); background: linear-gradient(145deg, rgba(91,112,126,0.28), rgba(11,31,58,0.06)); transform: skewY(-6deg); box-shadow: inset 0 1px 0 rgba(216,239,241,0.16); }
 .product-hero-ambient--thermo::after { left: 56%; right: 10%; bottom: 31%; height: 5px; background: linear-gradient(90deg, rgba(143,214,224,0.65), rgba(201,89,26,0.45), rgba(216,239,241,0.1)); transform: skewY(-6deg); animation: product-thermo-layer 16s var(--ease-premium) infinite; }
-.pure-thermo-hero { height: 60vh; min-height: 0; display: flex; align-items: center; background: #0a1620; }
+.pure-thermo-hero { height: 60vh; min-height: 0; display: flex; align-items: center; padding-block: var(--space-5); background: #0a1620; }
 .pure-thermo-hero::before { content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(90deg, rgba(5,13,20,0.92) 0%, rgba(5,13,20,0.72) 34%, rgba(5,13,20,0.22) 68%, rgba(5,13,20,0.42) 100%), linear-gradient(0deg, rgba(5,13,20,0.78) 0%, transparent 32%); }
 .pure-thermo-hero .product-hero-ambient__poster { z-index: -4; opacity: .96; }
 .pure-thermo-hero .product-hero-ambient__poster img { object-position: 64% center; }
@@ -2326,8 +2292,8 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .material-story__visual { position: relative; }
 .material-story__visual::after { content: ''; position: absolute; inset: 10% -3% -3% 10%; z-index: -1; border: 1px solid rgba(14,110,124,0.18); background: rgba(14,110,124,0.04); transform: translate(10px, 10px); }
 .material-detail__text { padding-left: var(--space-4); border-left: 2px solid rgba(14,110,124,0.24); }
-@media (max-width: 700px) {
-  .pure-thermo-hero { height: auto; min-height: 60vh; align-items: flex-end; }
+@media (max-width: 768px) {
+  .pure-thermo-hero { height: auto; min-height: clamp(40rem, 82svh, 44rem); align-items: flex-start; padding-top: clamp(2.75rem, 7svh, 4rem); padding-bottom: var(--space-5); }
   .pure-thermo-hero > .container { padding-left: var(--space-4); }
   .pure-thermo-hero .product-hero-ambient__poster img { object-position: 68% center; }
   .pure-thermo-hero::before { background: linear-gradient(90deg, rgba(5,13,20,0.86), rgba(5,13,20,0.34)), linear-gradient(0deg, rgba(5,13,20,0.86), transparent 54%); }
@@ -2456,11 +2422,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .water-protect-hero > .container { position: static; z-index: auto; }
 .water-protect-hero__grid > div:first-child { position: relative; z-index: 2; }
 .boat-protect-hero > .container { position: relative; z-index: 1; }
-.water-protect-hero:has(.asset-figure--motion-media)::after { opacity: 0; animation: none; }
-.water-protect-hero .asset-figure--motion-media { position: absolute; inset: 0; z-index: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
-.water-protect-hero .asset-figure--motion-media .asset-figure__caption,
-.water-protect-hero .asset-figure--motion-media .asset-figure__status { display: none; }
-@media (max-width: 768px) { .water-protect-hero::after { left: 18%; right: -20%; bottom: -10%; height: 40%; opacity: .72; } .water-protect-hero .asset-figure--motion-media { opacity: .1; } }
+@media (max-width: 768px) { .water-protect-hero::after { left: 18%; right: -20%; bottom: -10%; height: 40%; opacity: .72; } }
 
 @keyframes product-thermo-layer { 0%, 100% { transform: rotate(-7deg) scaleX(0.72); opacity: 0.45; } 50% { transform: rotate(-7deg) scaleX(1); opacity: 0.9; } }
 @keyframes product-thermo-light { 0%, 100% { transform: translateX(-30%); opacity: 0.3; } 50% { transform: translateX(30%); opacity: 0.7; } }
@@ -2481,9 +2443,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .product-hero-ambient--boat .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(36,76,92,0.34)); }
 
 @media (max-width: 700px) {
-  .product-hero-ambient__video { display: none; }
-  .product-hero-ambient__svg { opacity: 0.2; }
-  .product-hero-ambient__material { opacity: 0.45; }
   .product-hero-ambient--water .product-hero-ambient__effect-glow { opacity: 0.5; }
   .product-hero-ambient--liquidHeat .product-hero-ambient__effect-glow { animation: none; opacity: 0.5; }
   .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line { animation-duration: 12s; }
@@ -2491,15 +2450,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   .boat-protect-hero::after { animation: none; opacity: 0.28; }
 }
 
-@media (min-width: 769px) {
-  .product-hero-ambient--water.is-motion-enabled.has-video .product-hero-ambient__effect,
-  .product-hero-ambient--liquidHeat.is-motion-enabled.has-video .product-hero-ambient__effect { opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .product-hero-ambient__video,
-  .product-hero-ambient__svg,
-  .product-hero-ambient__material { display: none; }
   .water-protect-hero::after,
   .boat-protect-hero::after { animation: none; opacity: 0; }
 }

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { assetSrc } from '@/lib/assets';
 import { ProductHeroAmbient } from './ProductHeroAmbient';
@@ -35,14 +36,13 @@ function HeroActions({ primary, secondary }: Pick<ProductHeroCopy, 'primary' | '
 }
 
 export function ThermoParityHero({ eyebrow, title, subtitle, primary, secondary }: ProductHeroCopy) {
-  return <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" poster="transluzente Beschichtung auf rauem Beton.png" posterAlt="Translucent functional coating on a rough mineral surface" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}><div className="container"><p className="hero__eyebrow">{eyebrow}</p><h1>{title}</h1><p className="hero__subtitle">{subtitle}</p><HeroActions primary={primary} secondary={secondary} /></div></ProductHeroAmbient>;
+  return <ProductHeroAmbient variant="thermo" motionEnabled className="pure-thermo-hero" poster="transluzente Beschichtung auf rauem Beton.png" posterAlt="Translucent functional coating on a rough mineral surface"><div className="container"><p className="hero__eyebrow">{eyebrow}</p><h1>{title}</h1><p className="hero__subtitle">{subtitle}</p><HeroActions primary={primary} secondary={secondary} /></div></ProductHeroAmbient>;
 }
 
 export function PhotoParityHero({ variant, eyebrow, title, subtitle, primary, secondary, facts }: ProductHeroCopy & { variant: PhotoVariant; facts?: HeroFact[] }) {
   const config = photoHeroConfig[variant];
   return <section className={`hero ${styles.photoHero} ${styles[variant]}`}>
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img className={styles.image} src={assetSrc(config.image)} alt={config.alt} />
+    <Image className={styles.image} src={assetSrc(config.image)} alt={config.alt} fill priority sizes="100vw" />
     <div className={styles.shade} aria-hidden="true" />
     <div className={styles.reflection} aria-hidden="true" />
     <div className="container"><div className={styles.content}><p className="hero__eyebrow">{eyebrow}</p><h1>{title}</h1><p className="hero__subtitle">{subtitle}</p>{facts ? <div className={styles.facts}>{facts.map((fact) => <div className={styles.fact} key={fact.value}><strong>{fact.value}</strong><span>{fact.label}</span>{fact.note ? <small>{fact.note}</small> : null}</div>)}</div> : null}<HeroActions primary={primary} secondary={secondary} /></div></div>

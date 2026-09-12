@@ -84,7 +84,7 @@ export default function PureLiquidHeatPage() {
     <>
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: content.breadcrumb }]} />
 
-      <ProductHeroAmbient variant="liquidHeat" motionEnabled videoEnabled={false} className="liquid-heat-hero" poster="Glühende Schichtheizplatte im Querschnitt.png" posterAlt={locale === 'de' ? 'Schematischer Querschnitt einer beschichteten funktionalen Heizfläche mit gegenüberliegenden Kontaktierungsbereichen' : 'Schematic cross-section of a coated functional heating surface with opposing contact areas'}>
+      <ProductHeroAmbient variant="liquidHeat" motionEnabled className="liquid-heat-hero" poster="Glühende Schichtheizplatte im Querschnitt.png" posterAlt={locale === 'de' ? 'Schematischer Querschnitt einer beschichteten funktionalen Heizfläche mit gegenüberliegenden Kontaktierungsbereichen' : 'Schematic cross-section of a coated functional heating surface with opposing contact areas'}>
         <div className="container liquid-heat-hero__grid">
           <div>
             <p className="hero__eyebrow">{content.eyebrow}</p>
@@ -96,13 +96,6 @@ export default function PureLiquidHeatPage() {
               <Link className="btn btn--secondary" href="#evidence">{content.evidenceCta}</Link>
             </div>
           </div>
-          <AssetFigure
-            file={productVisuals.liquidHeat.pyramidDemonstrator}
-            alt="PURE LIQUID HEAT pyramid heating development concept in a hospitality setting"
-            status="DEVELOPMENT CONCEPT"
-            caption={locale === 'de' ? 'Outdoor-Hospitality-Demonstrator. Ca. 30 V / ca. 1.100 W gehören zum beschriebenen Prototyp; IP44 ist ein Entwicklungsziel, keine Zertifizierung.' : 'Outdoor hospitality demonstrator. Approx. 30 V / approx. 1.1 kW belong to the described prototype; IP44 is a development target, not certification.'}
-            priority
-          />
         </div>
       </ProductHeroAmbient>
 
