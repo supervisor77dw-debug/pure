@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import { decode } from 'he';
 import { marked } from 'marked';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content');
@@ -72,6 +73,11 @@ export interface ListItem {
   text: string;
 }
 
+function htmlToPlainText(html: string, normalizeWhitespace = false): string {
+  const text = html.replace(/<[^>]+>/g, normalizeWhitespace ? ' ' : '');
+  return decode(normalizeWhitespace ? text.replace(/\s+/g, ' ').trim() : text.trim());
+}
+
 // Extracts markdown list items of the form "**Label** – description" (or plain bullets) from a
 // rendered section's HTML, so page templates can turn editorial bullet lists into cards.
 export function extractListItems(html: string | undefined): ListItem[] {
@@ -80,9 +86,9 @@ export function extractListItems(html: string | undefined): ListItem[] {
   return items.map((raw) => {
     const match = /<strong>([^<]+)<\/strong>\s*[–—-]?\s*(.*)/s.exec(raw);
     if (match) {
-      return { label: match[1].replace(/<[^>]+>/g, '').trim(), text: match[2].replace(/<[^>]+>/g, '').trim() };
+      return { label: htmlToPlainText(match[1]), text: htmlToPlainText(match[2]) };
     }
-    return { label: raw.replace(/<[^>]+>/g, '').trim(), text: '' };
+    return { label: htmlToPlainText(raw), text: '' };
   });
 }
 
@@ -93,8 +99,7 @@ export function extractSubsections(html: string | undefined): { heading: string;
   return blocks.map((block) => {
     const [headingPart, ...rest] = block.split('</h3>');
     const bodyHtml = rest.join('</h3>');
-    const text = bodyHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    return { heading: headingPart.trim(), text };
+    return { heading: htmlToPlainText(headingPart), text: htmlToPlainText(bodyHtml, true) };
   });
 }
 
@@ -120,5 +125,5 @@ export function extractTableRows(html: string | undefined): string[][] {
   const bodyMatch = /<tbody>(.*?)<\/tbody>/s.exec(tableMatch[1]);
   const bodyHtml = bodyMatch ? bodyMatch[1] : tableMatch[1];
   const rows = [...bodyHtml.matchAll(/<tr>(.*?)<\/tr>/gs)].map((m) => m[1]);
-  return rows.map((row) => [...row.matchAll(/<td[^>]*>(.*?)<\/td>/gs)].map((c) => c[1].replace(/<[^>]+>/g, '').trim()));
+  return rows.map((row) => [...row.matchAll(/<td[^>]*>(.*?)<\/td>/gs)].map((c) => htmlToPlainText(c[1])));
 }

@@ -15,6 +15,7 @@ function Heading({ eyebrow, title, intro }: { eyebrow?: string; title: string; i
 }
 
 const zoneMaterials = ['TEAK · DECK', 'KUNSTSTOFF', 'LEDER', 'METALL', 'BETRIEB', 'PREMIUMOBERFLÄCHEN'];
+const cardMaterials = ['teak', 'polymer', 'leather', 'metal', 'joint', 'finish'] as const;
 
 export default function GermanBoatProtectPage({ params }: { params: { locale: string } }) {
   if (params.locale !== 'de') notFound();
@@ -29,9 +30,9 @@ export default function GermanBoatProtectPage({ params }: { params: { locale: st
 
     <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.engineeringRail}><div className={styles.engineeringFlow}>{t.steps.map(([title, copy], index) => <article className={styles.engineeringStep} key={title}><span className={styles.stepIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div><div className={styles.engineeringRule}>{t.rule}</div></div></section>
 
-    <section className="section" id="zones"><div className="container"><Heading eyebrow="YACHT ZONES" title={t.zonesTitle} /><div className={styles.zoneWorld}>{t.zones.map(([title, copy], index) => <article className={styles.zone} key={title}><span className={styles.zoneMaterial}>{zoneMaterials[index]}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+    <section className="section" id="zones"><div className="container"><Heading eyebrow="YACHT ZONES" title={t.zonesTitle} /><div className={styles.zoneWorld}>{t.zones.map(([title, copy], index) => <article className={styles.zone} data-material={cardMaterials[index]} key={title}><span className={styles.zoneMaterial}>{zoneMaterials[index]}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 
-    <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.compatEyebrow} title={t.compatTitle} /><div className={styles.compatGrid}>{t.compat.map(([title, copy]) => <article className={styles.compatibility} key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div><p className={styles.compatibilityNote}>{t.sika}</p></div></section>
+    <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.compatEyebrow} title={t.compatTitle} /><div className={styles.compatGrid}>{t.compat.map(([title, copy], index) => <article className={styles.compatibility} data-material={cardMaterials[index]} key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div><p className={styles.compatibilityNote}>{t.sika}</p></div></section>
 
     <section className="section"><div className="container"><Heading eyebrow={t.performanceEyebrow} title="Dokumentierte Performance-Basis" /><div className={styles.evidenceGrid}>{t.performance.map(([title, copy]) => <article className={styles.evidenceCard} data-status={title === 'UV / Salzschutz' ? 'D' : 'B'} key={title}><strong>{title}</strong><span>{copy.split(' · ')[0]}</span><p>{copy.split(' · ').slice(1).join(' · ')}</p></article>)}</div></div></section>
 

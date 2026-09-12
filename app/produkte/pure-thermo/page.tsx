@@ -119,7 +119,7 @@ export default function PureThermoPage() {
             <span className="section-heading__eyebrow">Wo wird es eingesetzt?</span>
             <h2>Thermische Funktion an den kritischen Stellen.</h2>
           </div>
-          <div className="card-grid card-grid--3">
+          <div className="card-grid card-grid--3 thermo-material-grid">
             {applicationFields.map((item) => (
               <div className="application-card" key={item.label}>
                 <span className="application-card__name">{item.label}</span>
@@ -207,7 +207,7 @@ export default function PureThermoPage() {
             <span className="section-heading__eyebrow">Anwendungsfelder</span>
             <h2>Typische Einsatzbereiche und Systemkontexte.</h2>
           </div>
-          <div className="application-journey">
+          <div className="application-journey thermo-material-grid">
             <article className="journey-card">
               <div className="journey-card__body">
                 <h3>Bestand</h3>

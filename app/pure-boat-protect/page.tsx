@@ -7,6 +7,9 @@ import {
 } from "@/lib/boat-protect-content";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { PhotoParityHero } from "@/components/ProductParityHero";
+
+const boatCardMaterials = ["teak", "polymer", "leather", "metal", "joint", "finish"] as const;
+
 export const metadata: Metadata = {
   title: "PURE Boat Protect | Premium Yacht Surface Protection | PURE",
   description:
@@ -99,8 +102,8 @@ export default function PureBoatProtectPage() {
         <div className="container">
           <H eyebrow="YACHT ZONES" title={t.zonesTitle} />
           <div className="boat-protect-zones">
-            {t.zones.map(([title, copy]) => (
-              <article key={title}>
+            {t.zones.map(([title, copy], index) => (
+              <article data-material={boatCardMaterials[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
               </article>
@@ -112,8 +115,8 @@ export default function PureBoatProtectPage() {
         <div className="container">
           <H eyebrow={t.compatEyebrow} title={t.compatTitle} />
           <div className="boat-protect-compat">
-            {t.compat.map(([title, copy]) => (
-              <article key={title}>
+            {t.compat.map(([title, copy], index) => (
+              <article data-material={boatCardMaterials[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
               </article>
