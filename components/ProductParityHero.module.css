@@ -10,8 +10,7 @@
 }
 
 .image,
-.shade,
-.reflection {
+.shade {
   position: absolute;
   inset: 0;
 }
@@ -25,10 +24,6 @@
 
 .shade {
   z-index: -2;
-}
-
-.reflection {
-  z-index: -1;
 }
 
 .content {
@@ -47,14 +42,6 @@
   background: linear-gradient(90deg, rgba(3, 18, 31, 0.9) 0%, rgba(3, 18, 31, 0.68) 38%, rgba(3, 18, 31, 0.14) 72%), linear-gradient(0deg, rgba(3, 18, 31, 0.44), transparent 50%);
 }
 
-.water .reflection {
-  inset: -18%;
-  opacity: 0.42;
-  background: repeating-radial-gradient(ellipse at 24% 34%, transparent 0 11%, rgba(190, 239, 244, 0.13) 12%, transparent 19% 33%);
-  mix-blend-mode: screen;
-  animation: waterCaustics 14s ease-in-out infinite alternate;
-}
-
 .water .content {
   width: min(570px, 100%);
 }
@@ -67,15 +54,6 @@
   background: linear-gradient(90deg, rgba(24, 17, 12, 0.88) 0%, rgba(24, 17, 12, 0.64) 40%, rgba(24, 17, 12, 0.08) 74%), linear-gradient(0deg, rgba(24, 17, 12, 0.34), transparent 52%);
 }
 
-.wood .reflection {
-  left: -35%;
-  width: 42%;
-  opacity: 0;
-  background: linear-gradient(102deg, transparent 14%, rgba(255, 230, 188, 0.16) 48%, transparent 82%);
-  transform: skewX(-9deg);
-  animation: warmReflection 19s ease-in-out infinite;
-}
-
 .wood .content {
   width: min(590px, 100%);
 }
@@ -86,15 +64,6 @@
 
 .boat .shade {
   background: linear-gradient(90deg, rgba(5, 16, 28, 0.9) 0%, rgba(5, 16, 28, 0.68) 40%, rgba(5, 16, 28, 0.08) 74%), linear-gradient(0deg, rgba(5, 16, 28, 0.38), transparent 54%);
-}
-
-.boat .reflection {
-  left: -40%;
-  width: 38%;
-  opacity: 0;
-  background: linear-gradient(108deg, transparent 16%, rgba(125, 205, 220, 0.17) 48%, transparent 80%);
-  transform: skewX(-12deg);
-  animation: marineReflection 18s ease-in-out infinite;
 }
 
 .facts {
@@ -128,23 +97,6 @@
   margin-top: 2px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.72rem;
-}
-
-@keyframes waterCaustics {
-  from { transform: translate3d(-2%, 1%, 0) scale(1.04); opacity: 0.3; }
-  to { transform: translate3d(3%, -2%, 0) scale(1.1); opacity: 0.5; }
-}
-
-@keyframes warmReflection {
-  0%, 18% { transform: translateX(0) skewX(-9deg); opacity: 0; }
-  42%, 66% { opacity: 0.62; }
-  82%, 100% { transform: translateX(330%) skewX(-9deg); opacity: 0; }
-}
-
-@keyframes marineReflection {
-  0%, 18% { transform: translateX(0) skewX(-12deg); opacity: 0; }
-  42%, 64% { opacity: 0.58; }
-  82%, 100% { transform: translateX(370%) skewX(-12deg); opacity: 0; }
 }
 
 @media (max-width: 899px) {
@@ -194,11 +146,5 @@
   .facts {
     display: grid;
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reflection {
-    animation: none;
   }
 }

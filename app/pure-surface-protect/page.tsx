@@ -54,7 +54,7 @@ export default function PureSurfaceProtectPage() {
 
   return <>
     <Breadcrumb items={[{ label: 'Start', href: locale === 'de' ? '/de' : '/en' }, { label: t.name }]} />
-    <ProductHeroAmbient variant="surface" motionEnabled className="surface-protect-hero" poster="Taufrische Glasfassade im Abendlicht.png" posterAlt={asset('Ruhige architektonische Oberfläche mit transparenter funktionaler Beschichtung', 'Calm architectural surface with a transparent functional coating')}>
+    <ProductHeroAmbient variant="surface" className="surface-protect-hero" image="Taufrische Glasfassade im Abendlicht.png" imageAlt={asset('Ruhige architektonische Oberfläche mit transparenter funktionaler Beschichtung', 'Calm architectural surface with a transparent functional coating')}>
       <div className="container surface-protect-hero__grid"><div><p className="hero__eyebrow">{t.name}</p><h1>{t.heroTitle}</h1><p className="hero__subtitle">{t.heroSubtitle}</p><div className="surface-protect-facts">{t.heroFacts.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}</div><div className="hero__ctas"><a className="btn btn--primary" href="#technology">{t.heroCta}</a><a className="btn btn--secondary" href="#evidence">{t.referencesCta}</a></div></div></div>
     </ProductHeroAmbient>
 
