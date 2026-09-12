@@ -121,11 +121,11 @@ type VisualKey = keyof typeof import('@/lib/thermo-system-visuals').thermoSystem
 const routeApplicationVisuals: Partial<Record<RouteKey, ReadonlyArray<{ asset: string; position: string }>>> = {
   detail: [
     { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '34% center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '70% top' },
+    { asset: 'Architektonischer Wandschichtquerschnitt.png', position: '32% 12%' },
     { asset: 'Kühler Keller, warmes Raumklima.png', position: 'center top' },
     { asset: 'Heller, aufgeräumter Kellerraum.png', position: '18% center' },
-    { asset: 'Heller, aufgeräumter Kellerraum.png', position: '82% center' },
-    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center bottom' },
+    { asset: 'Kühler Keller, warmes Raumklima.png', position: '78% 58%' },
+    { asset: 'Architektonischer Wandschichtquerschnitt.png', position: '42% 92%' },
     { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' }
   ],
   exterior: [
