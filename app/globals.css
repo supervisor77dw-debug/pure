@@ -2359,16 +2359,26 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   .liquid-heat-hero__grid > div:first-child { width: min(560px, 100%); position: relative; left: 0; margin-left: 0; }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1099px) {
   .pure-thermo-hero .product-hero-ambient__content,
-  .liquid-heat-hero .product-hero-ambient__content { width: 100%; margin-left: 0; left: auto; }
+  .liquid-heat-hero .product-hero-ambient__content,
+  .floor-protect-hero .product-hero-ambient__content,
+  .fire-protect-hero .product-hero-ambient__content,
+  .surface-protect-hero .product-hero-ambient__content { width: 100%; margin-left: 0; left: auto; }
   .liquid-heat-hero__grid > div:first-child { width: 100%; margin-left: 0; left: auto; }
   .liquid-heat-hero__grid { grid-template-columns: 1fr; }
-  .pure-thermo-hero { min-height: 620px; }
-  .liquid-heat-hero { min-height: 600px; }
-  .floor-protect-hero { min-height: 840px; }
-  .fire-protect-hero { min-height: 740px; }
-  .surface-protect-hero { min-height: 920px; }
+  .liquid-heat-hero,
+  .floor-protect-hero,
+  .fire-protect-hero,
+  .surface-protect-hero {
+    height: auto;
+    align-items: center;
+    padding-block: clamp(3.25rem, 8vw, 4.5rem);
+  }
+  .liquid-heat-hero { min-height: clamp(34rem, 68svh, 40rem); }
+  .floor-protect-hero { min-height: clamp(38rem, 72svh, 44rem); }
+  .fire-protect-hero { min-height: clamp(34rem, 66svh, 40rem); }
+  .surface-protect-hero { min-height: clamp(38rem, 72svh, 44rem); }
 }
 
 .product-hero-ambient--liquidHeat .product-hero-ambient__effect-line {

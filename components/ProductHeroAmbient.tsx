@@ -35,8 +35,9 @@ export function ProductHeroAmbient({
 }: ProductHeroAmbientProps) {
   const webm = mediaPath(assets?.desktopWebm);
   const mp4 = mediaPath(assets?.desktopMp4);
-  const desktopPoster = mediaPath(poster) || mediaPath(assets?.poster);
-  const mobilePoster = mediaPath(assets?.mobilePoster) || mediaPath(poster);
+  const explicitPoster = mediaPath(poster);
+  const desktopPoster = explicitPoster || mediaPath(assets?.poster);
+  const mobilePoster = explicitPoster || mediaPath(assets?.mobilePoster);
   const hasVideo = motionEnabled && videoEnabled && Boolean(webm || mp4);
   const hasSvg = motionEnabled && Boolean(assets?.svgLayer || svgLayer);
 

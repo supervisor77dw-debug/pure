@@ -150,7 +150,8 @@
 @media (max-width: 899px) {
   .photoHero {
     height: auto;
-    align-items: flex-end;
+    align-items: center;
+    padding-block: clamp(3.25rem, 8vw, 4.5rem);
   }
 
   .water,
@@ -163,7 +164,7 @@
   }
 
   .boat {
-    min-height: 960px;
+    min-height: clamp(42rem, 76svh, 48rem);
   }
 
   .water .image {
@@ -175,7 +176,7 @@
   }
 
   .boat .image {
-    object-position: 55% center;
+    object-position: 62% center;
   }
 
   .water .shade {
