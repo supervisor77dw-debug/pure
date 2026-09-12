@@ -7,7 +7,7 @@ export function LocalePending({ title = 'PURE Technology Platform', locale = 'en
     <section className="section">
       <div className="container">
         <div className="final-cta">
-          <span className="section-heading__eyebrow">{english ? 'EN_TRANSLATION_PENDING' : 'DE_CONTENT_REVIEW_REQUIRED'}</span>
+          <span className="section-heading__eyebrow">{english ? 'TRANSLATION IN REVIEW' : 'INHALT IN PRÜFUNG'}</span>
           <h1>{title}</h1>
           <p>{english ? 'The English version of this page is under technical review and is not published yet.' : 'Die deutsche Fassung dieser Seite wird fachlich geprüft und ist noch nicht veröffentlicht.'}</p>
           <Link className="btn btn--primary" href={english ? '/en' : '/de'}>{english ? 'Back to the English platform' : 'Zur deutschen Plattform'}</Link>

@@ -2,22 +2,8 @@
 
 import type { EvidenceClass } from '@/lib/data';
 import type { Locale } from '@/lib/i18n';
+import { EVIDENCE_COPY } from '@/lib/evidence-copy';
 import { usePathname } from 'next/navigation';
-
-const EVIDENCE_LABELS: Record<Locale, Record<EvidenceClass, string>> = {
-  de: {
-    A: 'extern geprüft',
-    B: 'intern dokumentiert',
-    C: 'berechnet / modelliert',
-    D: 'Entwicklungsstatus'
-  },
-  en: {
-    A: 'externally tested',
-    B: 'internally documented',
-    C: 'calculated / modelled',
-    D: 'development status'
-  }
-};
 
 export interface EvidenceBadgeProps {
   evidenceClass: EvidenceClass;
@@ -39,11 +25,9 @@ export function EvidenceBadge({ evidenceClass, sourceLabel, size = 'md', locale 
         <span>{evidenceClass}</span>
       </span>
       <span className="evidence-badge__text">
-        {evidenceClass} · {EVIDENCE_LABELS[routeLocale][evidenceClass]}
+        {evidenceClass} · {EVIDENCE_COPY[routeLocale][evidenceClass].label}
       </span>
       {sourceLabel ? <span className="evidence-badge__source">· {sourceLabel}</span> : null}
     </span>
   );
 }
-
-export { EVIDENCE_LABELS };

@@ -3,6 +3,7 @@ import { EvidenceBadge } from './EvidenceBadge';
 import { Breadcrumb } from './Breadcrumb';
 import { localePath, type Locale } from '@/lib/i18n';
 import { projectRequestPath } from '@/lib/i18n';
+import { EVIDENCE_COPY } from '@/lib/evidence-copy';
 
 export function EvidenceHubPage({ locale }: { locale: Locale }) {
   const de = locale === 'de';
@@ -21,7 +22,7 @@ export function EvidenceHubPage({ locale }: { locale: Locale }) {
             <p>{de ? 'PURE trennt externe Prüfung, interne Dokumentation, Modellrechnung und Entwicklungsstatus klar voneinander.' : 'PURE separates external testing, internal documentation, model calculation and development status clearly.'}</p>
           </div>
           <div className="evidence-grid">
-            {(['A', 'B', 'C', 'D'] as const).map((evidenceClass) => <div className="evidence-card" key={evidenceClass}><EvidenceBadge evidenceClass={evidenceClass} locale={locale} /><p>{de ? evidenceCopyDe[evidenceClass] : evidenceCopyEn[evidenceClass]}</p></div>)}
+            {(['A', 'B', 'C', 'D'] as const).map((evidenceClass) => <div className="evidence-card" key={evidenceClass}><EvidenceBadge evidenceClass={evidenceClass} locale={locale} /><p>{EVIDENCE_COPY[locale][evidenceClass].description}</p></div>)}
           </div>
         </div>
       </section>
@@ -44,20 +45,6 @@ export function EvidenceHubPage({ locale }: { locale: Locale }) {
     </>
   );
 }
-
-const evidenceCopyDe = {
-  A: 'Extern geprüfte Ergebnisse mit definiertem Prüfgegenstand und dokumentierten Bedingungen.',
-  B: 'Intern dokumentierte Validierung, Systemdefinition oder nachvollziehbare Entwicklungsdaten.',
-  C: 'Berechnete oder modellierte Werte mit transparenten Annahmen und Grenzen.',
-  D: 'Entwicklungsstatus, geplanter Prüfpfad oder technische Hypothese ohne fertigen Leistungsclaim.'
-};
-
-const evidenceCopyEn = {
-  A: 'Externally tested results with a defined test subject and documented conditions.',
-  B: 'Internally documented validation, system definition or traceable development data.',
-  C: 'Calculated or modelled values with transparent assumptions and limits.',
-  D: 'Development status, planned test path or technical hypothesis without a finished performance claim.'
-};
 
 function EvidenceHubCard({ locale, badge, title, source, statement, limit, href, chart = false }: { locale: Locale; badge: 'A' | 'B' | 'C' | 'D'; title: { de: string; en: string }; source: string; statement: string; limit: string; href: string; chart?: boolean }) {
   const de = locale === 'de';

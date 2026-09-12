@@ -3,6 +3,7 @@ import { EvidenceBadge } from './EvidenceBadge';
 import { LightboxFigure } from './LightboxFigure';
 import { AssetFigure } from './AssetFigure';
 import { localePath, productPath, projectRequestPath, type Locale } from '@/lib/i18n';
+import { EVIDENCE_COPY } from '@/lib/evidence-copy';
 
 type CopyPair = { de: string; en: string };
 
@@ -29,7 +30,7 @@ const evidencePreview = [
 
 const evidenceLegend: Array<{ evidence: 'A' | 'B' | 'C' | 'D'; label: CopyPair; text: CopyPair }> = [
   { evidence: 'A', label: { de: 'EXTERN GEPRÜFT', en: 'EXTERNALLY TESTED' }, text: { de: 'Dokumentierte Prüfung mit definiertem Prüfgegenstand.', en: 'Documented test with defined test subject.' } },
-  { evidence: 'B', label: { de: 'INTERN DOKUMENTIERT', en: 'INTERNALLY DOCUMENTED' }, text: { de: 'Nachvollziehbare interne Validierung oder Systemdefinition.', en: 'Traceable internal validation or system definition.' } },
+  { evidence: 'B', label: { de: EVIDENCE_COPY.de.B.label.toUpperCase(), en: EVIDENCE_COPY.en.B.label.toUpperCase() }, text: { de: EVIDENCE_COPY.de.B.description, en: EVIDENCE_COPY.en.B.description } },
   { evidence: 'C', label: { de: 'MODELLIERT', en: 'MODELLED' }, text: { de: 'Berechnung mit transparenten Annahmen und Grenzen.', en: 'Calculation with transparent assumptions and limits.' } },
   { evidence: 'D', label: { de: 'ENTWICKLUNG', en: 'DEVELOPMENT' }, text: { de: 'Prüfpfad, Hypothese oder noch nicht freigegebener Aufbau.', en: 'Test path, hypothesis or not-yet-released build-up.' } }
 ];

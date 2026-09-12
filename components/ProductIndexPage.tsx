@@ -31,7 +31,7 @@ export function ProductIndexPage({ locale }: { locale: Locale }) {
               <article className="product-index-card" key={product.id}>
                 <h2>{product.name.de}</h2>
                 <p>{english ? EN_DESCRIPTIONS[product.slug] : product.short_description.de}</p>
-                {route ? <Link className="btn btn--primary" href={route}>{english ? 'Explore product' : 'Produkt ansehen'}</Link> : <span className="product-index-card__status">{english ? 'EN_TRANSLATION_PENDING' : 'Seite in Vorbereitung'}</span>}
+                {route ? <Link className="btn btn--primary" href={route}>{english ? 'Explore product' : 'Produkt ansehen'}</Link> : <span className="product-index-card__status">{english ? 'Translation in review' : 'Seite in Vorbereitung'}</span>}
               </article>
             );
           })}

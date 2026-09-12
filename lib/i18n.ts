@@ -28,7 +28,7 @@ export const ui = {
     close: 'Schließen',
     skip: 'Zum Inhalt springen',
     switchLabel: 'Sprache wechseln',
-    pendingTitle: 'EN_TRANSLATION_PENDING',
+    pendingTitle: 'Übersetzung in Prüfung',
     pendingText: 'Die englische Fassung dieser Seite wird fachlich geprüft und ist noch nicht veröffentlicht.'
   },
   en: {
@@ -42,7 +42,7 @@ export const ui = {
     close: 'Close',
     skip: 'Skip to content',
     switchLabel: 'Change language',
-    pendingTitle: 'EN_TRANSLATION_PENDING',
+    pendingTitle: 'Translation in review',
     pendingText: 'The English version of this page is under technical review and is not published yet.'
   }
 } as const;
