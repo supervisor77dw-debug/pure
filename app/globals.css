@@ -1057,7 +1057,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 
 .liquid-heat-hero { background: linear-gradient(120deg, #0b1f3a 0%, #142e52 62%, #173d54 100%); }
 .liquid-heat-hero { height: 60vh; min-height: 0; display: flex; align-items: center; }
-.liquid-heat-hero .product-hero-ambient__image { z-index: -4; opacity: .95; }
 .liquid-heat-hero .product-hero-ambient__image img { object-position: 62% center; }
 .liquid-heat-hero .product-hero-ambient__gradient { background: linear-gradient(115deg, rgba(11,31,58,0.22), rgba(201,89,26,0.08) 64%, rgba(11,31,58,0.22)); }
 .liquid-heat-hero .product-hero-ambient__content { position: relative; z-index: 2; }
@@ -2207,7 +2206,11 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   isolation: isolate;
   overflow: hidden;
   min-height: 100%;
-  background: var(--color-navy);
+  background: linear-gradient(120deg, #081725, #123744);
+}
+.product-hero-ambient::before,
+.product-hero-ambient::after {
+  content: none;
 }
 .product-hero-ambient__image,
 .product-hero-ambient__gradient {
@@ -2217,14 +2220,13 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   height: 100%;
   pointer-events: none;
 }
-.product-hero-ambient__image { display: block; z-index: -4; }
+.product-hero-ambient__image { display: block; z-index: 0; }
 .product-hero-ambient__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .product-hero-ambient__gradient {
-  z-index: -2;
+  z-index: 1;
   background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.35));
 }
-.pure-thermo-hero { height: 60vh; min-height: 0; display: flex; align-items: center; padding-block: var(--space-5); background: #0a1620; }
-.pure-thermo-hero .product-hero-ambient__image { z-index: -4; opacity: .96; }
+.pure-thermo-hero { height: 60vh; min-height: 0; display: flex; align-items: center; padding-block: var(--space-5); background: linear-gradient(120deg, #081520, #173a42); }
 .pure-thermo-hero .product-hero-ambient__image img { object-position: 64% center; }
 .pure-thermo-hero .product-hero-ambient__gradient { background: linear-gradient(108deg, rgba(11,31,58,0.18), rgba(14,110,124,0.06) 62%, rgba(201,89,26,0.08)); }
 .pure-thermo-hero .product-hero-ambient__content { max-width: 560px; }
@@ -2275,7 +2277,11 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   .surface-protect-hero { min-height: clamp(38rem, 72svh, 44rem); }
 }
 
-.product-hero-ambient__content { position: relative; z-index: 1; }
+.product-hero-ambient__content { position: relative; z-index: 2; }
+.product-hero-ambient--liquidHeat { background: linear-gradient(120deg, #0a1827, #38251f); }
+.product-hero-ambient--floor { background: linear-gradient(120deg, #091827, #263a42); }
+.product-hero-ambient--fire { background: linear-gradient(120deg, #0a1724, #342623); }
+.product-hero-ambient--surface { background: linear-gradient(120deg, #081824, #203b43); }
 .product-hero-ambient--thermo .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.92), rgba(14,110,124,0.3)); }
 .product-hero-ambient--liquidHeat .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(201,89,26,0.24)); }
 .product-hero-ambient--fire .product-hero-ambient__gradient { background: linear-gradient(120deg, rgba(11,31,58,0.94), rgba(140,47,29,0.25)); }

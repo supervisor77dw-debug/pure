@@ -7,6 +7,12 @@
   isolation: isolate;
   align-items: center;
   color: #fff;
+  background: linear-gradient(120deg, #081725, #123744);
+}
+
+.photoHero::before,
+.photoHero::after {
+  content: none;
 }
 
 .image,
@@ -16,17 +22,19 @@
 }
 
 .image {
-  z-index: -3;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .shade {
-  z-index: -2;
+  z-index: 1;
 }
 
 .content {
+  position: relative;
+  z-index: 2;
   width: min(610px, 100%);
 }
 
@@ -36,6 +44,10 @@
 
 .water .image {
   object-position: center 58%;
+}
+
+.water {
+  background: linear-gradient(120deg, #061724, #103746);
 }
 
 .water .shade {
@@ -50,6 +62,10 @@
   object-position: center 58%;
 }
 
+.wood {
+  background: linear-gradient(120deg, #15130f, #34483c);
+}
+
 .wood .shade {
   background: linear-gradient(90deg, rgba(24, 17, 12, 0.88) 0%, rgba(24, 17, 12, 0.64) 40%, rgba(24, 17, 12, 0.08) 74%), linear-gradient(0deg, rgba(24, 17, 12, 0.34), transparent 52%);
 }
@@ -60,6 +76,10 @@
 
 .boat .image {
   object-position: center 54%;
+}
+
+.boat {
+  background: linear-gradient(120deg, #061522, #183c49);
 }
 
 .boat .shade {
