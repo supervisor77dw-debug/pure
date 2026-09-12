@@ -19,10 +19,10 @@ const woodChallengeAssets = [
 const woodApplicationAssets = [
   "Verwitterte Holzfassade im Abendlicht.png",
   "Regennasse Terrasse mit Weitblick.png",
-  "Holzpflege im goldenen Abendlicht.png",
-  undefined,
+  "Luxus-Terrasse im goldenen Abendlicht.png",
+  "Warmes Chalet-Wohnzimmer mit Bergblick.png",
   "Abgenutztes Yachtdeck im Sonnenlicht.png",
-  "Modernes Holzhaus am Bergsee.png",
+  "Sonniger Innenhof mit Holzdecks.png",
 ] as const;
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
