@@ -54,6 +54,8 @@ const EVIDENCE_GROUPS = [
 
 const applicationSurfaces = ['detail', 'mineral', 'existing', 'contour', 'mineral', 'layer'] as const;
 const journeySurfaces = ['existing', 'detail', 'contour', 'layer'] as const;
+const applicationAssets = ['Detaillierter Fensteranschluss mit Dämmfassade.png', undefined, 'Modernes Passivhaus im Abendlicht.png', undefined, undefined, 'Modernes Passivhaus im Abendlicht.png'] as const;
+const journeyAssets = ['Modernes Passivhaus im Abendlicht.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png', undefined, 'Modernes Passivhaus im Abendlicht.png'] as const;
 
 export default function PureThermoPage() {
   const locale = isLocale(headers().get('x-pure-locale') || '') ? (headers().get('x-pure-locale') as 'de' | 'en') : 'de';
@@ -125,7 +127,7 @@ export default function PureThermoPage() {
           </div>
           <div className="card-grid card-grid--3 thermo-material-grid">
             {applicationFields.map((item, index) => (
-              <SurfaceCard className="application-card" surface={applicationSurfaces[index]} key={item.label}>
+              <SurfaceCard className="application-card" surface={applicationSurfaces[index]} backgroundAsset={applicationAssets[index]} key={item.label}>
                 <span className="application-card__name">{item.label}</span>
               </SurfaceCard>
             ))}
@@ -212,25 +214,25 @@ export default function PureThermoPage() {
             <h2>Typische Einsatzbereiche und Systemkontexte.</h2>
           </div>
           <div className="application-journey thermo-material-grid">
-            <SurfaceCard className="journey-card" surface={journeySurfaces[0]}>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[0]} backgroundAsset={journeyAssets[0]}>
               <div className="journey-card__body">
                 <h3>Bestand</h3>
                 <p>Bauteile mit begrenztem Bauraum oder vorhandenen Randbedingungen.</p>
               </div>
             </SurfaceCard>
-            <SurfaceCard className="journey-card" surface={journeySurfaces[1]}>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[1]} backgroundAsset={journeyAssets[1]}>
               <div className="journey-card__body">
                 <h3>Detailbereiche</h3>
                 <p>Anschlüsse, Laibungen und komplexe Übergänge.</p>
               </div>
             </SurfaceCard>
-            <SurfaceCard className="journey-card" surface={journeySurfaces[2]}>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[2]} backgroundAsset={journeyAssets[2]}>
               <div className="journey-card__body">
                 <h3>Komplexe Geometrien</h3>
                 <p>Funktionsbereiche mit unregelmäßiger Oberfläche und systemischer Einbindung.</p>
               </div>
             </SurfaceCard>
-            <SurfaceCard className="journey-card" surface={journeySurfaces[3]}>
+            <SurfaceCard className="journey-card" surface={journeySurfaces[3]} backgroundAsset={journeyAssets[3]}>
               <div className="journey-card__body">
                 <h3>Technische Oberflächen</h3>
                 <p>Thermisch relevante Bereiche mit konkreter Prüf- und Systemlogik.</p>

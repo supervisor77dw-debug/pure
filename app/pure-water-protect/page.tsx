@@ -8,6 +8,14 @@ import {
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { AssetFigure } from "@/components/AssetFigure";
 import { PhotoParityHero } from "@/components/ProductParityHero";
+import { SurfaceCard } from "@/components/SurfaceCard";
+
+const waterChallengeAssets = [
+  "Unterwasserblick auf einen bewachsenen Bootsrumpf.png",
+  "Luxusyacht im funkelnden Sonnenmeer.png",
+  "Unterwasserreinigung eines Bootsrumpfs.png",
+  "Luxusyacht im goldenen Hafenlicht.png",
+] as const;
 export const metadata: Metadata = {
   title: "PURE Water Protect | Marine Easy-to-Clean Surface Technology | PURE",
   description:
@@ -59,10 +67,10 @@ export default function PureWaterProtectPage() {
             intro={t.challengeCopy}
           />
           <div className="surface-protect-four-grid">
-            {t.challenge.map((x) => (
-              <article className="surface-protect-card" key={x}>
+            {t.challenge.map((x, index) => (
+              <SurfaceCard className="surface-protect-card" surface="water-context" backgroundAsset={waterChallengeAssets[index]} key={x}>
                 <h3>{x}</h3>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
         </div>

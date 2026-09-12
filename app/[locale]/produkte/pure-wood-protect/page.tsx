@@ -4,6 +4,7 @@ import { AssetFigure } from '@/components/AssetFigure';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { LightboxFigure } from '@/components/LightboxFigure';
 import { PhotoParityHero } from '@/components/ProductParityHero';
+import { SurfaceCard } from '@/components/SurfaceCard';
 import { getWoodProtectContent } from '@/lib/wood-protect-content';
 import styles from './page.module.css';
 
@@ -22,6 +23,14 @@ const challengeCopy = [
   'Schmutz und biologische Beläge beeinflussen Pflege und Erscheinungsbild.',
   'Pflegeintervalle und Nachbehandlung müssen objektspezifisch geplant werden.'
 ];
+
+const challengeAssets = [
+  'Verwitterte Holzfassade im Abendlicht.png',
+  'Regennasse Terrasse mit Weitblick.png',
+  'Verwitterte Holzdielen mit Moos.png',
+  'Holzpflege im goldenen Abendlicht.png'
+] as const;
+const applicationAsset = 'Modernes Holzhaus am Bergsee.png';
 
 const applicationContexts = [
   ['aussen', 'AUSSENEXPOSITION'],
@@ -43,11 +52,11 @@ export default function GermanWoodProtectPage({ params }: { params: { locale: st
 
     <section className="section section--surface"><div className="container"><Heading eyebrow={t.relationEyebrow} title={t.relationTitle} intro={t.relationCopy} /><div className="floor-protect-relation"><strong>PURE SURFACE PROTECT</strong><span>↓</span><strong>PURE WOOD PROTECT</strong></div></div></section>
 
-    <section className="section" id="challenge"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="wood-protect-card-grid wood-protect-card-grid--four">{t.challenge.map((title, index) => <article className="wood-protect-card" key={title}><span aria-hidden="true">0{index + 1}</span><h3>{title}</h3><p>{challengeCopy[index]}</p></article>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
+    <section className="section" id="challenge"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="wood-protect-card-grid wood-protect-card-grid--four">{t.challenge.map((title, index) => <SurfaceCard className="wood-protect-card" surface="wood-context" backgroundAsset={challengeAssets[index]} key={title}><span aria-hidden="true">0{index + 1}</span><h3>{title}</h3><p>{challengeCopy[index]}</p></SurfaceCard>)}</div><p className="surface-protect-statement">{t.statement}</p></div></section>
 
     <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.engineeringPanel}><div className={styles.layerFlow}>{t.steps.map(([title, copy], index) => <article className={styles.layerStep} key={title}><span className={styles.layerIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div><div className={styles.materialRule}>{t.rule}</div></div></section>
 
-    <section className="section" id="applications"><div className="container"><Heading eyebrow="APPLICATIONS" title={t.applicationsTitle} /><div className={styles.applicationGrid}>{t.applications.map(([title, copy], index) => <article className={styles.applicationCard} data-context={applicationContexts[index][0]} key={title}><span className={styles.applicationContext}>{applicationContexts[index][1]}</span><h3>{title}</h3><p>{copy}</p></article>)}</div><LightboxFigure file="02_wood_asset_page19.jpeg" alt="Illustratives Holzoberflächen-Kommunikationsvisual" caption="Illustratives Kommunikationsvisual – keine reale Referenz." zoomLabel="Bild öffnen" closeLabel="Schließen" /></div></section>
+    <section className="section" id="applications"><div className="container"><Heading eyebrow="APPLICATIONS" title={t.applicationsTitle} /><div className={styles.applicationGrid}>{t.applications.map(([title, copy], index) => <SurfaceCard className={styles.applicationCard} surface="wood-application" backgroundAsset={applicationAsset} key={title}><span className={styles.applicationContext}>{applicationContexts[index][1]}</span><h3>{title}</h3><p>{copy}</p></SurfaceCard>)}</div><LightboxFigure file="02_wood_asset_page19.jpeg" alt="Illustratives Holzoberflächen-Kommunikationsvisual" caption="Illustratives Kommunikationsvisual – keine reale Referenz." zoomLabel="Bild öffnen" closeLabel="Schließen" /></div></section>
 
     <section className="section section--surface" id="test-area"><div className="container"><Heading eyebrow={t.evidenceEyebrow} title={t.evidenceTitle} intro={t.speciesNote} /><div className={styles.species}>{t.species.map((item) => <span key={item}>{item}</span>)}</div><div className={styles.testGrid}>{t.test.map(([title, copy], index) => <article className={styles.testCard} key={title}><span className={styles.layerIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 

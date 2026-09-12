@@ -8,6 +8,15 @@ import {
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LightboxFigure } from "@/components/LightboxFigure";
 import { PhotoParityHero } from "@/components/ProductParityHero";
+import { SurfaceCard } from "@/components/SurfaceCard";
+
+const woodChallengeAssets = [
+  "Verwitterte Holzfassade im Abendlicht.png",
+  "Regennasse Terrasse mit Weitblick.png",
+  "Verwitterte Holzdielen mit Moos.png",
+  "Holzpflege im goldenen Abendlicht.png",
+] as const;
+const woodApplicationAsset = "Modernes Holzhaus am Bergsee.png";
 export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
@@ -74,11 +83,11 @@ export default function PureWoodProtectPage() {
           />
           <div className="wood-protect-card-grid wood-protect-card-grid--four">
             {t.challenge.map((title, index) => (
-              <article className="wood-protect-card" key={title}>
+              <SurfaceCard className="wood-protect-card" surface="wood-context" backgroundAsset={woodChallengeAssets[index]} key={title}>
                 <span aria-hidden="true">0{index + 1}</span>
                 <h3>{title}</h3>
                 <p>{woodChallengeCopy[locale][index]}</p>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
           <p className="surface-protect-statement">{t.statement}</p>
@@ -104,11 +113,11 @@ export default function PureWoodProtectPage() {
           <H eyebrow="APPLICATIONS" title={t.applicationsTitle} />
           <div className="wood-protect-card-grid">
             {t.applications.map(([title, copy]) => (
-              <article className="wood-protect-card" key={title}>
+              <SurfaceCard className="wood-protect-card" surface="wood-application" backgroundAsset={woodApplicationAsset} key={title}>
                 <span aria-hidden="true">{title.slice(0, 2)}</span>
                 <h3>{title}</h3>
                 <p>{copy}</p>
-              </article>
+              </SurfaceCard>
             ))}
           </div>
           <LightboxFigure

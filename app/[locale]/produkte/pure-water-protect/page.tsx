@@ -3,8 +3,16 @@ import { notFound } from 'next/navigation';
 import { AssetFigure } from '@/components/AssetFigure';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { PhotoParityHero } from '@/components/ProductParityHero';
+import { SurfaceCard } from '@/components/SurfaceCard';
 import { getWaterProtectContent } from '@/lib/water-protect-content';
 import styles from './page.module.css';
+
+const challengeAssets = [
+  'Unterwasserblick auf einen bewachsenen Bootsrumpf.png',
+  'Luxusyacht im funkelnden Sonnenmeer.png',
+  'Unterwasserreinigung eines Bootsrumpfs.png',
+  'Luxusyacht im goldenen Hafenlicht.png'
+] as const;
 
 export const metadata: Metadata = {
   title: 'PURE Water Protect | Marine Easy-to-Clean Surface Technology | PURE',
@@ -24,7 +32,7 @@ export default function GermanWaterProtectPage({ params }: { params: { locale: s
 
     <PhotoParityHero variant="water" eyebrow={t.name} title={t.heroTitle} subtitle={t.heroSubtitle} primary={{ label: t.heroCta, href: '#technology' }} secondary={{ label: t.pilot, href: '#season' }} />
 
-    <section className="section" id="challenge"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item) => <article className="surface-protect-card" key={item}><h3>{item}</h3></article>)}</div></div></section>
+    <section className="section" id="challenge"><div className="container"><Heading eyebrow={t.challengeEyebrow} title={t.challengeTitle} intro={t.challengeCopy} /><div className="surface-protect-four-grid">{t.challenge.map((item, index) => <SurfaceCard className="surface-protect-card" surface="water-context" backgroundAsset={challengeAssets[index]} key={item}><h3>{item}</h3></SurfaceCard>)}</div></div></section>
 
     <section className="section section--surface" id="technology"><div className="container"><Heading eyebrow={t.techEyebrow} title={t.techTitle} /><div className={styles.layerFlow}>{t.steps.map(([title, copy], index) => <article className={styles.layerStep} key={title}><span className={styles.layerIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div><div className={styles.layerStatement}>{t.statement}</div></div></section>
 
