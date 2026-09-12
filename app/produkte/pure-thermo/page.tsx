@@ -54,8 +54,9 @@ const EVIDENCE_GROUPS = [
 
 const applicationSurfaces = ['detail', 'mineral', 'existing', 'contour', 'mineral', 'layer'] as const;
 const journeySurfaces = ['existing', 'detail', 'contour', 'layer'] as const;
-const applicationAssets = ['Detaillierter Fensteranschluss mit Dämmfassade.png', 'Kühler Keller, warmes Raumklima.png', 'Moderne Fassade im Abendlicht.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Heller, aufgeräumter Kellerraum.png', 'Moderne Fassade mit Seeblick.png'] as const;
-const journeyAssets = ['Moderne Fassade im Abendlicht.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Moderne Fassade mit Seeblick.png'] as const;
+const applicationAssets = ['Detaillierter Fensteranschluss mit Dämmfassade.png', 'Kühler Keller, warmes Raumklima.png', 'Verwitterte Steinfassade im Sonnenlicht.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Heller, aufgeräumter Kellerraum.png', 'Materialstrukturansicht.png'] as const;
+const applicationPositions = ['center', 'center', 'center', 'center', 'center', 'center'] as const;
+const journeyAssets = ['Verwitterte Steinfassade im Sonnenlicht.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png', 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', 'Materialstrukturansicht.png'] as const;
 
 export default function PureThermoPage() {
   const locale = isLocale(headers().get('x-pure-locale') || '') ? (headers().get('x-pure-locale') as 'de' | 'en') : 'de';
@@ -127,7 +128,7 @@ export default function PureThermoPage() {
           </div>
           <div className="card-grid card-grid--3 thermo-material-grid">
             {applicationFields.map((item, index) => (
-              <SurfaceCard className="application-card" surface={applicationSurfaces[index]} backgroundAsset={applicationAssets[index]} key={item.label}>
+              <SurfaceCard className="application-card" surface={applicationSurfaces[index]} backgroundAsset={applicationAssets[index]} backgroundPosition={applicationPositions[index]} key={item.label}>
                 <span className="application-card__name">{item.label}</span>
               </SurfaceCard>
             ))}

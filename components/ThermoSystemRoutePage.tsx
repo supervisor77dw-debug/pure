@@ -120,20 +120,20 @@ type VisualKey = keyof typeof import('@/lib/thermo-system-visuals').thermoSystem
 
 const routeApplicationVisuals: Partial<Record<RouteKey, ReadonlyArray<{ asset: string; position: string }>>> = {
   detail: [
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: 'center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '70% center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '34% center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '70% top' },
     { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center top' },
-    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'left center' },
-    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'right center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '30% center' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: '18% center' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: '82% center' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center bottom' },
     { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' }
   ],
   exterior: [
-    { asset: 'Moderne Fassade mit Seeblick.png', position: 'center' },
-    { asset: 'Verwitterte Steinfassade im Sonnenlicht.png', position: 'center' },
-    { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '35% center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '75% center' }
+    { asset: 'Moderne Fassade mit Seeblick.png', position: '48% center' },
+    { asset: 'Verwitterte Steinfassade im Sonnenlicht.png', position: '30% center' },
+    { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: '55% center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '28% center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '78% center' }
   ]
 };
 

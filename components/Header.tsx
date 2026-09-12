@@ -107,7 +107,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
           </div>
           <div className="header__nav-item" onMouseEnter={() => setEvidenceOpen(true)} onMouseLeave={() => setEvidenceOpen(false)}>
             <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence') : localePath('de', 'nachweise')} aria-haspopup="true" aria-expanded={evidenceOpen}>{ui[currentLocale].evidence}</Link>
-            {evidenceOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].evidence}>{evidenceItems[currentLocale].map(([name, description, href]) => <Link key={name} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
+            {evidenceOpen ? <div className="mega-menu" role="menu" aria-label={ui[currentLocale].evidence}>{evidenceItems[currentLocale].map(([name, description, href]) => <Link key={name} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)} onClick={() => setEvidenceOpen(false)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
           </div>
         </nav>
         <div className={`header__search-compact${searchOpen ? ' is-open' : ''}`} role="search">

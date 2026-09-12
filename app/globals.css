@@ -68,12 +68,12 @@ html {
   scroll-margin-top: 108px;
 }
 
-.evidence-anchor:target { border-color: rgba(14,110,124,.48); box-shadow: 0 0 0 4px rgba(14,110,124,.12), var(--shadow-elevated); }
-.evidence-anchor--water:target { animation: evidence-water-highlight 2s ease-out; }
-.evidence-anchor--fire:target { border-color: rgba(201,89,26,.5); box-shadow: 0 0 0 4px rgba(201,89,26,.12), var(--shadow-elevated); animation: evidence-fire-highlight 2s ease-out; }
-@keyframes evidence-water-highlight { 0%, 58% { background: rgba(211,242,241,.95); border-color: rgba(14,110,124,.68); box-shadow: 0 0 0 6px rgba(14,110,124,.16), var(--shadow-elevated); } 100% { background: rgba(255,255,255,.92); border-color: rgba(14,110,124,.2); box-shadow: var(--shadow-soft); } }
-@keyframes evidence-fire-highlight { 0%, 58% { background: rgba(255,235,218,.96); border-color: rgba(201,89,26,.7); box-shadow: 0 0 0 6px rgba(201,89,26,.16), var(--shadow-elevated); } 100% { background: rgba(255,255,255,.92); border-color: rgba(14,110,124,.2); box-shadow: var(--shadow-soft); } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .evidence-anchor--water:target, .evidence-anchor--fire:target { animation: none; } }
+.evidence-anchor.is-hash-highlighted { position: relative; z-index: 2; }
+.evidence-anchor--water.is-hash-highlighted { background: #d8f4f2; border-color: #0e6e7c; box-shadow: 0 0 0 6px rgba(14,110,124,.24), 0 18px 42px rgba(11,31,58,.2); animation: evidence-water-highlight 2.6s ease-out; }
+.evidence-anchor--fire.is-hash-highlighted { background: #ffead7; border-color: #c9591a; box-shadow: 0 0 0 6px rgba(201,89,26,.24), 0 18px 42px rgba(80,38,10,.2); animation: evidence-fire-highlight 2.6s ease-out; }
+@keyframes evidence-water-highlight { 0%, 65% { background: #d8f4f2; border-color: #0e6e7c; box-shadow: 0 0 0 8px rgba(14,110,124,.26), 0 20px 46px rgba(11,31,58,.22); } 78% { box-shadow: 0 0 0 4px rgba(14,110,124,.16), 0 14px 34px rgba(11,31,58,.14); } 100% { background: rgba(255,255,255,.92); border-color: rgba(14,110,124,.2); box-shadow: var(--shadow-soft); } }
+@keyframes evidence-fire-highlight { 0%, 65% { background: #ffead7; border-color: #c9591a; box-shadow: 0 0 0 8px rgba(201,89,26,.26), 0 20px 46px rgba(80,38,10,.22); } 78% { box-shadow: 0 0 0 4px rgba(201,89,26,.16), 0 14px 34px rgba(80,38,10,.14); } 100% { background: rgba(255,255,255,.92); border-color: rgba(14,110,124,.2); box-shadow: var(--shadow-soft); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .evidence-anchor--water.is-hash-highlighted, .evidence-anchor--fire.is-hash-highlighted { animation: none; } }
 
 body {
   margin: 0;
@@ -1278,6 +1278,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .journey-card > .material-surface-card__content { display: flex; flex: 1; }
 .thermo-material-grid .application-card { min-height: 210px; justify-content: flex-end; }
 .thermo-material-grid .journey-card { min-height: 300px; }
+.thermo-material-grid .material-surface-card::after { background: linear-gradient(0deg, rgba(248,250,250,.86) 0%, rgba(248,250,250,.68) 32%, rgba(248,250,250,.2) 72%, rgba(248,250,250,.08) 100%), var(--surface-asset) var(--surface-position, center) / cover no-repeat; }
 .wood-protect-card-grid .wood-protect-card,
 .boat-protect-zones article,
 .fire-protect-applications article { min-height: 190px; }
@@ -1564,7 +1565,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .route-application-card h3 { margin: var(--space-3) 0 var(--space-2); color: var(--color-navy); font-size: 1rem; overflow-wrap: normal; hyphens: auto; }
 .route-application-card p { margin: 0; color: var(--color-text-muted); line-height: 1.55; overflow-wrap: normal; hyphens: auto; }
 .system-context-card { justify-content: flex-end; }
-.system-context-card::after { background: linear-gradient(105deg, rgba(248,250,250,.8), rgba(248,250,250,.55)), var(--surface-asset) var(--surface-position, center) / cover no-repeat !important; }
+.system-context-card::after { background: linear-gradient(0deg, rgba(248,250,250,.86) 0%, rgba(248,250,250,.68) 38%, rgba(248,250,250,.24) 78%, rgba(248,250,250,.1) 100%), var(--surface-asset) var(--surface-position, center) / cover no-repeat !important; }
 .system-context-card .material-surface-card__content { width: 100%; }
 .system-route-warning { width: 100%; max-width: none; }
 .system-fire-evidence { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
