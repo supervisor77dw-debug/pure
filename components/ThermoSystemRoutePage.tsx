@@ -135,7 +135,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
             <Link className="btn btn--primary" href={route === 'detail' ? calculatorHref : '#projektbewertung'}>{copy.cta}</Link>
             <Link className="btn btn--secondary" href={evidenceHref}>{locale === 'de' ? 'Technische Nachweise ansehen' : 'View technical evidence'}</Link>
           </div>
-          <div style={{ marginTop: 'var(--space-3)' }}><EvidenceBadge evidenceClass={config.evidence as 'A' | 'B' | 'C' | 'D'} /></div>
+          <div style={{ marginTop: 'var(--space-3)' }}><EvidenceBadge evidenceClass={config.evidence as 'A' | 'B' | 'C' | 'D'} locale={locale} /></div>
         </div>
       </section>
 

@@ -109,7 +109,7 @@ export function PureThermoUValueCalculator({ locale }: { locale: Locale }) {
         <div className="pure-thermo-calculator__layout">
           <div className="pure-thermo-calculator__inputs">
             <div className="pure-thermo-calculator__model-basis">
-              <EvidenceBadge evidenceClass="C" />
+              <EvidenceBadge evidenceClass="C" locale={locale} />
               <span>{labels.basis}</span>
             </div>
             <label className="pure-thermo-calculator__field">

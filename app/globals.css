@@ -2101,23 +2101,6 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   cursor: zoom-in;
   position: relative;
 }
-.asset-figure__zoom-hint {
-  position: absolute;
-  right: var(--space-2);
-  top: var(--space-2);
-  background: var(--color-navy);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  opacity: 0.95;
-  transform: translateY(0);
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-.asset-figure__zoom-hint::before { content: "↗"; margin-right: 0.35rem; font-weight: 700; }
-@media (hover: hover) { .asset-figure__zoom-hint { opacity: 0.78; transform: translateY(-2px); } .asset-figure--zoomable:hover .asset-figure__zoom-hint { opacity: 1; transform: translateY(0); } }
-
 .lightbox {
   position: fixed;
   inset: 0;

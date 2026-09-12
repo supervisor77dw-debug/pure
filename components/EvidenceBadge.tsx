@@ -1,5 +1,8 @@
+'use client';
+
 import type { EvidenceClass } from '@/lib/data';
 import type { Locale } from '@/lib/i18n';
+import { usePathname } from 'next/navigation';
 
 const EVIDENCE_LABELS: Record<Locale, Record<EvidenceClass, string>> = {
   de: {
@@ -25,6 +28,8 @@ export interface EvidenceBadgeProps {
 
 // Evidence must never be communicated by color alone: letter + spelled-out status + optional source.
 export function EvidenceBadge({ evidenceClass, sourceLabel, size = 'md', locale = 'de' }: EvidenceBadgeProps) {
+  const pathname = usePathname();
+  const routeLocale: Locale = pathname?.startsWith('/en/') || pathname === '/en' ? 'en' : locale;
   return (
     <span
       className={`evidence-badge evidence-badge--${evidenceClass}`}
@@ -34,7 +39,7 @@ export function EvidenceBadge({ evidenceClass, sourceLabel, size = 'md', locale 
         <span>{evidenceClass}</span>
       </span>
       <span className="evidence-badge__text">
-        {evidenceClass} · {EVIDENCE_LABELS[locale][evidenceClass]}
+        {evidenceClass} · {EVIDENCE_LABELS[routeLocale][evidenceClass]}
       </span>
       {sourceLabel ? <span className="evidence-badge__source">· {sourceLabel}</span> : null}
     </span>

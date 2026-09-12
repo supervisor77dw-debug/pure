@@ -24,7 +24,12 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
             <ul>
               <li><Link href={isEnglish ? localePath('en', 'products/pure-thermo') : localePath('de', 'produkte/pure-thermo')}>Pure Thermo</Link></li>
               <li><Link href={isEnglish ? localePath('en', 'products/pure-liquid-heat') : localePath('de', 'pure-liquid-heat')}>Pure Liquid Heat</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-floor-protect') : localePath('de', 'produkte/pure-floor-protect')}>Pure Floor Protect</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-fire-protect') : localePath('de', 'produkte/pure-fire-protect')}>Pure Fire Protect</Link></li>
               <li><Link href={isEnglish ? localePath('en', 'products/pure-surface-protect') : localePath('de', 'produkte/pure-surface-protect')}>Pure Surface Protect</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-water-protect') : localePath('de', 'produkte/pure-water-protect')}>Pure Water Protect</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-wood-protect') : localePath('de', 'produkte/pure-wood-protect')}>Pure Wood Protect</Link></li>
+              <li><Link href={isEnglish ? localePath('en', 'products/pure-boat-protect') : localePath('de', 'produkte/pure-boat-protect')}>Pure Boat Protect</Link></li>
             </ul>
           </div>
           <div>

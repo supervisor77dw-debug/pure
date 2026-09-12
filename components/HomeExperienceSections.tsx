@@ -53,9 +53,9 @@ export function HomeCalculatorTeaser({ locale }: { locale: Locale }) {
             </div>
           </div>
           <div className="calculator-teaser__preview" aria-label={de ? 'Beispielhafte Modellrechnung' : 'Example model calculation'}>
-            <EvidenceBadge evidenceClass="C" size="sm" />
+            <EvidenceBadge evidenceClass="C" size="sm" locale={locale} />
             <span>{de ? 'Beispielhafte Modellrechnung' : 'Example model calculation'}</span>
-            <div className="calculator-teaser__numbers"><strong>1,50</strong><b>↓</b><strong>1,05 <small>W/(m²K)</small></strong></div>
+            <div className="calculator-teaser__numbers"><strong>{de ? '1,50' : '1.50'}</strong><b>↓</b><strong>{de ? '1,05' : '1.05'} <small>W/(m²K)</small></strong></div>
             <p>10 mm PURE THERMO</p>
           </div>
         </div>
@@ -107,8 +107,8 @@ export function EvidenceLegendPreview({ locale }: { locale: Locale }) {
     <section className="section section--surface" id={de ? 'evidenz' : 'evidence'}>
       <div className="container">
         <div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{de ? 'Evidenz' : 'Evidence'}</span><h2>{de ? 'Wir unterscheiden Wissen von Annahmen.' : 'We separate evidence from assumptions.'}</h2><p>{de ? 'Technische Aussagen werden als wissenschaftliche Evidenz-Legende geführt, nicht als Marketing-Sammelbegriff.' : 'Technical statements are handled as an evidence legend, not as a generic marketing label.'}</p></div>
-        <div className="evidence-legend">{evidenceLegend.map((item) => <div className="evidence-legend__row" key={item.evidence}><EvidenceBadge evidenceClass={item.evidence} /><span></span><strong>{item.label[locale]}</strong><p>{item.text[locale]}</p></div>)}</div>
-        <div className="evidence-preview"><div className="evidence-preview__heading"><h3>{de ? 'Evidenz-Vorschau' : 'Evidence preview'}</h3><Link href={hubHref}>{de ? 'Alle Prüfungen & Evidenz ansehen' : 'View all testing & evidence'}</Link></div><div className="evidence-preview__grid">{evidencePreview.map((item) => <article key={item.title.en}><EvidenceBadge evidenceClass={item.evidence as 'A' | 'B' | 'C' | 'D'} /><h4>{item.title[locale]}</h4><p><strong>{de ? 'Quelle:' : 'Source:'}</strong> {item.source[locale]}</p><p>{item.statement[locale]}</p><small>{item.limit[locale]}</small>{item.title.en.includes('U-value') ? <Link href={calculatorHref}>{de ? 'Details ansehen' : 'View details'}</Link> : <Link href={hubHref}>{de ? 'Details ansehen' : 'View details'}</Link>}</article>)}</div></div>
+        <div className="evidence-legend">{evidenceLegend.map((item) => <div className="evidence-legend__row" key={item.evidence}><EvidenceBadge evidenceClass={item.evidence} locale={locale} /><span></span><strong>{item.label[locale]}</strong><p>{item.text[locale]}</p></div>)}</div>
+        <div className="evidence-preview"><div className="evidence-preview__heading"><h3>{de ? 'Evidenz-Vorschau' : 'Evidence preview'}</h3><Link href={hubHref}>{de ? 'Alle Prüfungen & Evidenz ansehen' : 'View all testing & evidence'}</Link></div><div className="evidence-preview__grid">{evidencePreview.map((item) => <article key={item.title.en}><EvidenceBadge evidenceClass={item.evidence as 'A' | 'B' | 'C' | 'D'} locale={locale} /><h4>{item.title[locale]}</h4><p><strong>{de ? 'Quelle:' : 'Source:'}</strong> {item.source[locale]}</p><p>{item.statement[locale]}</p><small>{item.limit[locale]}</small>{item.title.en.includes('U-value') ? <Link href={calculatorHref}>{de ? 'Details ansehen' : 'View details'}</Link> : <Link href={hubHref}>{de ? 'Details ansehen' : 'View details'}</Link>}</article>)}</div></div>
       </div>
     </section>
   );
@@ -118,7 +118,7 @@ export function KiwaEvidencePanel({ locale }: { locale: Locale }) {
   const de = locale === 'de';
   const href = localePath(locale, de ? 'nachweise/EVD-PT-THERM-001' : 'evidence/EVD-PT-THERM-001');
   return (
-    <section className="section"><div className="container"><div className="kiwa-panel"><div className="kiwa-panel__value"><EvidenceBadge evidenceClass="A" /><strong>λ = {de ? '0,0335' : '0.0335'} <small>W/(m·K)</small></strong><span>{de ? 'Extern geprüfter Messwert' : 'Externally tested value'}</span></div><div className="kiwa-panel__meta"><h2>{de ? 'Prüfobjekt statt Werbeversprechen.' : 'Test object, not marketing shorthand.'}</h2><dl><div><dt>{de ? 'Institut' : 'Institute'}</dt><dd>Kiwa GmbH / MPA Berlin-Brandenburg</dd></div><div><dt>{de ? 'Norm' : 'Standard'}</dt><dd>DIN EN 12664</dd></div><div><dt>{de ? 'Prüfgegenstand' : 'Test subject'}</dt><dd>THERM 4410</dd></div><div><dt>Status</dt><dd>A · {de ? 'extern geprüft' : 'externally tested'}</dd></div></dl><p>{de ? 'Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.' : 'Formal assignment to the current PURE THERMO version is documented separately.'}</p><Link className="btn btn--primary" href={href}>{de ? 'Prüfgrundlage ansehen' : 'View test evidence'}</Link></div></div></div></section>
+    <section className="section"><div className="container"><div className="kiwa-panel"><div className="kiwa-panel__value"><EvidenceBadge evidenceClass="A" locale={locale} /><strong>λ = {de ? '0,0335' : '0.0335'} <small>W/(m·K)</small></strong><span>{de ? 'Extern geprüfter Messwert' : 'Externally tested value'}</span></div><div className="kiwa-panel__meta"><h2>{de ? 'Prüfobjekt statt Werbeversprechen.' : 'Test object, not marketing shorthand.'}</h2><dl><div><dt>{de ? 'Institut' : 'Institute'}</dt><dd>Kiwa GmbH / MPA Berlin-Brandenburg</dd></div><div><dt>{de ? 'Norm' : 'Standard'}</dt><dd>DIN EN 12664</dd></div><div><dt>{de ? 'Prüfgegenstand' : 'Test subject'}</dt><dd>THERM 4410</dd></div><div><dt>Status</dt><dd>A · {de ? 'extern geprüft' : 'externally tested'}</dd></div></dl><p>{de ? 'Die formale Dokumentation der Zuordnung zur aktuellen PURE-Thermo-Version wird separat geführt.' : 'Formal assignment to the current PURE THERMO version is documented separately.'}</p><Link className="btn btn--primary" href={href}>{de ? 'Prüfgrundlage ansehen' : 'View test evidence'}</Link></div></div></div></section>
   );
 }
 
