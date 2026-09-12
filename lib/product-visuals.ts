@@ -35,6 +35,22 @@ export const productVisuals = {
     publicBuildings: {
       de: 'Sauberer Boden für starke Räume.png',
       en: 'Hochglanzboden im modernen Schulflur.png'
+    },
+    fitness: {
+      de: 'Vorher-Nachher Geschützter Fitnessboden.png',
+      en: 'Vorher-Nachher Fitnessboden im Vergleich.png'
+    },
+    municipal: {
+      de: 'Vorher-Nachher Saubere kommunale Böden.png',
+      en: 'Vorher-nachher Sauberer Lobbyboden.png'
+    },
+    commercial: {
+      de: 'Vorher–Nachher Industrielle Böden im Vergleich.png',
+      en: 'Vorher-Nachher Industrieller Bodenschutz.png'
+    },
+    lightIndustrial: {
+      de: 'Vorher-Nachher Robuster Werkstattboden.png',
+      en: 'Vorher-nachher Industrieller Boden im Vergleich.png'
     }
   },
   liquidHeat: {

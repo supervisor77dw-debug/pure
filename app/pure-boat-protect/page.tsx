@@ -12,6 +12,9 @@ import { SurfaceCard } from "@/components/SurfaceCard";
 const boatExposureSurfaces = ["salt", "uv", "abrasion", "organic"] as const;
 const boatZoneSurfaces = ["teak", "polymer", "leather", "metal", "traffic", "finish"] as const;
 const boatCompatibilitySurfaces = ["teak", "joint", "polymer", "leather", "metal", "finish"] as const;
+const boatExposureAssets = ["Nasse Bootswand mit Tau und Wassertropfen.png", undefined, undefined, undefined] as const;
+const boatZoneAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", "Abstrakte Graphitstruktur mit sanften Rillen.png", undefined, undefined, undefined, undefined] as const;
+const boatCompatibilityAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", undefined, "Abstrakte Graphitstruktur mit sanften Rillen.png", undefined, undefined, undefined] as const;
 
 export const metadata: Metadata = {
   title: "PURE Boat Protect | Premium Yacht Surface Protection | PURE",
@@ -78,7 +81,7 @@ export default function PureBoatProtectPage() {
           />
           <div className="surface-protect-four-grid">
             {t.challenge.map((x, index) => (
-              <SurfaceCard className="surface-protect-card" surface={boatExposureSurfaces[index]} key={x}>
+              <SurfaceCard className="surface-protect-card" surface={boatExposureSurfaces[index]} backgroundAsset={boatExposureAssets[index]} key={x}>
                 <h3>{x}</h3>
               </SurfaceCard>
             ))}
@@ -106,7 +109,7 @@ export default function PureBoatProtectPage() {
           <H eyebrow="YACHT ZONES" title={t.zonesTitle} />
           <div className="boat-protect-zones">
             {t.zones.map(([title, copy], index) => (
-              <SurfaceCard surface={boatZoneSurfaces[index]} key={title}>
+              <SurfaceCard surface={boatZoneSurfaces[index]} backgroundAsset={boatZoneAssets[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
               </SurfaceCard>
@@ -119,7 +122,7 @@ export default function PureBoatProtectPage() {
           <H eyebrow={t.compatEyebrow} title={t.compatTitle} />
           <div className="boat-protect-compat">
             {t.compat.map(([title, copy], index) => (
-              <SurfaceCard surface={boatCompatibilitySurfaces[index]} key={title}>
+              <SurfaceCard surface={boatCompatibilitySurfaces[index]} backgroundAsset={boatCompatibilityAssets[index]} key={title}>
                 <h3>{title}</h3>
                 <p>{copy}</p>
               </SurfaceCard>
