@@ -19,7 +19,8 @@ export default function HomePage() {
         subtitle="Dünne, applizierbare Materialsysteme für thermische Isolation, elektrische Wärme, Brand- und Oberflächenschutz – entwickelt für Anwendungen, bei denen konventionelle Systeme konstruktiv an ihre Grenzen stoßen."
         primaryCta={{ label: 'Technologie entdecken', href: '#why-pure' }}
         secondaryCta={{ label: 'Pure Thermo ansehen', href: '/produkte/pure-thermo' }}
-        backgroundImage={{ file: 'Hero2.png', alt: 'Person appliziert eine funktionale Beschichtung auf eine Gebäudefassade' }}
+        backgroundImage={{ file: 'transluzente_materialschichten_im_teal_licht.png', alt: 'Transluzente funktionale Materialschichten über einem dunklen mineralischen Substrat' }}
+        className="hero--home"
       />
 
       <section className="trust-bar">

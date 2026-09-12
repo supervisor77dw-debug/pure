@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { assetSrc } from '@/lib/assets';
 
@@ -9,14 +10,14 @@ export interface HeroProps {
   secondaryCta?: { label: string; href: string };
   metaItems?: string[];
   backgroundImage?: { file: string; alt: string };
+  className?: string;
 }
 
-export function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, metaItems, backgroundImage }: HeroProps) {
+export function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, metaItems, backgroundImage, className = '' }: HeroProps) {
   return (
-    <section className={`hero${backgroundImage ? ' hero--photo' : ''}`}>
+    <section className={`hero${backgroundImage ? ' hero--photo' : ''}${className ? ` ${className}` : ''}`}>
       {backgroundImage ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={assetSrc(backgroundImage.file)} alt={backgroundImage.alt} className="hero--photo__bg" />
+        <Image src={assetSrc(backgroundImage.file)} alt={backgroundImage.alt} className="hero--photo__bg" fill priority fetchPriority="high" sizes="100vw" />
       ) : null}
       <div className="container">
         {eyebrow ? <p className="hero__eyebrow hero__reveal hero__reveal--1">{eyebrow}</p> : null}
