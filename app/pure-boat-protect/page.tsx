@@ -12,9 +12,9 @@ import { SurfaceCard } from "@/components/SurfaceCard";
 const boatExposureSurfaces = ["salt", "uv", "abrasion", "organic"] as const;
 const boatZoneSurfaces = ["teak", "polymer", "leather", "metal", "traffic", "finish"] as const;
 const boatCompatibilitySurfaces = ["teak", "joint", "polymer", "leather", "metal", "finish"] as const;
-const boatExposureAssets = ["Nasse Bootswand mit Tau und Wassertropfen.png", undefined, undefined, undefined] as const;
-const boatZoneAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", "Abstrakte Graphitstruktur mit sanften Rillen.png", undefined, undefined, undefined, undefined] as const;
-const boatCompatibilityAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", undefined, "Abstrakte Graphitstruktur mit sanften Rillen.png", undefined, undefined, undefined] as const;
+const boatExposureAssets = ["Nasse Bootswand mit Tau und Wassertropfen.png", "Sonnenfunkeln auf der Luxusyacht.png", "Abgenutztes Yachtdeck im Sonnenlicht.png", "Bewachsener Yacht-Rumpf am Wasserline.png"] as const;
+const boatZoneAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", "Abstrakte Graphitstruktur mit sanften Rillen.png", undefined, "Polierter Edelstahlbeschlag im Sonnenuntergang.png", undefined, undefined] as const;
+const boatCompatibilityAssets = ["Premium Teak-Yachtdeck mit dunklen Fugen.png", "Makellose Yachtdeck-Details im Sonnenlicht.png", "Abstrakte Graphitstruktur mit sanften Rillen.png", "Luxuriöses Marineleder im Sonnenlicht.png", "Polierter Edelstahlbeschlag im Sonnenuntergang.png", "Glänzende Yacht mit Chromzierleiste.png"] as const;
 
 export const metadata: Metadata = {
   title: "PURE Boat Protect | Premium Yacht Surface Protection | PURE",
