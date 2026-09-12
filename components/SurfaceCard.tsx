@@ -18,7 +18,7 @@ export function SurfaceCard({ children, className = '', surface, backgroundAsset
     : undefined;
 
   return (
-    <article className={`material-surface-card ${className}`.trim()} data-surface={surface} style={style}>
+    <article className={`material-surface-card ${className}`.trim()} data-surface={surface} data-has-surface-asset={backgroundAsset ? 'true' : undefined} style={style}>
       <div className="material-surface-card__content">{children}</div>
     </article>
   );
