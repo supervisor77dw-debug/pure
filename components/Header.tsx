@@ -26,15 +26,15 @@ const systemItems = {
 const evidenceItems = {
   de: [
     ['Wärmeleitfähigkeit', 'Extern geprüfter THERM 4410 Prüfwert', 'nachweise/EVD-PT-THERM-001'],
-    ['Wasserdampfdiffusion', 'V, sd und abgeleiteter μ-Wert', 'nachweise#wasserdampfdiffusion'],
-    ['Brandverhalten', 'Einzelprüfung und Kombinationsroute getrennt', 'nachweise#brandverhalten'],
+    ['Wasserdampfdiffusion', 'V, sd und abgeleiteter μ-Wert', 'nachweise#water-vapor-diffusion'],
+    ['Brandverhalten', 'Einzelprüfung und Kombinationsroute getrennt', 'nachweise#fire-behavior'],
     ['Berechnungen & Modelle', 'U-Wert-Modellrechnung mit Grenzen', 'produkte/pure-thermo#u-wert-rechner'],
     ['Prüf- und Entwicklungsstatus', 'A-D-System im Überblick', 'nachweise#pruef-und-entwicklungsstatus']
   ],
   en: [
     ['Thermal conductivity', 'Externally tested THERM 4410 value', 'evidence/EVD-PT-THERM-001'],
-    ['Water vapour diffusion', 'V, sd and derived μ value', 'evidence#water-vapour-diffusion'],
-    ['Fire behaviour', 'Individual tests and combination route separated', 'evidence#fire-behaviour'],
+    ['Water vapour diffusion', 'V, sd and derived μ value', 'evidence#water-vapor-diffusion'],
+    ['Fire behaviour', 'Individual tests and combination route separated', 'evidence#fire-behavior'],
     ['Calculations & models', 'U-value model calculation with limits', 'products/pure-thermo#u-wert-rechner'],
     ['Testing & development status', 'A-D system overview', 'evidence#testing-and-development-status']
   ]

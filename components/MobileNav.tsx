@@ -65,7 +65,7 @@ export function MobileNav({ products, open, locale = 'de', onClose }: MobileNavP
         </div>
         <div className="mobile-nav__group">
           <button className="mobile-nav__group-button" type="button" aria-expanded={expanded === 'evidence'} aria-controls="mobile-nav-evidence" onClick={() => toggle('evidence')}>{ui[locale].evidence}<span aria-hidden="true">⌄</span></button>
-          {expanded === 'evidence' ? <div className="mobile-nav__panel" id="mobile-nav-evidence">{link(localePath(locale, de ? 'nachweise' : 'evidence'), de ? 'Prüfungen & Evidenz' : 'Testing & Evidence')}{link(localePath(locale, de ? 'nachweise/EVD-PT-THERM-001' : 'evidence/EVD-PT-THERM-001'), de ? 'Wärmeleitfähigkeit' : 'Thermal conductivity')}{link(localePath(locale, de ? 'produkte/pure-thermo#u-wert-rechner' : 'products/pure-thermo#u-wert-rechner'), de ? 'Berechnungen & Modelle' : 'Calculations & models')}</div> : null}
+          {expanded === 'evidence' ? <div className="mobile-nav__panel" id="mobile-nav-evidence">{link(localePath(locale, de ? 'nachweise' : 'evidence'), de ? 'Prüfungen & Evidenz' : 'Testing & Evidence')}{link(localePath(locale, de ? 'nachweise/EVD-PT-THERM-001' : 'evidence/EVD-PT-THERM-001'), de ? 'Wärmeleitfähigkeit' : 'Thermal conductivity')}{link(localePath(locale, de ? 'nachweise#water-vapor-diffusion' : 'evidence#water-vapor-diffusion'), de ? 'Wasserdampfdiffusion' : 'Water vapour diffusion')}{link(localePath(locale, de ? 'nachweise#fire-behavior' : 'evidence#fire-behavior'), de ? 'Brandverhalten' : 'Fire behaviour')}{link(localePath(locale, de ? 'produkte/pure-thermo#u-wert-rechner' : 'products/pure-thermo#u-wert-rechner'), de ? 'Berechnungen & Modelle' : 'Calculations & models')}</div> : null}
         </div>
       </div>
     </aside>

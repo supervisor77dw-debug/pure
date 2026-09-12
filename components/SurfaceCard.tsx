@@ -6,15 +6,17 @@ type SurfaceCardProps = {
   className?: string;
   surface: string;
   backgroundAsset?: string;
+  backgroundPosition?: string;
 };
 
 type SurfaceCardStyle = CSSProperties & {
   '--surface-asset'?: string;
+  '--surface-position'?: string;
 };
 
-export function SurfaceCard({ children, className = '', surface, backgroundAsset }: SurfaceCardProps) {
+export function SurfaceCard({ children, className = '', surface, backgroundAsset, backgroundPosition }: SurfaceCardProps) {
   const style: SurfaceCardStyle | undefined = backgroundAsset
-    ? { '--surface-asset': `url("${assetSrc(backgroundAsset)}")` }
+    ? { '--surface-asset': `url("${assetSrc(backgroundAsset)}")`, '--surface-position': backgroundPosition }
     : undefined;
 
   return (

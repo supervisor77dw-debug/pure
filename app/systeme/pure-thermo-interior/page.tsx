@@ -29,6 +29,8 @@ const STATUS_LABELS: Record<string, string> = {
   public_with_limitation: 'öffentlich mit Einschränkung'
 };
 
+const APPLICATION_ASSETS = ['Warmes Chalet-Wohnzimmer mit Bergblick.png', 'Heller, aufgeräumter Kellerraum.png', 'Detaillierter Fensteranschluss mit Dämmfassade.png'] as const;
+
 export default function PureThermoInteriorPage() {
   const system = getSystemById('SYS-PT-INT-001');
   if (!system) return null;
@@ -77,11 +79,11 @@ export default function PureThermoInteriorPage() {
         </div>
       </section>
 
-      <div className="warning-panel container" role="note" style={{ marginTop: 'var(--space-5)' }}>
+      <div className="container"><div className="warning-panel system-route-warning" role="note" style={{ marginTop: 'var(--space-5)' }}>
         <span className="warning-panel__label">Wichtiger Reifegradhinweis</span>
         Diese Seite beschreibt eine Systemdefinition und ein laufendes Prüfprogramm — keine abgeschlossene
         bauaufsichtliche Zulassung.
-      </div>
+      </div></div>
 
       <section className="section">
         <div className="container">
@@ -108,8 +110,8 @@ export default function PureThermoInteriorPage() {
             <div>
               <h3>Vorgesehene Anwendungen</h3>
               <div className="card-grid card-grid--3">
-                {applications.map((app) => (
-                  <ApplicationCard key={app.id} application={app} />
+                {applications.map((app, index) => (
+                  <ApplicationCard key={app.id} application={app} backgroundAsset={APPLICATION_ASSETS[index]} />
                 ))}
               </div>
             </div>

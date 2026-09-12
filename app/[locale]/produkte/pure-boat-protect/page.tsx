@@ -20,7 +20,7 @@ const exposureSurfaces = ['salt', 'uv', 'abrasion', 'organic'] as const;
 const zoneSurfaces = ['teak', 'polymer', 'leather', 'metal', 'traffic', 'finish'] as const;
 const compatibilitySurfaces = ['teak', 'joint', 'polymer', 'leather', 'metal', 'finish'] as const;
 const exposureAssets = ['Nasse Bootswand mit Tau und Wassertropfen.png', 'Sonnenfunkeln auf der Luxusyacht.png', 'Abgenutztes Yachtdeck im Sonnenlicht.png', 'Bewachsener Yacht-Rumpf am Wasserline.png'] as const;
-const zoneAssets = ['Premium Teak-Yachtdeck mit dunklen Fugen.png', 'Abstrakte Graphitstruktur mit sanften Rillen.png', 'Leder Yacht.png', 'Polierter Edelstahlbeschlag im Sonnenuntergang.png', 'Charterflotte.png', 'Luxusyacht.png'] as const;
+const zoneAssets = ['Premium Teak-Yachtdeck mit dunklen Fugen.png', 'Nasse Bootswand mit Tau und Wassertropfen.png', 'Leder Yacht.png', 'Polierter Edelstahlbeschlag im Sonnenuntergang.png', 'Charterflotte.png', 'Luxusyacht.png'] as const;
 const compatibilityAssets = ['Premium Teak-Yachtdeck mit dunklen Fugen.png', 'Makellose Yachtdeck-Details im Sonnenlicht.png', 'Abstrakte Graphitstruktur mit sanften Rillen.png', 'Leder Yacht.png', 'Polierter Edelstahlbeschlag im Sonnenuntergang.png', 'Glänzende Yacht mit Chromzierleiste.png'] as const;
 
 export default function GermanBoatProtectPage({ params }: { params: { locale: string } }) {

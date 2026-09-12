@@ -6,6 +6,7 @@ import { TechnicalVisual } from './TechnicalVisual';
 import { Breadcrumb } from './Breadcrumb';
 import { EvidenceBadge } from './EvidenceBadge';
 import { SystemLayerStack } from './SystemLayerStack';
+import { SurfaceCard } from './SurfaceCard';
 
 const routeContent = {
   detail: {
@@ -117,6 +118,25 @@ const routeContent = {
 type RouteKey = keyof typeof routeContent;
 type VisualKey = keyof typeof import('@/lib/thermo-system-visuals').thermoSystemVisuals;
 
+const routeApplicationVisuals: Partial<Record<RouteKey, ReadonlyArray<{ asset: string; position: string }>>> = {
+  detail: [
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: 'center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '70% center' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center top' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'left center' },
+    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'right center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '30% center' },
+    { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' }
+  ],
+  exterior: [
+    { asset: 'Moderne Fassade mit Seeblick.png', position: 'center' },
+    { asset: 'Verwitterte Steinfassade im Sonnenlicht.png', position: 'center' },
+    { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '35% center' },
+    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '75% center' }
+  ]
+};
+
 export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route: RouteKey }) {
   const config = routeContent[route];
   const copy = config[locale];
@@ -143,7 +163,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
 
       <section className="section section--surface"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Systemaufbau' : 'System build-up'}</span><h2>{locale === 'de' ? 'Vom Untergrund zum definierten Aufbau.' : 'From substrate to defined build-up.'}</h2></div><SystemLayerStack layers={copy.build} locale={locale} label={copy.name} /></div></section>
 
-      <section className="section"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Anwendungen' : 'Applications'}</span><h2>{locale === 'de' ? 'Typische Einsatzfelder.' : 'Typical application fields.'}</h2></div><div className="route-application-grid">{copy.applications.map((item, index) => <article className="route-application-card" key={item}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3><p>{copy.applicationCopy[index]}</p></article>)}</div></div></section>
+      <section className="section"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{locale === 'de' ? 'Anwendungen' : 'Applications'}</span><h2>{locale === 'de' ? 'Typische Einsatzfelder.' : 'Typical application fields.'}</h2></div><div className="route-application-grid">{copy.applications.map((item, index) => { const visual = routeApplicationVisuals[route]?.[index]; return visual ? <SurfaceCard className="route-application-card system-context-card" surface={`system-${route}`} backgroundAsset={visual.asset} backgroundPosition={visual.position} key={item}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3><p>{copy.applicationCopy[index]}</p></SurfaceCard> : <article className="route-application-card" key={item}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3><p>{copy.applicationCopy[index]}</p></article>; })}</div></div></section>
 
       <section className="section section--surface"><div className="container"><div className="split-section"><div className="split-section__text"><span className="section-heading__eyebrow">{locale === 'de' ? 'Technische Bewertung' : 'Technical assessment'}</span><h2>{locale === 'de' ? 'Die Leistung entsteht im geprüften Systemkontext.' : 'Performance is created in the assessed system context.'}</h2><ul className="check-list">{copy.technical.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="warning-panel" role="note"><span className="warning-panel__label">{locale === 'de' ? 'Offene Prüfungen / Grenzen' : 'Open tests / limits'}</span><ul>{copy.open.map((item) => <li key={item}>{item}</li>)}</ul></div></div></div></section>
 
