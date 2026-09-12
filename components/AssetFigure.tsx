@@ -5,13 +5,14 @@ export interface AssetFigureProps {
   alt: string;
   caption?: string;
   priority?: boolean;
+  objectPosition?: string;
   variant?: 'default' | 'plain';
   status?: 'INTERNAL PROTOTYPE' | 'DEVELOPMENT CONCEPT' | 'BRANDING CONCEPT';
 }
 
 // Consistent frame (radius/shadow/background) for all presentation-deck graphics reused on the site.
 // Aspect ratio is never forced — width:100%/height:auto keeps the original proportions intact.
-export function AssetFigure({ file, alt, caption, priority = false, variant = 'default', status }: AssetFigureProps) {
+export function AssetFigure({ file, alt, caption, priority = false, objectPosition, variant = 'default', status }: AssetFigureProps) {
   return (
     <figure className={`asset-figure${variant === 'plain' ? ' asset-figure--plain' : ''}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -20,6 +21,7 @@ export function AssetFigure({ file, alt, caption, priority = false, variant = 'd
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         className="asset-figure__img"
+        style={objectPosition ? { objectPosition } : undefined}
       />
       {status ? <span className="asset-figure__status">{status}</span> : null}
       {caption ? <figcaption className="asset-figure__caption">{caption}</figcaption> : null}
