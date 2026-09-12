@@ -122,17 +122,17 @@ const routeApplicationVisuals: Partial<Record<RouteKey, ReadonlyArray<{ asset: s
   detail: [
     { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '34% center' },
     { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '70% top' },
-    { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center top' },
+    { asset: 'Kühler Keller, warmes Raumklima.png', position: 'center top' },
     { asset: 'Heller, aufgeräumter Kellerraum.png', position: '18% center' },
     { asset: 'Heller, aufgeräumter Kellerraum.png', position: '82% center' },
     { asset: 'Heller, aufgeräumter Kellerraum.png', position: 'center bottom' },
     { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: 'center' }
   ],
   exterior: [
-    { asset: 'Moderne Fassade mit Seeblick.png', position: '48% center' },
+    { asset: 'Moderne Fassade im Abendlicht.png', position: '48% center' },
     { asset: 'Verwitterte Steinfassade im Sonnenlicht.png', position: '30% center' },
     { asset: 'Ornate Pariser Jugendstilfassade im Sonnenlicht.png', position: '55% center' },
-    { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '28% center' },
+    { asset: 'Moderne Fassade mit Seeblick.png', position: '62% center' },
     { asset: 'Detaillierter Fensteranschluss mit Dämmfassade.png', position: '78% center' }
   ]
 };
