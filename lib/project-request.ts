@@ -12,6 +12,18 @@ export type ProjectRequestPayload = {
   website?: string;
 };
 
+export function isProjectRequestPayload(payload: unknown): payload is ProjectRequestPayload {
+  if (!payload || typeof payload !== 'object') return false;
+  const value = payload as Record<string, unknown>;
+  const optionalStrings = ['company', 'phone', 'product', 'projectType', 'location', 'website'];
+  return typeof value.name === 'string'
+    && typeof value.email === 'string'
+    && typeof value.message === 'string'
+    && typeof value.callbackRequested === 'boolean'
+    && typeof value.privacyAccepted === 'boolean'
+    && optionalStrings.every((key) => value[key] === undefined || typeof value[key] === 'string');
+}
+
 export function validateProjectRequest(payload: Partial<ProjectRequestPayload>) {
   const errors: Record<string, string> = {};
   if (!payload.name?.trim()) errors.name = 'Name is required.';

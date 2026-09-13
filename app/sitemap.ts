@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const baseUrl = 'https://pure-virid.vercel.app';
+import { siteConfig } from '@/lib/site-config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -26,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { de: '/de/datenschutz', en: '/en/privacy' }
   ];
   return routes.flatMap((route) => [
-    { url: `${baseUrl}${route.de}`, alternates: { languages: { de: `${baseUrl}${route.de}`, en: `${baseUrl}${route.en}` } } },
-    { url: `${baseUrl}${route.en}`, alternates: { languages: { de: `${baseUrl}${route.de}`, en: `${baseUrl}${route.en}` } } }
+    { url: `${siteConfig.url}${route.de}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}` } } },
+    { url: `${siteConfig.url}${route.en}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}` } } }
   ]);
 }

@@ -7,9 +7,11 @@ import { getAllProducts } from '@/lib/data';
 import { headers } from 'next/headers';
 import { isLocale, ui } from '@/lib/i18n';
 import { surfaceReferenceFlags } from '@/lib/surface-reference-flags';
+import { legalCompany } from '@/lib/legal-company';
+import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pure-virid.vercel.app'),
+  metadataBase: new URL(siteConfig.url),
   title: 'PURE Technology Platform',
   description:
     'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.',
@@ -23,8 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Organization', '@id': 'https://pure-virid.vercel.app/#organization', name: 'PURE Technology Platform', url: 'https://pure-virid.vercel.app' },
-      { '@type': 'WebSite', '@id': 'https://pure-virid.vercel.app/#website', url: 'https://pure-virid.vercel.app', name: 'PURE Technology Platform', publisher: { '@id': 'https://pure-virid.vercel.app/#organization' }, inLanguage: ['de', 'en'] }
+      { '@type': 'Organization', '@id': `${siteConfig.url}/#organization`, name: legalCompany.operator.companyName, url: siteConfig.url },
+      { '@type': 'WebSite', '@id': `${siteConfig.url}/#website`, url: siteConfig.url, name: siteConfig.name, publisher: { '@id': `${siteConfig.url}/#organization` }, inLanguage: ['de', 'en'] }
     ]
   };
   return (
