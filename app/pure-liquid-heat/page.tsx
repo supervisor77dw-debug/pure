@@ -165,7 +165,7 @@ export default function PureLiquidHeatPage() {
           />
           <p className="liquid-heat-gallery-label">{content.galleryLabel}</p>
           <div className="liquid-heat-gallery">
-            <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt={locale === 'de' ? 'Internes freistehendes PURE-LIQUID-HEAT-Prototypenpanel' : 'Internal PURE LIQUID HEAT freestanding prototype panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
+            <AssetFigure file="Prototyp Heizung.png" alt={locale === 'de' ? 'Internes freistehendes PURE-LIQUID-HEAT-Prototypenpanel' : 'Internal PURE LIQUID HEAT freestanding prototype panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
             <AssetFigure file="LH_REAL_Freestanding_Panel_Side_01.jpg" alt={locale === 'de' ? 'Seitenansicht eines internen PURE-LIQUID-HEAT-Prototypenpanels' : 'Side view of an internal PURE LIQUID HEAT freestanding prototype panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[1]} />
             <AssetFigure file="LH_REAL_LED_Design_Panel_01.jpg" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Designpanel mit LED- und Perforationsfläche' : 'Internal PURE LIQUID HEAT LED and perforated design panel'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[2]} />
           </div>
@@ -197,7 +197,7 @@ export default function PureLiquidHeatPage() {
               <ApplicationWorld application={content.applications[1]} />
             </article>
             <article className="liquid-heat-application-feature">
-              <AssetFigure file="LH_REAL_Freestanding_Panel_01.jpg" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Prototypenpanel für Modulintegration' : 'Internal PURE LIQUID HEAT prototype panel for module integration'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
+              <AssetFigure file="Prototyp Heizung.png" alt={locale === 'de' ? 'Internes PURE-LIQUID-HEAT-Prototypenpanel für Modulintegration' : 'Internal PURE LIQUID HEAT prototype panel for module integration'} status="INTERNAL PROTOTYPE" caption={content.galleryCaptions[0]} />
               <ApplicationWorld application={content.applications[2]} />
             </article>
           </div>
@@ -208,7 +208,7 @@ export default function PureLiquidHeatPage() {
             <span className="concept-label">{content.concept}</span>
             <h3>{content.heatedSeating}</h3>
             <p>{content.heatedSeatingCopy}</p>
-            <AssetFigure file="LH_CONCEPT_Heated_Bench_2Seat_System_01.jpg" alt={locale === 'de' ? 'Entwicklungskonzept für beheizte PURE-LIQUID-HEAT-Sitzmöbel' : 'PURE LIQUID HEAT heated seating development concept'} status="DEVELOPMENT CONCEPT" caption={content.heatedSeatingCaption} />
+            <AssetFigure file="Prototyp Bank.png" alt={locale === 'de' ? 'Entwicklungskonzept für beheizte PURE-LIQUID-HEAT-Sitzmöbel' : 'PURE LIQUID HEAT heated seating development concept'} status="DEVELOPMENT CONCEPT" caption={content.heatedSeatingCaption} />
           </div>
           <div className="liquid-heat-prism">
             <div>
