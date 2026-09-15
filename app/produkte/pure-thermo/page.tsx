@@ -24,6 +24,7 @@ import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalcula
 import { ThermoParityHero } from '@/components/ProductParityHero';
 import { SurfaceCard } from '@/components/SurfaceCard';
 import { PureThermoEvidenceEnrichment } from '@/components/PureThermoEvidenceEnrichment';
+import { ApplicationVideoSection } from '@/components/VideoSections';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -120,6 +121,8 @@ export default function PureThermoPage() {
           </div>
         </div>
       </section>
+
+      <ApplicationVideoSection locale={locale} kind="thermo" />
 
       <section className="section section--surface">
         <div className="container">

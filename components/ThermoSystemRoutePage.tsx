@@ -7,6 +7,7 @@ import { Breadcrumb } from './Breadcrumb';
 import { EvidenceBadge } from './EvidenceBadge';
 import { SystemLayerStack } from './SystemLayerStack';
 import { SurfaceCard } from './SurfaceCard';
+import { ThermoFireDevelopmentVideoSection } from './VideoSections';
 
 const routeContent = {
   detail: {
@@ -168,6 +169,8 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
       <section className="section section--surface"><div className="container"><div className="split-section"><div className="split-section__text"><span className="section-heading__eyebrow">{locale === 'de' ? 'Technische Bewertung' : 'Technical assessment'}</span><h2>{locale === 'de' ? 'Die Leistung entsteht im geprüften Systemkontext.' : 'Performance is created in the assessed system context.'}</h2><ul className="check-list">{copy.technical.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="warning-panel" role="note"><span className="warning-panel__label">{locale === 'de' ? 'Offene Prüfungen / Grenzen' : 'Open tests / limits'}</span><ul>{copy.open.map((item) => <li key={item}>{item}</li>)}</ul></div></div></div></section>
 
       {route === 'fire' ? <section className="section"><div className="container"><div className="system-fire-evidence"><article><span className="section-heading__eyebrow">{locale === 'de' ? 'VERFÜGBARE EINZELNACHWEISE' : 'AVAILABLE INDIVIDUAL EVIDENCE'}</span><h2>{locale === 'de' ? 'Einzelprüfungen bleiben Einzelprüfungen.' : 'Individual tests remain individual tests.'}</h2><ul><li>PURE THERMO · {locale === 'de' ? 'externe Einzelprüfung' : 'individual external test'}</li><li>PURE FIRE · {locale === 'de' ? 'separate SBI-Einzelprüfung' : 'separate SBI individual test'}</li><li>{locale === 'de' ? 'Die getrennten Prüfungen der Komponenten ergeben keine Kombinationsklasse.' : 'The separate component tests do not result in a classification for the combination.'}</li></ul></article><article className="system-fire-evidence__pending"><span className="section-heading__eyebrow">{locale === 'de' ? 'KOMBINIERTE SYSTEMVALIDIERUNG' : 'COMBINED SYSTEM VALIDATION'}</span><EvidenceBadge evidenceClass="D" locale={locale} /><h2>{locale === 'de' ? 'Prüfpfad, nicht Klassifizierung.' : 'Validation pathway, not classification.'}</h2><div className="validation-path">{['Specimen', 'EN ISO 11925-2', 'EN 13823 / SBI', 'EN 13501-1'].map((step, index) => <div key={step}><span>0{index + 1}</span><strong>{locale === 'de' ? ['Muster', 'EN ISO 11925-2', 'EN 13823 / SBI', 'EN 13501-1'][index] : step}</strong></div>)}</div><p>{locale === 'de' ? 'Der letzte Schritt bleibt offen, bis der vollständige Kombinationsaufbau geprüft und klassifiziert wurde.' : 'The final step remains open until the complete combination build-up has been tested and classified.'}</p></article></div></div></section> : null}
+
+      {route === 'fire' ? <ThermoFireDevelopmentVideoSection locale={locale} /> : null}
 
       {'secondaryVisual' in config ? <section className="section"><div className="container"><TechnicalVisual locale={locale} visual={config.secondaryVisual as VisualKey} altDe={copy.name} altEn={copy.name} captionDe={copy.caption} captionEn={copy.caption} zoomable /></div></section> : null}
 

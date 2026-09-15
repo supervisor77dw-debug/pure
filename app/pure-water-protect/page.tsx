@@ -9,6 +9,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { AssetFigure } from "@/components/AssetFigure";
 import { PhotoParityHero } from "@/components/ProductParityHero";
 import { SurfaceCard } from "@/components/SurfaceCard";
+import { ApplicationVideoSection } from "@/components/VideoSections";
 
 const waterChallengeAssets = [
   "Unterwasserblick auf einen bewachsenen Bootsrumpf.png",
@@ -155,6 +156,7 @@ export default function PureWaterProtectPage() {
           />
         </div>
       </section>
+      <ApplicationVideoSection locale={locale} kind="water" />
       <section className="section">
         <div className="container">
           <Heading eyebrow={t.environmentEyebrow} title={t.environmentTitle} />

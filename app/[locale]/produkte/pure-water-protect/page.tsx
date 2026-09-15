@@ -4,6 +4,7 @@ import { AssetFigure } from '@/components/AssetFigure';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { PhotoParityHero } from '@/components/ProductParityHero';
 import { SurfaceCard } from '@/components/SurfaceCard';
+import { ApplicationVideoSection } from '@/components/VideoSections';
 import { getWaterProtectContent } from '@/lib/water-protect-content';
 import styles from './page.module.css';
 
@@ -43,6 +44,8 @@ export default function GermanWaterProtectPage({ params }: { params: { locale: s
     <section className="section" id="season"><div className="container"><Heading eyebrow={t.seasonEyebrow} title={t.seasonTitle} /><div className={styles.validationFlow}>{t.season.map(([title, copy], index) => <article className={styles.validationStep} key={title}><span className={styles.validationIndex}>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div><div className="water-protect-statement">{t.seasonStatement}</div></div></section>
 
     <section className="section section--surface"><div className="container"><Heading eyebrow="ANWENDUNGSLOGIK" title={t.applicationsTitle} /><div className="water-protect-application-list">{t.applications.map((item) => <span key={item}>{item}</span>)}</div><AssetFigure file="02_water_problem_hull.jpeg" alt="Illustratives Unterwasser-Kommunikationsvisual einer definierten Marineoberfläche" caption="Illustratives Problemvisual – keine dokumentierte Referenz und keine Antifouling-Erfolgssimulation." /></div></section>
+
+    <ApplicationVideoSection locale="de" kind="water" />
 
     <section className="section"><div className="container"><Heading eyebrow={t.environmentEyebrow} title={t.environmentTitle} /><div className="fire-protect-columns"><article><h3>BIOZIDFREIE EASY-TO-CLEAN-POSITIONIERUNG</h3><ul>{t.environment.map((item) => <li key={item}>{item}</li>)}</ul></article><article><h3>OFFENE NACHWEISFELDER</h3><ul>{t.open.map((item) => <li key={item}>{item}</li>)}</ul></article></div></div></section>
 
