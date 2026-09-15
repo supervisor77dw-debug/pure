@@ -23,6 +23,7 @@ import { isLocale } from '@/lib/i18n';
 import { PureThermoUValueCalculator } from '@/components/PureThermoUValueCalculator';
 import { ThermoParityHero } from '@/components/ProductParityHero';
 import { SurfaceCard } from '@/components/SurfaceCard';
+import { PureThermoEvidenceEnrichment } from '@/components/PureThermoEvidenceEnrichment';
 
 export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
 
@@ -293,6 +294,8 @@ export default function PureThermoPage() {
           <PureThermoUValueCalculator locale={locale} />
         </div>
       </section>
+
+      <PureThermoEvidenceEnrichment locale={locale} />
 
       <section className="section">
         <div className="container">

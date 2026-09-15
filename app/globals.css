@@ -1592,6 +1592,15 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   Evidence Hub cards
   ========================================================================== */
 
+.thermo-gfrp-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 760px) { .thermo-gfrp-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.thermo-gfrp-grid article { min-width: 0; padding: var(--space-4); border: 1px solid var(--color-border); border-left: 4px solid var(--color-evidence-b); border-radius: var(--radius-md); background: var(--color-bg); }
+.thermo-gfrp-grid h3 { margin: 0 0 var(--space-2); font-size: 1rem; }
+.thermo-gfrp-grid p, .thermo-gfrp-grid small { display: block; color: var(--color-text-muted); line-height: 1.55; }
+.thermo-gfrp-grid p { margin: 0 0 var(--space-3); }
+.thermo-stage-gates .route-step { border-top-color: var(--color-evidence-d); }
+.thermo-stage-gates small { display: block; margin-top: var(--space-3); color: var(--color-evidence-d); font-size: .76rem; font-weight: 700; text-transform: uppercase; }
+
 .evidence-card-list { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
 .evidence-hub-card { display: grid; grid-template-columns: 1fr; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border); border-left: 4px solid var(--color-petrol); border-radius: var(--radius-md); background: var(--color-bg); }
 @media (min-width: 760px) { .evidence-hub-card { grid-template-columns: auto minmax(0, 1fr) minmax(180px, 0.42fr); align-items: start; } .evidence-hub-card:not(:has(.evidence-hub-card__chart)) { grid-template-columns: auto minmax(0, 1fr); } }

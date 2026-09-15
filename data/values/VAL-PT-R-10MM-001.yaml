@@ -3,11 +3,11 @@ product_id: PRD-PT
 property: thermal_resistance
 label: {de: Wärmedurchlasswiderstand bei 10 mm}
 symbol: R
-value: 0.299
+value: 0.286
 unit: m²K/W
 evidence_class: C
-calculation: {formula: R = d / λ, lambda_source: VAL-PT-LAMBDA-001, thickness_mm: 10}
-warning_de: Rechenwert auf Basis des extern geprüften THERM-4410-λ; Produktzuordnung muss bestätigt sein.
+calculation: {formula: R = d / λ, lambda_model_value: 0.035, thickness_mm: 10}
+warning_de: Berechnet mit R = d / λ und der Modellannahme λ = 0,035 W/(m·K). Evidence C; kein zusätzlicher Messwert.
 publication: public_with_limitation
 version: '1.0'
 updated_at: '2026-09-08'

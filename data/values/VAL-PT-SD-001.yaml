@@ -6,10 +6,11 @@ symbol: sd
 value: 0.76
 unit: m
 conditions: {sample_thickness_mm: 'ca. 7–8'}
-evidence_class: A
+evidence_class: B
 evidence_scope: gemessen_an_musterplatten
 source_label: DIN EN ISO 7783-2 Bericht
 product_mapping: {status: final_formulation_and_system_assignment_to_confirm}
+warning_de: Dokumentierter Messwert – Originalprüfgrundlage / Produktzuordnung in Prüfung.
 publication: public_with_limitation
 version: '1.0'
 updated_at: '2026-09-08'
