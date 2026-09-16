@@ -5,6 +5,7 @@ import { EvidenceLegendPreview, FinalDecisionCta, HomeApplicationOverview, HomeC
 import { localePath, type Locale } from '@/lib/i18n';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
+import { PureElementsNavigation } from '@/components/PureElementsNavigation';
 
 export default function HomePage() {
   const headerLocale = headers().get('x-pure-locale') || 'de';
@@ -22,6 +23,8 @@ export default function HomePage() {
         backgroundImage={{ file: 'transluzente_materialschichten_im_teal_licht.png', alt: 'Transluzente funktionale Materialschichten über einem dunklen mineralischen Substrat' }}
         className="hero--home"
       />
+
+      <PureElementsNavigation locale="de" />
 
       <section className="trust-bar">
         <div className="container">

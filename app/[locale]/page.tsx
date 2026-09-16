@@ -6,6 +6,7 @@ import { EvidenceLegendPreview, FinalDecisionCta, HomeApplicationOverview, HomeC
 import { englishHome as t } from '@/lib/locale-content';
 import { isLocale, localePath, type Locale } from '@/lib/i18n';
 import GermanHomePage from '@/app/page';
+import { PureElementsNavigation } from '@/components/PureElementsNavigation';
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const english = params.locale === 'en';
@@ -38,6 +39,7 @@ function EnglishHome() {
   return (
     <>
       <Hero eyebrow={t.hero.eyebrow} title={t.hero.title} subtitle={t.hero.subtitle} primaryCta={{ label: t.hero.primary, href: '#why-pure' }} secondaryCta={{ label: t.hero.secondary, href: localePath('en', 'products/pure-thermo') }} backgroundImage={{ file: 'transluzente_materialschichten_im_teal_licht.png', alt: 'Translucent functional material layers above a dark mineral substrate' }} className="hero--home" />
+      <PureElementsNavigation locale="en" />
       <section className="trust-bar"><div className="container"><ul className="trust-bar__list">{t.trust.map((item) => <li className="trust-bar__item" key={item}>{item}</li>)}</ul></div></section>
       <section className="section section--compact"><div className="container"><div className="intent-panel"><div className="intent-panel__lead"><span className="section-heading__eyebrow">Project start</span><h2>What would you like to check?</h2><p>Choose the entry point that fits your building component, detail or evidence need.</p><div className="hero__ctas"><Link className="btn btn--primary" href={localePath('en', 'products/pure-thermo#u-wert-rechner')}>Calculate your component</Link></div></div><div className="intent-grid" aria-label="Thematic entry points">{[['Thermal improvement of a component', localePath('en', 'products/pure-thermo#u-wert-rechner')], ['Thermal bridge / detail', localePath('en', 'systems/pure-thermo-detail')], ['Interior application', localePath('en', 'systems/pure-thermo-interior')], ['Facade', localePath('en', 'systems/pure-thermo-exterior')], ['Thermo + fire protection', localePath('en', 'systems/pure-thermo-fire')], ['Technical evidence', localePath('en', 'evidence/EVD-PT-THERM-001')]].map(([label, href]) => <Link className="intent-card" href={href} key={label}>{label}</Link>)}</div></div></div></section>
       <HomeCalculatorTeaser locale="en" />

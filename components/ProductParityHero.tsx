@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { assetSrc } from '@/lib/assets';
+import { isLocale, type Locale } from '@/lib/i18n';
 import { ProductHeroAmbient } from './ProductHeroAmbient';
+import { PureElementsMark } from './PureElementsMark';
 import styles from './ProductParityHero.module.css';
 
 type HeroLink = { label: string; href: string };
@@ -40,10 +43,13 @@ export function ThermoParityHero({ eyebrow, title, subtitle, primary, secondary 
 }
 
 export function PhotoParityHero({ variant, eyebrow, title, subtitle, primary, secondary, facts }: ProductHeroCopy & { variant: PhotoVariant; facts?: HeroFact[] }) {
+  const headerLocale = headers().get('x-pure-locale') || 'en';
+  const locale: Locale = isLocale(headerLocale) ? headerLocale : 'en';
   const config = photoHeroConfig[variant];
   return <section className={`hero ${styles.photoHero} ${styles[variant]}`}>
     <Image className={styles.image} src={assetSrc(config.image)} alt={config.alt} fill priority fetchPriority="high" sizes="100vw" />
     <div className={styles.shade} aria-hidden="true" />
+    <PureElementsMark world="protect" locale={locale} className="product-family-mark" />
     <div className="container"><div className={styles.content}><p className="hero__eyebrow">{eyebrow}</p><h1>{title}</h1><p className="hero__subtitle">{subtitle}</p>{facts ? <div className={styles.facts}>{facts.map((fact) => <div className={styles.fact} key={fact.value}><strong>{fact.value}</strong><span>{fact.label}</span>{fact.note ? <small>{fact.note}</small> : null}</div>)}</div> : null}<HeroActions primary={primary} secondary={secondary} /></div></div>
   </section>;
 }

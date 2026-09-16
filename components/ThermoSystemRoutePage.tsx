@@ -8,6 +8,7 @@ import { EvidenceBadge } from './EvidenceBadge';
 import { SystemLayerStack } from './SystemLayerStack';
 import { SurfaceCard } from './SurfaceCard';
 import { ThermoFireDevelopmentVideoSection } from './VideoSections';
+import { PureElementsMark } from './PureElementsMark';
 
 const routeContent = {
   detail: {
@@ -149,6 +150,7 @@ export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route
       <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: localePath(locale) }, { label: locale === 'de' ? 'Systemrouten' : 'System Routes' }, { label: copy.name }]} />
       <section className="hero system-route-hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
+          <PureElementsMark world={route === 'fire' ? 'fire' : 'thermo'} locale={locale} className="route-family-mark" />
           <p className="hero__eyebrow">{locale === 'de' ? 'SYSTEMROUTE' : 'SYSTEM ROUTE'}</p>
           <h1>{copy.title}</h1>
           <p className="hero__subtitle">{copy.subtitle}</p>

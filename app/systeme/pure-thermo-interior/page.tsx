@@ -14,6 +14,7 @@ import {
 } from '@/lib/data';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
+import { PureElementsMark } from '@/components/PureElementsMark';
 import { ApplicationCard } from '@/components/ApplicationCard';
 import { LayerDiagram } from '@/components/LayerDiagram';
 import { SubstrateMatrix } from '@/components/SubstrateMatrix';
@@ -60,9 +61,9 @@ export default function PureThermoInteriorPage() {
   return (
     <>
       <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Systeme' }, { label: 'PURE THERMO INTERIOR' }]} />
-
       <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
+          <PureElementsMark world="thermo" locale="de" className="route-family-mark" />
           <p className="hero__eyebrow">System · Entwicklungsroute</p>
           <h1>Pure Thermo Interior</h1>
           <p className="hero__subtitle">{system.purpose?.de}</p>
