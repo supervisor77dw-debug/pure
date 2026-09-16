@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 
 type BrandMarkPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
@@ -9,9 +9,9 @@ export type VideoMediaProps = {
   src: string;
   poster: string;
   title: string;
-  description: string;
   playLabel: string;
-  badge?: ReactNode;
+  chapters?: ReadonlyArray<{ time: number; label: string }>;
+  chaptersLabel?: string;
   brandMarkSrc?: string;
   brandMarkPosition?: BrandMarkPosition;
   brandMarkOpacity?: number;
@@ -24,9 +24,9 @@ export function VideoMedia({
   src,
   poster,
   title,
-  description,
   playLabel,
-  badge,
+  chapters,
+  chaptersLabel,
   brandMarkSrc,
   brandMarkPosition = 'top-right',
   brandMarkOpacity = 0.8,
@@ -38,6 +38,15 @@ export function VideoMedia({
   const activate = () => {
     setActivated(true);
     requestAnimationFrame(() => void videoRef.current?.play());
+  };
+
+  const seekTo = (time: number) => {
+    if (!activated) setActivated(true);
+    requestAnimationFrame(() => {
+      if (!videoRef.current) return;
+      videoRef.current.currentTime = time;
+      void videoRef.current.play();
+    });
   };
 
   return (
@@ -65,11 +74,16 @@ export function VideoMedia({
           />
         ) : null}
       </div>
-      <figcaption className="video-media__caption">
-        <span>{title}</span>
-        {badge}
-        <p>{description}</p>
-      </figcaption>
+      {chapters?.length ? (
+        <figcaption className="video-media__chapters" aria-label={chaptersLabel}>
+          {chapters.map((chapter) => (
+            <button key={`${chapter.time}-${chapter.label}`} type="button" onClick={() => seekTo(chapter.time)}>
+              <time dateTime={`PT${chapter.time}S`}>{`${Math.floor(chapter.time / 60).toString().padStart(2, '0')}:${(chapter.time % 60).toString().padStart(2, '0')}`}</time>
+              <span>{chapter.label}</span>
+            </button>
+          ))}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }

@@ -55,6 +55,7 @@ export default function GermanWaterProtectPage({ params }: { params: { locale: s
 
     <section className="section section--surface"><div className="container"><Heading eyebrow={t.regEyebrow} title={t.regTitle} /><div className="fire-protect-regulatory">{t.reg.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 
+    <span id="limits" />
     <section className="section"><div className="container"><Heading eyebrow="RESPONSIBLE CLAIMS" title={t.limitsTitle} /><div className="fire-protect-columns"><article><h3>DOKUMENTIERTE / VORHANDENE BASIS</h3><ul>{t.strengths.map((item) => <li key={item}>{item}</li>)}</ul></article><article><h3>NICHT PAUSCHAL ABLEITBAR</h3><ul>{t.limits.map((item) => <li key={item}>{item}</li>)}</ul></article></div></div></section>
 
     <section className="section section--surface"><div className="container"><Heading eyebrow="LIFECYCLE VALUE" title={t.economyTitle} /><div className="water-protect-application-list">{t.economy.map((item) => <span key={item}>{item}</span>)}</div><div className="final-cta"><h2>{t.finalTitle}</h2><p>{t.finalCopy}</p><div className="hero__ctas" style={{ justifyContent: 'center' }}><a className="btn btn--primary" href="#season">{t.project}</a><a className="btn btn--secondary btn--dark" href="#technology">{t.zone}</a></div></div></div></section>

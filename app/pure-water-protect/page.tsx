@@ -220,6 +220,7 @@ export default function PureWaterProtectPage() {
           </div>
         </div>
       </section>
+      <span id="limits" />
       <section className="section">
         <div className="container">
           <Heading eyebrow="RESPONSIBLE CLAIMS" title={t.limitsTitle} />
