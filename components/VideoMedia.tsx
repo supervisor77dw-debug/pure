@@ -7,6 +7,7 @@ type BrandMarkPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-righ
 
 export type VideoMediaProps = {
   src: string;
+  duration?: number;
   poster: string;
   title: string;
   playLabel: string;
@@ -20,8 +21,18 @@ export type VideoMediaProps = {
 
 type BrandMarkStyle = CSSProperties & { '--brand-mark-opacity': number };
 
+function formatChapterTime(time: number) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time - minutes * 60;
+  const formattedSeconds = Number.isInteger(seconds)
+    ? seconds.toFixed(0).padStart(2, '0')
+    : seconds.toFixed(3).padStart(6, '0');
+  return `${minutes.toString().padStart(2, '0')}:${formattedSeconds}`;
+}
+
 export function VideoMedia({
   src,
+  duration,
   poster,
   title,
   playLabel,
@@ -50,7 +61,7 @@ export function VideoMedia({
   };
 
   return (
-    <figure className="video-media">
+    <figure className="video-media" data-duration={duration}>
       <div className="video-media__frame">
         {activated ? (
           <video ref={videoRef} className="video-media__video" controls playsInline preload="metadata" poster={poster} aria-label={title}>
@@ -76,9 +87,9 @@ export function VideoMedia({
       </div>
       {chapters?.length ? (
         <figcaption className="video-media__chapters" aria-label={chaptersLabel}>
-          {chapters.map((chapter) => (
+          {chapters.filter((chapter) => chapter.time >= 0 && (!duration || chapter.time < duration)).map((chapter) => (
             <button key={`${chapter.time}-${chapter.label}`} type="button" onClick={() => seekTo(chapter.time)}>
-              <time dateTime={`PT${chapter.time}S`}>{`${Math.floor(chapter.time / 60).toString().padStart(2, '0')}:${(chapter.time % 60).toString().padStart(2, '0')}`}</time>
+              <time dateTime={`PT${chapter.time}S`}>{formatChapterTime(chapter.time)}</time>
               <span>{chapter.label}</span>
             </button>
           ))}
