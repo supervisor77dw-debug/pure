@@ -2210,7 +2210,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 .video-playlist__item[aria-pressed='true'] { border-color: var(--color-petrol); box-shadow: inset 0 0 0 2px var(--color-petrol); }
 .video-playlist__item img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #07131d; }
 .video-playlist__item span { display: block; padding: var(--space-2); font-size: .82rem; font-weight: 650; }
-@media (max-width: 639px) { .video-context__observations ul, .video-media__chapters { grid-template-columns: 1fr; } }
+@media (max-width: 639px) { .video-context__observations ul, .video-media__chapters, .video-playlist__items { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .video-media__trigger, .video-playlist__item { scroll-behavior: auto; transition: none; } }
 
 .asset-figure--zoomable .asset-figure__zoom-trigger {
