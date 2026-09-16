@@ -56,7 +56,7 @@ const applicationVideos: Record<ApplicationKind, Record<Locale, VideoItem | null
     de: null,
     en: {
       src: '/videos/floor-application-en.mp4',
-      duration: 45,
+      duration: 42.48,
       poster: '/videos/posters/floor-application-en.webp',
       eyebrow: 'APPLICATION IN PRACTICE',
       title: 'Sports-floor condition and cleaning sequence',
@@ -72,7 +72,7 @@ const applicationVideos: Record<ApplicationKind, Record<Locale, VideoItem | null
   water: {
     de: {
       src: '/videos/water-application-de.mp4',
-      duration: 50.05,
+      duration: 44.078,
       poster: '/videos/posters/water-application-de.webp',
       eyebrow: 'MARITIME PRAXIS',
       title: 'Praxisbeobachtung an maritimen Oberflächen',
@@ -120,17 +120,17 @@ const surfaceVideos: Record<Locale, VideoItem[]> = {
     },
     {
       src: '/videos/surface-application-de.mp4',
-      duration: 74.909,
+      duration: 64.965,
       poster: '/videos/posters/surface-application-de.webp',
       eyebrow: 'IN ANWENDUNG',
       title: 'Reinigung und Beschichtung eines Rollladens',
       intro: 'Der Webcut zeigt die Ausgangssituation am Rollladen, die maschinelle Vorreinigung, die Materialvorbereitung und den manuellen Auftrag. Ein separates Endergebnis nach der Trocknung wird nicht gezeigt.',
-      whatYouSee: ['Ausgangssituation am Rollladen', 'maschinelle Vorreinigung', 'Material- und Werkzeugvorbereitung', 'manueller Beschichtungsauftrag', 'eingeblendete Trocknungszeiten'],
+      whatYouSee: ['Ausgangssituation am Rollladen', 'maschinelle Vorreinigung', 'Material- und Werkzeugvorbereitung', 'manueller Beschichtungsauftrag'],
       interpretation: 'Die Aufnahme dokumentiert Vorbereitung und Auftrag in diesem konkreten Anwendungsfall.',
       limitation: 'Die Aufnahme dokumentiert den konkreten Anwendungsfall und stellt keine allgemeine Leistungs- oder Lebensdauergarantie dar.',
       evidence: 'B',
       evidenceLabel: 'B · dokumentierte Anwendung',
-      chapters: [{ time: 0, label: 'Ausgangssituation' }, { time: 9.977, label: 'Vorreinigung' }, { time: 39.94, label: 'Materialvorbereitung' }, { time: 47.25, label: 'Beschichtungsauftrag' }, { time: 64.932, label: 'Trocknungszeiten' }]
+      chapters: [{ time: 0, label: 'Ausgangssituation' }, { time: 9.977, label: 'Vorreinigung' }, { time: 39.94, label: 'Materialvorbereitung' }, { time: 47.25, label: 'Beschichtungsauftrag' }]
     }
   ],
   en: [
@@ -149,17 +149,17 @@ const surfaceVideos: Record<Locale, VideoItem[]> = {
     },
     {
       src: '/videos/surface-application-en.mp4',
-      duration: 74.909,
+      duration: 64.965,
       poster: '/videos/posters/surface-application-en.webp',
       eyebrow: 'APPLICATION IN PRACTICE',
       title: 'Cleaning and coating a shutter',
       intro: 'The webcut shows the initial shutter condition, mechanical pre-cleaning, material preparation and manual application. It does not show a separate final result after drying.',
-      whatYouSee: ['initial shutter condition', 'mechanical pre-cleaning', 'material and tool preparation', 'manual coating application', 'displayed drying times'],
+      whatYouSee: ['initial shutter condition', 'mechanical pre-cleaning', 'material and tool preparation', 'manual coating application'],
       interpretation: 'The footage documents preparation and application in this specific case.',
       limitation: 'The footage documents the specific application and does not constitute a general performance or service-life guarantee.',
       evidence: 'B',
       evidenceLabel: 'B · documented application',
-      chapters: [{ time: 0, label: 'Initial situation' }, { time: 9.977, label: 'Pre-cleaning' }, { time: 39.94, label: 'Material preparation' }, { time: 47.25, label: 'Coating application' }, { time: 64.932, label: 'Drying times' }]
+      chapters: [{ time: 0, label: 'Initial situation' }, { time: 9.977, label: 'Pre-cleaning' }, { time: 39.94, label: 'Material preparation' }, { time: 47.25, label: 'Coating application' }]
     }
   ]
 };
