@@ -233,6 +233,74 @@ export default function PureLiquidHeatPage() {
         </div>
       </section>
 
+      <section className="section section--surface liquid-heat-pyramid" id="outdoor-pyramid">
+        <div className="container">
+          <div className="liquid-heat-pyramid__intro">
+            <div>
+              <span className="section-heading__eyebrow">{content.pyramid.eyebrow}</span>
+              <h2>{content.pyramid.title}</h2>
+              <p>{content.pyramid.intro}</p>
+              <EvidenceBadge evidenceClass="D" locale={locale} />
+            </div>
+            <AssetFigure
+              file={productVisuals.liquidHeat.pyramidDemonstrator}
+              alt={content.pyramid.visualAlt}
+              status="DEVELOPMENT CONCEPT"
+              caption={content.pyramid.visualCaption}
+            />
+          </div>
+
+          <div className="liquid-heat-pyramid__architecture">
+            <article>
+              <h3>{content.pyramid.architectureTitle}</h3>
+              <ul>{content.pyramid.architecture.map((item) => <li key={item}>{item}</li>)}</ul>
+              <p className="liquid-heat-pyramid__limit">{content.pyramid.architectureLimit}</p>
+            </article>
+            <article>
+              <h3>{content.pyramid.applicationsTitle}</h3>
+              <ul>{content.pyramid.applications.map((item) => <li key={item}>{item}</li>)}</ul>
+              <p>{content.pyramid.applicationsLimit}</p>
+              <p className="liquid-heat-pyramid__ip">{content.pyramid.ipTarget}</p>
+            </article>
+          </div>
+
+          <div className="liquid-heat-pyramid__stages">
+            <h3>{content.pyramid.stagesTitle}</h3>
+            <div>{content.pyramid.stages.map(([title, copy]) => <article key={title}><strong>{title}</strong><p>{copy}</p></article>)}</div>
+            <p className="liquid-heat-pyramid__limit">{content.pyramid.stagesLimit}</p>
+          </div>
+
+          <div className="liquid-heat-pyramid__tests">
+            <div className="liquid-heat-pyramid__tests-heading">
+              <h3>{content.pyramid.testTitle}</h3>
+              <EvidenceBadge evidenceClass="D" locale={locale} sourceLabel={locale === 'de' ? 'geplantes Prüfprogramm' : 'planned test programme'} />
+            </div>
+            <div className="liquid-heat-pyramid__test-grid">
+              {content.pyramid.testGroups.map(([title, items]) => <article key={title}><h4>{title}</h4><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}
+            </div>
+          </div>
+
+          <div className="liquid-heat-pyramid__governance">
+            <article>
+              <h3>{content.pyramid.qaTitle}</h3>
+              <p>{content.pyramid.qaCopy}</p>
+              <p><strong>{content.pyramid.changeManagement}</strong></p>
+            </article>
+            <aside>
+              <h3>{content.pyramid.governanceTitle}</h3>
+              <p>{content.pyramid.governance}</p>
+            </aside>
+          </div>
+
+          <div className="liquid-heat-pyramid__claim-boundary" role="note">
+            <strong>{content.pyramid.claimBoundaryTitle}</strong>
+            <p>{content.pyramid.claimBoundary}</p>
+          </div>
+
+          <p className="liquid-heat-pyramid__release-rule">{content.pyramid.releaseRule}</p>
+        </div>
+      </section>
+
       <section className="section section--surface" id="evidence">
         <div className="container">
           <SectionHeading eyebrow={content.evidenceEyebrow} title={content.evidenceTitle} />
