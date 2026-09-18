@@ -6,3 +6,7 @@ build/
 *.tsbuildinfo
 .env*.local
 .DS_Store
+
+# Internal content-master workbooks must never enter the public repository/build.
+/Data/*.xlsx
+/Assets/data/*.xlsx

@@ -1,5 +1,19 @@
 # Coder-Handoff Phase 4.2
 
+## Verbindliche Content-Basis
+- Ausschliessliche aktuelle Arbeitsbasis fuer Content-, Claim-, Evidence-, Video- und Page-Map-Entscheidungen: `/Data/PURE_Website_Content_Master_Database_V1.6.xlsx`.
+- V1.5, V1.4, V1.3 und fruehere Zwischenstaende sind nur Historie und keine aktuellen Quellen.
+- Die Masterdatei ist interne Projektdokumentation. Sie darf nicht nach `/public` kopiert, in den oeffentlichen Build aufgenommen oder ueber eine URL ausgeliefert werden.
+- Liquid-Heat-Aenderungen muessen gegen Evidence-Level, Claim-Status, Konflikte, offene Fragen, Page Map und Video Master aus V1.6 geprueft werden.
+- Neue Source IDs: `SRC-038` bis `SRC-042`.
+- Neue Content IDs: `WCM-LH-029` bis `WCM-LH-035`.
+- Neue Claim IDs: `CLM-077` bis `CLM-083`.
+- Neue Videos: `VID-018` bis `VID-020`; B-Evidenz / Anwenderdokumentation, keine externe Pruefung.
+- Konflikt `CNF-LH-005`: Momentanleistung von ca. 840-846 W ist nicht mit dem durchschnittlichen Energiebedarf ueber geregelte Betriebszyklen gleichzusetzen.
+- Die C-Modelle von ca. 69 % und ca. 64,7 % bleiben intern/technisch und sind keine oeffentlichen Produktclaims. Angaben von 90-99 % PV/Batterie sowie Energievervielfachungs- oder Ueberwirkungsgrad-Claims sind ausgeschlossen.
+- Offene Validierungsfragen: `OPEN-019` bis `OPEN-022`.
+- In die Arbeitsplanung aufgenommen: `SEC-LH-FIELD-NL` fuer `/pure-liquid-heat#field-experience`; reale Anwenderbeobachtungen getrennt von Wirtschaftlichkeitsmodellen darstellen.
+
 ## Routen
 - `/`
 - `/produkte/pure-thermo`
