@@ -8,7 +8,7 @@ export default function NotFound() {
         <h1>404</h1>
         <p>The requested page could not be found.</p>
         <div className="hero__ctas">
-          <Link className="btn btn--primary" href="/en">Back to platform</Link>
+          <Link className="btn btn--primary" href="/en">Back to PURE platform</Link>
           <Link className="btn btn--secondary btn--dark" href="/en/project-request">Discuss a project</Link>
         </div>
       </div>
