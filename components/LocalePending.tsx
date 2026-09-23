@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Locale } from '@/lib/i18n';
 
-export function LocalePending({ title = 'PURE Technology Platform', locale = 'en' }: { title?: string; locale?: Locale }) {
+export function LocalePending({ title = 'PURE PARTS Technology Platform', locale = 'en' }: { title?: string; locale?: Locale }) {
   const english = locale === 'en';
   return (
     <section className="section">

@@ -4,7 +4,7 @@ import { localePath, type Locale } from '@/lib/i18n';
 
 function PendingValue({ value, locale }: { value: string; locale: Locale }) {
   if (!isPendingLegalValue(value)) return <>{value}</>;
-  return <>{locale === 'de' ? 'Noch extern zu bestätigen' : 'Pending external confirmation'}</>;
+  return <>{locale === 'de' ? 'TODO: Noch extern zu bestätigen' : 'TODO: Pending external confirmation'}</>;
 }
 
 export function LegalImprintPage({ locale }: { locale: Locale }) {
@@ -14,6 +14,7 @@ export function LegalImprintPage({ locale }: { locale: Locale }) {
     <Breadcrumb items={[{ label: de ? 'Start' : 'Home', href: localePath(locale) }, { label: de ? 'Impressum' : 'Imprint' }]} />
     <section className="section"><div className="container prose">
       <h1>{de ? 'Impressum' : 'Imprint'}</h1>
+      <p>{de ? 'Anbieterkennzeichnung für die Website der Dachmarke PURE PARTS.' : 'Provider information for the PURE PARTS umbrella-brand website. The existing English version remains subject to external legal review.'}</p>
       <h2>{de ? 'Diensteanbieter und Betreiber der Website' : 'Website service provider and operator'}</h2>
       <address>
         <strong>{operator.companyName}</strong><br />
@@ -22,12 +23,15 @@ export function LegalImprintPage({ locale }: { locale: Locale }) {
         {operator.country}
       </address>
       <dl>
+        <dt>{de ? 'Rechtsform' : 'Legal form'}</dt><dd>{operator.legalForm}</dd>
         <dt>{de ? 'Vertreten durch' : 'Represented by'}</dt><dd>{operator.managingDirector}</dd>
         <dt>{de ? 'Handelsregister' : 'Commercial register'}</dt><dd>{operator.registerCourt}, {operator.registrationNumber}</dd>
         <dt>{de ? 'Telefon' : 'Telephone'}</dt><dd><PendingValue value={operator.phone} locale={locale} /></dd>
         <dt>{de ? 'E-Mail' : 'Email'}</dt><dd><PendingValue value={operator.email} locale={locale} /></dd>
         <dt>{de ? 'Umsatzsteuer-ID' : 'VAT ID'}</dt><dd><PendingValue value={operator.vatId} locale={locale} /></dd>
         <dt>{de ? 'Wirtschafts-ID' : 'Business ID'}</dt><dd><PendingValue value={operator.businessId} locale={locale} /></dd>
+        <dt>{de ? 'Verantwortlich für Inhalte' : 'Responsible for content'}</dt><dd><PendingValue value={operator.contentResponsible} locale={locale} /></dd>
+        <dt>{de ? 'Websites' : 'Websites'}</dt><dd><a href={operator.domain}>{operator.domain}</a><br /><a href={operator.germanDomain}>{operator.germanDomain}</a></dd>
       </dl>
       <h2>{de ? 'Rolle der Betreiberin' : 'Role of the operator'}</h2>
       <ul>{operator.roles[locale].map((role) => <li key={role}>{role}</li>)}</ul>

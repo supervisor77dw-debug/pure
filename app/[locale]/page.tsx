@@ -7,17 +7,18 @@ import { englishHome as t } from '@/lib/locale-content';
 import { isLocale, localePath, type Locale } from '@/lib/i18n';
 import GermanHomePage from '@/app/page';
 import { PureElementsNavigation } from '@/components/PureElementsNavigation';
+import { siteConfig } from '@/lib/site-config';
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const english = params.locale === 'en';
-  const title = english ? 'PURE Technology Platform | Functional Material Technologies' : 'PURE Technology Platform | Funktionale Materialtechnologien';
+  const title = english ? 'PURE PARTS Technology Platform | Functional Material Technologies' : 'PURE PARTS Technology Platform | Funktionale Materialtechnologien';
   const description = english ? 'Functional material technologies with a shared development, testing and documentation logic.' : 'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.';
   const image = '/assets/transluzente_materialschichten_im_teal_licht.png';
   return {
     title,
     description,
     alternates: { canonical: english ? '/en' : '/de', languages: { de: '/de', en: '/en', 'x-default': '/de' } },
-    openGraph: { title, description, locale: english ? 'en_GB' : 'de_DE', type: 'website', images: [{ url: image }] },
+    openGraph: { title, description, url: english ? '/en' : '/de', siteName: siteConfig.name, locale: english ? 'en_GB' : 'de_DE', type: 'website', images: [{ url: image }] },
     twitter: { card: 'summary_large_image', title, description, images: [image] }
   };
 }

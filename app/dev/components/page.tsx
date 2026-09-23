@@ -32,7 +32,7 @@ import { RelatedContent } from '@/components/RelatedContent';
 import { AssetFigure } from '@/components/AssetFigure';
 import { LightboxFigure } from '@/components/LightboxFigure';
 
-export const metadata: Metadata = { title: 'Komponentenbibliothek (Dev) · PURE Technology Platform', robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: 'Komponentenbibliothek (Dev) · PURE PARTS Technology Platform', robots: { index: false, follow: false } };
 
 export default function DevComponentsPage() {
   const products = getAllProducts();
@@ -51,7 +51,7 @@ export default function DevComponentsPage() {
       <div className="container">
         <h1>Komponentenbibliothek</h1>
         <p>
-          Lebende Referenz aller wiederverwendbaren Bausteine der PURE Technology Platform. Alle Beispiele nutzen
+          Lebende Referenz aller wiederverwendbaren Bausteine der PURE PARTS Technology Platform. Alle Beispiele nutzen
           reale Datensätze aus <code>/data</code> und <code>/content</code> — keine erfundenen Beispielwerte.
         </p>
       </div>

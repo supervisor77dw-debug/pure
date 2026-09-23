@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="not-found-page">
       <div className="container not-found-page__inner">
-        <span className="section-heading__eyebrow">PURE TECHNOLOGY PLATFORM</span>
+        <span className="section-heading__eyebrow">PURE PARTS TECHNOLOGY PLATFORM</span>
         <h1>404</h1>
         <p>The requested page could not be found.</p>
         <div className="hero__ctas">

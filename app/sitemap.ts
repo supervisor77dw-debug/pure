@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { de: '/de/datenschutz', en: '/en/privacy' }
   ];
   return routes.flatMap((route) => [
-    { url: `${siteConfig.url}${route.de}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}` } } },
-    { url: `${siteConfig.url}${route.en}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}` } } }
+    { url: `${siteConfig.url}${route.de}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}`, 'x-default': `${siteConfig.url}${route.de}` } } },
+    { url: `${siteConfig.url}${route.en}`, alternates: { languages: { de: `${siteConfig.url}${route.de}`, en: `${siteConfig.url}${route.en}`, 'x-default': `${siteConfig.url}${route.de}` } } }
   ]);
 }

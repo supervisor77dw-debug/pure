@@ -22,7 +22,7 @@ import { EvidenceCard } from '@/components/EvidenceCard';
 import { DocumentCard } from '@/components/DocumentCard';
 import { TechnicalVisual } from '@/components/TechnicalVisual';
 
-export const metadata: Metadata = { title: 'Pure Thermo Interior · PURE Technology Platform' };
+export const metadata: Metadata = { title: 'Pure Thermo Interior · PURE PARTS Technology Platform', alternates: { canonical: '/de/systeme/pure-thermo-interior' } };
 
 const STATUS_LABELS: Record<string, string> = {
   system_definition_and_test_program: 'Systemdefinition / Prüfprogramm',

@@ -14,7 +14,8 @@ import { SurfaceVideoSection } from '@/components/VideoSections';
 
 export const metadata: Metadata = {
   title: 'PURE Surface Protect | Transparent Surface Protection | PURE',
-  description: 'Ultra-thin transparent functional coating for defined façade, metal, glass and high-value surface applications.'
+  description: 'Ultra-thin transparent functional coating for defined façade, metal, glass and high-value surface applications.',
+  alternates: { canonical: '/en/products/pure-surface-protect' }
 };
 
 function SurfaceDiagram({ locale }: { locale: SurfaceProtectLocale }) {

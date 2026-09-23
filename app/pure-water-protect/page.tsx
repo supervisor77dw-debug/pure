@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: "PURE Water Protect | Marine Easy-to-Clean Surface Technology | PURE",
   description:
     "Ultra-thin easy-to-clean surface technology for defined marine applications.",
+  alternates: { canonical: "/de/produkte/pure-water-protect" },
 };
 function Heading({
   eyebrow,

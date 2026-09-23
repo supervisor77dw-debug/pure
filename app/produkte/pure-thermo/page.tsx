@@ -26,7 +26,7 @@ import { SurfaceCard } from '@/components/SurfaceCard';
 import { PureThermoEvidenceEnrichment } from '@/components/PureThermoEvidenceEnrichment';
 import { ApplicationVideoSection } from '@/components/VideoSections';
 
-export const metadata: Metadata = { title: 'Pure Thermo · PURE Technology Platform' };
+export const metadata: Metadata = { title: 'Pure Thermo · PURE PARTS Technology Platform', alternates: { canonical: '/de/produkte/pure-thermo' } };
 
 const CORE_VALUE_IDS = [
   'VAL-PT-LAMBDA-001',

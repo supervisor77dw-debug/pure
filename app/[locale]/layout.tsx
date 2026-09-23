@@ -3,6 +3,7 @@ import { headers } from 'next/headers';
 import { isLocale, localizedCounterpart, type Locale } from '@/lib/i18n';
 import { assetSrc } from '@/lib/assets';
 import { getRouteSeo } from '@/lib/seo';
+import { siteConfig } from '@/lib/site-config';
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
   const locale: Locale = isLocale(params.locale) ? params.locale : 'de';
@@ -20,7 +21,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
       canonical: pathname,
       languages: { de: germanPath, en: englishPath, 'x-default': germanPath }
     },
-    openGraph: { title: seo.title, description: seo.description, locale: locale === 'de' ? 'de_DE' : 'en_GB', type: 'website', images: image ? [{ url: image }] : undefined },
+    openGraph: { title: seo.title, description: seo.description, url: pathname, siteName: siteConfig.name, locale: locale === 'de' ? 'de_DE' : 'en_GB', type: 'website', images: image ? [{ url: image }] : undefined },
     twitter: { card: 'summary_large_image', title: seo.title, description: seo.description, images: image ? [image] : undefined }
   };
 }

@@ -10,7 +10,7 @@ import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
 import { SurfaceCard } from '@/components/SurfaceCard';
 import { ApplicationVideoSection } from '@/components/VideoSections';
 
-export const metadata: Metadata = { title: 'PURE Floor Protect | Floor Protection & Abrasion Resistance | PURE', description: 'Ultra-thin lightly matt functional protection technology for high-use floor surfaces.' };
+export const metadata: Metadata = { title: 'PURE Floor Protect | Floor Protection & Abrasion Resistance | PURE', description: 'Ultra-thin lightly matt functional protection technology for high-use floor surfaces.', alternates: { canonical: '/en/products/pure-floor-protect' } };
 function Heading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) { return <div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{eyebrow}</span><h2>{title}</h2>{intro ? <p>{intro}</p> : null}</div>; }
 function FloorDiagram({ locale }: { locale: FloorProtectLocale }) { return <div className="floor-protect-diagram" aria-label={locale === 'de' ? 'Technischer Visual-Slot für den Bodenaufbau' : 'Technical floor build-up visual slot'}>{['TRAFFIC / DIRT / CLEANING', '5–8 µm FUNCTIONAL PROTECTION LAYER', 'EXISTING SURFACE', 'FLOOR SUBSTRATE'].map((label, index) => <div className={`floor-protect-diagram__layer floor-protect-diagram__layer--${index}`} key={label}>{label}</div>)}</div>; }
 const challengeDetails = {

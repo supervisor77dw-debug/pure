@@ -19,7 +19,7 @@ const applicationAssets = [
   'Dramatischer Waldbrandeinsatz bei Sonnenuntergang.png'
 ] as const;
 
-export const metadata: Metadata = { title: 'PURE Fire Protect | Functional Fire Protection | PURE', description: 'Functional fire protection for defined systems, visible materials and controlled evidence.' };
+export const metadata: Metadata = { title: 'PURE Fire Protect | Functional Fire Protection | PURE', description: 'Functional fire protection for defined systems, visible materials and controlled evidence.', alternates: { canonical: '/de/produkte/pure-fire-protect' } };
 function Heading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) { return <div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">{eyebrow}</span><h2>{title}</h2>{intro ? <p>{intro}</p> : null}</div>; }
 export default function PureFireProtectPage() {
   const segment = headers().get('x-pure-locale') || 'en'; const locale: FireProtectLocale = isLocale(segment) ? segment : 'en'; const t = getFireProtectContent(locale); const asset = (de: string, en: string) => locale === 'de' ? de : en;

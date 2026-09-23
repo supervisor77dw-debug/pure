@@ -22,7 +22,7 @@ export function ProductIndexPage({ locale }: { locale: Locale }) {
         <div className="section-heading section-heading--narrow">
           <span className="section-heading__eyebrow">{english ? 'PRODUCTS' : 'PRODUKTE'}</span>
           <h1>{english ? 'Functional material technologies for defined applications.' : 'Funktionale Materialtechnologien für definierte Anwendungen.'}</h1>
-          <p>{english ? 'Explore the PURE technology platform and its product families.' : 'Entdecken Sie die PURE Technology Platform und ihre Produktfamilien.'}</p>
+          <p>{english ? 'Explore the PURE PARTS technology platform and its product families.' : 'Entdecken Sie die PURE PARTS Technology Platform und ihre Produktfamilien.'}</p>
         </div>
         <div className="product-index-grid">
           {products.map((product) => {

@@ -18,7 +18,7 @@ import { DocumentCard } from '@/components/DocumentCard';
 import { VersionHistory, parseChangelogHtml } from '@/components/VersionHistory';
 import { RelatedContent } from '@/components/RelatedContent';
 
-export const metadata: Metadata = { title: 'Nachweis: Wärmeleitfähigkeit THERM 4410 · PURE Technology Platform' };
+export const metadata: Metadata = { title: 'Nachweis: Wärmeleitfähigkeit THERM 4410 · PURE PARTS Technology Platform', alternates: { canonical: '/de/nachweise/EVD-PT-THERM-001' } };
 
 const RELATED_R_VALUE_IDS = ['VAL-PT-R-05MM-001', 'VAL-PT-R-10MM-001', 'VAL-PT-R-20MM-001', 'VAL-PT-R-30MM-001'];
 const RELATED_SYSTEM_IDS = ['SYS-PT-INT-001', 'SYS-PT-EXT-001', 'SYS-PT-DET-001'];

@@ -3,7 +3,7 @@ export const legalPlaceholders = {
   email: 'LEGAL_EMAIL_PENDING',
   vatId: 'VAT_ID_PENDING',
   businessId: 'BUSINESS_ID_PENDING',
-  domain: 'DOMAIN_PENDING',
+  contentResponsible: 'CONTENT_RESPONSIBLE_PENDING',
   ticManagingDirector: 'TIC_MANAGING_DIRECTOR_PENDING',
   ticRegister: 'TIC_REGISTER_PENDING',
   ticPatentOwnership: 'TIC_PATENT_OWNERSHIP_PENDING',
@@ -32,7 +32,9 @@ export const legalCompany = {
     email: legalPlaceholders.email,
     vatId: legalPlaceholders.vatId,
     businessId: legalPlaceholders.businessId,
-    domain: legalPlaceholders.domain,
+    contentResponsible: legalPlaceholders.contentResponsible,
+    domain: 'https://pure-parts.com',
+    germanDomain: 'https://pure-parts.de',
     roles: {
       de: [
         'Betreiber der Website',

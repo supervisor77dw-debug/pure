@@ -1,3 +1,3 @@
 import type { Metadata } from 'next'; import { notFound } from 'next/navigation'; import { SystemRoutesOverview } from '@/components/SystemRoutesOverview';
-export const metadata:Metadata={title:'Systemrouten · PURE Technology Platform'};
+export const metadata:Metadata={title:'Systemrouten · PURE PARTS Technology Platform'};
 export default function GermanSystems({params}:{params:{locale:string}}){if(params.locale!=='de')notFound();return <section className="section"><div className="container"><div className="section-heading section-heading--narrow"><span className="section-heading__eyebrow">SYSTEMROUTEN</span><h1>Definierte Systeme für konkrete Anwendungen.</h1><p>PURE Technologien werden nicht als isolierte Materialeigenschaften betrachtet. Entscheidend sind definierte Systemaufbauten, geeignete Untergründe, Anwendungsbedingungen und nachvollziehbare Prüfpfade.</p></div><SystemRoutesOverview locale="de" /></div></section>}

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "PURE Boat Protect | Premium Yacht Surface Protection | PURE",
   description:
     "Thin flexible surface-protection technology for premium yacht surfaces and zone-specific validation.",
+  alternates: { canonical: "/de/produkte/pure-boat-protect" },
 };
 function H({
   eyebrow,

@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   title: "PURE Wood Protect | Transparent Timber Surface Protection | PURE",
   description:
     "Thin transparent surface technology for visible timber and object-specific validation.",
+  alternates: { canonical: "/de/produkte/pure-wood-protect" },
 };
 function H({
   eyebrow,

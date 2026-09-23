@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { ProjectRequestPage } from '@/components/ProjectRequestPage';
 
 export const metadata: Metadata = {
-  title: 'Projektanfrage · PURE Technology Platform',
+  title: 'Projektanfrage · PURE PARTS Technology Platform',
   description: 'Technische Projektanfrage für PURE Technologie- und Systemanwendungen.'
 };
 

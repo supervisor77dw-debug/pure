@@ -12,9 +12,11 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: 'PURE Technology Platform',
+  applicationName: siteConfig.name,
+  title: siteConfig.name,
   description:
     'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.',
+  openGraph: { siteName: siteConfig.name, type: 'website' },
   robots: process.env.VERCEL_ENV === 'preview' ? { index: false, follow: false } : { index: true, follow: true }
 };
 

@@ -10,7 +10,7 @@ import { VersionHistory } from '@/components/VersionHistory';
 import { RelatedContent } from '@/components/RelatedContent';
 
 export const metadata: Metadata = {
-  title: 'Evidence: Thermal conductivity THERM 4410 · PURE Technology Platform',
+  title: 'Evidence: Thermal conductivity THERM 4410 · PURE PARTS Technology Platform',
   description: 'External test evidence for the thermal conductivity of THERM 4410 under documented conditions.'
 };
 

@@ -6,8 +6,8 @@ type LocalizedSeoEntry = Record<Locale, SeoEntry>;
 
 const seoByRoute: Record<string, LocalizedSeoEntry> = {
   '/': {
-    de: { title: 'PURE Technology Platform | Funktionale Materialtechnologien', description: 'Funktionale Beschichtungs- und Materialtechnologien mit klarer Entwicklungs-, Prüf- und Dokumentationslogik.', image: 'transluzente_materialschichten_im_teal_licht.png' },
-    en: { title: 'PURE Technology Platform | Functional Material Technologies', description: 'Functional coating and material technologies with clear development, testing and documentation logic.', image: 'transluzente_materialschichten_im_teal_licht.png' }
+    de: { title: 'PURE PARTS Technology Platform | Funktionale Materialtechnologien', description: 'Funktionale Beschichtungs- und Materialtechnologien mit klarer Entwicklungs-, Prüf- und Dokumentationslogik.', image: 'transluzente_materialschichten_im_teal_licht.png' },
+    en: { title: 'PURE PARTS Technology Platform | Functional Material Technologies', description: 'Functional coating and material technologies with clear development, testing and documentation logic.', image: 'transluzente_materialschichten_im_teal_licht.png' }
   },
   '/produkte': {
     de: { title: 'PURE Produktfamilien | Technology Platform', description: 'Acht funktionale Material- und Beschichtungstechnologien für thermische, elektrische und schützende Anwendungen.' },
@@ -46,8 +46,8 @@ const seoByRoute: Record<string, LocalizedSeoEntry> = {
     en: { title: 'PURE BOAT PROTECT | Yacht and Boat Surfaces | PURE', description: 'Zone- and substrate-specific surface protection route for defined yacht and boat areas.', image: 'Luxusyacht im goldenen Hafenlicht.png' }
   },
   '/systeme': {
-    de: { title: 'PURE THERMO Systemrouten | PURE Technology Platform', description: 'Definierte PURE THERMO Entwicklungsrouten für Innenraum, Außenbereich, Details und Brandschutzkombinationen.' },
-    en: { title: 'PURE THERMO System Routes | PURE Technology Platform', description: 'Defined PURE THERMO development routes for interiors, exteriors, details and fire-protection combinations.' }
+    de: { title: 'PURE THERMO Systemrouten | PURE PARTS Technology Platform', description: 'Definierte PURE THERMO Entwicklungsrouten für Innenraum, Außenbereich, Details und Brandschutzkombinationen.' },
+    en: { title: 'PURE THERMO System Routes | PURE PARTS Technology Platform', description: 'Defined PURE THERMO development routes for interiors, exteriors, details and fire-protection combinations.' }
   },
   '/systeme/pure-thermo-interior': {
     de: { title: 'PURE THERMO INTERIOR | Innenraum-Systemroute | PURE', description: 'Definierte Entwicklungsroute für thermisch relevante Innen-, Bestands- und Detailanwendungen.' },
@@ -66,8 +66,8 @@ const seoByRoute: Record<string, LocalizedSeoEntry> = {
     en: { title: 'PURE THERMO + PURE FIRE | Development Route | PURE', description: 'Development route combining thermal function and fire protection in a defined system build-up.' }
   },
   '/nachweise': {
-    de: { title: 'Prüfungen und Evidenz | PURE Technology Platform', description: 'Externe Prüfungen, interne Dokumentation, Modellrechnungen und Entwicklungsstatus klar nach A bis D getrennt.' },
-    en: { title: 'Testing and Evidence | PURE Technology Platform', description: 'External testing, internal documentation, model calculations and development status clearly separated from A to D.' }
+    de: { title: 'Prüfungen und Evidenz | PURE PARTS Technology Platform', description: 'Externe Prüfungen, interne Dokumentation, Modellrechnungen und Entwicklungsstatus klar nach A bis D getrennt.' },
+    en: { title: 'Testing and Evidence | PURE PARTS Technology Platform', description: 'External testing, internal documentation, model calculations and development status clearly separated from A to D.' }
   },
   '/nachweise/EVD-PT-THERM-001': {
     de: { title: 'THERM 4410 Wärmeleitfähigkeit | Nachweis | PURE', description: 'Kiwa-Prüfung der Wärmeleitfähigkeit von THERM 4410 nach DIN EN 12664 mit dokumentierter Produktzuordnungsgrenze.' },
@@ -78,12 +78,12 @@ const seoByRoute: Record<string, LocalizedSeoEntry> = {
     en: { title: 'Request Technical Project Assessment | PURE', description: 'Describe the component, application and desired validation step for a technical project assessment.' }
   },
   '/impressum': {
-    de: { title: 'Impressum | PURE Technology Platform', description: 'Anbieterkennzeichnung und rechtliche Angaben der PURE Technology Platform.' },
-    en: { title: 'Imprint | PURE Technology Platform', description: 'Provider identification and legal information for the PURE Technology Platform.' }
+    de: { title: 'Impressum | PURE PARTS Technology Platform', description: 'Anbieterkennzeichnung und rechtliche Angaben der PURE PARTS Technology Platform.' },
+    en: { title: 'Imprint | PURE PARTS Technology Platform', description: 'Provider identification and legal information for the PURE PARTS Technology Platform.' }
   },
   '/datenschutz': {
-    de: { title: 'Datenschutz | PURE Technology Platform', description: 'Datenschutzhinweise der PURE Technology Platform.' },
-    en: { title: 'Privacy | PURE Technology Platform', description: 'Privacy information for the PURE Technology Platform.' }
+    de: { title: 'Datenschutz | PURE PARTS Technology Platform', description: 'Datenschutzhinweise der PURE PARTS Technology Platform.' },
+    en: { title: 'Privacy | PURE PARTS Technology Platform', description: 'Privacy information for the PURE PARTS Technology Platform.' }
   }
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { EvidenceHubPage } from '@/components/EvidenceHubPage';
 
-export const metadata: Metadata = { title: 'Testing & Evidence · PURE Technology Platform' };
+export const metadata: Metadata = { title: 'Testing & Evidence · PURE PARTS Technology Platform' };
 
 export default function EnglishEvidenceHub({ params }: { params: { locale: string } }) {
   if (params.locale !== 'en') notFound();

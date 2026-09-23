@@ -2,7 +2,7 @@
 page_id: PAGE-HOME-DE
 route: /
 locale: de
-title: PURE Technology Platform
+title: PURE PARTS Technology Platform
 status: draft_for_design_prototype
 version: '1.0'
 ---

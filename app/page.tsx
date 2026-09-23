@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Hero } from '@/components/Hero';
 import { LightboxFigure } from '@/components/LightboxFigure';
@@ -6,6 +7,10 @@ import { localePath, type Locale } from '@/lib/i18n';
 import { headers } from 'next/headers';
 import { isLocale } from '@/lib/i18n';
 import { PureElementsNavigation } from '@/components/PureElementsNavigation';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/de', languages: { de: '/de', en: '/en', 'x-default': '/de' } }
+};
 
 export default function HomePage() {
   const headerLocale = headers().get('x-pure-locale') || 'de';

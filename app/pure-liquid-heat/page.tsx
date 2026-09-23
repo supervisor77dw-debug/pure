@@ -11,8 +11,9 @@ import { productVisuals, visualFor } from '@/lib/product-visuals';
 import { ProductHeroAmbient } from '@/components/ProductHeroAmbient';
 
 export const metadata: Metadata = {
-  title: 'Pure Liquid Heat · PURE Technology Platform',
-  description: 'An electric functional layer for integrated heating systems.'
+  title: 'Pure Liquid Heat · PURE PARTS Technology Platform',
+  description: 'An electric functional layer for integrated heating systems.',
+  alternates: { canonical: '/en/products/pure-liquid-heat' }
 };
 
 const applications = [
