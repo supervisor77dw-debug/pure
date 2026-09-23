@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
 import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
+import { PureElementsMark } from './PureElementsMark';
 import { isLocale, localizedCounterpart, localePath, productPath, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 const productDescriptions: Record<string, Record<Locale, string>> = {
@@ -103,8 +104,8 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="container header__bar">
-        <Link href={localePath(currentLocale)} className="header__logo">
-          PURE<span>.</span> Technology Platform
+        <Link href={localePath(currentLocale)} className="header__logo" aria-label={currentLocale === 'de' ? 'PURE PARTS Startseite' : 'PURE PARTS home'}>
+          <PureElementsMark world="pure" locale={currentLocale} className="header__logo-image" priority />
         </Link>
         <nav className="header__nav" aria-label={ui[currentLocale].navigation}>
           <div

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { localePath, projectRequestPath, type Locale } from '@/lib/i18n';
+import { PureElementsMark } from './PureElementsMark';
 
 export function Footer({ locale = 'de' }: { locale?: Locale }) {
   const pathname = usePathname() || '/';
@@ -14,7 +15,9 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
       <div className="container">
         <div className="footer__grid">
           <div>
-            <h4>PURE Technology Platform</h4>
+            <Link href={localePath(currentLocale)} className="footer__logo" aria-label={isEnglish ? 'PURE PARTS home' : 'PURE PARTS Startseite'}>
+              <PureElementsMark world="pure" locale={currentLocale} />
+            </Link>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.88rem' }}>
               {isEnglish ? 'Functional coating technologies with a shared development, testing and documentation logic.' : 'Funktionale Beschichtungstechnologien mit gemeinsamer Entwicklungs-, Prüf- und Dokumentationslogik.'}
             </p>
@@ -64,7 +67,7 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
           </div>
         </div>
         <div className="footer__bottom">
-          © {new Date().getFullYear()} PURE Technology Platform
+          © {new Date().getFullYear()} PURE PARTS Technology Platform
         </div>
       </div>
     </footer>

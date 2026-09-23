@@ -25,11 +25,11 @@ export function PureElementsNavigation({ locale }: { locale: Locale }) {
     <section className="section pure-elements" aria-labelledby="pure-elements-title">
       <div className="container pure-elements__layout">
         <div className="pure-elements__copy">
-          <span className="section-heading__eyebrow">PURE ELEMENTS</span>
+          <span className="section-heading__eyebrow">PURE PARTS</span>
           <h2 id="pure-elements-title">{de ? 'Vier Funktionswelten. Eine Technologieplattform.' : 'Four functional worlds. One technology platform.'}</h2>
           <p>{de
-            ? 'PURE ELEMENTS verbindet Wärme, thermische Funktion, Brandschutz und Oberflächenschutz in einer gemeinsamen Technologie- und Entwicklungsplattform. Der Leuchtturm steht für Orientierung – die vier Segmente für die funktionalen Technologiewelten der Plattform.'
-            : 'PURE ELEMENTS connects heat, thermal function, fire protection and surface protection within one shared technology and development platform. The lighthouse represents orientation, while the four segments represent the platform’s functional technology worlds.'}</p>
+            ? 'PURE PARTS verbindet Wärme, thermische Funktion, Brandschutz und Oberflächenschutz in einer gemeinsamen Technologie- und Entwicklungsplattform. Der Leuchtturm steht für Orientierung – die vier Segmente für die funktionalen Technologiewelten der Plattform.'
+            : 'PURE PARTS connects heat, thermal function, fire protection and surface protection within one shared technology and development platform. The lighthouse represents orientation, while the four segments represent the platform’s functional technology worlds.'}</p>
         </div>
 
         <div className="pure-elements__identity">
@@ -45,7 +45,7 @@ export function PureElementsNavigation({ locale }: { locale: Locale }) {
               />
             ))}
           </div>
-          <strong>PURE ELEMENTS</strong>
+          <strong>PURE PARTS</strong>
           <span>{de ? 'Technologieplattform' : 'Technology Platform'}</span>
           <p>{de ? 'Die Elemente im Gleichgewicht für eine lebenswerte Welt.' : 'Elements in balance for a livable world.'}</p>
         </div>

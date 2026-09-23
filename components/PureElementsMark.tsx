@@ -5,7 +5,7 @@ import type { Locale } from '@/lib/i18n';
 export type PureElementsWorld = 'pure' | 'heat' | 'thermo' | 'fire' | 'protect';
 
 const assets: Record<PureElementsWorld, string> = {
-  pure: 'Logo_Pure.png',
+  pure: 'pure-parts-logo.png',
   heat: 'Logo_Heat.png',
   thermo: 'Logo_Therm.png',
   fire: 'Logo_Fire.png',
@@ -14,18 +14,18 @@ const assets: Record<PureElementsWorld, string> = {
 
 const labels: Record<Locale, Record<PureElementsWorld, string>> = {
   de: {
-    pure: 'PURE ELEMENTS Technologieplattform – Leuchtturm mit vier Funktionswelten Heat, Thermo, Fire und Protect',
-    heat: 'PURE ELEMENTS – Heat als aktive Funktionswelt',
-    thermo: 'PURE ELEMENTS – Thermo als aktive Funktionswelt',
-    fire: 'PURE ELEMENTS – Fire als aktive Funktionswelt',
-    protect: 'PURE ELEMENTS – Protect als aktive Funktionswelt'
+    pure: 'PURE PARTS Technology Platform – Leuchtturm mit vier Funktionswelten Heat, Thermo, Fire und Protect',
+    heat: 'PURE PARTS – Heat als aktive Funktionswelt',
+    thermo: 'PURE PARTS – Thermo als aktive Funktionswelt',
+    fire: 'PURE PARTS – Fire als aktive Funktionswelt',
+    protect: 'PURE PARTS – Protect als aktive Funktionswelt'
   },
   en: {
-    pure: 'PURE ELEMENTS Technology Platform – lighthouse with four functional worlds: Heat, Thermo, Fire and Protect',
-    heat: 'PURE ELEMENTS – Heat as the active functional world',
-    thermo: 'PURE ELEMENTS – Thermo as the active functional world',
-    fire: 'PURE ELEMENTS – Fire as the active functional world',
-    protect: 'PURE ELEMENTS – Protect as the active functional world'
+    pure: 'PURE PARTS Technology Platform – lighthouse with four functional worlds: Heat, Thermo, Fire and Protect',
+    heat: 'PURE PARTS – Heat as the active functional world',
+    thermo: 'PURE PARTS – Thermo as the active functional world',
+    fire: 'PURE PARTS – Fire as the active functional world',
+    protect: 'PURE PARTS – Protect as the active functional world'
   }
 };
 

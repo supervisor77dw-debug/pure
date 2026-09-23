@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
+import { PureElementsMark } from './PureElementsMark';
 import { localizedCounterpart, localePath, productPath, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 export interface MobileNavProps {
@@ -46,7 +47,9 @@ export function MobileNav({ products, open, locale = 'de', onClose }: MobileNavP
     <button className="mobile-nav__backdrop" type="button" aria-label={de ? 'Menü schließen' : 'Close menu'} onClick={onClose} />
     <aside className="mobile-nav" id="mobile-nav" ref={drawerRef} role="dialog" aria-modal="true" aria-label={de ? 'Mobile Navigation' : 'Mobile navigation'}>
       <div className="mobile-nav__topbar">
-        <Link href={localePath(locale)} className="header__logo" onClick={onClose}>PURE<span>.</span></Link>
+        <Link href={localePath(locale)} className="header__logo" onClick={onClose} aria-label={de ? 'PURE PARTS Startseite' : 'PURE PARTS home'}>
+          <PureElementsMark world="pure" locale={locale} className="header__logo-image" />
+        </Link>
         <div className="mobile-nav__topbar-actions">
           <Link href={counterpartHref} onClick={onClose}>{locale === 'de' ? 'EN' : 'DE'}</Link>
           <button className="mobile-nav__close" type="button" aria-label={de ? 'Menü schließen' : 'Close menu'} onClick={onClose}>×</button>

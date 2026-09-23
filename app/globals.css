@@ -205,10 +205,18 @@ table { border-collapse: collapse; width: 100%; }
 }
 
 .header__logo {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--color-navy);
   letter-spacing: 0.02em;
+}
+.header__logo-image {
+  display: block;
+  width: 64px;
+  height: auto;
 }
 .header__logo span { color: var(--color-petrol); }
 .language-switcher {
@@ -372,6 +380,7 @@ table { border-collapse: collapse; width: 100%; }
 @media (max-width: 959px) {
   .header__bar { min-height: 68px; padding-top: max(var(--space-2), env(safe-area-inset-top)); padding-bottom: var(--space-2); gap: var(--space-2); }
   .header__logo { font-size: 1.05rem; white-space: nowrap; }
+  .header__logo-image { width: 52px; }
   .language-switcher { margin-left: auto; }
   .header__search-compact, .header__utility-cta { display: none; }
   .header__burger { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; padding: 0; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); color: var(--color-navy); }
@@ -384,6 +393,7 @@ table { border-collapse: collapse; width: 100%; }
   .mobile-nav { position: fixed; top: 0; right: 0; z-index: 310; display: flex; flex-direction: column; width: min(88vw, 390px); height: 100dvh; min-height: 100vh; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); border: 0; background: var(--color-navy); color: #fff; box-shadow: -18px 0 44px rgba(11,31,58,0.22); }
   .mobile-nav__topbar { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; min-height: 68px; padding: 0 var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.16); }
   .mobile-nav__topbar .header__logo { color: #fff; }
+  .mobile-nav__topbar .header__logo-image { width: 52px; }
   .mobile-nav__topbar .header__logo span { color: var(--color-thermo); }
   .mobile-nav__topbar-actions { display: flex; align-items: center; gap: var(--space-3); }
   .mobile-nav__topbar-actions a { color: rgba(255,255,255,0.82); font-size: .85rem; font-weight: 800; }
@@ -2188,6 +2198,8 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .footer h4 { color: #fff; font-size: 0.95rem; }
 .footer a { color: rgba(255,255,255,0.75); }
+.footer__logo { display: inline-block; }
+.footer__logo img { display: block; width: 148px; height: auto; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-1); }
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.15);
@@ -2626,7 +2638,7 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* PURE Elements platform orientation */
+/* PURE PARTS platform orientation */
 .pure-elements {
   position: relative;
   z-index: 2;
