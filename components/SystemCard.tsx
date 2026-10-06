@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { SystemDef } from '@/lib/data';
 import type { Locale } from '@/lib/i18n';
 import { EvidenceBadge } from './EvidenceBadge';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 export interface SystemCardProps {
   system: SystemDef;
@@ -11,7 +12,7 @@ export interface SystemCardProps {
 }
 
 export function SystemCard({ system, href, locale = 'de', summary }: SystemCardProps) {
-  const name = system.name[locale] ?? system.name.de ?? system.id;
+  const name = applicationNavigation.find((item) => item.systemId === system.id)?.name[locale] ?? system.name[locale] ?? system.name.de ?? system.id;
   const localizedSummary = summary ?? (locale === 'de' ? system.public_summary_de : undefined);
   return (
     <div className="system-card">

@@ -19,10 +19,10 @@ export function alternateLocale(locale: Locale): Locale {
 export const ui = {
   de: {
     products: 'Produkte',
-    systems: 'Systeme',
+    systems: 'Anwendungen',
     evidence: 'Nachweise',
     search: 'Suche',
-    searchPlaceholder: 'Suche (Produkte, Systeme, Nachweise)',
+    searchPlaceholder: 'Suche (Produkte, Anwendungen, Nachweise)',
     navigation: 'Hauptnavigation',
     menu: 'Menü',
     close: 'Schließen',
@@ -33,10 +33,10 @@ export const ui = {
   },
   en: {
     products: 'Products',
-    systems: 'Systems',
+    systems: 'Applications',
     evidence: 'Evidence',
     search: 'Search',
-    searchPlaceholder: 'Search (products, systems, evidence)',
+    searchPlaceholder: 'Search (products, applications, evidence)',
     navigation: 'Main navigation',
     menu: 'Menu',
     close: 'Close',

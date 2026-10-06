@@ -46,24 +46,24 @@ const seoByRoute: Record<string, LocalizedSeoEntry> = {
     en: { title: 'PURE BOAT PROTECT | Yacht and Boat Surfaces | PURE', description: 'Zone- and substrate-specific surface protection route for defined yacht and boat areas.', image: 'Luxusyacht im goldenen Hafenlicht.png' }
   },
   '/systeme': {
-    de: { title: 'PURE THERMO Systemrouten | PURE PARTS Technology Platform', description: 'Definierte PURE THERMO Entwicklungsrouten für Innenraum, Außenbereich, Details und Brandschutzkombinationen.' },
-    en: { title: 'PURE THERMO System Routes | PURE PARTS Technology Platform', description: 'Defined PURE THERMO development routes for interiors, exteriors, details and fire-protection combinations.' }
+    de: { title: 'Anwendungen | PURE PARTS Technology Platform', description: 'Einsatzbereiche für PURE Technologien: Innenraum, Fassade, Wärmebrücken, elektrische Flächenwärme, Brandschutz und kombinierte Funktionen mit unterschiedlichen Entwicklungs- und Nachweisständen.' },
+    en: { title: 'Applications | PURE PARTS Technology Platform', description: 'Use cases for PURE technologies: interiors, facades, thermal bridges, electric surface heating, fire protection and combined functions with different development and evidence stages.' }
   },
   '/systeme/pure-thermo-interior': {
-    de: { title: 'PURE THERMO INTERIOR | Innenraum-Systemroute | PURE', description: 'Definierte Entwicklungsroute für thermisch relevante Innen-, Bestands- und Detailanwendungen.' },
-    en: { title: 'PURE THERMO INTERIOR | Interior System Route | PURE', description: 'Defined development route for thermally relevant interior, existing-building and detail applications.' }
+    de: { title: 'Innenraum | PURE THERMO Anwendung | PURE', description: 'Definierte Entwicklungsroute für thermisch relevante Innen-, Bestands- und Detailanwendungen.' },
+    en: { title: 'Interior | PURE THERMO Application | PURE', description: 'Defined development route for thermally relevant interior, existing-building and detail applications.' }
   },
   '/systeme/pure-thermo-exterior': {
-    de: { title: 'PURE THERMO EXTERIOR | Außen-Systemroute | PURE', description: 'Entwicklungsroute für mineralische Außenuntergründe und witterungsbeanspruchte Bauteile.' },
-    en: { title: 'PURE THERMO EXTERIOR | Exterior System Route | PURE', description: 'Development route for mineral exterior substrates and weather-exposed components.' }
+    de: { title: 'Fassade | PURE THERMO Anwendung | PURE', description: 'Entwicklungsroute für mineralische Außenuntergründe und witterungsbeanspruchte Bauteile.' },
+    en: { title: 'Facade | PURE THERMO Application | PURE', description: 'Development route for mineral exterior substrates and weather-exposed components.' }
   },
   '/systeme/pure-thermo-detail': {
-    de: { title: 'PURE THERMO DETAIL | Wärmebrücken und Anschlüsse | PURE', description: 'Systemroute für Laibungen, Stürze, Anschlüsse und geometrisch anspruchsvolle Wärmebrücken.' },
-    en: { title: 'PURE THERMO DETAIL | Thermal Bridges and Junctions | PURE', description: 'System route for reveals, lintels, junctions and geometrically demanding thermal bridges.' }
+    de: { title: 'Wärmebrücken & Details | PURE THERMO Anwendung | PURE', description: 'Anwendung von PURE THERMO für Laibungen, Stürze, Anschlüsse und geometrisch anspruchsvolle Wärmebrücken.' },
+    en: { title: 'Thermal bridges & details | PURE THERMO Application | PURE', description: 'PURE THERMO application for reveals, lintels, junctions and geometrically demanding thermal bridges.' }
   },
   '/systeme/pure-thermo-fire': {
-    de: { title: 'PURE THERMO + PURE FIRE | Entwicklungsroute | PURE', description: 'Entwicklungsroute für thermische Funktion und Brandschutz im definierten Gesamtaufbau.' },
-    en: { title: 'PURE THERMO + PURE FIRE | Development Route | PURE', description: 'Development route combining thermal function and fire protection in a defined system build-up.' }
+    de: { title: 'Kombinierte Funktionen | PURE THERMO + PURE FIRE | Entwicklungsroute | PURE', description: 'Entwicklungsroute für thermische Funktion und Brandschutz im definierten Gesamtaufbau. Vollständige Kombinationsprüfung offen.' },
+    en: { title: 'Combined functions | PURE THERMO + PURE FIRE | Development Route | PURE', description: 'Development route combining thermal function and fire protection in a defined system build-up. Complete combination testing pending.' }
   },
   '/nachweise': {
     de: { title: 'Prüfungen und Evidenz | PURE PARTS Technology Platform', description: 'Externe Prüfungen, interne Dokumentation, Modellrechnungen und Entwicklungsstatus klar nach A bis D getrennt.' },

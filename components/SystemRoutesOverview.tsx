@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LightboxFigure } from './LightboxFigure';
 import { localePath, type Locale } from '@/lib/i18n';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 const routes = [
   {
@@ -37,6 +38,28 @@ const routes = [
     limit: { de: 'Jedes Detail braucht eigene bauphysikalische Randbedingungen.', en: 'Each detail needs its own building-physics boundary conditions.' }
   },
   {
+    key: 'heat',
+    visual: 'LH_CONCEPT_PureHeat_Prism_01.jpg',
+    href: { de: 'pure-liquid-heat', en: 'products/pure-liquid-heat' },
+    status: { de: 'Interne Entwicklung · externe Geräteprüfung und Serienfreigabe offen', en: 'Internal development · external device testing and series release pending' },
+    name: 'PURE LIQUID HEAT',
+    benefit: { de: 'Elektrische Flächenwärme für definierte Paneele, Produkte und Designobjekte.', en: 'Electric surface heating for defined panels, products and design objects.' },
+    applications: { de: ['Innenraum & Design', 'Outdoor & Hospitality', 'OEM-Integration', 'technische Heizflächen'], en: ['Interior & design', 'Outdoor & hospitality', 'OEM integration', 'technical heating surfaces'] },
+    principle: { de: 'Funktionsschicht mit definierter Kontaktierung, Regelung und Sicherheitstechnik.', en: 'Functional layer with defined contacting, control and safety architecture.' },
+    limit: { de: 'Entwicklungskonzepte sind keine freigegebenen Serienprodukte; jede Anwendung benötigt eigene Validierung.', en: 'Development concepts are not released series products; each application requires its own validation.' }
+  },
+  {
+    key: 'fire-protection',
+    visual: '01_fire_hero_wood_architecture.jpeg',
+    href: { de: 'produkte/pure-fire-protect', en: 'products/pure-fire-protect' },
+    status: { de: 'Einzelprüfung · nur im dokumentierten Prüfaufbau', en: 'Individual test · limited to the documented test build-up' },
+    name: 'PURE FIRE PROTECT',
+    benefit: { de: 'Brandschutz als Anwendung von PURE FIRE PROTECT in definierten Aufbauten.', en: 'Fire protection as an application of PURE FIRE PROTECT in defined build-ups.' },
+    applications: { de: ['definierte Untergründe', 'sichtbare Materialien', 'anwendungsspezifische Prüfaufbauten'], en: ['defined substrates', 'visible materials', 'application-specific test build-ups'] },
+    principle: { de: 'Beschichtung und Untergrund gemeinsam im konkreten Prüfaufbau bewerten.', en: 'Assess coating and substrate together in the specific test build-up.' },
+    limit: { de: 'Keine allgemeine Brandklasse und keine Übertragung einer Einzelprüfung auf PURE THERMO + PURE FIRE.', en: 'No general fire classification and no transfer of an individual test to PURE THERMO + PURE FIRE.' }
+  },
+  {
     key: 'fire',
     visual: 'Wärme- und Brandschutz im System.png',
     href: { de: 'systeme/pure-thermo-fire', en: 'systems/pure-thermo-fire' },
@@ -54,15 +77,16 @@ export function SystemRoutesOverview({ locale }: { locale: Locale }) {
     <div className="system-routes-index">
       {routes.map((route) => (
         <article className="system-route-card" key={route.key}>
-          <LightboxFigure file={route.visual} alt={`${route.name} ${locale === 'de' ? 'Systemvisual' : 'system visual'}`} caption={route.benefit[locale]} zoomLabel={locale === 'de' ? 'Vergrößern' : 'Enlarge'} closeLabel={locale === 'de' ? 'Schließen' : 'Close'} />
+          <LightboxFigure file={route.visual} alt={`${route.name} ${locale === 'de' ? 'Anwendungsvisual' : 'application visual'}`} caption={route.benefit[locale]} zoomLabel={locale === 'de' ? 'Vergrößern' : 'Enlarge'} closeLabel={locale === 'de' ? 'Schließen' : 'Close'} />
           <div className="system-route-card__body">
             <span className="system-route-card__status">{route.status[locale]}</span>
-            <h2>{route.name}</h2>
+            <h2>{applicationNavigation.find((item) => item.key === route.key)?.name[locale] ?? route.name}</h2>
+            <p>{route.name}</p>
             <p>{route.benefit[locale]}</p>
             <ul>{route.applications[locale].map((item) => <li key={item}>{item}</li>)}</ul>
             <small><strong>{locale === 'de' ? 'Systemprinzip:' : 'System principle:'}</strong> {route.principle[locale]}</small>
             <small><strong>{locale === 'de' ? 'Grenze:' : 'Limit:'}</strong> {route.limit[locale]}</small>
-            <Link className="btn btn--primary" href={localePath(locale, route.href[locale])}>{locale === 'de' ? 'System ansehen' : 'View system'}</Link>
+            <Link className="btn btn--primary" href={localePath(locale, route.href[locale])}>{locale === 'de' ? 'Anwendung ansehen' : 'View application'}</Link>
           </div>
         </article>
       ))}

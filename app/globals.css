@@ -296,6 +296,7 @@ table { border-collapse: collapse; width: 100%; }
 }
 
 @media (min-width: 960px) {
+  .header__bar { min-height: 88px; padding-top: 12px; padding-bottom: 12px; }
   .header__nav { display: flex; }
   .header__search-compact, .header__search-button { display: inline-flex; }
   .header__burger { display: none; }
@@ -529,6 +530,10 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .breadcrumb a { color: var(--color-text-muted); }
 .breadcrumb [aria-current="page"] { color: var(--color-text); font-weight: 600; }
+
+@media (min-width: 960px) {
+  .breadcrumb { padding-top: 10px; padding-bottom: 10px; }
+}
 
 /* ==========================================================================
    Hero
@@ -855,6 +860,10 @@ body.show-lanuv-reference .surface-protect-lanuv { display: grid; }
 }
 .product-pipeline__item[href] { transition: border-color 0.15s ease, box-shadow 0.15s ease; }
 .product-pipeline__item[href]:hover { border-color: var(--color-petrol); box-shadow: 0 6px 18px rgba(11,31,58,0.08); text-decoration: none; }
+@media (min-width: 960px) {
+  .product-index-section { padding-top: var(--space-4); }
+}
+
 .product-index-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
 @media (min-width: 760px) { .product-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .product-index-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

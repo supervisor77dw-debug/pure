@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import GermanInteriorPage from '@/app/systeme/pure-thermo-interior/page';
 import { LocalePending } from '@/components/LocalePending';
 
-export const metadata: Metadata = { title: 'PURE THERMO INTERIOR | Innenraum-Systemroute | PURE' };
+export const metadata: Metadata = { title: 'Innenraum | PURE THERMO Anwendung | PURE' };
 
 export default function LocalizedInteriorPage({ params }: { params: { locale: string } }) {
   if (params.locale !== 'de') notFound();

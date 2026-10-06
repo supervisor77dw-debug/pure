@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { localePath, projectRequestPath, type Locale } from '@/lib/i18n';
 import { PureElementsMark } from './PureElementsMark';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 export function Footer({ locale = 'de' }: { locale?: Locale }) {
   const pathname = usePathname() || '/';
@@ -36,12 +37,9 @@ export function Footer({ locale = 'de' }: { locale?: Locale }) {
             </ul>
           </div>
           <div>
-            <h4>{isEnglish ? 'Systems' : 'Systeme'}</h4>
+            <h4>{isEnglish ? 'Applications' : 'Anwendungen'}</h4>
             <ul>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-interior') : localePath('de', 'systeme/pure-thermo-interior')}>PURE THERMO INTERIOR</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-exterior') : localePath('de', 'systeme/pure-thermo-exterior')}>PURE THERMO EXTERIOR</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-detail') : localePath('de', 'systeme/pure-thermo-detail')}>PURE THERMO DETAIL</Link></li>
-              <li><Link href={isEnglish ? localePath('en', 'systems/pure-thermo-fire') : localePath('de', 'systeme/pure-thermo-fire')}>PURE THERMO + PURE FIRE</Link></li>
+              {applicationNavigation.map((item) => <li key={item.key}><Link href={localePath(currentLocale, item.path[currentLocale])}>{item.name[currentLocale]}{item.key === 'fire' ? (isEnglish ? ' · Development' : ' · Entwicklung') : ''}</Link></li>)}
             </ul>
           </div>
           <div>

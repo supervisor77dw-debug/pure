@@ -17,7 +17,7 @@ version: '1.0'
 **Evidenz:** B · strategische Systemdefinition
 
 ## Einsatzbereich
-Pure Thermo Interior wird als eigenständige Systemroute für Innenanwendungen entwickelt. Ziel sind insbesondere Bestandsbauteile und Details, bei denen eine geringe Aufbauhöhe sowie die bauphysikalische Bewertung von Oberflächentemperatur und Feuchteverhalten relevant sind.
+Pure Thermo Interior beschreibt eine Innenanwendung von PURE THERMO mit definierter Entwicklungs- und Prüfroute. Ziel sind insbesondere Bestandsbauteile und Details, bei denen eine geringe Aufbauhöhe sowie die bauphysikalische Bewertung von Oberflächentemperatur und Feuchteverhalten relevant sind.
 
 ### Vorgesehene Anwendungen
 - mineralische Bestandswände

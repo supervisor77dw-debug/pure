@@ -8,6 +8,7 @@ import { TechnicalTable } from '@/components/TechnicalTable';
 import { DocumentCard } from '@/components/DocumentCard';
 import { VersionHistory } from '@/components/VersionHistory';
 import { RelatedContent } from '@/components/RelatedContent';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 export const metadata: Metadata = {
   title: 'Evidence: Thermal conductivity THERM 4410 · PURE PARTS Technology Platform',
@@ -58,7 +59,7 @@ export default function EnglishEvidencePage({ params }: { params: { locale: stri
       <section className="section section--surface"><div className="container"><EvidenceScope locale="en" proves={['Thermal conductivity of the tested THERM 4410 free film under the documented test conditions.']} doesNotProve={['General building energy savings', 'Fire classification', 'General KfW / BEG / GEG funding eligibility', 'Transferability to changed formulations', 'Transferability to arbitrary substrates', 'Release of complete Pure Thermo system build-ups']} /></div></section>
       <section className="section"><div className="container"><div className="warning-panel" role="alert"><span className="warning-panel__label">Product assignment — documentation pending</span>The test subject is identified as <strong>THERM 4410</strong> in the Kiwa report. Before using this value without limitation as an approved Pure Thermo product value, the identity and unambiguous formulation assignment to the current Pure Thermo version must be documented.</div></div></section>
       <section className="section section--surface"><div className="container"><div className="section-heading"><h2>Related values</h2><p>Calculated R-values are <strong>C</strong> evidence and are not additional measurements.</p></div><TechnicalTable values={relatedValues} /></div></section>
-      <section className="section"><div className="container"><RelatedContent heading="Related systems" items={relatedSystems.map((system) => ({ title: system.name.de ?? system.id, description: system.public_summary_de, href: system.id === 'SYS-PT-INT-001' ? '/en/systems/pure-thermo-interior' : '/en/products/pure-thermo' }))} /></div></section>
+      <section className="section"><div className="container"><RelatedContent heading="Related applications" items={relatedSystems.map((system) => ({ title: applicationNavigation.find((item) => item.systemId === system.id)?.name.en ?? system.name.en ?? system.name.de ?? system.id, description: system.public_summary_de, href: system.id === 'SYS-PT-INT-001' ? '/en/systems/pure-thermo-interior' : '/en/products/pure-thermo' }))} /></div></section>
       <section className="section section--surface"><div className="container"><div className="section-heading"><h2>Original document</h2></div><div className="card-grid card-grid--3">{document ? <DocumentCard document={document} organization={organization} locale="en" /> : null}</div></div></section>
       <section className="section"><div className="container"><div className="section-heading"><h2>Change history</h2></div><VersionHistory entries={[{ date: '2025-06-10', text: 'Kiwa test report P000517940 created.' }, { date: '2026-09-08', text: 'Evidence record added to the PURE web data model.' }, { date: 'Open', text: 'Confirm THERM 4410 assignment to the current Pure Thermo version.' }]} /></div></section>
     </>

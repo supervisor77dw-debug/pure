@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import type { Product } from '@/lib/data';
 import { PureElementsMark } from './PureElementsMark';
+import { applicationNavigation } from '@/lib/application-navigation';
 import { localizedCounterpart, localePath, productPath, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 export interface MobileNavProps {
@@ -57,14 +58,14 @@ export function MobileNav({ products, open, locale = 'de', onClose }: MobileNavP
       </div>
       <div className="mobile-nav__scroll">
         <div className="mobile-nav__cta">{link(localePath(locale, de ? 'produkte/pure-thermo#u-wert-rechner' : 'products/pure-thermo#u-wert-rechner'), de ? 'Bauteil berechnen' : 'Calculate component')}</div>
-        <div className="mobile-nav__primary">{link(localePath(locale, de ? 'systeme' : 'systems'), de ? 'Systeme' : 'Systems')}{link(localePath(locale, de ? 'nachweise' : 'evidence'), de ? 'Nachweise' : 'Evidence')}{link(localePath(locale, de ? 'projekt-anfrage' : 'project-request'), de ? 'Projekt starten' : 'Start a project')}</div>
+        <div className="mobile-nav__primary">{link(localePath(locale, de ? 'systeme' : 'systems'), ui[locale].systems)}{link(localePath(locale, de ? 'nachweise' : 'evidence'), de ? 'Nachweise' : 'Evidence')}{link(localePath(locale, de ? 'projekt-anfrage' : 'project-request'), de ? 'Projekt starten' : 'Start a project')}</div>
         <div className="mobile-nav__group">
           <button className="mobile-nav__group-button" type="button" aria-expanded={expanded === 'products'} aria-controls="mobile-nav-products" onClick={() => toggle('products')}>{ui[locale].products}<span aria-hidden="true">⌄</span></button>
           {expanded === 'products' ? <div className="mobile-nav__panel" id="mobile-nav-products">{link(productsIndexPath(locale), de ? 'Alle Produkte' : 'All products')}{products.map((product) => { const href = productPath(locale, product.slug); return href ? link(href, product.name.de) : null; })}</div> : null}
         </div>
         <div className="mobile-nav__group">
           <button className="mobile-nav__group-button" type="button" aria-expanded={expanded === 'systems'} aria-controls="mobile-nav-systems" onClick={() => toggle('systems')}>{ui[locale].systems}<span aria-hidden="true">⌄</span></button>
-          {expanded === 'systems' ? <div className="mobile-nav__panel" id="mobile-nav-systems">{link(localePath(locale, de ? 'systeme/pure-thermo-interior' : 'systems/pure-thermo-interior'), 'PURE THERMO INTERIOR')}{link(localePath(locale, de ? 'systeme/pure-thermo-exterior' : 'systems/pure-thermo-exterior'), 'PURE THERMO EXTERIOR')}{link(localePath(locale, de ? 'systeme/pure-thermo-detail' : 'systems/pure-thermo-detail'), 'PURE THERMO DETAIL')}{link(localePath(locale, de ? 'systeme/pure-thermo-fire' : 'systems/pure-thermo-fire'), 'PURE THERMO + PURE FIRE')}</div> : null}
+          {expanded === 'systems' ? <div className="mobile-nav__panel" id="mobile-nav-systems">{applicationNavigation.map((item) => <Link key={item.key} href={localePath(locale, item.path[locale])} onClick={onClose}><span>{item.name[locale]}<small> – {item.description[locale]}</small></span></Link>)}</div> : null}
         </div>
         <div className="mobile-nav__group">
           <button className="mobile-nav__group-button" type="button" aria-expanded={expanded === 'evidence'} aria-controls="mobile-nav-evidence" onClick={() => toggle('evidence')}>{ui[locale].evidence}<span aria-hidden="true">⌄</span></button>

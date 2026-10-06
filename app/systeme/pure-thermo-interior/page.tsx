@@ -22,7 +22,7 @@ import { EvidenceCard } from '@/components/EvidenceCard';
 import { DocumentCard } from '@/components/DocumentCard';
 import { TechnicalVisual } from '@/components/TechnicalVisual';
 
-export const metadata: Metadata = { title: 'Pure Thermo Interior · PURE PARTS Technology Platform', alternates: { canonical: '/de/systeme/pure-thermo-interior' } };
+export const metadata: Metadata = { title: 'Innenraum · PURE THERMO Anwendung · PURE PARTS Technology Platform', alternates: { canonical: '/de/systeme/pure-thermo-interior' } };
 
 const STATUS_LABELS: Record<string, string> = {
   system_definition_and_test_program: 'Systemdefinition / Prüfprogramm',
@@ -60,12 +60,12 @@ export default function PureThermoInteriorPage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Systeme' }, { label: 'PURE THERMO INTERIOR' }]} />
+      <Breadcrumb items={[{ label: 'Start', href: '/de' }, { label: 'Anwendungen', href: '/de/systeme' }, { label: 'Innenraum' }]} />
       <section className="hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
           <PureElementsMark world="thermo" locale="de" className="route-family-mark" />
-          <p className="hero__eyebrow">System · Entwicklungsroute</p>
-          <h1>Pure Thermo Interior</h1>
+          <p className="hero__eyebrow">PURE THERMO · Anwendung · Entwicklungsroute</p>
+          <h1>Innenraum</h1>
           <p className="hero__subtitle">{system.purpose?.de}</p>
           <ul className="hero__meta" style={{ listStyle: 'none', padding: 0 }}>
             <li className="hero__meta-item">System-ID: {system.id}</li>

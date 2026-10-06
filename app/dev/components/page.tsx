@@ -199,7 +199,7 @@ export default function DevComponentsPage() {
             LightboxFigure ergänzt eine vergrößerbare Ansicht für Grafiken mit viel Kleinschrift.
           </p>
           <div className="card-grid" style={{ maxWidth: 640 }}>
-            <AssetFigure file="Systemrouten.png" alt="Beispiel: Übersicht der Pure-Thermo-Systemrouten" />
+            <AssetFigure file="Systemrouten.png" alt="Beispiel: Übersicht der Pure-Thermo-Anwendungsrouten" />
             <LightboxFigure file="TCO Logik.png" alt="Beispiel: TCO-Logik von Pure Thermo" caption="Klick/Tap vergrößert die Ansicht." />
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function DevComponentsPage() {
           <RelatedContent
             items={[
               { title: 'Pure Thermo', description: 'Produktseite', href: '/produkte/pure-thermo' },
-              { title: 'Pure Thermo Interior', description: 'Systemseite', href: '/systeme/pure-thermo-interior' },
+              { title: 'Innenraum', description: 'PURE THERMO Anwendung', href: '/systeme/pure-thermo-interior' },
               { title: 'THERM 4410', description: 'Nachweisseite', href: '/nachweise/EVD-PT-THERM-001' }
             ]}
           />

@@ -48,7 +48,7 @@ export default function HomePage() {
             <div className="intent-panel__lead">
               <span className="section-heading__eyebrow">Projektstart</span>
               <h2>Was möchten Sie prüfen?</h2>
-              <p>Wählen Sie den Einstieg, der zu Ihrem Bauteil, Detail oder Nachweisbedarf passt.</p>
+              <p>Wählen Sie den problem- oder anwendungsorientierten Einstieg, der zu Ihrem Bauteil, Detail oder Nachweisbedarf passt.</p>
               <div className="hero__ctas">
                 <Link className="btn btn--primary" href={deLink('produkte/pure-thermo#u-wert-rechner')}>Bauteil berechnen</Link>
               </div>
@@ -59,7 +59,7 @@ export default function HomePage() {
                 ['Wärmebrücke / Detail', deLink('systeme/pure-thermo-detail')],
                 ['Innenanwendung', deLink('systeme/pure-thermo-interior')],
                 ['Fassade', deLink('systeme/pure-thermo-exterior')],
-                ['Thermo + Brandschutz', deLink('systeme/pure-thermo-fire')],
+                ['Thermo + Brandschutz · Entwicklungsroute', deLink('systeme/pure-thermo-fire')],
                 ['Technische Nachweise', deLink('nachweise/EVD-PT-THERM-001')]
               ].map(([label, href]) => <Link className="intent-card" href={href} key={label}>{label}</Link>)}
             </div>

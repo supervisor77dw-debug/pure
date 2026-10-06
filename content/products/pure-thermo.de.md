@@ -35,11 +35,11 @@ Der bisher dokumentierte Entwicklungsstand beschreibt eine wasserbasierte Acryla
 
 **Redaktionsregel:** Keine unbelegten IR-/Reflexions- oder Rohstoffclaims als Produktwirkung ergänzen.
 
-## Systemrouten
-- **Pure Thermo Interior** – Entwicklungs- und Prüfroute. Link: `/systeme/pure-thermo-interior`
-- **Pure Thermo Exterior** – Entwicklungs- und Prüfroute.
-- **Pure Thermo Detail** – Anwendungsschwerpunkt / Systemdefinition im Aufbau.
-- **Pure Thermo + Pure Fire** – D · Systemprüfung erforderlich. Keine Euroklasse vor Prüfung des Gesamtaufbaus.
+## Anwendungen
+- **Innenraum / Pure Thermo Interior** – Entwicklungs- und Prüfroute. Link: `/systeme/pure-thermo-interior`
+- **Fassade / Pure Thermo Exterior** – Entwicklungs- und Prüfroute.
+- **Wärmebrücken & Details / Pure Thermo Detail** – Anwendungsschwerpunkt / Systemdefinition im Aufbau.
+- **Kombinierte Funktionen / Pure Thermo + Pure Fire** – D · Systemprüfung erforderlich. Keine Euroklasse vor Prüfung des Gesamtaufbaus.
 
 ## Technische Kernwerte
 Alle Werte aus `/data/values`; nicht im Template hart codieren.

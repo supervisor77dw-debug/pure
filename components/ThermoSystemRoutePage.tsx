@@ -9,6 +9,7 @@ import { SystemLayerStack } from './SystemLayerStack';
 import { SurfaceCard } from './SurfaceCard';
 import { ThermoFireDevelopmentVideoSection } from './VideoSections';
 import { PureElementsMark } from './PureElementsMark';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 const routeContent = {
   detail: {
@@ -18,7 +19,7 @@ const routeContent = {
     de: {
       name: 'PURE THERMO DETAIL',
       title: 'Wenn wenige Millimeter entscheiden.',
-      subtitle: 'Systemroute für Laibungen, Stürze, Anschlüsse und geometrisch anspruchsvolle Wärmebrücken.',
+      subtitle: 'Anwendung von PURE THERMO für Laibungen, Stürze, Anschlüsse und geometrisch anspruchsvolle Wärmebrücken.',
       problem: 'Gerade Details scheitern selten an der Grundfläche, sondern an wenigen Millimetern Aufbauhöhe, komplizierten Übergängen oder bereits festgelegten Anschlüssen.',
       route: 'PURE THERMO DETAIL bündelt Anwendungen, bei denen eine dünne thermische Funktionsschicht lokal in einen bestehenden oder geplanten Detailaufbau integriert wird.',
       build: ['Untergrund', 'Primer', 'PURE THERMO', 'optionaler Finish'],
@@ -33,7 +34,7 @@ const routeContent = {
     en: {
       name: 'PURE THERMO DETAIL',
       title: 'When a few millimetres matter.',
-      subtitle: 'System route for reveals, lintels, junctions and geometrically demanding thermal bridges.',
+      subtitle: 'PURE THERMO application for reveals, lintels, junctions and geometrically demanding thermal bridges.',
       problem: 'Detail areas often fail because of a few millimetres of build-up height, complex transitions or fixed existing junctions.',
       route: 'PURE THERMO DETAIL groups applications where a thin thermal functional layer is locally integrated into an existing or planned detail build-up.',
       build: ['Substrate', 'Primer', 'PURE THERMO', 'optional finish'],
@@ -86,8 +87,8 @@ const routeContent = {
     secondaryVisual: 'testPath',
     de: {
       name: 'PURE THERMO + PURE FIRE',
-      title: 'Thermische Funktion und Brandschutz nur als geprüfter Systemaufbau.',
-      subtitle: 'Entwicklungsroute für einen kombinierten thermischen und brandschutztechnischen Systemaufbau.',
+      title: 'Kombinierte Funktionen: Entwicklungsroute für Wärme und Brandschutz.',
+      subtitle: 'PURE THERMO + PURE FIRE – vollständige Kombinationsprüfung offen; keine geprüfte Kombinationsklasse.',
       problem: 'Brandverhalten entsteht nicht aus der Addition einzelner Materialaussagen. Entscheidend ist der konkret geprüfte Aufbau.',
       route: 'Für die Kombination PURE THERMO + PURE FIRE ist eine vollständige Prüfung des definierten Systemaufbaus vorgesehen. Eine belastbare Euroklasse kann erst aus dem vollständigen Prüf- und Klassifizierungsweg abgeleitet werden.',
       build: ['Untergrund', 'Primer', 'PURE THERMO', 'PURE FIRE', 'Finish'],
@@ -101,8 +102,8 @@ const routeContent = {
     },
     en: {
       name: 'PURE THERMO + PURE FIRE',
-      title: 'Thermal function and fire protection only as a tested system build-up.',
-      subtitle: 'Development route for a combined thermal and fire-protection system build-up.',
+      title: 'Combined functions: development route for thermal function and fire protection.',
+      subtitle: 'PURE THERMO + PURE FIRE – complete combination testing pending; no tested combination classification.',
       problem: 'Fire behaviour is not created by adding isolated material statements. The specifically tested build-up is decisive.',
       route: 'Complete testing of the defined system build-up is planned for the PURE THERMO + PURE FIRE combination. A robust Euroclass can only be derived from the complete testing and classification process.',
       build: ['Substrate', 'Primer', 'PURE THERMO', 'PURE FIRE', 'finish'],
@@ -142,16 +143,17 @@ const routeApplicationVisuals: Partial<Record<RouteKey, ReadonlyArray<{ asset: s
 export function ThermoSystemRoutePage({ locale, route }: { locale: Locale; route: RouteKey }) {
   const config = routeContent[route];
   const copy = config[locale];
+  const applicationName = applicationNavigation.find((item) => item.key === route)?.name[locale] ?? copy.name;
   const calculatorHref = localePath(locale, locale === 'de' ? 'produkte/pure-thermo#u-wert-rechner' : 'products/pure-thermo#u-wert-rechner');
   const evidenceHref = localePath(locale, locale === 'de' ? 'nachweise/EVD-PT-THERM-001' : 'evidence/EVD-PT-THERM-001');
 
   return (
     <>
-      <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: localePath(locale) }, { label: locale === 'de' ? 'Systemrouten' : 'System Routes' }, { label: copy.name }]} />
+      <Breadcrumb items={[{ label: locale === 'de' ? 'Start' : 'Home', href: localePath(locale) }, { label: locale === 'de' ? 'Anwendungen' : 'Applications', href: localePath(locale, locale === 'de' ? 'systeme' : 'systems') }, { label: applicationName }]} />
       <section className="hero system-route-hero" style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-5)' }}>
         <div className="container">
           <PureElementsMark world={route === 'fire' ? 'fire' : 'thermo'} locale={locale} className="route-family-mark" />
-          <p className="hero__eyebrow">{locale === 'de' ? 'SYSTEMROUTE' : 'SYSTEM ROUTE'}</p>
+          <p className="hero__eyebrow">{applicationName} · {copy.name}</p>
           <h1>{copy.title}</h1>
           <p className="hero__subtitle">{copy.subtitle}</p>
           <div className="hero__ctas">

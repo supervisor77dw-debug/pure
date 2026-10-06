@@ -7,6 +7,7 @@ import type { Product } from '@/lib/data';
 import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
 import { PureElementsMark } from './PureElementsMark';
+import { applicationNavigation } from '@/lib/application-navigation';
 import { isLocale, localizedCounterpart, localePath, productPath, productsIndexPath, type Locale, ui } from '@/lib/i18n';
 
 const productDescriptions: Record<string, Record<Locale, string>> = {
@@ -19,21 +20,6 @@ const productDescriptions: Record<string, Record<Locale, string>> = {
   'pure-wood-protect': { de: 'Holzoberflächen', en: 'Wood surfaces' },
   'pure-boat-protect': { de: 'Yacht- und Bootsoberflächen', en: 'Yacht and boat surfaces' }
 };
-
-const systemItems = {
-  de: [
-    ['PURE THERMO INTERIOR', 'Innenräume & Bestandswände', 'systeme/pure-thermo-interior'],
-    ['PURE THERMO EXTERIOR', 'Fassaden & Außenbereiche', 'systeme/pure-thermo-exterior'],
-    ['PURE THERMO DETAIL', 'Wärmebrücken & Anschlüsse', 'systeme/pure-thermo-detail'],
-    ['PURE THERMO + PURE FIRE', 'Thermische + brandschutztechnische Systemroute', 'systeme/pure-thermo-fire']
-  ],
-  en: [
-    ['PURE THERMO INTERIOR', 'Interior spaces & existing walls', 'systems/pure-thermo-interior'],
-    ['PURE THERMO EXTERIOR', 'Facades & exterior areas', 'systems/pure-thermo-exterior'],
-    ['PURE THERMO DETAIL', 'Thermal bridges & junctions', 'systems/pure-thermo-detail'],
-    ['PURE THERMO + PURE FIRE', 'Thermal + fire-protection system route', 'systems/pure-thermo-fire']
-  ]
-} as const;
 
 const evidenceItems = {
   de: [
@@ -70,7 +56,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
       const href = productPath(currentLocale, product.slug);
       return href ? [{ label: product.name[currentLocale] ?? product.name.de, description: productDescriptions[product.slug]?.[currentLocale] ?? '', href }] : [];
     }),
-    ...systemItems[currentLocale].map(([label, description, href]) => ({ label, description, href: localePath(currentLocale, href) })),
+    ...applicationNavigation.map((item) => ({ label: item.name[currentLocale], description: item.description[currentLocale], href: localePath(currentLocale, item.path[currentLocale]) })),
     ...evidenceItems[currentLocale].map(([label, description, href]) => ({ label, description, href: localePath(currentLocale, href) }))
   ];
   const normalizedQuery = searchQuery.trim().toLocaleLowerCase(currentLocale);
@@ -128,7 +114,7 @@ export function Header({ products, locale = 'de' }: { products: Product[]; local
           </div>
           <div className="header__nav-item" onMouseEnter={() => setSystemsOpen(true)} onMouseLeave={() => setSystemsOpen(false)} onFocus={() => setSystemsOpen(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setSystemsOpen(false); }}>
             <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'systems') : localePath('de', 'systeme')} aria-haspopup="menu" aria-expanded={systemsOpen} aria-controls="systems-mega-menu">{ui[currentLocale].systems}</Link>
-            {systemsOpen ? <div className="mega-menu" id="systems-mega-menu" role="menu" aria-label={ui[currentLocale].systems}>{systemItems[currentLocale].map(([name, description, href]) => <Link key={href} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, href)} onClick={() => setSystemsOpen(false)}><span className="mega-menu__item-name">{name}</span><span className="mega-menu__item-status">{description}</span></Link>)}</div> : null}
+            {systemsOpen ? <div className="mega-menu" id="systems-mega-menu" role="menu" aria-label={ui[currentLocale].systems}>{applicationNavigation.map((item) => <Link key={item.key} className="mega-menu__item" role="menuitem" href={localePath(currentLocale, item.path[currentLocale])} onClick={() => setSystemsOpen(false)}><span className="mega-menu__item-name">{item.name[currentLocale]}</span><span className="mega-menu__item-status">{item.description[currentLocale]}</span></Link>)}</div> : null}
           </div>
           <div className="header__nav-item" onMouseEnter={() => setEvidenceOpen(true)} onMouseLeave={() => setEvidenceOpen(false)} onFocus={() => setEvidenceOpen(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setEvidenceOpen(false); }}>
             <Link className="header__nav-button" href={currentLocale === 'en' ? localePath('en', 'evidence') : localePath('de', 'nachweise')} aria-haspopup="menu" aria-expanded={evidenceOpen} aria-controls="evidence-mega-menu">{ui[currentLocale].evidence}</Link>

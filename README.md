@@ -39,3 +39,13 @@ Nicht zulässig:
 
 ## Implementierungsregel
 Technische Werte ausschließlich aus `/data` rendern. Keine technischen Werte in Komponenten oder Markdown hart codieren, wenn ein entsprechendes Datenobjekt existiert.
+
+## Kompakter Desktop-Seitenkopf
+
+Ab 960 px Viewportbreite verwendet der gemeinsame Header 12 px vertikales Padding bei unverändertem 64-px-Logo (89 px Gesamthöhe inklusive Rahmen). Die gemeinsame Breadcrumb-Zone hat 10 px vertikales Padding (ca. 41 px bei einer Zeile); längere Breadcrumbs dürfen weiterhin umbrechen. Auf der Produktübersicht beträgt der obere Section-Abstand 24 statt 64 px. Unterhalb von 960 px bleiben die bisherigen Abstände unverändert.
+
+## Informationsarchitektur
+
+Die sichtbare Navigation folgt **Produkte → Anwendungen → Nachweise**: Technologie, Einsatzbereich, technischer Beleg mit Evidenzstatus. Die sechs gemeinsamen Anwendungseinstiege werden in `lib/application-navigation.ts` gepflegt und in Navigation, Suche und Footer wiederverwendet. Die bestehende Anwendungsübersicht nutzt weiterhin `/de/systeme` bzw. `/en/systems`; auch die Interior-, Exterior-, Detail- und Thermo/Fire-URLs bleiben unverändert. Flächenwärme und Brandschutz verweisen auf die vorhandenen Produktseiten.
+
+Vier Funktionswelten (HEAT, THERMO, FIRE, PROTECT) bilden die Plattformebene; die acht Portfolio-Karten sind Produkt- und Anwendungsrouten, keine acht Funktionswelten. Unterschiedliche Reifegrade und A–D-Nachweise bleiben erhalten. PURE THERMO + PURE FIRE bleibt eine Entwicklungsroute ohne abgeleitete Kombinationsklasse. Technische Begriffe wie Systemdefinition, Materialsystem und Systemaufbau bleiben bewusst bestehen.

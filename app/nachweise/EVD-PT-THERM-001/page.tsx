@@ -17,6 +17,7 @@ import { TechnicalTable } from '@/components/TechnicalTable';
 import { DocumentCard } from '@/components/DocumentCard';
 import { VersionHistory, parseChangelogHtml } from '@/components/VersionHistory';
 import { RelatedContent } from '@/components/RelatedContent';
+import { applicationNavigation } from '@/lib/application-navigation';
 
 export const metadata: Metadata = { title: 'Nachweis: Wärmeleitfähigkeit THERM 4410 · PURE PARTS Technology Platform', alternates: { canonical: '/de/nachweise/EVD-PT-THERM-001' } };
 
@@ -140,9 +141,9 @@ export default function EvidencePage() {
       <section className="section">
         <div className="container">
           <RelatedContent
-            heading="Verknüpfte Systeme"
+            heading="Verknüpfte Anwendungen"
             items={relatedSystems.map((s) => ({
-              title: s.name.de ?? s.id,
+              title: applicationNavigation.find((item) => item.systemId === s.id)?.name.de ?? s.name.de ?? s.id,
               description: s.public_summary_de,
               href: s.id === 'SYS-PT-INT-001' ? '/de/systeme/pure-thermo-interior' : '/de/produkte/pure-thermo'
             }))}

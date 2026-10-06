@@ -17,7 +17,7 @@ export function ProductIndexPage({ locale }: { locale: Locale }) {
   const products = getAllProducts();
   const english = locale === 'en';
   return (
-    <section className="section">
+    <section className="section product-index-section">
       <div className="container">
         <div className="section-heading section-heading--narrow">
           <span className="section-heading__eyebrow">{english ? 'PRODUCTS' : 'PRODUKTE'}</span>

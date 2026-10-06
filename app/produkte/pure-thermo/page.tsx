@@ -325,8 +325,8 @@ export default function PureThermoPage() {
       <section className="section section--surface">
         <div className="container">
           <div className="section-heading section-heading--narrow">
-            <span className="section-heading__eyebrow">Systemrouten</span>
-            <h2>PURE THERMO als Basis für definierte Systemweiterentwicklung.</h2>
+            <span className="section-heading__eyebrow">Anwendungen</span>
+            <h2>PURE THERMO als Basis für unterschiedliche Anwendungen.</h2>
           </div>
           <div className="system-routes">
             <div className="system-routes__root">
