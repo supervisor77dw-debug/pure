@@ -9,11 +9,11 @@ export function PrivacyPolicyPage({ locale }: { locale: Locale }) {
     <Breadcrumb items={[{ label: de ? 'Start' : 'Home', href: localePath(locale) }, { label: de ? 'Datenschutz' : 'Privacy' }]} />
     <section className="section"><div className="container prose">
       <h1>{de ? 'Datenschutz' : 'Privacy'}</h1>
-      <p>{de ? 'Diese Seite bildet den derzeit bestätigten technischen Stand der Websites unter pure-parts.com und pure-parts.de ab. Offene rechtliche und dienstleisterbezogene Angaben sind als noch extern zu bestätigende Punkte ausgewiesen.' : 'This page reflects the currently confirmed technical status of the websites at pure-parts.com and pure-parts.de. The existing English version and all outstanding legal or service-provider details remain subject to external legal confirmation.'}</p>
+      <p>{de ? 'Diese Seite bildet den derzeit bestätigten technischen Stand der Website unter pure-parts.de ab. Offene rechtliche und dienstleisterbezogene Angaben sind als noch extern zu bestätigende Punkte ausgewiesen.' : 'This page reflects the currently confirmed technical status of the website at pure-parts.de. The existing English version and all outstanding legal or service-provider details remain subject to external legal confirmation.'}</p>
 
       <h2>1. {de ? 'Verantwortlicher' : 'Controller'}</h2>
       <address><strong>{operator.companyName}</strong><br />{operator.street}<br />{operator.postalCode} {operator.city}<br />{operator.country}</address>
-      <p>{de ? <>Websites: <a href={operator.domain}>{operator.domain}</a> und <a href={operator.germanDomain}>{operator.germanDomain}</a>.<br />Datenschutzkontakt: noch extern zu bestätigen.</> : <>Websites: <a href={operator.domain}>{operator.domain}</a> and <a href={operator.germanDomain}>{operator.germanDomain}</a>.<br />Privacy contact: pending external confirmation.</>}</p>
+      <p>{de ? <>Website: <a href={operator.domain}>{operator.domain}</a>.<br />Datenschutzkontakt: noch extern zu bestätigen.</> : <>Website: <a href={operator.domain}>{operator.domain}</a>.<br />Privacy contact: pending external confirmation.</>}</p>
 
       <h2>2. {de ? 'Hosting / Vercel' : 'Hosting / Vercel'}</h2>
       <p>{de ? `Die Websites werden technisch über ${hosting.provider} bereitgestellt. TODO: Vollständige Anbieterbezeichnung, Auftragsverarbeitungsvereinbarung, konkrete Projektkonfiguration und Datenschutzunterlagen anhand der Betreiberunterlagen extern bestätigen.` : `The websites are technically provided via ${hosting.provider}. TODO: Externally confirm the provider's full legal identification, data processing agreement, specific project configuration and privacy documentation from the operator's records.`}</p>

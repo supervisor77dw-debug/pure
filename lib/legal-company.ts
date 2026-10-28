@@ -1,6 +1,4 @@
 export const legalPlaceholders = {
-  phone: 'LEGAL_PHONE_PENDING',
-  email: 'LEGAL_EMAIL_PENDING',
   vatId: 'VAT_ID_PENDING',
   businessId: 'BUSINESS_ID_PENDING',
   contentResponsible: 'CONTENT_RESPONSIBLE_PENDING',
@@ -28,13 +26,12 @@ export const legalCompany = {
     managingDirector: 'Thies Boller',
     registerCourt: 'Amtsgericht Kiel',
     registrationNumber: 'HRB 23688',
-    phone: legalPlaceholders.phone,
-    email: legalPlaceholders.email,
+    phone: '+49 173 9737254',
+    email: 'info@leuchtturm-invest.de',
     vatId: legalPlaceholders.vatId,
     businessId: legalPlaceholders.businessId,
     contentResponsible: legalPlaceholders.contentResponsible,
-    domain: 'https://pure-parts.com',
-    germanDomain: 'https://pure-parts.de',
+    domain: 'https://pure-parts.de',
     roles: {
       de: [
         'Betreiber der Website',
